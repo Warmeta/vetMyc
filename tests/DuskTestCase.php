@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use Facebook\WebDriver\Chrome\ChromeOptions;
 use Laravel\Dusk\TestCase as BaseTestCase;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
