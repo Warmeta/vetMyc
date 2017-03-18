@@ -43,6 +43,5 @@ abstract class DuskTestCase extends BaseTestCase
             'http://localhost:9515',
             $capabilities
         );
-        
     }
 }
