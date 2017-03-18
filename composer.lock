@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2d975c927939221c35aeacdcb63d85b2",
+    "content-hash": "d8cbb31aabff1930cc75bcb8bc342f38",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -911,16 +911,16 @@
         },
         {
             "name": "laravel/dusk",
-            "version": "dev-master",
+            "version": "v1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/dusk.git",
-                "reference": "351ee590e6284263922c7108f140e22e9104c5f1"
+                "reference": "11537ac1a939a2194e9e3cdc2536e6e34eff9ea6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/dusk/zipball/351ee590e6284263922c7108f140e22e9104c5f1",
-                "reference": "351ee590e6284263922c7108f140e22e9104c5f1",
+                "url": "https://api.github.com/repos/laravel/dusk/zipball/11537ac1a939a2194e9e3cdc2536e6e34eff9ea6",
+                "reference": "11537ac1a939a2194e9e3cdc2536e6e34eff9ea6",
                 "shasum": ""
             },
             "require": {
@@ -962,7 +962,7 @@
                 "testing",
                 "webdriver"
             ],
-            "time": "2017-03-16T22:13:34+00:00"
+            "time": "2017-03-03T14:36:19+00:00"
         },
         {
             "name": "laravel/framework",
@@ -4174,9 +4174,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "laravel/dusk": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
