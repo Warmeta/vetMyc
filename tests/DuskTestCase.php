@@ -9,7 +9,7 @@ use Facebook\WebDriver\Remote\DesiredCapabilities;
 
 abstract class DuskTestCase extends BaseTestCase
 {
-    use CreatesApplication;
+    use CreatesApplication, TestsHelper;
 
     /**
      * Prepare for Dusk test execution.
@@ -44,5 +44,18 @@ abstract class DuskTestCase extends BaseTestCase
             'http://localhost:9515',
             $capabilities
         );
+    }
+
+    public function setUp()
+    {
+        parent::setUp();
+
+        $this->artisan('migrate');
+        $this->artisan('db:seed');
+    }
+
+    public function tearDown()
+    {
+        $this->artisan('migrate:reset');
     }
 }

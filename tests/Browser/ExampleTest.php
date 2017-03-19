@@ -13,6 +13,7 @@ class ExampleTest extends DuskTestCase
      *
      * @return void
      */
+    /** @test */
     public function testBasicExample()
     {
         $this->browse(function (Browser $browser) {
@@ -20,4 +21,5 @@ class ExampleTest extends DuskTestCase
                     ->assertSee('Laravel');
         });
     }
+
 }
