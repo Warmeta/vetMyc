@@ -12,10 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return View::make('welcome');
 });
 
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
