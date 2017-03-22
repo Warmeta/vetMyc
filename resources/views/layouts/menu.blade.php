@@ -14,7 +14,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#about">about</a></li>
                     <li><a href="#">mycology</a></li>
-                    <li><a href="#">services</a></li>
+                    <li><a href="/lab">laboratory</a></li>
                     <li><a href="#">projects</a></li>
                     <li class="hidden-sm hidden-xs">
                         <a href="#" id="ss"><i class="fa fa-search" aria-hidden="true"></i></a>

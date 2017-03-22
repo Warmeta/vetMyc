@@ -27,3 +27,9 @@ Route::get('/home', 'HomeController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/lab', 'LaboratoryController@index');
+
+Route::get('/lab', 'LaboratoryController@index');
+
+Route::post('lab', ['uses' => 'LaboratoryController@post', 'as' => 'clinicCase.post']);
