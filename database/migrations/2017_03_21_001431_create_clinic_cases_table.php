@@ -27,16 +27,16 @@ class CreateClinicCasesTable extends Migration
             $table->integer('age');
             $table->string('localization');
             $table->string('clinic_case_status');
-            $table->string('sample')->unsigned();
-            $table->string('bacterioscopy')->unsigned();
-            $table->string('trichogram')->unsigned();
-            $table->string('culture')->unsigned();
-            $table->string('bacterial_isolate')->unsigned();
-            $table->string('fungi_isolate')->unsigned();
-            $table->string('antibiogram_sensitive')->unsigned();
-            $table->string('antibiogram_intermediate')->unsigned();
-            $table->string('antibiogram_resistant')->unsigned();
-            $table->mediumtext('comment')->unsigned();
+            $table->string('sample')->nullable();
+            $table->string('bacterioscopy')->nullable();
+            $table->string('trichogram')->nullable();
+            $table->string('culture')->nullable();
+            $table->string('bacterial_isolate')->nullable();
+            $table->string('fungi_isolate')->nullable();
+            $table->string('antibiogram_sensitive')->nullable();
+            $table->string('antibiogram_intermediate')->nullable();
+            $table->string('antibiogram_resistant')->nullable();
+            $table->mediumtext('comment')->nullable();
             $table->timestamps();
         });
     }

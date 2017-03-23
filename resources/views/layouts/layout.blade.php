@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ config('app.locale') }}">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,7 +33,6 @@
 <!--top header-->
 
 <header id="home">
-
     <section class="top-nav hidden-xs">
         <div class="container">
             <div class="row">
@@ -62,7 +61,7 @@
                                         {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
 
-                                    <ul class="dropdown-menu" role="menu">
+                                    <ul id="logout" class="dropdown-menu" role="menu">
                                         <li>
                                             <a href="{{ route('logout') }}"
                                                onclick="event.preventDefault();
@@ -173,13 +172,13 @@
 
 
 <!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/jquery.flexslider.js"></script>
 <script src="/js/jquery.inview.js"></script>
 <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
 <script src="/js/script.js"></script>
+
 
 </body>
 </html>

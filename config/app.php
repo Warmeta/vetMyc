@@ -168,7 +168,6 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
         TCG\Voyager\VoyagerServiceProvider::class,
-        Styde\Html\HtmlServiceProvider::class,
 
 
         /*

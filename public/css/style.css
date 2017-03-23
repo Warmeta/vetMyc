@@ -132,7 +132,12 @@ textarea:focus {
 	border-top-right-radius: 3px;
 }
 
-/*Header*/
+/*Header home*/
+#home {
+	position: relative;
+	z-index: 300;
+}
+
 /*Top nav left*/
 .top-nav {
 	;
@@ -228,6 +233,10 @@ textarea:focus {
 .collap-menu-cont{
 	display: block;
 }
+
+#logout {
+	z-index: 3000;
+}
 /*Logo*/
 
 #logo-img {
@@ -250,7 +259,7 @@ textarea:focus {
 }
 
 #main-nav .navbar-right {
-	padding-top: 30px;
+	padding-top: 28px;
 }
 
 #main-nav .navbar-right li > a {
