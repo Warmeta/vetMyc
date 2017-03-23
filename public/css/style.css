@@ -135,12 +135,11 @@ textarea:focus {
 /*Header home*/
 #home {
 	position: relative;
-	z-index: 300;
 }
 
 /*Top nav left*/
 .top-nav {
-	;
+	position:relative;
 	color: #333;
 	line-height: 40px;
 	border-bottom: 1px solid rgba(19, 207, 50, 0.58);
@@ -167,7 +166,8 @@ textarea:focus {
 
 /*Top Right Menu*/
 .top-right {
-	float: right;
+	position:relative;
+	right:0;
 }
 
 .top-right p:before {
@@ -234,9 +234,33 @@ textarea:focus {
 	display: block;
 }
 
-#logout {
-	z-index: 3000;
+/* Logout-container */
+
+.logout {
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	position:relative;
+	z-index: 999;
 }
+
+@media (min-width: 768px) {
+	.logout {
+		width: 750px;
+	}
+}
+@media (min-width: 992px) {
+	.logout {
+		width: 970px;
+	}
+}
+@media (min-width: 1200px) {
+	.logout {
+		width: 1170px;
+	}
+}
+
 /*Logo*/
 
 #logo-img {

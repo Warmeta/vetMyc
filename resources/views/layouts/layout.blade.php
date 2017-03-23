@@ -34,7 +34,7 @@
 
 <header id="home">
     <section class="top-nav hidden-xs">
-        <div class="container">
+        <div class="logout">
             <div class="row">
                 <div class="col-md-6">
                     <div class="top-left">
@@ -57,11 +57,11 @@
                                 <li><a href="{{ route('register') }}">Register</a></li>
                             @else
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <a id="logout" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
 
-                                    <ul id="logout" class="dropdown-menu" role="menu">
+                                    <ul class="dropdown-menu" role="menu">
                                         <li>
                                             <a href="{{ route('logout') }}"
                                                onclick="event.preventDefault();
