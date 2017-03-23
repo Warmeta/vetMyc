@@ -24,12 +24,24 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index');
 
-Route::get('/lab', 'LaboratoryController@index');
+//Laboratory
 
 Route::get('/lab', 'LaboratoryController@index');
 
-Route::post('lab', ['uses' => 'LaboratoryController@post', 'as' => 'clinicCase.post']);
+Route::get('lab/create', [
+    'uses' => 'LaboratoryController@create',
+    'as' => 'clinicCase.create'
+]);
+
+Route::post('lab/create', [
+    'uses' => 'LaboratoryController@store',
+    'as' => 'clinicCase.post'
+]);
+
+//Voyager
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

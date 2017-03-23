@@ -11,10 +11,10 @@
     <meta name="keywords" content="mycology, veterinary mycology, ulpgc, micologia veterianaria, micologia, laboratorio micologia, laboratorio veterinaria">
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans|Raleway" rel="stylesheet">
-    <link rel="stylesheet" href="css/flexslider.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/flexslider.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
     <!-- =======================================================
         Theme Name: MyBiz
         Theme URL: https://bootstrapmade.com/mybiz-free-business-bootstrap-theme/
@@ -66,7 +66,7 @@
                                         <li>
                                             <a href="{{ route('logout') }}"
                                                onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
+                                                     document.getElementById('logout-form').submit();">
                                                 Logout
                                             </a>
 
@@ -121,10 +121,10 @@
                     <h3><span>follow</span> us on instagram</h3>
                     <div class="insta">
                         <ul>
-                            <img src="images/footer/footer1.jpg" alt="">
-                            <img src="images/footer/footer2.jpg" alt="">
-                            <img src="images/footer/footer3.jpg" alt="">
-                            <img src="images/footer/footer4.jpg" alt="">
+                            <img src="/images/footer/footer1.jpg" alt="">
+                            <img src="/images/footer/footer2.jpg" alt="">
+                            <img src="/images/footer/footer3.jpg" alt="">
+                            <img src="/images/footer/footer4.jpg" alt="">
                             <img src="images/footer/footer5.jpg" alt="">
                             <img src="images/footer/footer6.jpg" alt="">
                         </ul>
@@ -174,12 +174,12 @@
 
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.flexslider.js"></script>
-<script src="js/jquery.inview.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.flexslider.js"></script>
+<script src="/js/jquery.inview.js"></script>
 <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
-<script src="js/script.js"></script>
+<script src="/js/script.js"></script>
 
 </body>
 </html>

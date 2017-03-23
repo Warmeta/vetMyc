@@ -17,66 +17,105 @@ class LaboratoryController extends Controller
      */
     public function __construct()
     {
-        //   $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('laboratory.clinicCase');
+        return view('laboratory.index');
     }
 
-    public function store()
+
+    public function create()
     {
-        //validator
-        $rules = array(
-            'number_clinic_history' => 'required|max:30',
-            'ref_animal' => 'required|numeric|max:30',
-            'specie' => 'required',
-            'clinic_history' => 'required|max:255',
-            'owner' => 'required|email|max:255',
+        $sex = LaboratoryController::getSexOptions();
+        $loc = LaboratoryController::getLocOptions();
+        $sta = LaboratoryController::getStatusOptions();
+        $sen = LaboratoryController::getSenOptions();
+        $int = LaboratoryController::getIntOptions();
+        $res = LaboratoryController::getResOptions();
+        $data = array(
+            'sex'  => $sex,
+            'localization' => $loc,
+            'status' => $sta,
+            'sensitive' => $sen,
+            'intermediate' => $int,
+            'resistant' => $res
+        );
+        return view('laboratory.create')->with('data', $data);
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'number_clinic_history' => 'required|numeric|digits_between:1,30',
+            'ref_animal' => 'required|numeric|digits_between:1,30',
+            'specie' => 'required|max:255',
+            'clinic_history' => 'required|max:500',
+            'owner' => 'required|max:255',
             'breed' => 'required|max:255',
-            'sex' => 'required',
-            'clinic_case_status' => 'required',
-            'sample' => 'required|min:6|confirmed',
+            'sex' => 'required|max:255',
+            'age' => 'required|numeric|digits_between:1,3',
+            'localization' => 'required|max:255',
+            'clinic_case_status' => 'required|max:255',
+            'sample' => 'required|max:255',
             'bacterioscopy' => 'max:255',
             'trichogram' => 'max:255',
             'culture' => 'max:255',
-            'bacterial' => 'max:255',
-            'fungus' => 'max:255',
-            'comment' => 'max:255',
-        );
-        $validator = Validator::make(Input::all(), $rules);
-        // process the login
-        if ($validator->fails()) {
-            return Redirect::to('/lab')
-                ->withErrors($validator)
-                ->withInput();
-        } else {
-            // store
-            $cliniccase = new ClinicCase();
-            $cliniccase->author_id = Auth::user()->id;
-            $cliniccase->number_clinic_history = Input::get('number_clinic_history');
-            $cliniccase->ref_animal = Input::get('ref_animal');
-            $cliniccase->specie = Input::get('specie');
-            $cliniccase->ref_animal = Input::get('ref_animal');
-            $cliniccase->clinic_history = Input::get('clinic_history');
-            $cliniccase->owner = Input::get('owner');
-            $cliniccase->breed = Input::get('breed');
-            $cliniccase->sex = Input::get('sex');
-            $cliniccase->clinic_case_status = Input::get('clinic_case_status');
-            $cliniccase->bacterioscopy = Input::get('bacterioscopy');
-            $cliniccase->trichogram = Input::get('trichogram');
-            $cliniccase->culture = Input::get('culture');
-            $cliniccase->bacterial = Input::get('bacterial');
-            $cliniccase->fungus = Input::get('fungus');
-            $cliniccase->comment = Input::get('comment');
-            $cliniccase->save();
-            return redirect()->route('/lab')->with('message', 'Clinic case saved successfully');
-        }
+            'bacterial_isolate' => 'max:255',
+            'fungi_isolate' => 'max:255',
+            'antibiogram_sensitive' => 'max:255',
+            'antibiogram_intermediate' => 'max:255',
+            'antibiogram_resistant' => 'max:255',
+            'comment' => 'max:500',
+        ]);
+
+        $cliniccase = new ClinicCase($request->all());
+
+        $cliniccase->user_id = Auth::user()->id;
+
+        $cliniccase->save();
+
+        return redirect()->route('/lab')->with('message', 'Clinic case saved successfully');
+    }
+
+    public function getSexOptions()
+    {
+        return ['Male', 'Female'];
+    }
+
+    public function getLocOptions()
+    {
+        return ['loc1example', 'loc2example'];
+    }
+
+    public function getStatusOptions()
+    {
+        return ['In progress', 'Finished'];
+    }
+
+    public function getBacterialOptions()
+    {
+        return ['bacterial1', 'bacterial2'];
+    }
+
+    public function getFungiOptions()
+    {
+        return ['fungi1', 'fungi2'];
+    }
+
+    public function getSenOptions()
+    {
+        return ['med1', 'med2'];
+    }
+
+    public function getIntOptions()
+    {
+        return ['med1', 'med2'];
+    }
+
+    public function getResOptions()
+    {
+        return ['med1', 'med2'];
     }
 }

@@ -2,7 +2,7 @@
     <nav class="navbar">
         <div class="container">
             <div class="navbar-header int-menu">
-                <a href="/" id="logo-img"><img src="images/logo/wgw_logo.png" alt=""></a>
+                <a href="/" id="logo-img"><img src="/images/logo/wgw_logo.png" alt=""></a>
             </div>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#ftheme">
                 <span class="sr-only">Toggle</span>
