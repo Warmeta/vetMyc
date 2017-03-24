@@ -189,5 +189,5 @@ return [
         'gradient_b' => '#ffffff',
     ],
 
-    'primary_color' => '#22A7F0',
+    'primary_color' => '#6fd779',
 ];

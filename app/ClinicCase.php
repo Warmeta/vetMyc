@@ -8,6 +8,7 @@ class ClinicCase extends Model
 {
     protected $fillable = [
         'number_clinic_history',
+        'author_id',
         'ref_animal',
         'specie',
         'clinic_history',
@@ -21,11 +22,12 @@ class ClinicCase extends Model
         'bacterioscopy',
         'trichogram',
         'culture',
-        'bacterial',
-        'fungus',
+        'bacterial_isolate',
+        'fungi_isolate',
         'antibiogram_sensitive',
         'antibiogram_intermediate',
         'antibiogram_resistant',
-        'comment'];
+        'comment'
+    ];
 
 }

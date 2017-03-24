@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\ClinicCase;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
 class LaboratoryController extends Controller
@@ -15,6 +16,7 @@ class LaboratoryController extends Controller
      *
      * @return void
      */
+
     public function __construct()
     {
         //$this->middleware('auth');
@@ -31,91 +33,94 @@ class LaboratoryController extends Controller
         $sex = LaboratoryController::getSexOptions();
         $loc = LaboratoryController::getLocOptions();
         $sta = LaboratoryController::getStatusOptions();
+        $bac = LaboratoryController::getBacterialOptions();
+        $fun = LaboratoryController::getFungiOptions();
         $sen = LaboratoryController::getSenOptions();
         $int = LaboratoryController::getIntOptions();
         $res = LaboratoryController::getResOptions();
-        $data = array(
+        $data = collect([
             'sex'  => $sex,
             'localization' => $loc,
             'status' => $sta,
+            'bac' => $bac,
+            'fun' => $fun,
             'sensitive' => $sen,
             'intermediate' => $int,
             'resistant' => $res
-        );
+        ]);
         return view('laboratory.create')->with('data', $data);
     }
 
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'number_clinic_history' => 'required|numeric|digits_between:1,30',
-            'ref_animal' => 'required|numeric|digits_between:1,30',
-            'specie' => 'required|max:255',
-            'clinic_history' => 'required|max:500',
-            'owner' => 'required|max:255',
-            'breed' => 'required|max:255',
-            'sex' => 'required|max:255',
-            'age' => 'required|numeric|digits_between:1,3',
-            'localization' => 'required|max:255',
-            'clinic_case_status' => 'required|max:255',
-            'sample' => 'required|max:255',
-            'bacterioscopy' => 'max:255',
-            'trichogram' => 'max:255',
-            'culture' => 'max:255',
-            'bacterial_isolate' => 'max:255',
-            'fungi_isolate' => 'max:255',
-            'antibiogram_sensitive' => 'max:255',
-            'antibiogram_intermediate' => 'max:255',
-            'antibiogram_resistant' => 'max:255',
-            'comment' => 'max:500',
-        ]);
+            $cliniccase = new ClinicCase();
+            $cliniccase->fill(['author_id' => Auth::user()->id]);
+            $cliniccase->create($request->all());
 
-        $cliniccase = new ClinicCase($request->all());
+            /*$cliniccase = new ClinicCase();
+            $cliniccase->number_clinic_history = $request->get('number_clinic_history');
+            $cliniccase->author_id = Auth::user()->id;
+            $cliniccase->ref_animal = $request->get('ref_animal');
+            $cliniccase->specie = $request->get('specie');
+            $cliniccase->clinic_history = $request->get('clinic_history');
+            $cliniccase->owner = $request->get('owner');
+            $cliniccase->breed = $request->get('breed');
+            $cliniccase->sex = $request->get('sex');
+            $cliniccase->age = $request->get('age');
+            $cliniccase->localization = $request->get('localization');
+            $cliniccase->clinic_case_status = $request->get('clinic_case_status');
+            $cliniccase->sample = $request->get('sample');
+            $cliniccase->bacterioscopy = $request->get('bacterioscopy');
+            $cliniccase->trichogram = $request->get('trichogram');
+            $cliniccase->culture = $request->get('culture');
+            $cliniccase->bacterial = $request->get('bacterial');
+            $cliniccase->fungus = $request->get('fungus');
+            $cliniccase->antibiogram_sensitive = $request->get('antibiogram_sensitive');
+            $cliniccase->antibiogram_intermediate = $request->get('antibiogram_intermediate');
+            $cliniccase->antibiogram_resistant = $request->get('antibiogram_resistant');
+            $cliniccase->comment = $request->get('comment');
+            $cliniccase->save();*/
+            return Redirect::to('/lab')->with('message', 'Clinic case created successfully.');
 
-        $cliniccase->user_id = Auth::user()->id;
-
-        $cliniccase->save();
-
-        return redirect()->route('/lab')->with('message', 'Clinic case saved successfully');
     }
 
     public function getSexOptions()
     {
-        return ['Male', 'Female'];
+        return ['male' => 'Male', 'female' => 'Female'];
     }
 
     public function getLocOptions()
     {
-        return ['loc1example', 'loc2example'];
+        return ['loc1' => 'loc1example','loc2' => 'loc2example'];
     }
 
     public function getStatusOptions()
     {
-        return ['In progress', 'Finished'];
+        return ['inprogress' => 'In progress','finished' => 'Finished'];
     }
 
     public function getBacterialOptions()
     {
-        return ['bacterial1', 'bacterial2'];
+        return ['bac1' => 'bacterial1','bac2' => 'bacterial2'];
     }
 
     public function getFungiOptions()
     {
-        return ['fungi1', 'fungi2'];
+        return ['fung1' => 'fungi1','fung2' => 'fungi2'];
     }
 
     public function getSenOptions()
     {
-        return ['med1', 'med2'];
+        return ['m1' => 'med1','m2' => 'med2'];
     }
 
     public function getIntOptions()
     {
-        return ['med1', 'med2'];
+        return ['m1' => 'med1','m2' =>  'med2'];
     }
 
     public function getResOptions()
     {
-        return ['med1', 'med2'];
+        return ['m1' => 'med1','m2' =>  'med2'];
     }
 }

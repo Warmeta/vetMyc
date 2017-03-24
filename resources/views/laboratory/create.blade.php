@@ -3,63 +3,106 @@
 @section('main-content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-9 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">Clinic Case</div>
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('clinicCase.post') }}">
+                        {!! Form::open(array('action' => 'LaboratoryController@store', 'method' => 'post')) !!}
                             {{ csrf_field() }}
-
-                            {!! Field::text('number_clinic_history', ['label' => 'Nº Clinical History']) !!}
-
-                            {!! Field::text('ref_animal') !!}
-
-                            {!! Field::text('specie') !!}
-
-                            {!! Field::textarea('clinic_history') !!}
-
-                            {!! Field::text('owner') !!}
-
-                            {!! Field::text('breed') !!}
-
-                            {!! Field::select('sex', $data['sex']) !!}
-
-                            {!! Field::text('age') !!}
-
-                            {!! Field::select('localization', $data['localization']) !!}
-
-                            {!! Field::select('status', $data['status']) !!}
+                            <div class="col-md-offset-2">
+                                {{ Form::hidden('author_id', \Illuminate\Support\Facades\Auth::user()->id) }}
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Nº Clinic History', null, ['class' => 'control-label']) }}
+                                {{ Form::text('number_clinic_history', null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Ref. Animal', null, ['class' => 'control-label']) }}
+                                {{ Form::text('ref_animal', null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Specie', null, ['class' => 'control-label']) }}
+                                {{ Form::text('specie', null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Clinic History', null, ['class' => 'control-label']) }}
+                                {{ Form::textarea('clinic_history', null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Owner', null, ['class' => 'control-label']) }}
+                                {{ Form::text('owner', null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Breed', null, ['class' => 'control-label']) }}
+                                {{ Form::text('breed', null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Sex', null, ['class' => 'control-label']) }}
+                                {{ Form::select('sex', $data->toArray(), null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Age', null, ['class' => 'control-label']) }}
+                                {{ Form::text('age', null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Localization', null, ['class' => 'control-label']) }}
+                                {{ Form::select('localization',  $data->get('localization'), null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Status', null, ['class' => 'control-label']) }}
+                                {{ Form::select('clinic_case_status', $data->get('status'), null, ['class' => 'form-control']) }}
+                            </div>
 
                             <div class="col-xs-12"><hr></div>
 
-                            {!! Field::text('sample') !!}
-
-                            {!! Field::text('bacterioscopy') !!}
-
-                            {!! Field::text('trichogram') !!}
-
-                            {!! Field::text('culture') !!}
-
-                            {!! Field::select('bacterial_isolate', $data['sensitive']) !!}
-
-                            {!! Field::select('fungi_isolate', $data['sensitive']) !!}
-
-                            {!! Field::select('antibiogram_sensitive', $data['sensitive']) !!}
-
-                            {!! Field::select('antibiogram_intermediate', $data['intermediate']) !!}
-
-                            {!! Field::select('antibiogram_resistant', $data['resistant']) !!}
-
-                            {!! Field::textarea('comment', ['label' => 'Comments']) !!}
-
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Sample', null, ['class' => 'control-label']) }}
+                                {{ Form::text('sample', null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Bacterioscopy', null, ['class' => 'control-label']) }}
+                                {{ Form::text('bacterioscopy', null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Trichogram', null, ['class' => 'control-label']) }}
+                                {{ Form::text('trichogram', null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Culture', null, ['class' => 'control-label']) }}
+                                {{ Form::text('culture', null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Bacterial Isolate', null, ['class' => 'control-label']) }}
+                                {{ Form::select('bacterial_isolate', $data->get('bac'), null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Fungi Isolate', null, ['class' => 'control-label']) }}
+                                {{ Form::select('fungi_isolate', $data->get('fun'), null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Antibiogram: Sensitive', null, ['class' => 'control-label']) }}
+                                {{ Form::select('antibiogram_sensitive', $data->get('sensitive'), null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Antibiogram: Intermediate', null, ['class' => 'control-label']) }}
+                                {{ Form::select('antibiogram_intermediate', $data->get('intermediate'), null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Antibiogram: Resistant', null, ['class' => 'control-label']) }}
+                                {{ Form::select('antibiogram_resistant', $data->get('resistant'), null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="col-md-9 form-group">
+                                {{ Form::label('Comments', null, ['class' => 'control-label']) }}
+                                {{ Form::textarea('comment', null, ['class' => 'form-control']) }}
+                            </div>
                             <div class="form-group">
-                                <div class="col-lg-offset-5 col-md-6">
+                                <div class="col-md-offset-3 col-md-9">
                                     <button type="submit" class="btn btn-primary">
                                         Crear
                                     </button>
                                 </div>
                             </div>
-                        </form>
+                            </div>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
