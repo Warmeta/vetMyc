@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-md-9 form-group">
                                 {{ Form::label('Sex', null, ['class' => 'control-label']) }}
-                                {{ Form::select('sex', $data->toArray(), null, ['class' => 'form-control']) }}
+                                {{ Form::select('sex', $data->get('sex'), null, ['class' => 'form-control']) }}
                             </div>
                             <div class="col-md-9 form-group">
                                 {{ Form::label('Age', null, ['class' => 'control-label']) }}

@@ -8,6 +8,8 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use TCG\Voyager\Facades\Voyager;
+use TCG\Voyager\Traits\VoyagerUser;
 
 class LaboratoryController extends Controller
 {
@@ -30,58 +32,42 @@ class LaboratoryController extends Controller
 
     public function create()
     {
-        $sex = LaboratoryController::getSexOptions();
-        $loc = LaboratoryController::getLocOptions();
-        $sta = LaboratoryController::getStatusOptions();
-        $bac = LaboratoryController::getBacterialOptions();
-        $fun = LaboratoryController::getFungiOptions();
-        $sen = LaboratoryController::getSenOptions();
-        $int = LaboratoryController::getIntOptions();
-        $res = LaboratoryController::getResOptions();
-        $data = collect([
-            'sex'  => $sex,
-            'localization' => $loc,
-            'status' => $sta,
-            'bac' => $bac,
-            'fun' => $fun,
-            'sensitive' => $sen,
-            'intermediate' => $int,
-            'resistant' => $res
-        ]);
-        return view('laboratory.create')->with('data', $data);
+        if (Voyager::can('browse_clinic_cases')) {
+            $sex = LaboratoryController::getSexOptions();
+            $loc = LaboratoryController::getLocOptions();
+            $sta = LaboratoryController::getStatusOptions();
+            $bac = LaboratoryController::getBacterialOptions();
+            $fun = LaboratoryController::getFungiOptions();
+            $sen = LaboratoryController::getSenOptions();
+            $int = LaboratoryController::getIntOptions();
+            $res = LaboratoryController::getResOptions();
+            $data = collect([
+                'sex' => $sex,
+                'localization' => $loc,
+                'status' => $sta,
+                'bac' => $bac,
+                'fun' => $fun,
+                'sensitive' => $sen,
+                'intermediate' => $int,
+                'resistant' => $res
+            ]);
+            return view('laboratory.create')->with('data', $data);
+        } else {
+            return Redirect::to('/lab');
+        }
     }
 
     public function store(Request $request)
     {
+        if (Voyager::can('browse_clinic_cases')) {
             $cliniccase = new ClinicCase();
             $cliniccase->fill(['author_id' => Auth::user()->id]);
             $cliniccase->create($request->all());
 
-            /*$cliniccase = new ClinicCase();
-            $cliniccase->number_clinic_history = $request->get('number_clinic_history');
-            $cliniccase->author_id = Auth::user()->id;
-            $cliniccase->ref_animal = $request->get('ref_animal');
-            $cliniccase->specie = $request->get('specie');
-            $cliniccase->clinic_history = $request->get('clinic_history');
-            $cliniccase->owner = $request->get('owner');
-            $cliniccase->breed = $request->get('breed');
-            $cliniccase->sex = $request->get('sex');
-            $cliniccase->age = $request->get('age');
-            $cliniccase->localization = $request->get('localization');
-            $cliniccase->clinic_case_status = $request->get('clinic_case_status');
-            $cliniccase->sample = $request->get('sample');
-            $cliniccase->bacterioscopy = $request->get('bacterioscopy');
-            $cliniccase->trichogram = $request->get('trichogram');
-            $cliniccase->culture = $request->get('culture');
-            $cliniccase->bacterial = $request->get('bacterial');
-            $cliniccase->fungus = $request->get('fungus');
-            $cliniccase->antibiogram_sensitive = $request->get('antibiogram_sensitive');
-            $cliniccase->antibiogram_intermediate = $request->get('antibiogram_intermediate');
-            $cliniccase->antibiogram_resistant = $request->get('antibiogram_resistant');
-            $cliniccase->comment = $request->get('comment');
-            $cliniccase->save();*/
             return Redirect::to('/lab')->with('message', 'Clinic case created successfully.');
-
+        } else {
+            return Redirect::to('/lab');
+        }
     }
 
     public function getSexOptions()

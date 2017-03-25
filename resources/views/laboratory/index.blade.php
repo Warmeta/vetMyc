@@ -23,7 +23,7 @@
                 <div class="col-xs-12 hidden-sm col-md-5">
 
                     <div class="about-left">
-                        <img src="images/about/about1.jpg" alt="">
+                        <img src="/images/about/about1.jpg" alt="">
                     </div>
 
                 </div>
@@ -244,7 +244,7 @@
 
                     <div class="col-xs-6 col-sm-3 col-md-3">
                         <div class="item">
-                            <img src="images/portfolio/portfolio1.jpg" alt="">
+                            <img src="/images/portfolio/portfolio1.jpg" alt="">
                             <div class="caption">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 <p>lorem ipsum amet</p>
@@ -254,7 +254,7 @@
 
                     <div class="col-xs-6 col-sm-3 col-md-3">
                         <div class="item">
-                            <img src="images/portfolio/portfolio2.jpg" alt="">
+                            <img src="/images/portfolio/portfolio2.jpg" alt="">
                             <div class="caption">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 <p>lorem ipsum amet</p>
@@ -264,7 +264,7 @@
 
                     <div class="col-xs-6 col-sm-3 col-md-3">
                         <div class="item">
-                            <img src="images/portfolio/portfolio3.jpg" alt="">
+                            <img src="/images/portfolio/portfolio3.jpg" alt="">
                             <div class="caption">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 <p>lorem ipsum amet</p>
@@ -274,7 +274,7 @@
 
                     <div class="col-xs-6 col-sm-3 col-md-3">
                         <div class="item">
-                            <img src="images/portfolio/portfolio4.jpg" alt="">
+                            <img src="/images/portfolio/portfolio4.jpg" alt="">
                             <div class="caption">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 <p>lorem ipsum amet</p>
@@ -284,7 +284,7 @@
 
                     <div class="col-xs-6 col-sm-3 col-md-3">
                         <div class="item">
-                            <img src="images/portfolio/portfolio5.jpg" alt="">
+                            <img src="/images/portfolio/portfolio5.jpg" alt="">
                             <div class="caption">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 <p>what you see</p>
@@ -294,7 +294,7 @@
 
                     <div class="col-xs-6 col-sm-3 col-md-3">
                         <div class="item">
-                            <img src="images/portfolio/portfolio6.jpg" alt="">
+                            <img src="/images/portfolio/portfolio6.jpg" alt="">
                             <div class="caption">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 <p>lorem ipsum amet</p>
@@ -304,7 +304,7 @@
 
                     <div class="col-xs-6 col-sm-3 col-md-3">
                         <div class="item">
-                            <img src="images/portfolio/portfolio7.jpg" alt="">
+                            <img src="/images/portfolio/portfolio7.jpg" alt="">
                             <div class="caption">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 <p>lorem ipsum amet</p>
@@ -314,7 +314,7 @@
 
                     <div class="col-xs-6 col-sm-3 col-md-3">
                         <div class="item">
-                            <img src="images/portfolio/portfolio8.jpg" alt="">
+                            <img src="/images/portfolio/portfolio8.jpg" alt="">
                             <div class="caption">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 <p>lorem ipsum amet</p>
@@ -403,27 +403,27 @@
             <div class="row">
 
                 <div class="col-sm-4 col-md-2">
-                    <span></span><img src="images/client/client1.png" alt="">
+                    <span></span><img src="/images/client/client1.png" alt="">
                 </div>
 
                 <div class="col-sm-4 col-md-2">
-                    <span></span><img src="images/client/client2.png" alt="">
+                    <span></span><img src="/images/client/client2.png" alt="">
                 </div>
 
                 <div class="col-sm-4 col-md-2">
-                    <span></span><img src="images/client/client3.png" alt="">
+                    <span></span><img src="/images/client/client3.png" alt="">
                 </div>
 
                 <div class="col-sm-4 col-md-2">
-                    <span></span><img src="images/client/client4.png" alt="">
+                    <span></span><img src="/images/client/client4.png" alt="">
                 </div>
 
                 <div class="col-sm-4 col-md-2">
-                    <span></span><img src="images/client/client5.png" alt="">
+                    <span></span><img src="/images/client/client5.png" alt="">
                 </div>
 
                 <div class="col-sm-4 col-md-2">
-                    <span></span><img src="images/client/client6.png" alt="">
+                    <span></span><img src="/images/client/client6.png" alt="">
                 </div>
 
             </div>
