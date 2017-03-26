@@ -14,7 +14,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => 'Site Title',
-                'value'        => 'Site Title',
+                'value'        => 'vetMyc',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 1,
@@ -25,7 +25,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => 'Site Description',
-                'value'        => 'Site Description',
+                'value'        => 'ULPGC Veterinary Microbiology Mycology Laboratory',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 2,
@@ -36,7 +36,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => 'Site Logo',
-                'value'        => '',
+                'value'        => 'settings/March2017/bUewZ5pn8X6hM1xB90AT.png',
                 'details'      => '',
                 'type'         => 'image',
                 'order'        => 3,
@@ -47,7 +47,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => 'Admin Background Image',
-                'value'        => '',
+                'value'        => 'settings/March2017/67mb2LgJOqRDeZsun0KB.jpg',
                 'details'      => '',
                 'type'         => 'image',
                 'order'        => 9,
@@ -58,7 +58,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => 'Admin Title',
-                'value'        => 'Voyager',
+                'value'        => 'vetMyc',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 4,
@@ -69,7 +69,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => 'Admin Description',
-                'value'        => 'Welcome to Voyager. The Missing Admin for Laravel',
+                'value'        => 'Welcome to vetMyc Admin',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 5,
@@ -80,7 +80,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => 'Admin Loader',
-                'value'        => '',
+                'value'        => 'settings/March2017/gutyW5oIupMkF7hmn65f.png',
                 'details'      => '',
                 'type'         => 'image',
                 'order'        => 6,
@@ -91,7 +91,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => 'Admin Icon Image',
-                'value'        => '',
+                'value'        => 'settings/March2017/EEjyLa1Sf7kVEFMjYiLv.png',
                 'details'      => '',
                 'type'         => 'image',
                 'order'        => 7,
@@ -102,7 +102,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => 'Google Analytics Client ID',
-                'value'        => '',
+                'value'        => 'UA-96230405-1',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 9,

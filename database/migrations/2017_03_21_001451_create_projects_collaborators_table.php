@@ -13,10 +13,12 @@ class CreateProjectsCollaboratorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('project_collaborator', function($table) {
+        Schema::create('project_collaborators', function($table) {
             $table->increments('id');
-            $table->integer('project_id');
-            $table->integer('collaborator_id');
+            $table->integer('project_id')->unsigned();
+            $table->foreign('project_id')->references('id')->on('projects');
+            $table->integer('collaborator_id')->unsigned();
+            $table->foreign('collaborator_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateProjectsCollaboratorsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('project_collaborator');
+        Schema::drop('project_collaborators');
     }
 }

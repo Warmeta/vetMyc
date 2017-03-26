@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTodosTable extends Migration
+class CreateAntibioticsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateTodosTable extends Migration
      */
     public function up()
     {
-        Schema::create('todos', function(Blueprint $table) {
+        Schema::create('antibiotics', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('todo_name');
-            $table->longText('todo_description');
-            $table->string('todo_status');
-            $table->integer('user_id');
-            $table->date('due_date');
+            $table->string('antibiotic_name');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateTodosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('todos');
+        Schema::drop('antibiotics');
     }
 }

@@ -15,16 +15,18 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('project_name')->unique();
             $table->string('description');
+            $table->mediumText('image');
             $table->string('project_type');
             $table->string('research_line');
             $table->string('publication_date');
             $table->string('entity');
-            $table->string('author_id');
+            $table->integer('author_id')->unsigned();
+            $table->foreign('author_id')->references('id')->on('users');
             $table->string('project_status');
-            $table->string('link');
-            $table->string('file');
+            $table->string('link')->nullable();
+            $table->string('file')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

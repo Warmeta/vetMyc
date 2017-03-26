@@ -16,7 +16,7 @@ class CreateClinicCasesTable extends Migration
         Schema::create('clinic_cases', function($table) {
             $table->increments('id');
             $table->integer('author_id')->unsigned();
-            $table->foreign('author_id')->references('id')->on('users');
+            $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('number_clinic_history');
             $table->string('ref_animal');
             $table->string('specie');
