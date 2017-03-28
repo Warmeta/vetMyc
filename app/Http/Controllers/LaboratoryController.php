@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Validator;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Traits\VoyagerUser;
@@ -27,6 +29,40 @@ class LaboratoryController extends Controller
     public function index()
     {
         return view('laboratory.index');
+    }
+
+    public function indexC()
+    {
+        $rows = [
+        'id',
+        'number_clinic_history',
+        'author_id',
+        'ref_animal',
+        'specie',
+        'clinic_history',
+        'owner',
+        'breed',
+        'sex',
+        'age',
+        'localization',
+        'clinic_case_status',
+        'sample',
+        'bacterioscopy',
+        'trichogram',
+        'culture',
+        'bacterial_isolate',
+        'fungi_isolate',
+        'antibiogram_sensitive',
+        'antibiogram_intermediate',
+        'antibiogram_resistant',
+        'comment',
+        'created_at',
+        'updated_at'
+        ];
+
+        $clinics = DB::table('clinic_cases')->paginate(15);
+
+        return view('laboratory.clinicCase.index')->with('clinics', $clinics)->with('rows', $rows);
     }
 
 
@@ -51,9 +87,9 @@ class LaboratoryController extends Controller
                 'intermediate' => $int,
                 'resistant' => $res
             ]);
-            return view('laboratory.create')->with('data', $data);
+            return view('laboratory.clinicCase.create')->with('data', $data);
         } else {
-            return Redirect::to('/lab');
+            return Redirect::to('/lab/clinic-case');
         }
     }
 
@@ -64,10 +100,28 @@ class LaboratoryController extends Controller
             $cliniccase->fill(['author_id' => Auth::user()->id]);
             $cliniccase->create($request->all());
 
-            return Redirect::to('/lab')->with('message', 'Clinic case created successfully.');
+            return Redirect::to('/lab/clinic-case')->with('message', 'Clinic case created successfully.');
         } else {
-            return Redirect::to('/lab');
+            return Redirect::to('/lab/clinic-case');
         }
+    }
+
+    public function edit($id)
+    {
+        $clinic = ClinicCase::find($id);
+        $url = route('editClinicCase', $clinic);
+
+        // show the edit form and pass the nerd
+        return View::make($url)
+            ->with('clinicCase.edit', $clinic);
+    }
+
+    public function show($id)
+    {
+        $clinic = ClinicCase::find($id);
+        // show the edit form and pass the nerd
+        return View::make('laboratory.clinicCase.show')
+            ->with('clinic', $clinic);
     }
 
     public function getSexOptions()

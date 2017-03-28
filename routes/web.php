@@ -29,11 +29,31 @@ Route::get('/home', 'HomeController@index');
 Route::get('/lab', 'LaboratoryController@index');
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('lab/create', [
+    //Clinic cases
+    Route::get('lab/clinic-case', [
+        'uses' => 'LaboratoryController@indexC',
+        'as' => 'clinicCase.index'
+    ]);
+    Route::get('lab/clinic-case/create', [
         'uses' => 'LaboratoryController@create',
         'as' => 'clinicCase.create'
     ]);
-    Route::post('lab/create', [
+    Route::get('lab/clinic-case/{id}/edit', [
+        'uses' => 'LaboratoryController@edit',
+        'as' => 'clinicCase.edit'
+    ], function ($id) {
+        //
+    })->where('id', '[0-9]+');
+
+    Route::get('lab/clinic-case/{id}', [
+        'uses' => 'LaboratoryController@show',
+        'as' => 'clinicCase.show'
+    ], function ($id) {
+        //
+    })->where('id', '[0-9]+');
+
+
+    Route::post('lab/clinic-case/create', [
         'uses' => 'LaboratoryController@store',
         'as' => 'clinicCase.post'
     ]);

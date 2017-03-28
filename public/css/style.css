@@ -236,7 +236,7 @@ textarea:focus {
 
 /* Logout-container */
 
-.logout {
+.top-nav-log {
 	padding-right: 15px;
 	padding-left: 15px;
 	margin-right: auto;
@@ -246,17 +246,17 @@ textarea:focus {
 }
 
 @media (min-width: 768px) {
-	.logout {
+	.top-nav-log {
 		width: 750px;
 	}
 }
 @media (min-width: 992px) {
-	.logout {
+	.top-nav-log {
 		width: 970px;
 	}
 }
 @media (min-width: 1200px) {
-	.logout {
+	.top-nav-log {
 		width: 1170px;
 	}
 }
@@ -307,6 +307,17 @@ textarea:focus {
 #main-nav .navbar-nav>li.active>a {
 	text-shadow: 0.5px 0.5px 2px #808080;
 	background: none;
+}
+
+#main-nav .navbar-right li > ul > li > a {
+	font-family: 'Raleway', sans-serif;
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 30px;
+	color: #808080;
+	padding-top: 0;
+	padding-bottom: 0;
+	text-transform: uppercase;
 }
 
 /*Login nav*/
