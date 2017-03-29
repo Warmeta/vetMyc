@@ -2,7 +2,16 @@
 
 @section('main-content')
     <div class="page-content container-fluid">
+        <div id="add-btn" class="container">
+            <div class="col-md-12">
         @include('voyager::alerts')
+        @if (Voyager::can('add_clinic_case'))
+            <a href="/lab/clinic-case/create" class="btn btn-success">
+                <span class="glyphicon glyphicon-plus"></span> Add New
+            </a>
+        @endif
+            </div>
+        </div>
         <div class="container">
             <div class="col-md-12">
                 <div class="panel panel-bordered">
@@ -17,12 +26,18 @@
                             </tr>
                             </thead>
                             <tbody>
+
                             @foreach($clinics as $clinic)
                                 <tr>
-                                    @foreach($clinic as $field)
-                                        <td>
-                                            <div class="readmore">{{ strlen( $field ) > 200 ? substr( $field , 0, 200) . ' ...' : $field }}</div>
-                                        </td>
+
+                                    @foreach($clinic as $key => $val)
+                                        @foreach($rows as $row)
+                                            @if($key == $row)
+                                                <td>
+                                                    <div class="readmore">{{ strlen( $val ) > 200 ? substr( $val , 0, 200) . ' ...' : $val }}</div>
+                                                </td>
+                                            @endif
+                                        @endforeach
                                     @endforeach
                                     <td class="no-sort no-click" id="bread-actions">
                                         <!-- delete -->
@@ -76,7 +91,6 @@
         <link rel="stylesheet" href="{{ config('voyager.assets_path') }}/lib/css/responsive.dataTables.min.css">
     @endif
 @stop
-
 @section('javascript')
     <!-- DataTables -->
     @if(config('dashboard.data_tables.responsive'))

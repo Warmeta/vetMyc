@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta id="vp" name="viewport" content="width=device-width, max-width=480px, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
@@ -23,9 +23,11 @@
     ======================================================= -->
     <!-- Scripts -->
     <script>
+
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
+
     </script>
 </head>
 <body id="top" data-spy="scroll">
@@ -75,8 +77,8 @@
                             <img src="/images/footer/footer2.jpg" alt="">
                             <img src="/images/footer/footer3.jpg" alt="">
                             <img src="/images/footer/footer4.jpg" alt="">
-                            <img src="images/footer/footer5.jpg" alt="">
-                            <img src="images/footer/footer6.jpg" alt="">
+                            <img src="/images/footer/footer5.jpg" alt="">
+                            <img src="/images/footer/footer6.jpg" alt="">
                         </ul>
                     </div>
                 </div>

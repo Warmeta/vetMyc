@@ -34,30 +34,17 @@ class LaboratoryController extends Controller
     public function indexC()
     {
         $rows = [
-        'id',
         'number_clinic_history',
-        'author_id',
         'ref_animal',
         'specie',
-        'clinic_history',
-        'owner',
         'breed',
-        'sex',
         'age',
         'localization',
         'clinic_case_status',
-        'sample',
         'bacterioscopy',
         'trichogram',
         'culture',
-        'bacterial_isolate',
-        'fungi_isolate',
-        'antibiogram_sensitive',
-        'antibiogram_intermediate',
-        'antibiogram_resistant',
-        'comment',
-        'created_at',
-        'updated_at'
+        'comment'
         ];
 
         $clinics = DB::table('clinic_cases')->paginate(15);
@@ -109,17 +96,16 @@ class LaboratoryController extends Controller
     public function edit($id)
     {
         $clinic = ClinicCase::find($id);
-        $url = route('editClinicCase', $clinic);
 
-        // show the edit form and pass the nerd
-        return View::make($url)
+        // show the edit form
+        return View::make('laboratory.clinicCase.edit')
             ->with('clinicCase.edit', $clinic);
     }
 
     public function show($id)
     {
         $clinic = ClinicCase::find($id);
-        // show the edit form and pass the nerd
+        // show
         return View::make('laboratory.clinicCase.show')
             ->with('clinic', $clinic);
     }

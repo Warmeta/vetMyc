@@ -27,7 +27,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    @if ((Auth::user()->role_id) == 1)
+                                    @if (Voyager::can('admin'))
                                         <li>
                                             <a href="/admin">
                                                 Admin
@@ -83,7 +83,7 @@
                                     Printed matter
                                 </a>
                             </li>
-                            @if ((Auth::user()->role_id) == 1)
+                            @if (!(Auth::guest()) && (Voyager::can('admin')))
                                 <li>
                                     <a href="lab/clinic-case">
                                         Clinic Cases

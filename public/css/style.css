@@ -194,6 +194,8 @@ textarea:focus {
 #main-nav {
 	padding: 5px 0;
 	background: #6fd779;
+	position:relative;
+	z-index: 999;
 }
 
 /*Affix*/
@@ -242,7 +244,7 @@ textarea:focus {
 	margin-right: auto;
 	margin-left: auto;
 	position:relative;
-	z-index: 999;
+	z-index: 1100;
 }
 
 @media (min-width: 768px) {
@@ -282,6 +284,7 @@ textarea:focus {
 	float: left;
 }
 
+
 #main-nav .navbar-right {
 	padding-top: 28px;
 }
@@ -311,13 +314,17 @@ textarea:focus {
 
 #main-nav .navbar-right li > ul > li > a {
 	font-family: 'Raleway', sans-serif;
-	font-size: 15px;
+	text-align: right;
+	font-size: 13px;
 	font-weight: 700;
 	line-height: 30px;
 	color: #808080;
 	padding-top: 0;
 	padding-bottom: 0;
 	text-transform: uppercase;
+}
+#main-nav .navbar-right li > ul {
+	z-index: 9999;
 }
 
 /*Login nav*/
@@ -330,6 +337,7 @@ textarea:focus {
 
 #login-nav .navbar-right li > a {
 	font-family: 'Raleway', sans-serif;
+	text-align: right;
 	font-size: 12px;
 	font-weight: 700;
 	line-height: 30px;
@@ -1424,3 +1432,6 @@ textarea:focus {
 	color: #6fd779;
 }
 
+#add-btn{
+	top: 25px;
+}
