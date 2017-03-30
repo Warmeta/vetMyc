@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Middleware\CheckPermission;
+
 Route::get('/', function () {
     return View::make('welcome');
 });
@@ -24,37 +26,42 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+
 //Laboratory
 
-Route::get('/lab', 'LaboratoryController@index');
+Route::get('/lab', [
+    'uses' => 'LaboratoryController@index',
+    'as' => 'lab'
+]);
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['prefix' => 'lab',  'middleware' => 'auth'], function () {
+
     //Clinic cases
-    Route::get('lab/clinic-case', [
+    Route::get('clinic-case', [
         'uses' => 'LaboratoryController@indexC',
         'as' => 'clinicCase.index'
-    ]);
-    Route::get('lab/clinic-case/create', [
+    ])->middleware('checkPermission:browse_clinic_case');
+    Route::get('clinic-case/create', [
         'uses' => 'LaboratoryController@create',
         'as' => 'clinicCase.create'
     ]);
-    Route::get('lab/clinic-case/{id}/edit', [
+    Route::get('clinic-case/{id}/edit', [
         'uses' => 'LaboratoryController@edit',
         'as' => 'clinicCase.edit'
     ], function ($id) {
         //
-    })->where('id', '[0-9]+');
+    })->where('id', '[0-9]+')->middleware('checkPermission:browse_clinic_case');
 
-    Route::get('lab/clinic-case/{id}', [
+    Route::get('clinic-case/{id}', [
         'uses' => 'LaboratoryController@show',
         'as' => 'clinicCase.show'
     ], function ($id) {
         //
-    })->where('id', '[0-9]+');
+    })->where('id', '[0-9]+')->middleware('checkPermission:browse_clinic_case');
 
 
-    Route::post('lab/clinic-case/create', [
+    Route::post('clinic-case/create', [
         'uses' => 'LaboratoryController@store',
         'as' => 'clinicCase.post'
-    ]);
+    ])->middleware('checkPermission:browse_clinic_case');
 });

@@ -18,10 +18,10 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionsTableSeeder::class);
         $this->call(PermissionRoleTableSeeder::class);
         $this->call(CategoriesTableSeeder::class);
-        $this->call(DataRowsTableSeeder::class);
         $this->call(DataTypesTableSeeder::class);
-        $this->call(MenuItemsTableSeeder::class);
+        $this->call(DataRowsTableSeeder::class);
         $this->call(MenusTableSeeder::class);
+        $this->call(MenuItemsTableSeeder::class);
         $this->call(PagesTableSeeder::class);
         $this->call(PostsTableSeeder::class);
         $this->call(TranslationsTableSeeder::class);

@@ -16,12 +16,12 @@ trait TestsHelper
 {
     protected $dUser;
 
-    public function defaultUser(array $attributes = [])
+    public function defaultUser()
     {
         if ($this->dUser){
             return $this->dUser;
         }
-        return $this->dUser = factory(User::class)->create($attributes);
+        return $this->dUser = factory(User::class)->create();
     }
 
     public function adminUser()

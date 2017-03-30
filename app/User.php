@@ -4,6 +4,11 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use TCG\Voyager\Facades\Voyager;
+use TCG\Voyager\Models\Permission;
+use TCG\Voyager\Models\Role;
 
 class User extends Authenticatable
 {

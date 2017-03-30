@@ -25,9 +25,8 @@
                                 <a id="logout" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
                                 <ul class="dropdown-menu" role="menu">
-                                    @if (Voyager::can('admin'))
+                                    @if (hasPermission('browse_admin'))
                                         <li>
                                             <a href="/admin">
                                                 Admin
@@ -71,21 +70,21 @@
                     <li><a href="#about">about</a></li>
                     <li><a href="#">mycology</a></li>
                     <li class="dropdown">
-                        <a href="/lab" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">laboratory<span class="caret"></span></a>
+                        <a href={{ route('lab') }} class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">laboratory<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="/lab">
+                                <a href={{ route('lab') }}>
                                     Pricing
                                 </a>
                             </li>
                             <li>
-                                <a href="/lab">
+                                <a href={{ route('lab') }}>
                                     Printed matter
                                 </a>
                             </li>
-                            @if (!(Auth::guest()) && (Voyager::can('admin')))
+                            @if (!(Auth::guest()) && (hasPermission('browse_admin')))
                                 <li>
-                                    <a href="lab/clinic-case">
+                                    <a href={{ route('clinicCase.index') }}>
                                         Clinic Cases
                                     </a>
                                 </li>

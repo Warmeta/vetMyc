@@ -2,7 +2,7 @@
 
 @section('main-content')
     <div class="page-content container-fluid">
-        <div id="add-btn" class="container">
+        <div id="add-btn" class="top-nav-log">
             <div class="col-md-12">
         @include('voyager::alerts')
         @if (Voyager::can('add_clinic_case'))
