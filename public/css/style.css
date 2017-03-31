@@ -244,7 +244,7 @@ textarea:focus {
 	margin-right: auto;
 	margin-left: auto;
 	position:relative;
-	z-index: 1100;
+	z-index: 2000;
 }
 
 @media (min-width: 768px) {
