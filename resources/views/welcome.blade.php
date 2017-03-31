@@ -432,7 +432,7 @@
             </div>
         </div>
 
-        <div id="google-map" data-latitude="40.713732" data-longitude="-74.0092704"></div>
+        <div id="google-map" data-latitude="28.138901" data-longitude="-15.506179"></div>
 
     </div>
 

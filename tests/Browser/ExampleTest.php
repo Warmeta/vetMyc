@@ -14,6 +14,7 @@ class ExampleTest extends DuskTestCase
      * @return void
      */
     /** @test */
+    //use DatabaseMigrations;
     public function testBasicExample()
     {
         $this->browse(function (Browser $browser) {

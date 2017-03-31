@@ -110,6 +110,13 @@ class LaboratoryController extends Controller
             ->with('clinic', $clinic);
     }
 
+    public function destroy($id)
+    {
+        ClinicCase::destroy($id);
+    }
+
+    //Helpers
+
     public function getSexOptions()
     {
         return ['male' => 'Male', 'female' => 'Female'];

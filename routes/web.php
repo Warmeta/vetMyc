@@ -37,31 +37,19 @@ Route::get('/lab', [
 Route::group(['prefix' => 'lab',  'middleware' => 'auth'], function () {
 
     //Clinic cases
-    Route::get('clinic-case', [
-        'uses' => 'LaboratoryController@indexC',
-        'as' => 'clinicCase.index'
-    ])->middleware('checkPermission:browse_clinic_case');
-    Route::get('clinic-case/create', [
-        'uses' => 'LaboratoryController@create',
-        'as' => 'clinicCase.create'
-    ]);
-    Route::get('clinic-case/{id}/edit', [
-        'uses' => 'LaboratoryController@edit',
-        'as' => 'clinicCase.edit'
-    ], function ($id) {
-        //
+    Route::get('clinic-case', ['uses' => 'LaboratoryController@indexC', 'as' => 'clinicCase.index'])->middleware('checkPermission:browse_clinic_case');
+
+    Route::get('clinic-case/create', ['uses' => 'LaboratoryController@create', 'as' => 'clinicCase.create'])->middleware('checkPermission:browse_clinic_case');
+
+    Route::get('clinic-case/{id}/edit', ['uses' => 'LaboratoryController@edit', 'as' => 'clinicCase.edit'], function ($id) {
+    //
     })->where('id', '[0-9]+')->middleware('checkPermission:browse_clinic_case');
 
-    Route::get('clinic-case/{id}', [
-        'uses' => 'LaboratoryController@show',
-        'as' => 'clinicCase.show'
-    ], function ($id) {
-        //
+    Route::get('clinic-case/{id}', ['uses' => 'LaboratoryController@show', 'as' => 'clinicCase.show'], function ($id) {
+    //
     })->where('id', '[0-9]+')->middleware('checkPermission:browse_clinic_case');
 
+    Route::post('clinic-case/create', ['uses' => 'LaboratoryController@store', 'as' => 'clinicCase.post'])->middleware('checkPermission:browse_clinic_case');
 
-    Route::post('clinic-case/create', [
-        'uses' => 'LaboratoryController@store',
-        'as' => 'clinicCase.post'
-    ])->middleware('checkPermission:browse_clinic_case');
+    Route::delete('clinic-case/delete/{id}', ['uses' => 'LaboratoryController@destroy', 'as' => 'clinicCase.delete'])->where('id', '[0-9]+')->middleware('checkPermission:browse_clinic_case');
 });

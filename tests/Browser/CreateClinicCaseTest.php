@@ -2,6 +2,8 @@
 
 namespace Tests\Browser;
 
+use App\ClinicCase;
+use Illuminate\Support\Facades\Auth;
 use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -13,19 +15,58 @@ class CreateClinicCaseTest extends DuskTestCase
      *
      * @return void
      */
-    use DatabaseMigrations;
-    protected $title = 'Esta es una pregunta';
-    protected $content = 'Este es el contenido';
-    public function test_a_user_cant_create_a_clinic_case()
+    //use DatabaseMigrations;
+    protected $number = '12';
+    protected $text = 'This is a text';
+
+    public function test_user_cant_create_a_clinic_case()
     {
         $user = $this->defaultUser();
         $this->browse(function ($browser) use ($user) {
             // Having
             $browser->loginAs($user)
                 ->visitRoute('clinicCase.create')
-                // Test a user is redirected to the lab path, cant create the clinic case.
-                ->assertPathIs('/lab');
+                // Test a user is redirected to the / path, cant create the clinic case.
+                ->assertPathIs('/');
         });
+    }
+
+    public function test_admin_can_create_a_clinic_case()
+    {
+        $user = $this->adminUser();
+        $this->browse(function ($browser) use ($user) {
+            // Having
+            $browser->loginAs($user)
+                ->visitRoute('clinicCase.create')
+                ->assertPathIs('/lab/clinic-case/create')
+                ->type('number_clinic_history', $this->number)
+                ->type('ref_animal', $this->number)
+                ->type('specie', $this->text)
+                ->type('clinic_history', $this->text)
+                ->type('owner', $this->text)
+                ->type('breed', $this->text)
+                ->select('sex', 'Male')
+                ->type('age', $this->number)
+                ->select('localization', 'loc1example')
+                ->select('clinic_case_status', 'In progress')
+                ->press('Create')
+                // Test a user is redirected to the lab index.
+                ->assertPathIs('/lab/clinic-case');
+        });
+        // Then
+        $this->assertDatabaseHas('clinic_cases', [
+            'number_clinic_history' => $this->number,
+            'author_id' => $user->id,
+            'ref_animal' => $this->number,
+            'specie' => $this->text,
+            'clinic_history' => $this->text,
+            'owner' => $this->text,
+            'breed' => $this->text,
+            'sex' => 'male',
+            'age' => $this->number,
+            'localization' => 'loc1',
+            'clinic_case_status' => 'inprogress',
+        ]);
     }
 
     /*

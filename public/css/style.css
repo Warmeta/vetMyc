@@ -195,7 +195,7 @@ textarea:focus {
 	padding: 5px 0;
 	background: #6fd779;
 	position:relative;
-	z-index: 999;
+	z-index: 1999;
 }
 
 /*Affix*/

@@ -41,7 +41,7 @@
                                     @endforeach
                                     <td class="no-sort no-click" id="bread-actions">
                                         <!-- delete -->
-                                        <a href="javascript:;" title="Delete" class="btn btn-sm btn-danger pull-right delete" data-id="{{ $clinic->id }}" id="delete-{{ $clinic->id }}">
+                                        <a title="Delete" class="btn btn-sm btn-danger pull-right delete" data-id="{{ $clinic->id }}" id="delete-{{ $clinic->id }}" data-token="{{ csrf_token() }}">
                                             <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
                                         </a>
                                         <!-- edit -->

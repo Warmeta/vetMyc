@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta id="vp" name="viewport" content="width=device-width, max-width=480px, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta id="vp" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
@@ -131,7 +131,6 @@
 <script src="/js/jquery.inview.js"></script>
 <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
 <script src="/js/script.js"></script>
-
 
 </body>
 </html>

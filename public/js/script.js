@@ -16,6 +16,29 @@ $(document).ready(function() {
 		});
 	});
 
+    $('.delete').click(function () {
+        var id = $(this).data("id");
+        var token = $(this).data("token");
+        var tr = $(this).closest("tr");
+        $.ajax(
+            {
+                type: "DELETE",
+                url: "./clinic-case/delete/" + id,
+                cache: false,
+                data: {
+                    "_token": token
+                },
+                success: function () {
+                    tr.fadeOut(1000, function(){
+                        $(this).remove();
+                    });
+                    console.log("it Work");
+                }
+            });
+
+        console.log("It failed");
+    });
+
 
 	// Main Menu
 	$('#main-nav').affix({
