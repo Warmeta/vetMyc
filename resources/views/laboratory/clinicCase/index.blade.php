@@ -3,7 +3,7 @@
 @section('main-content')
     <div class="page-content container-fluid">
         <div id="add-btn" class="top-nav-log">
-            <div class="col-md-12">
+            <div class="col-md-3">
         @include('voyager::alerts')
         @if (Voyager::can('add_clinic_case'))
             <a href="/lab/clinic-case/create" class="btn btn-success">
