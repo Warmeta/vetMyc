@@ -69,6 +69,11 @@ class CreateClinicCaseTest extends DuskTestCase
         ]);
     }
 
+    public function test_clinic_case_form_validation()
+    {
+
+    }
+
     /*
      * // Then
         $this->assertDatabaseHas('posts', [

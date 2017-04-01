@@ -82,7 +82,34 @@ class LaboratoryController extends Controller
 
     public function store(Request $request)
     {
-        if (Voyager::can('browse_clinic_cases')) {
+        $validator = Validator::make($request->all(), [
+            'number_clinic_history' => 'required|unique:clinic_cases|digits_between:1,30',
+            'ref_animal' => 'required|digits_between:1,30',
+            'specie' => 'required|max:30',
+            'clinic_history' => 'required|max:500',
+            'owner' => 'required|max:50',
+            'breed' => 'required|max:30',
+            'sex' => 'required|max:30',
+            'age' => 'required|digits_between:1,3',
+            'localization' => 'required|max:255',
+            'clinic_case_status' => 'required|max:255',
+            'sample' => 'nullable|max:255',
+            'bacterioscopy' => 'nullable|max:255',
+            'trichogram' => 'nullable|max:255',
+            'culture' => 'nullable|max:255',
+            'bacterial_isolate' => 'nullable|max:255',
+            'fungi_isolate' => 'nullable|max:255',
+            'antibiogram_sensitive' => 'nullable|max:255',
+            'antibiogram_intermediate' => 'nullable|max:255',
+            'antibiogram_resistant' => 'nullable|max:255',
+            'comment' => 'nullable|max:500',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/lab/clinic-case/create')
+                ->withErrors($validator)
+                ->withInput();
+        }elseif (Voyager::can('browse_clinic_cases')) {
             $cliniccase = new ClinicCase();
             $cliniccase->fill(['author_id' => Auth::user()->id]);
             $cliniccase->create($request->all());
