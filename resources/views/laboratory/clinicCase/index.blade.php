@@ -85,34 +85,3 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 @stop
-
-@section('css')
-    @if(config('dashboard.data_tables.responsive'))
-        <link rel="stylesheet" href="{{ config('voyager.assets_path') }}/lib/css/responsive.dataTables.min.css">
-    @endif
-@stop
-@section('javascript')
-    <!-- DataTables -->
-    @if(config('dashboard.data_tables.responsive'))
-        <script src="{{ config('voyager.assets_path') }}/lib/js/dataTables.responsive.min.js"></script>
-    @endif
-    <script>
-        $(document).ready();
-
-        var deleteFormAction;
-        $('td').on('click', '.delete', function (e) {
-            var form = $('#delete_form')[0];
-
-            if (!deleteFormAction) { // Save form action initial value
-                deleteFormAction = form.action;
-            }
-
-            form.action = deleteFormAction.match(/\/[0-9]+$/)
-                ? deleteFormAction.replace(/([0-9]+$)/, $(this).data('id'))
-                : deleteFormAction + '/' + $(this).data('id');
-            console.log(form.action);
-
-            $('#delete_modal').modal('show');
-        });
-    </script>
-@stop

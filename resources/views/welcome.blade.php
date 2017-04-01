@@ -425,8 +425,8 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
                     <div class="contact-heading">
-                        <h2>contact</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent metus magna,malesuada porta elementum vitae.</p>
+                        <h2>Find us here</h2>
+                        <p>ULPGC Veterinary - Bañaderos.</p>
                     </div>
                 </div>
             </div>

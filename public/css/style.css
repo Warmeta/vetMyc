@@ -132,6 +132,12 @@ textarea:focus {
 	border-top-right-radius: 3px;
 }
 
+/*errors*/
+
+.errors{
+	color: red;
+}
+
 /*Header home*/
 #home {
 	position: relative;
@@ -1292,8 +1298,8 @@ textarea:focus {
 /*Map*/
 #google-map{
     position:relative;
-    margin-top:10px;
-    height: 400px;
+    margin-top:20px;
+    height: 350px;
 }
 
 /*Client*/

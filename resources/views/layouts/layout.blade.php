@@ -122,14 +122,12 @@
     </div>
 </div>
 
-
-
 <!-- jQuery -->
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/jquery.flexslider.js"></script>
 <script src="/js/jquery.inview.js"></script>
-<script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxnxNyJ0xcX50M8lmHZ-Ch2RLAleH3s8M"></script>
 <script src="/js/script.js"></script>
 
 </body>

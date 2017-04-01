@@ -34,13 +34,12 @@ $(document).ready(function() {
                         tr.fadeOut(500, function(){
                             $(this).remove();
                         });
-                        console.log("it Work");
+                        console.log("Deleted clinic case " + id);
                     }
                 });
         else
             console.log("It failed");
     });
-
 
     // Main Menu
 	$('#main-nav').affix({
