@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/vendor/tcg/voyager/assets/fonts/voyager/styles.css">
     <!-- =======================================================
         Theme Name: MyBiz
         Theme URL: https://bootstrapmade.com/mybiz-free-business-bootstrap-theme/

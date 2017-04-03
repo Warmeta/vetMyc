@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Antibiotic;
 use App\ClinicCase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -52,6 +53,17 @@ class LaboratoryController extends Controller
         return view('laboratory.clinicCase.index')->with('clinics', $clinics)->with('rows', $rows);
     }
 
+    public function indexA()
+    {
+        $rows = [
+            'antibiotic_name',
+            'description'
+        ];
+
+        $antibiotics = DB::table('antibiotics')->paginate(15);
+
+        return view('laboratory.antibiotic.index')->with('antibiotics', $antibiotics)->with('rows', $rows);
+    }
 
     public function create()
     {
@@ -77,6 +89,15 @@ class LaboratoryController extends Controller
             return view('laboratory.clinicCase.create')->with('data', $data);
         } else {
             return Redirect::to('/lab/clinic-case');
+        }
+    }
+
+    public function createAntibiotic()
+    {
+        if (Voyager::can('browse_antibiotics')) {
+            return view('laboratory.antibiotic.create');
+        } else {
+            return Redirect::to('/lab/antibiotic');
         }
     }
 
@@ -120,6 +141,27 @@ class LaboratoryController extends Controller
         }
     }
 
+    public function storeAntibiotic(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'antibiotic_name' => 'required|unique:antibiotics|max:30',
+            'description' => 'required|max:190',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/lab/antibiotic/create')
+                ->withErrors($validator)
+                ->withInput();
+        }elseif (Voyager::can('browse_antibiotics')) {
+            $antibiotic = new Antibiotic();
+            $antibiotic->create($request->all());
+
+            return Redirect::to('/lab/antibiotic')->with('message', 'Antibiotic created successfully.');
+        } else {
+            return Redirect::to('/lab/antibiotic');
+        }
+    }
+
     public function edit($id)
     {
         $clinic = ClinicCase::find($id);
@@ -131,15 +173,28 @@ class LaboratoryController extends Controller
 
     public function show($id)
     {
-        $clinic = ClinicCase::find($id);
+        $antibiotic = Antibiotic::find($id);
         // show
         return View::make('laboratory.clinicCase.show')
-            ->with('clinic', $clinic);
+            ->with('antibiotic', $antibiotic);
+    }
+
+    public function showAntibiotic($id)
+    {
+        $antibiotic = Antibiotic::find($id);
+        // show
+        return View::make('laboratory.antibiotic.show')
+            ->with('antibiotic', $antibiotic);
     }
 
     public function destroy($id)
     {
         ClinicCase::destroy($id);
+    }
+
+    public function destroyAntibiotic($id)
+    {
+        Antibiotic::destroy($id);
     }
 
     //Helpers

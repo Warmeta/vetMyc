@@ -1441,3 +1441,8 @@ textarea:focus {
 #add-btn{
 	top: 25px;
 }
+
+.btns{
+	text-align: center;
+	margin-top: 3px;
+}
