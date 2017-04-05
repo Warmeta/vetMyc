@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Antibiotic;
 use App\ClinicCase;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -73,20 +74,15 @@ class LaboratoryController extends Controller
             $sta = LaboratoryController::getStatusOptions();
             $bac = LaboratoryController::getBacterialOptions();
             $fun = LaboratoryController::getFungiOptions();
-            $sen = LaboratoryController::getSenOptions();
-            $int = LaboratoryController::getIntOptions();
-            $res = LaboratoryController::getResOptions();
             $data = collect([
                 'sex' => $sex,
                 'localization' => $loc,
                 'status' => $sta,
                 'bac' => $bac,
-                'fun' => $fun,
-                'sensitive' => $sen,
-                'intermediate' => $int,
-                'resistant' => $res
+                'fun' => $fun
             ]);
-            return view('laboratory.clinicCase.create')->with('data', $data);
+            $antibiotics = DB::table('antibiotics')->pluck('antibiotic_name')->all();
+            return view('laboratory.clinicCase.create')->with('data', $data)->with('antibiotics', $antibiotics);
         } else {
             return Redirect::to('/lab/clinic-case');
         }
@@ -120,9 +116,6 @@ class LaboratoryController extends Controller
             'culture' => 'nullable|max:255',
             'bacterial_isolate' => 'nullable|max:255',
             'fungi_isolate' => 'nullable|max:255',
-            'antibiogram_sensitive' => 'nullable|max:255',
-            'antibiogram_intermediate' => 'nullable|max:255',
-            'antibiogram_resistant' => 'nullable|max:255',
             'comment' => 'nullable|max:500',
         ]);
 
@@ -133,7 +126,14 @@ class LaboratoryController extends Controller
         }elseif (Voyager::can('browse_clinic_cases')) {
             $cliniccase = new ClinicCase();
             $cliniccase->fill(['author_id' => Auth::user()->id]);
-            $cliniccase->create($request->all());
+            $cliniccase = ClinicCase::create($request->all());
+            $antibiotics = DB::table('antibiotics')->get()->all();
+            foreach ($antibiotics as $antibiotic) {
+                $sensitive = $antibiotic->antibiotic_name . '-1';
+                $intermediate = $antibiotic->antibiotic_name . '-2';
+                $resistant = $antibiotic->antibiotic_name . '-3';
+                $cliniccase->antibiotics()->attach($antibiotic->id, ['sensitive' => $request->$sensitive,'intermediate' => $request->$intermediate,'resistant' => $request->$resistant]);
+            }
 
             return Redirect::to('/lab/clinic-case')->with('message', 'Clinic case created successfully.');
         } else {
@@ -222,20 +222,5 @@ class LaboratoryController extends Controller
     public function getFungiOptions()
     {
         return ['fung1' => 'fungi1','fung2' => 'fungi2'];
-    }
-
-    public function getSenOptions()
-    {
-        return ['m1' => 'med1','m2' => 'med2'];
-    }
-
-    public function getIntOptions()
-    {
-        return ['m1' => 'med1','m2' =>  'med2'];
-    }
-
-    public function getResOptions()
-    {
-        return ['m1' => 'med1','m2' =>  'med2'];
     }
 }

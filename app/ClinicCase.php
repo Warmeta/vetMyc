@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class ClinicCase extends Model
 {
@@ -29,5 +30,9 @@ class ClinicCase extends Model
         'antibiogram_resistant',
         'comment'
     ];
+
+    public function antibiotics() {
+        return $this->belongsToMany(Antibiotic::class, 'clinic_cases_antibiotics', 'clinic_case_id', 'antibiotic_id');
+    }
 
 }

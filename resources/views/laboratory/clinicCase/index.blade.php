@@ -29,7 +29,6 @@
                             </tr>
                             </thead>
                             <tbody>
-
                             @foreach($clinics as $clinic)
                                 <tr>
 

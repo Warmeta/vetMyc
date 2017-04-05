@@ -19,32 +19,32 @@
                             <div class="col-md-9 form-group">
                                 {{ Form::label('Ref. Animal', null, ['class' => 'control-label']) }}
                                 {{ Form::text('ref_animal', null, ['class' => 'form-control']) }}
-                                <a class="errors"><a class="errors">{{$errors->first('ref_animal') }}</a>
+                                <a class="errors">{{$errors->first('ref_animal') }}</a>
                             </div>
                             <div class="col-md-9 form-group">
                                 {{ Form::label('Specie', null, ['class' => 'control-label']) }}
                                 {{ Form::text('specie', null, ['class' => 'form-control']) }}
-                                <a class="errors"><a class="errors">{{$errors->first('specie') }}</a>
+                                <a class="errors">{{$errors->first('specie') }}</a>
                             </div>
                             <div class="col-md-9 form-group">
                                 {{ Form::label('Clinic History', null, ['class' => 'control-label']) }}
                                 {{ Form::textarea('clinic_history', null, ['class' => 'form-control']) }}
-                                <a class="errors"><a class="errors">{{$errors->first('clinic_history') }}</a>
+                                <a class="errors">{{$errors->first('clinic_history') }}</a>
                             </div>
                             <div class="col-md-9 form-group">
                                 {{ Form::label('Owner', null, ['class' => 'control-label']) }}
                                 {{ Form::text('owner', null, ['class' => 'form-control']) }}
-                                <a class="errors"><a class="errors">{{$errors->first('owner') }}</a>
+                                <a class="errors">{{$errors->first('owner') }}</a>
                             </div>
                             <div class="col-md-9 form-group">
                                 {{ Form::label('Breed', null, ['class' => 'control-label']) }}
                                 {{ Form::text('breed', null, ['class' => 'form-control']) }}
-                                <a class="errors"><a class="errors">{{$errors->first('breed') }}</a>
+                                <a class="errors">{{$errors->first('breed') }}</a>
                             </div>
                             <div class="col-md-9 form-group">
                                 {{ Form::label('Sex', null, ['class' => 'control-label']) }}
                                 {{ Form::select('sex', $data->get('sex'), null, ['placeholder' => 'Pick a sex...'],['class' => 'form-control']) }}
-                                <a class="errors"><a class="errors">{{$errors->first('sex') }}</a>
+                                <a class="errors">{{$errors->first('sex') }}</a>
                             </div>
                             <div class="col-md-9 form-group">
                                 {{ Form::label('Age', null, ['class' => 'control-label']) }}
@@ -95,19 +95,41 @@
                                 <a class="errors">{{$errors->first('fungi_isolate') }}</a>
                             </div>
                             <div class="col-md-9 form-group">
-                                {{ Form::label('Antibiogram: Sensitive', null, ['class' => 'control-label']) }}
-                                {{ Form::select('antibiogram_sensitive', $data->get('sensitive'), null, ['class' => 'form-control']) }}
-                                <a class="errors">{{$errors->first('antibiogram_sensitive') }}</a>
-                            </div>
-                            <div class="col-md-9 form-group">
-                                {{ Form::label('Antibiogram: Intermediate', null, ['class' => 'control-label']) }}
-                                {{ Form::select('antibiogram_intermediate', $data->get('intermediate'), null, ['class' => 'form-control']) }}
-                                <a class="errors">{{$errors->first('antibiogram_intermediate') }}</a>
-                            </div>
-                            <div class="col-md-9 form-group">
-                                {{ Form::label('Antibiogram: Resistant', null, ['class' => 'control-label']) }}
-                                {{ Form::select('antibiogram_resistant', $data->get('resistant'), null, ['class' => 'form-control']) }}
-                                <a class="errors">{{$errors->first('antibiogram_resistant') }}</a>
+                                <div class="panel-body table-responsive">
+                                    <table id="dataTable" class="row table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Sensitive</th>
+                                            <th>Intermediate</th>
+                                            <th>Resistant</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        @foreach($antibiotics as $antibiotic)
+                                            <tr id="{{ $antibiotic }}">
+                                                <td>
+                                                    <div class="readmore">{{ $antibiotic }}</div>
+                                                </td>
+                                                <td>
+                                                    <!-- sensitive -->
+                                                    {{ Form::checkbox($antibiotic.'-1') }}
+                                                </td>
+                                                <td>
+                                                    <!-- intermediate -->
+                                                    {{ Form::checkbox($antibiotic.'-2') }}
+                                                </td>
+                                                <td>
+                                                    <!-- ressitant -->
+                                                    {{ Form::checkbox($antibiotic.'-3') }}
+                                                </td>
+                                            </tr>
+                                        @endforeach
+
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div class="col-md-9 form-group">
                                 {{ Form::label('Comments', null, ['class' => 'control-label']) }}

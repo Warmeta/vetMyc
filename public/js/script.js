@@ -42,6 +42,15 @@ $(document).ready(function() {
             console.log("It failed");
     });
 
+    //only 1 checkbox
+    $('input[type="checkbox"]').on('change', function() {
+
+        var trRow = $(this).closest("tr");
+        // uncheck all checkbox in current row, except the selected radio
+        trRow.find(":checkbox").not($(this)).prop("checked",false);
+
+    });
+
     // Main Menu
 	$('#main-nav').affix({
 		offset: {

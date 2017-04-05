@@ -14,14 +14,14 @@ class CreateClinicCasesAntibioticsTable extends Migration
     public function up()
     {
         Schema::create('clinic_cases_antibiotics', function(Blueprint $table) {
-            $table->increments('id');
-            $table->integer('clinic_case_id')->unsigned();
+            $table->integer('antibiotic_id')->unsigned()->index();
+            $table->foreign('antibiotic_id')->references('id')->on('antibiotics')->onDelete('cascade');
+            $table->integer('clinic_case_id')->unsigned()->index();
             $table->foreign('clinic_case_id')->references('id')->on('clinic_cases')->onDelete('cascade');
             $table->boolean('resistant')->nullable();
             $table->boolean('intermediate')->nullable();
             $table->boolean('sensitive')->nullable();
-            $table->integer('antibiotic_id')->unsigned();
-            $table->foreign('antibiotic_id')->references('id')->on('antibiotics');
+            $table->primary(['antibiotic_id', 'clinic_case_id']);
             $table->timestamps();
         });
     }

@@ -33,9 +33,6 @@ class CreateClinicCasesTable extends Migration
             $table->string('culture')->nullable();
             $table->string('bacterial_isolate')->nullable();
             $table->string('fungi_isolate')->nullable();
-            $table->string('antibiogram_sensitive')->nullable();
-            $table->string('antibiogram_intermediate')->nullable();
-            $table->string('antibiogram_resistant')->nullable();
             $table->mediumtext('comment')->nullable();
             $table->timestamps();
         });

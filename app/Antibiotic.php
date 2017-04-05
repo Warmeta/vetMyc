@@ -10,4 +10,8 @@ class Antibiotic extends Model
         'antibiotic_name',
         'description',
     ];
+
+    public function clinic_cases() {
+        return $this->belongsToMany(ClinicCase::class, 'clinic_cases_antibiotics', 'antibiotic_id', 'clinic_case_id');
+    }
 }
