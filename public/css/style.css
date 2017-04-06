@@ -1266,9 +1266,13 @@ textarea:focus {
 }
 
 #get-touch .content .form input {
-	height: 50px;
+	height: 40px;
 	width: 100%;
 	border-color: #ebebeb;
+}
+
+#get-touch .content .form input[type = checkbox] {
+	height: 15px;
 }
 
 #get-touch .content .form textarea {

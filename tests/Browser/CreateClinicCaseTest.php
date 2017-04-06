@@ -45,11 +45,12 @@ class CreateClinicCaseTest extends DuskTestCase
                 ->type('clinic_history', $this->text)
                 ->type('owner', $this->text)
                 ->type('breed', $this->text)
-                ->select('sex', 'Male')
+                ->select('sex', 'male')
                 ->type('age', $this->number)
-                ->select('localization', 'loc1example')
-                ->select('clinic_case_status', 'In progress')
-                ->press('Create')
+                ->select('localization', 'eye')
+                ->select('clinic_case_status', 'inprogress');
+            $browser->driver->executeScript('window.scrollTo(0, 800);');
+            $browser->press('Create')
                 // Test a user is redirected to the lab index.
                 ->assertPathIs('/lab/clinic-case');
         });
@@ -64,16 +65,33 @@ class CreateClinicCaseTest extends DuskTestCase
             'breed' => $this->text,
             'sex' => 'male',
             'age' => $this->number,
-            'localization' => 'loc1',
+            'localization' => 'eye',
             'clinic_case_status' => 'inprogress',
         ]);
     }
 
     public function test_clinic_case_form_validation()
     {
-
+        $user = $this->adminUser();
+        $this->browse(function ($browser) use ($user) {
+            // Having
+            $browser->loginAs($user)
+                ->visitRoute('clinicCase.create')
+                ->driver->executeScript('window.scrollTo(0, 800);');
+            $browser->press('Create')
+                // Then
+                ->assertPathIs('/lab/clinic-case/create')
+                ->assertSeeIn('#errors1', 'field is required.')
+                ->assertSeeIn('#errors2', 'field is required.')
+                ->assertSeeIn('#errors3', 'field is required.')
+                ->assertSeeIn('#errors4', 'field is required.')
+                ->assertSeeIn('#errors5', 'field is required.')
+                ->assertSeeIn('#errors6', 'field is required.')
+                ->assertSeeIn('#errors7', 'field is required.')
+                ->assertSeeIn('#errors8', 'field is required.')
+                ->assertSeeIn('#errors9', 'field is required.');
+        });
     }
-
     /*
      * // Then
         $this->assertDatabaseHas('posts', [

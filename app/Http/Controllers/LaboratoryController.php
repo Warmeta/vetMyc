@@ -43,9 +43,6 @@ class LaboratoryController extends Controller
         'age',
         'localization',
         'clinic_case_status',
-        'bacterioscopy',
-        'trichogram',
-        'culture',
         'comment'
         ];
 
@@ -72,14 +69,10 @@ class LaboratoryController extends Controller
             $sex = LaboratoryController::getSexOptions();
             $loc = LaboratoryController::getLocOptions();
             $sta = LaboratoryController::getStatusOptions();
-            $bac = LaboratoryController::getBacterialOptions();
-            $fun = LaboratoryController::getFungiOptions();
             $data = collect([
                 'sex' => $sex,
                 'localization' => $loc,
-                'status' => $sta,
-                'bac' => $bac,
-                'fun' => $fun
+                'status' => $sta
             ]);
             $antibiotics = DB::table('antibiotics')->pluck('antibiotic_name')->all();
             return view('laboratory.clinicCase.create')->with('data', $data)->with('antibiotics', $antibiotics);
@@ -206,21 +199,23 @@ class LaboratoryController extends Controller
 
     public function getLocOptions()
     {
-        return ['loc1' => 'loc1example','loc2' => 'loc2example'];
+        return [
+            'skin' => 'Skin',
+            'eye' => 'Eye',
+            'mouth' => 'Mouth',
+            'nose' => 'Nose',
+            'nail' => 'Nail',
+            'hair' => 'Hair',
+            'ear' => 'Ear',
+            'blood' => 'Blood',
+            'biopsy' => 'Biopsy',
+            'bodyfluids' => 'Body Fluids',
+            'feces' => 'Feces',
+        ];
     }
 
     public function getStatusOptions()
     {
         return ['inprogress' => 'In progress','finished' => 'Finished'];
-    }
-
-    public function getBacterialOptions()
-    {
-        return ['bac1' => 'bacterial1','bac2' => 'bacterial2'];
-    }
-
-    public function getFungiOptions()
-    {
-        return ['fung1' => 'fungi1','fung2' => 'fungi2'];
     }
 }
