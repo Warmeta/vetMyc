@@ -22,3 +22,6 @@
 [0406/030333.267:ERROR:process_reader_win.cc(114)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso.  (0xc0000022)
 [0406/030333.267:ERROR:exception_snapshot_win.cc(87)] thread ID 21244 not found in process
 [0406/030333.267:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
+[0410/053914.628:ERROR:process_reader_win.cc(114)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso.  (0xc0000022)
+[0410/053914.631:ERROR:exception_snapshot_win.cc(87)] thread ID 24384 not found in process
+[0410/053914.631:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed

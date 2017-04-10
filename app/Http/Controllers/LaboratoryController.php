@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Antibiotic;
 use App\ClinicCase;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -33,30 +33,42 @@ class LaboratoryController extends Controller
         return view('laboratory.index');
     }
 
-    public function indexC()
+    public function indexC(Request $request)
     {
-        $rows = [
-        'number_clinic_history',
-        'ref_animal',
-        'specie',
-        'breed',
-        'age',
-        'localization',
-        'clinic_case_status',
-        'comment'
-        ];
+        $rows = collect([
+            'number_clinic_history' => 'Nº ClinicCase',
+            'ref_animal' => 'Ref. Animal',
+            'specie' => 'Specie',
+            'breed' => 'Breed',
+            'age' => 'Age',
+            'localization' => 'Localization',
+            'clinic_case_status' => 'Status',
+            'comment' => 'Comment',
+        ]);
 
-        $clinics = DB::table('clinic_cases')->paginate(15);
+        $filters = LaboratoryController::getFilters();
 
-        return view('laboratory.clinicCase.index')->with('clinics', $clinics)->with('rows', $rows);
+        $model = $request->all();
+
+        $only = $request->filter;
+
+        if (isset($request->filter)) {
+            if ($request->filter == ('inprogress' || 'finished')){ //filter status
+                $clinics = ClinicCase::status($only)->orderBy('number_clinic_history', 'DESC')->paginate(15);
+                return view('laboratory.clinicCase.index', compact('clinics', 'rows', 'filters', 'model', 'only'));
+            }// more filters
+        }else {
+            $clinics = ClinicCase::paginate(15); //without filter
+            return view('laboratory.clinicCase.index', compact('clinics', 'rows', 'filters', 'model', 'only'));
+        }
     }
 
     public function indexA()
     {
-        $rows = [
-            'antibiotic_name',
-            'description'
-        ];
+        $rows = collect([
+            'antibiotic_name' => 'Name',
+            'description' => 'Description'
+        ]);
 
         $antibiotics = DB::table('antibiotics')->paginate(15);
 
@@ -92,29 +104,9 @@ class LaboratoryController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'number_clinic_history' => 'required|unique:clinic_cases|digits_between:1,30',
-            'ref_animal' => 'required|digits_between:1,30',
-            'specie' => 'required|max:30',
-            'clinic_history' => 'required|max:500',
-            'owner' => 'required|max:50',
-            'breed' => 'required|max:30',
-            'sex' => 'required|max:30',
-            'age' => 'required|digits_between:1,3',
-            'localization' => 'required|max:255',
-            'clinic_case_status' => 'required|max:255',
-            'sample' => 'nullable|max:255',
-            'bacterioscopy' => 'nullable|max:255',
-            'trichogram' => 'nullable|max:255',
-            'culture' => 'nullable|max:255',
-            'bacterial_isolate' => 'nullable|max:255',
-            'fungi_isolate' => 'nullable|max:255',
-            'comment' => 'nullable|max:500',
-        ]);
-
-        if ($validator->fails()) {
+        if (LaboratoryController::validateClinicCase($request)->fails()) {
             return redirect('/lab/clinic-case/create')
-                ->withErrors($validator)
+                ->withErrors(LaboratoryController::validateClinicCase($request))
                 ->withInput();
         }elseif (Voyager::can('browse_clinic_cases')) {
             $cliniccase = new ClinicCase();
@@ -158,18 +150,97 @@ class LaboratoryController extends Controller
     public function edit($id)
     {
         $clinic = ClinicCase::find($id);
+        $sex = LaboratoryController::getSexOptions();
+        $loc = LaboratoryController::getLocOptions();
+        $sta = LaboratoryController::getStatusOptions();
+        $data = collect([
+            'sex' => $sex,
+            'localization' => $loc,
+            'status' => $sta
+        ]);
+
+        $antibiotics = DB::table('antibiotics')->pluck('antibiotic_name')->all();
+        $antibioticsid = DB::table('antibiotics')->pluck('id')->all();          //array with antibiotic ids
+
+        $arrayrel = array();    //checked relations between clinic cases and antibiotics
+
+        foreach ($antibiotics as $antibiotic){      //array filled nulls for checkboxes in edit view, nº antibiotics x 3
+            $arrayrel = null;
+            $arrayrel = null;
+            $arrayrel = null;
+        }
+
+        $clinicantibiotics = DB::table('clinic_cases_antibiotics')->where('clinic_case_id', $clinic->id)->get();
+
+        $i = 0;
+        foreach ($clinicantibiotics as $rel){       //checked checkboxes for the relationship
+            if ($rel->antibiotic_id == $antibioticsid[$i]) {
+                $arrayrel[] = $rel->sensitive;
+                $arrayrel[] = $rel->intermediate;
+                $arrayrel[] = $rel->resistant;
+            }
+            $i++;
+        }
+        // show the edit form
+        return View::make('laboratory.clinicCase.edit', compact('clinic', 'data', 'antibiotics', 'arrayrel'));
+    }
+
+    public function editAntibiotic($id)
+    {
+        $antibiotic = Antibiotic::find($id);
 
         // show the edit form
-        return View::make('laboratory.clinicCase.edit')
-            ->with('clinicCase.edit', $clinic);
+        return View::make('laboratory.antibiotic.edit', compact('antibiotic'));
+    }
+
+    public function update(Request $request){
+        if (LaboratoryController::validateClinicCase($request)->fails()) {
+            return redirect('/lab/clinic-case/'.$request->id.'/edit')
+                ->withErrors(LaboratoryController::validateClinicCase($request))
+                ->withInput();
+        }elseif (Voyager::can('browse_clinic_cases')) {
+            $cliniccase = ClinicCase::find($request->id);
+            $cliniccase->update($request->all());
+            $antibiotics = DB::table('antibiotics')->get()->all();
+            $cliniccase->antibiotics()->detach();
+            foreach ($antibiotics as $antibiotic) {
+                $sensitive = $antibiotic->antibiotic_name . '-1';
+                $intermediate = $antibiotic->antibiotic_name . '-2';
+                $resistant = $antibiotic->antibiotic_name . '-3';
+                $cliniccase->antibiotics()->attach($antibiotic->id, ['sensitive' => $request->$sensitive,'intermediate' => $request->$intermediate,'resistant' => $request->$resistant]);
+            }
+
+            return Redirect::to('/lab/clinic-case')->with('message', 'Clinic case '.$request->number_clinic_history.' updated successfully.');
+        } else {
+            return Redirect::to('/lab/clinic-case');
+        }
+    }
+
+    public function updateAntibiotic(Request $request){
+        $validator = Validator::make($request->all(), [
+            'antibiotic_name' => 'required|unique:antibiotics|max:30',
+            'description' => 'required|max:190',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/lab/antibiotic/create')
+                ->withErrors($validator)
+                ->withInput();
+        }elseif (Voyager::can('browse_antibiotics')) {
+            $antibiotic = Antibiotic::find($request->id);
+            $antibiotic->update($request->all());
+            return Redirect::to('/lab/antibiotic')->with('message', 'Antibiotic updated successfully.');
+        } else {
+            return Redirect::to('/lab/antibiotic');
+        }
     }
 
     public function show($id)
     {
-        $antibiotic = Antibiotic::find($id);
+        $clinic = ClinicCase::find($id);
         // show
         return View::make('laboratory.clinicCase.show')
-            ->with('antibiotic', $antibiotic);
+            ->with('clinic', $clinic);
     }
 
     public function showAntibiotic($id)
@@ -214,8 +285,37 @@ class LaboratoryController extends Controller
         ];
     }
 
+    public function validateClinicCase($request)
+    {
+        return Validator::make($request->all(), [
+            'number_clinic_history' => 'required|digits_between:1,30',
+            'ref_animal' => 'required|digits_between:1,30',
+            'specie' => 'required|max:30',
+            'clinic_history' => 'required|max:500',
+            'owner' => 'required|max:50',
+            'breed' => 'required|max:30',
+            'sex' => 'required|max:30',
+            'age' => 'required|digits_between:1,3',
+            'localization' => 'required|max:255',
+            'clinic_case_status' => 'required|max:255',
+            'sample' => 'nullable|max:255',
+            'bacterioscopy' => 'nullable|max:255',
+            'trichogram' => 'nullable|max:255',
+            'culture' => 'nullable|max:255',
+            'bacterial_isolate' => 'nullable|max:255',
+            'fungi_isolate' => 'nullable|max:255',
+            'comment' => 'nullable|max:500',
+        ]);
+    }
+
     public function getStatusOptions()
     {
         return ['inprogress' => 'In progress','finished' => 'Finished'];
     }
+
+    public function getFilters()
+    {
+        return ['inprogress' => 'In progress','finished' => 'Finished'];
+    }
 }
+

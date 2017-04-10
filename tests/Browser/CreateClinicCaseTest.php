@@ -92,6 +92,30 @@ class CreateClinicCaseTest extends DuskTestCase
                 ->assertSeeIn('#errors9', 'field is required.');
         });
     }
+
+    public function test_scope_clinic_case_status()
+    {
+        $user = $this->adminUser();
+        $this->browse(function ($browser) use ($user) {
+            // Having
+            $InProgressClinicCase = factory(ClinicCase::class)->create([
+                'number_clinic_history' => 123123,
+                'clinic_case_status' => 'inprogress',
+            ]);
+
+            $FinishedClinicCase = factory(ClinicCase::class)->create([
+                'number_clinic_history' => 333333,
+                'clinic_case_status' => 'finished',
+            ]);
+
+            $browser->loginAs($user)
+                ->visitRoute('clinicCase.index')
+                ->select('filter', 'inprogress')
+                ->assertPathIs('/lab/clinic-case')
+                ->assertSee($InProgressClinicCase->number_clinic_history)
+                ->assertDontSee($FinishedClinicCase->number_clinic_history);
+        });
+    }
     /*
      * // Then
         $this->assertDatabaseHas('posts', [

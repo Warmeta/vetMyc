@@ -27,5 +27,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TranslationsTableSeeder::class);
         $this->call(VoyagerDatabaseSeeder::class);
         $this->call(VoyagerDummyDatabaseSeeder::class);
+        $this->call(ClinicCasesTableSeeder::class);
     }
 }

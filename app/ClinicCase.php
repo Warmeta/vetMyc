@@ -25,14 +25,17 @@ class ClinicCase extends Model
         'culture',
         'bacterial_isolate',
         'fungi_isolate',
-        'antibiogram_sensitive',
-        'antibiogram_intermediate',
-        'antibiogram_resistant',
         'comment'
     ];
 
+
+
     public function antibiotics() {
         return $this->belongsToMany(Antibiotic::class, 'clinic_cases_antibiotics', 'clinic_case_id', 'antibiotic_id');
+    }
+
+    public function scopeStatus($query, $status){
+        $query->where('clinic_case_status', $status);
     }
 
 }

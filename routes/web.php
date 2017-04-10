@@ -39,17 +39,24 @@ Route::group(['prefix' => 'lab',  'middleware' => 'auth'], function () {
     //Clinic cases
     Route::get('clinic-case', ['uses' => 'LaboratoryController@indexC', 'as' => 'clinicCase.index'])->middleware('checkPermission:browse_clinic_case');
 
+   // Route::get('clinic-case-filter', ['uses' => 'LaboratoryController@indexFilter', 'as' => 'clinicCase.filter'])->middleware('checkPermission:browse_clinic_case');
+
     Route::get('clinic-case/create', ['uses' => 'LaboratoryController@create', 'as' => 'clinicCase.create'])->middleware('checkPermission:browse_clinic_case');
+
+    Route::post('clinic-case/create', ['uses' => 'LaboratoryController@store', 'as' => 'clinicCase.post'])->middleware('checkPermission:browse_clinic_case');
 
     Route::get('clinic-case/{id}/edit', ['uses' => 'LaboratoryController@edit', 'as' => 'clinicCase.edit'], function ($id) {
     //
+    })->where('id', '[0-9]+')->middleware('checkPermission:browse_clinic_case');
+
+    Route::put('clinic-case/{id}/edit', ['uses' => 'LaboratoryController@update', 'as' => 'clinicCase.update'], function ($id) {
+        //
     })->where('id', '[0-9]+')->middleware('checkPermission:browse_clinic_case');
 
     Route::get('clinic-case/{id}', ['uses' => 'LaboratoryController@show', 'as' => 'clinicCase.show'], function ($id) {
     //
     })->where('id', '[0-9]+')->middleware('checkPermission:browse_clinic_case');
 
-    Route::post('clinic-case/create', ['uses' => 'LaboratoryController@store', 'as' => 'clinicCase.post'])->middleware('checkPermission:browse_clinic_case');
 
     Route::delete('clinic-case/delete/{id}', ['uses' => 'LaboratoryController@destroy', 'as' => 'clinicCase.delete'])->where('id', '[0-9]+')->middleware('checkPermission:browse_clinic_case');
 
@@ -59,6 +66,10 @@ Route::group(['prefix' => 'lab',  'middleware' => 'auth'], function () {
     Route::get('antibiotic/create', ['uses' => 'LaboratoryController@createAntibiotic', 'as' => 'antibiotic.create'])->middleware('checkPermission:browse_antibiotic');
 
     Route::get('antibiotic/{id}/edit', ['uses' => 'LaboratoryController@editAntibiotic', 'as' => 'antibiotic.edit'], function ($id) {
+        //
+    })->where('id', '[0-9]+')->middleware('checkPermission:antibiotic_case');
+
+    Route::put('antibiotic/{id}/edit', ['uses' => 'LaboratoryController@updateAntibiotic', 'as' => 'antibiotic.update'], function ($id) {
         //
     })->where('id', '[0-9]+')->middleware('checkPermission:antibiotic_case');
 

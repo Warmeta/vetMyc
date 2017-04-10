@@ -99,12 +99,12 @@ textarea:focus {
 
 .cover {
 	position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 2;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	z-index: 2;
 }
 
 .container {
@@ -115,7 +115,6 @@ textarea:focus {
 /*Forms*/
 .panel {
 	position: relative;
-	top: 3em;
 	border-radius: 0;
 	border-width: thin;
 	border-color: #eeeeee;
@@ -201,21 +200,21 @@ textarea:focus {
 	padding: 5px 0;
 	background: #6fd779;
 	position:relative;
-	z-index: 1999;
+	z-index: 2100;
 }
 
 /*Affix*/
 #main-nav.affix {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: rgba(113, 215, 122, 0.8);
-    color: #fff;
-    z-index:10;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: rgba(113, 215, 122, 0.8);
+	color: #fff;
+	z-index:10;
 	-moz-box-shadow: 0 1px 2px #ebebeb;
 	-webkit-box-shadow: 0 1px 2px #ebebeb;
 	box-shadow: 0 5px 5px rgba(0,0,0,.15);
-    transition: all 0.3s;
+	transition: all 0.3s;
 }
 
 .navbar {
@@ -404,7 +403,7 @@ textarea:focus {
 }
 
 #slider.flexslider .slides > li img {
-	
+
 }
 
 /*Slider Caption*/
@@ -448,9 +447,9 @@ textarea:focus {
 
 #slider .caption button:hover {
 	background-color: #fff;
-    border: 1px solid #6fd779;
-    transition: 0.3s;
-    color: #6fd779;
+	border: 1px solid #6fd779;
+	transition: 0.3s;
+	color: #6fd779;
 }
 
 
@@ -476,7 +475,7 @@ textarea:focus {
 
 	#slider .caption .btn {
 		width: 80px;
-	    height: 20px;
+		height: 20px;
 		font-size: 10px;
 		margin-top: 5px;
 		padding: 0;
@@ -504,7 +503,7 @@ textarea:focus {
 
 	#slider .caption .btn {
 		width: 110px;
-	    height: 30px;
+		height: 30px;
 		font-size: 12px;
 		margin-top: 15px;
 
@@ -566,17 +565,17 @@ textarea:focus {
 
 #about .about-left {
 	position: relative;
-    z-index: 2;
+	z-index: 2;
 }
 
 #about .about-right:before {
 	content: "";
-    border: 8px solid #e5eef0;
+	border: 8px solid #e5eef0;
 	width: 120%;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 
 #about .about-right {
@@ -601,8 +600,8 @@ textarea:focus {
 }
 
 #about .about-right-wrapper {
-    padding-left: 0 0 50px 78px;
-    position: relative;
+	padding-left: 0 0 50px 78px;
+	position: relative;
 	left: 0;
 	top: 75px;
 }
@@ -660,9 +659,9 @@ textarea:focus {
 
 	#about .about-right:before {
 		content: "";
-	    border: 8px solid #e5eef0;
+		border: 8px solid #e5eef0;
 		width: 100%;
-	    height: 100%;
+		height: 100%;
 	}
 
 	#about .about-right {
@@ -683,7 +682,7 @@ textarea:focus {
 	}
 
 	#about .about-right-wrapper {
-	    position: relative;
+		position: relative;
 		left: 0;
 		top: 35px;
 	}
@@ -735,9 +734,9 @@ textarea:focus {
 
 	#about .about-right:before {
 		content: "";
-	    border: 8px solid #e5eef0;
+		border: 8px solid #e5eef0;
 		width: 100%;
-	    height: 100%;
+		height: 100%;
 	}
 
 	#about .about-right {
@@ -758,7 +757,7 @@ textarea:focus {
 	}
 
 	#about .about-right-wrapper {
-	    position: relative;
+		position: relative;
 		left: 0;
 		top: 35px;
 	}
@@ -796,13 +795,13 @@ textarea:focus {
 #about-bg {
 	position: relative;
 	background-image: url(../images/about/about2.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-top: 100px;
-    text-transform: uppercase;
-    padding: 100px 0;
-    color: #fff;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-top: 100px;
+	text-transform: uppercase;
+	padding: 100px 0;
+	color: #fff;
 }
 
 .about-bg-heading {
@@ -877,13 +876,13 @@ textarea:focus {
 #service {
 	margin-top: 100px;
 	background-attachment: scroll;
-    padding-bottom: 0px;
-    padding-top: 0px;
+	padding-bottom: 0px;
+	padding-top: 0px;
 }
 
 #service .col-md-6 {
 	padding: 0;
-	
+
 }
 
 #service .service-heading {
@@ -917,19 +916,19 @@ textarea:focus {
 	position: relative;
 	width: 50%;
 	float: left;
-	background: #f2f3f4;	
+	background: #f2f3f4;
 }
 
 .services-style-one .service-block {
 	position: relative;
-	margin-bottom: 40px;	
+	margin-bottom: 40px;
 }
 
 .services-style-one .services-column .content-outer {
 	position: relative;
 	float: right;
 	max-width: 700px;
-	padding: 80px 20px 40px 40px;	
+	padding: 80px 20px 40px 40px;
 }
 
 .services-style-one .services-column .icon-box {
@@ -942,13 +941,13 @@ textarea:focus {
 .services-style-one .services-column h4 {
 	font-size: 14px;
 	margin-bottom: 10px;
-	color: #1c1c1c;	
+	color: #1c1c1c;
 }
 
 .services-style-one .services-column .text {
 	font-size: 13px;
 	color: #5a5a5a;
-	max-width: 250px;	
+	max-width: 250px;
 }
 
 .services-style-one .content-column {
@@ -963,7 +962,7 @@ textarea:focus {
 	position: relative;
 	float:left;
 	padding: 170px 20px 100px 320px;
-	max-width: 700px;	
+	max-width: 700px;
 }
 
 .services-style-one .content-column .sec-title h2 {
@@ -1052,7 +1051,7 @@ textarea:focus {
 	}
 
 	.services-style-one .content-column .content-box {
-		padding: 200px 20px 100px 20px;	
+		padding: 200px 20px 100px 20px;
 	}
 }
 
@@ -1067,7 +1066,7 @@ textarea:focus {
 	}
 
 	.services-style-one .content-column .content-box {
-		padding: 200px 20px 100px 20px;	
+		padding: 200px 20px 100px 20px;
 	}
 }
 
@@ -1207,31 +1206,31 @@ textarea:focus {
 }
 
 .validation {
-    color: red;
-    display:none;
-    margin: 0 0 20px;
-    font-weight:400;
-    font-size:13px;
+	color: red;
+	display:none;
+	margin: 0 0 20px;
+	font-weight:400;
+	font-size:13px;
 }
 
 #sendmessage {
-    color: green;
-    border:1px solid green;
-    display:none;
-    text-align:center;
-    padding:15px;
-    font-weight:600;
-    margin-bottom:15px;
+	color: green;
+	border:1px solid green;
+	display:none;
+	text-align:center;
+	padding:15px;
+	font-weight:600;
+	margin-bottom:15px;
 }
 
 #errormessage {
-    color: red;
-    display:none;
-    border:1px solid red;
-    text-align:center;
-    padding:15px;
-    font-weight:600;
-    margin-bottom:15px;
+	color: red;
+	display:none;
+	border:1px solid red;
+	text-align:center;
+	padding:15px;
+	font-weight:600;
+	margin-bottom:15px;
 }
 
 #sendmessage.show, #errormessage.show, .show {
@@ -1301,9 +1300,9 @@ textarea:focus {
 
 /*Map*/
 #google-map{
-    position:relative;
-    margin-top:20px;
-    height: 350px;
+	position:relative;
+	margin-top:20px;
+	height: 350px;
 }
 
 /*Client*/
@@ -1424,7 +1423,7 @@ textarea:focus {
 }
 
 .credits a {
-    color: #fff;
+	color: #fff;
 }
 
 /*Bottom Footer*/
@@ -1449,4 +1448,31 @@ textarea:focus {
 .btns{
 	text-align: center;
 	margin-top: 3px;
+}
+
+.filter{
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+	padding-left: 15px;
+}
+
+#filter-form{
+	display: inline-block;
+	border-radius: 0;
+	float: right;
+}
+
+#filter-form select {
+	color: #ccc;
+}
+option {
+	color: #000;
+}
+option:first-child {
+	color: #ccc;
+}
+select.ng-dirty {
+	color: #000;
 }
