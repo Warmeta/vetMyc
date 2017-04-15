@@ -38,4 +38,8 @@ class ClinicCase extends Model
         $query->where('clinic_case_status', $status);
     }
 
+    public function scopeIsolate($query, $isolate){
+        $query->whereNotNull($isolate);
+    }
+
 }

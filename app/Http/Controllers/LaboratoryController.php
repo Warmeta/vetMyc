@@ -50,13 +50,17 @@ class LaboratoryController extends Controller
 
         $model = $request->all();
 
-        $only = $request->filter;
+        $only = 'filter';
 
         if (isset($request->filter)) {
-            if ($request->filter == ('inprogress' || 'finished')){ //filter status
-                $clinics = ClinicCase::status($only)->orderBy('number_clinic_history', 'DESC')->paginate(15);
+            if (($request->filter == 'inprogress') ||($request->filter == 'finished')){ //filter status
+                $clinics = ClinicCase::status($request->filter)->orderBy('number_clinic_history', 'DESC')->paginate(15);
+                return view('laboratory.clinicCase.index', compact('clinics', 'rows', 'filters', 'model', 'only'));
+            }elseif ($request->filter == ('bacterial_isolate' || 'fungi_isolate')) { //filter status
+                $clinics = ClinicCase::isolate($request->filter)->orderBy('number_clinic_history', 'DESC')->paginate(15);
                 return view('laboratory.clinicCase.index', compact('clinics', 'rows', 'filters', 'model', 'only'));
             }// more filters
+
         }else {
             $clinics = ClinicCase::paginate(15); //without filter
             return view('laboratory.clinicCase.index', compact('clinics', 'rows', 'filters', 'model', 'only'));
@@ -315,7 +319,7 @@ class LaboratoryController extends Controller
 
     public function getFilters()
     {
-        return ['inprogress' => 'In progress','finished' => 'Finished'];
+        return ['inprogress' => 'In progress','finished' => 'Finished', 'bacterial_isolate' => 'Bacterial', 'fungi_isolate' => 'Fungi'];
     }
 }
 
