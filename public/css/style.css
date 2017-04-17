@@ -1458,10 +1458,28 @@ textarea:focus {
 	padding-left: 15px;
 }
 
+#filter, #nclinic, #localization{
+	width: 120px;
+	height: 30px;
+}
+
 #filter-form{
 	display: inline-block;
 	border-radius: 0;
 	float: right;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	color: #ccc;
+}
+::-moz-placeholder { /* Firefox 19+ */
+	color: #ccc;
+}
+:-ms-input-placeholder { /* IE 10+ */
+	color: #ccc;
+}
+:-moz-placeholder { /* Firefox 18- */
+	color: #ccc;
 }
 
 #filter-form select {

@@ -18,7 +18,18 @@
                 <div class="filter pull-right">
                     {!! Form::model($model, array('action' => ['LaboratoryController@indexC'], 'method' => 'get', 'class' => 'form contactForm', 'id' => 'filter-form')) !!}
                     {{ csrf_field() }}
-                    {{ Form::select('filter', $filters, null, array('onchange' => 'this.form.submit()', 'placeholder' => 'Filter...', 'id' => 'filter')) }}
+                    <div id="ifLoc" style="display: none;">
+                        {{ Form::select('localization', $loc, null, array('onchange' => 'viewInput()', 'placeholder' => 'Pick a loc...', 'id' => 'localization')) }}
+                    </div>
+                    <div id="ifClinic" style="display: none;">
+                        {{ Form::text('number_clinic_history', null, array('placeholder' => 'Nº Clinic...', 'id' => 'nclinic')) }}
+                    </div>
+                    {{ Form::select('filter', $filters, null, array('onchange' => 'viewInput()', 'placeholder' => 'Filter...', 'id' => 'filter')) }}
+                    <div id="ifClinicButton" style="display: none;">
+                        <button type="submit" class="btn btn-default" id="search">
+                            Search
+                        </button>
+                    </div>
                     {{ Form::close() }}
                 </div>
             </div>
@@ -70,4 +81,25 @@
             </div>
         </div>
     </div>
+    <script>
+        function viewInput() {
+            if (filter.value == "localization") {
+                document.getElementById("ifClinic").style.display = "none";
+                document.getElementById("ifClinicButton").style.display = "none";
+                document.getElementById("ifLoc").style.display = "inline-block";
+                if (localization.value != '') {
+                    document.getElementById("filter-form").submit();
+                }
+            }else if(filter.value == "number_clinic_history"){
+                document.getElementById("ifLoc").style.display = "none";
+                document.getElementById("localization").selectedIndex  = "0";
+                document.getElementById("ifClinic").style.display = "inline-block";
+                document.getElementById("ifClinicButton").style.display = "inline-block";
+            } else {
+                document.getElementById("ifLoc").style.display = "none";
+                document.getElementById("localization").selectedIndex  = "0";
+                document.getElementById("filter-form").submit();
+            }
+        }
+    </script>
 @stop

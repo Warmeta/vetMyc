@@ -42,6 +42,7 @@ $(document).ready(function() {
             console.log("It failed");
     });
 
+
     //only 1 checkbox
     $('input[type="checkbox"]').on('change', function() {
 
@@ -100,6 +101,16 @@ $(document).ready(function() {
 		}
 	});
 
+    $(document).ready(function() {
+        if (typeof filter !== 'undefined') {
+            if (document.getElementById("filter").value == "localization"){
+                document.getElementById("ifLoc").style.display = "inline-block";
+            }else if(document.getElementById("filter").value == "number_clinic_history"){
+                document.getElementById("ifClinic").style.display = "inline-block";
+                document.getElementById("ifClinicButton").style.display = "inline-block";
+			}
+        }
+    });
 
 	//Google Map
     var get_latitude = $('#google-map').data('latitude');

@@ -42,4 +42,12 @@ class ClinicCase extends Model
         $query->whereNotNull($isolate);
     }
 
+    public function scopeLocalization($query, $loc){
+        $query->where('localization', $loc);
+    }
+
+    public function scopeNclinic($query, $nclinic){
+        $query->where('number_clinic_history', $nclinic)->orWhere('number_clinic_history', 'like', '%' . $nclinic . '%');
+    }
+
 }
