@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Validator;
 use TCG\Voyager\Facades\Voyager;
-use TCG\Voyager\Traits\VoyagerUser;
+use Mail;
+use App\Mail\ClinicCaseSent;
 
 class LaboratoryController extends Controller
 {
@@ -25,7 +26,7 @@ class LaboratoryController extends Controller
 
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function index()
@@ -332,6 +333,19 @@ class LaboratoryController extends Controller
             'localization' => 'Localization',
             'number_clinic_history' => 'Nº Clinic Case'
         ];
+    }
+
+    public function email($id)
+    {
+        $clinic = ClinicCase::find($id);
+        $clinicantibiotics =
+        DB::table('antibiotics')
+            ->join('clinic_cases_antibiotics', 'antibiotics.id', '=', 'clinic_cases_antibiotics.antibiotic_id')
+            ->select('antibiotics.antibiotic_name', 'clinic_cases_antibiotics.resistant', 'clinic_cases_antibiotics.intermediate', 'clinic_cases_antibiotics.sensitive')
+            ->where('clinic_cases_antibiotics.clinic_case_id', $id)
+            ->get();
+        Mail::to(str_replace(' ', '', $clinic->owner).'@vetMyc.com')->send(new ClinicCaseSent($clinic, $clinicantibiotics));
+        return redirect('/lab/clinic-case');
     }
 }
 

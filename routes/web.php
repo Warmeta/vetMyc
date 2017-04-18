@@ -36,6 +36,11 @@ Route::get('/lab', [
 
 Route::group(['prefix' => 'lab',  'middleware' => 'auth'], function () {
 
+    //Email
+    Route::get('/email/{id}', ['uses' => 'LaboratoryController@email', 'as' => 'sendEmail'], function ($id) {
+        //
+    })->where('id', '[0-9]+')->middleware('checkPermission:browse_clinic_case');
+
     //Clinic cases
     Route::get('clinic-case', ['uses' => 'LaboratoryController@indexC', 'as' => 'clinicCase.index'])->middleware('checkPermission:browse_clinic_case');
 

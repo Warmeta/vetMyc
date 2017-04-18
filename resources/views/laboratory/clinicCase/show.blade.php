@@ -10,12 +10,14 @@
                     <div class="panel-body">
                         <h1>Clinic Case: {{ $clinic->number_clinic_history }}</h1>
 
-                        <div class="text-center">
+                        <div>
                             <h2>{{ $clinic->breed }}</h2>
                             <p>
                                 {{ $clinic->clinic_history }}
                             </p>
                         </div>
+
+                        <a href="{{route('sendEmail', $clinic->id)}}" class="btn btn-primary">Send Email</a>
 
                     </div>
                     </div>
