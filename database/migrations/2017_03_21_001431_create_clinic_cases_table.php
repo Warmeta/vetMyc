@@ -22,6 +22,7 @@ class CreateClinicCasesTable extends Migration
             $table->string('specie');
             $table->mediumtext('clinic_history');
             $table->string('owner');
+            $table->string('owner_email')->nullable();
             $table->string('breed');
             $table->string('sex');
             $table->integer('age');

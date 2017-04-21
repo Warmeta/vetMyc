@@ -12,7 +12,7 @@ class ClinicCasesTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <= 3; $i++) {
+        for ($i = 1; $i <= 200; $i++) {
             factory(ClinicCase::class)->create();
         }
     }

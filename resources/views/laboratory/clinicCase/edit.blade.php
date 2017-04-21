@@ -41,29 +41,34 @@
                             <a id="errors5" class="errors">{{$errors->first('owner') }}</a>
                         </div>
                         <div class="col-md-9 form-group">
+                            {{ Form::label('Owner email', null, ['class' => 'control-label']) }}
+                            {{ Form::text('owner_email', null, ['class' => 'form-control']) }}
+                            <a id="errors6" class="errors">{{$errors->first('owner_email') }}</a>
+                        </div>
+                        <div class="col-md-9 form-group">
                             {{ Form::label('Breed', null, ['class' => 'control-label']) }}
                             {{ Form::text('breed', null, ['class' => 'form-control']) }}
-                            <a id="errors6" class="errors">{{$errors->first('breed') }}</a>
+                            <a id="errors7" class="errors">{{$errors->first('breed') }}</a>
                         </div>
                         <div class="col-md-9 form-group">
                             {{ Form::label('Sex', null, ['class' => 'control-label']) }}
                             {{ Form::select('sex', $data->get('sex'), null, ['placeholder' => 'Pick a sex...'],['class' => 'form-control', 'id' => 'sex']) }}
-                            <a id="errors7" class="errors">{{$errors->first('sex') }}</a>
+                            <a id="errors8" class="errors">{{$errors->first('sex') }}</a>
                         </div>
                         <div class="col-md-9 form-group">
                             {{ Form::label('Age', null, ['class' => 'control-label']) }}
                             {{ Form::text('age', null, ['class' => 'form-control']) }}
-                            <a id="errors8" class="errors">{{$errors->first('age') }}</a>
+                            <a id="errors9" class="errors">{{$errors->first('age') }}</a>
                         </div>
                         <div class="col-md-9 form-group">
                             {{ Form::label('Localization', null, ['class' => 'control-label']) }}
                             {{ Form::select('localization',  $data->get('localization'), null, ['placeholder' => 'Pick a localization...'],['class' => 'form-control', 'id' => 'localization']) }}
-                            <a id="errors9" class="errors">{{$errors->first('localization') }}</a>
+                            <a id="errors10" class="errors">{{$errors->first('localization') }}</a>
                         </div>
                         <div class="col-md-9 form-group">
                             {{ Form::label('Status', null, ['class' => 'control-label']) }}
                             {{ Form::select('clinic_case_status', $data->get('status'), null, ['placeholder' => 'Pick a status...'],['class' => 'form-control', 'id' => 'clinic_case_status']) }}
-                            <a id="errors10" class="errors">{{$errors->first('clinic_case_status') }}</a>
+                            <a id="errors11" class="errors">{{$errors->first('clinic_case_status') }}</a>
                         </div>
 
                         <div class="col-md-9"><hr></div>

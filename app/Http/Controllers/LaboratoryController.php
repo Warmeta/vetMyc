@@ -10,6 +10,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Validator;
 use TCG\Voyager\Facades\Voyager;
@@ -248,9 +249,15 @@ class LaboratoryController extends Controller
     public function show($id)
     {
         $clinic = ClinicCase::find($id);
+
+        $clinicantibiotics = DB::table('antibiotics')
+            ->join('clinic_cases_antibiotics', 'antibiotics.id', '=', 'clinic_cases_antibiotics.antibiotic_id')
+            ->select('antibiotics.antibiotic_name', 'clinic_cases_antibiotics.resistant', 'clinic_cases_antibiotics.intermediate', 'clinic_cases_antibiotics.sensitive')
+            ->where('clinic_cases_antibiotics.clinic_case_id', $id)
+            ->get();
         // show
         return View::make('laboratory.clinicCase.show')
-            ->with('clinic', $clinic);
+            ->with('clinic', $clinic)->with('clinicantibiotics', $clinicantibiotics);
     }
 
     public function showAntibiotic($id)
@@ -292,6 +299,8 @@ class LaboratoryController extends Controller
             'biopsy' => 'Biopsy',
             'bodyfluids' => 'Body Fluids',
             'feces' => 'Feces',
+            'urine' => 'Urine',
+            'others' => 'Others',
         ];
     }
 
@@ -303,6 +312,7 @@ class LaboratoryController extends Controller
             'specie' => 'required|max:30',
             'clinic_history' => 'required|max:500',
             'owner' => 'required|max:50',
+            'owner_email' => 'nullable|email',
             'breed' => 'required|max:30',
             'sex' => 'required|max:30',
             'age' => 'required|digits_between:1,3',
@@ -338,14 +348,19 @@ class LaboratoryController extends Controller
     public function email($id)
     {
         $clinic = ClinicCase::find($id);
-        $clinicantibiotics =
-        DB::table('antibiotics')
-            ->join('clinic_cases_antibiotics', 'antibiotics.id', '=', 'clinic_cases_antibiotics.antibiotic_id')
-            ->select('antibiotics.antibiotic_name', 'clinic_cases_antibiotics.resistant', 'clinic_cases_antibiotics.intermediate', 'clinic_cases_antibiotics.sensitive')
-            ->where('clinic_cases_antibiotics.clinic_case_id', $id)
-            ->get();
-        Mail::to(str_replace(' ', '', $clinic->owner).'@vetMyc.com')->send(new ClinicCaseSent($clinic, $clinicantibiotics));
-        return redirect('/lab/clinic-case');
+        if ($clinic->clinic_case_status == 'finished') {
+            $clinicantibiotics = DB::table('antibiotics')
+                ->join('clinic_cases_antibiotics', 'antibiotics.id', '=', 'clinic_cases_antibiotics.antibiotic_id')
+                ->select('antibiotics.antibiotic_name', 'clinic_cases_antibiotics.resistant', 'clinic_cases_antibiotics.intermediate', 'clinic_cases_antibiotics.sensitive')
+                ->where('clinic_cases_antibiotics.clinic_case_id', $id)
+                ->get();
+            Mail::to($clinic->owner_email)->send(new ClinicCaseSent($clinic, $clinicantibiotics));
+            Session::flash('suc', 'Email sent successfully');
+            return Redirect::back();
+        }else{
+            Session::flash('fail', 'Clinic case is still in progress');
+            return Redirect::back();
+        }
     }
 }
 
