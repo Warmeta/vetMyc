@@ -1494,3 +1494,140 @@ option:first-child {
 select.ng-dirty {
 	color: #000;
 }
+
+.widgets{
+  display:flex;
+  flex-direction:row;
+  padding:0px;
+}
+
+.panel.widget{
+  padding:30px;
+  border:0px;
+  border-radius:3px;
+  flex:1;
+  margin:10px;
+}
+
+.panel.widget.center{
+  text-align:center;
+}
+
+.panel.widget .avatar{
+    width: 100px;
+    height: auto;
+    border: 0 none;
+    border-radius: 50%;
+}
+
+#folder-icon{
+	position: relative;
+	float: left;
+	top: -1em;
+	right: 0.5em;
+  font-size: 40px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin: 0 10;
+  color: #eee;
+  line-height: 60px;
+}
+
+#folder-icon:hover{
+	color: #6fd779;
+}
+
+.panel.widget h4{
+  color:#fff;
+  font-weight:300;
+  margin-top:20px;
+  font-size:20px;
+}
+
+.panel.widget p{
+  margin:30px 0;
+  font-size:20px;
+  font-size: 14px;
+  line-height: 1.57142857;
+  color: #DDD;
+  display:block;
+  max-height:65px;
+  margin-bottom:0px;
+}
+
+.panel.widget .readm-link{
+  margin-top:20px;
+  color:#fff;
+  text-decoration: underline;
+}
+
+.panel.widget .btn-primary{
+  margin-top:20px;
+}
+
+.btn{
+    padding: 6px 15px;
+    font-size: 14px;
+    line-height: 1.57142857;
+    border-radius: 3px;
+    -webkit-transition: border .2s linear,color .2s linear,width .2s linear,background-color .2s linear;
+    -o-transition: border .2s linear,color .2s linear,width .2s linear,background-color .2s linear;
+    transition: border .2s linear,color .2s linear,width .2s linear,background-color .2s linear;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.panel.widget.bgimage{
+  background-size:cover;
+  background-position:center center;
+  position:relative;
+}
+
+.panel.widget .panel-content{
+  z-index:9;
+  position:relative;
+}
+
+.panel.widget .dimmer{
+  background:rgba(45,53,61, 0.5);
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2d353d+0,2d353d+100&0.79+0,0.5+100 */
+  background: -moz-linear-gradient(-45deg,  rgba(45,53,61,0.79) 0%, rgba(45,53,61,0.5) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg,  rgba(45,53,61,0.79) 0%,rgba(45,53,61,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg,  rgba(45,53,61,0.79) 0%,rgba(45,53,61,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c92d353d', endColorstr='#802d353d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  opacity:1;
+  transition:opacity 0.3s ease;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:100%;
+  height:100%;
+  border-radius:3px;
+}
+
+.panel.widget:hover .dimmer{
+  opacity:0.9;
+}
+
+#RUD{
+	position: relative;
+	float: right;
+	top: -2.5em;
+	right: -1em;
+  background: rgba(0, 0, 0, 0.3);
+  width: 40px;
+  height: 100px;
+  display: block;
+}
+
+#RUD i{
+	font-size: 25px;
+  margin: 0 10;
+  color: #eee;
+}
+
+#RUD i:hover{
+  color: #6fd779;
+}

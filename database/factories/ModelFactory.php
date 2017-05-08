@@ -13,6 +13,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use App\User;
+use Carbon\Carbon;
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
@@ -59,5 +60,20 @@ $factory->define(App\ClinicCase::class, function (Faker\Generator $faker) {
         'bacterial_isolate' => $faker->word,
         'fungi_isolate' => $faker->word,
         'comment' => $faker->paragraph(2),
+    ];
+});
+
+$factory->define(App\Project::class, function (Faker\Generator $faker) {
+       return ['project_name' => $faker->lastname,
+        'description' => $faker->paragraph(1),
+        'image' => 'settings/March2017/eJo0qPme5R7np2HtdjDT.png',
+        'project_type' => $faker->word,
+        'research_line' => $faker->word,
+        'publication_date' => Carbon::create(2015, 5, 28, 0, 0, 0),
+        'entity' => 'ULPGC',
+        'author_id' => 1,
+        'project_status' => $faker->randomElement($array = array ('inprogress','finished')),
+        'link' => 'www.ulpgc.es',
+        'file' => 'settings/March2017/eJo0qPme5R7np2HtdjDT.png',
     ];
 });

@@ -33,6 +33,20 @@
                                             </a>
                                         </li>
                                     @endif
+                                    @if (!(Auth::guest()) && (hasPermission('browse_clinic_cases')))
+                                        <li>
+                                            <a href={{ route('clinicCase.index') }}>
+                                                Clinic Cases
+                                            </a>
+                                        </li>
+                                    @endif
+                                    @if (!(Auth::guest()) && (hasPermission('browse_projects')))
+                                        <li>
+                                            <a href={{ route('projectManager.index') }}>
+                                                Project Manager
+                                            </a>
+                                        </li>
+                                    @endif
                                     <li>
                                         <a href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
@@ -82,13 +96,6 @@
                                     Printed matter
                                 </a>
                             </li>
-                            @if (!(Auth::guest()) && (hasPermission('browse_admin')))
-                                <li>
-                                    <a href={{ route('clinicCase.index') }}>
-                                        Clinic Cases
-                                    </a>
-                                </li>
-                            @endif
                         </ul>
                     </li>
                     <li><a href="#">projects</a></li>

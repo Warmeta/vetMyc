@@ -51,7 +51,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/vetmyc/storage/app/public',
+            'url' => '/storage',
             'visibility' => 'public',
         ],
 
