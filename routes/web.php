@@ -43,7 +43,7 @@ Auth::routes();
 
 Route::group(['prefix' => 'project-manager'], function () {
     
-    Route::get('/project-manager', [
+    Route::get('/', [
         'uses' => 'ProjectController@index',
         'as' => 'projectManager.index'
     ]);

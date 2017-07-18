@@ -33,20 +33,6 @@
                                             </a>
                                         </li>
                                     @endif
-                                    @if (!(Auth::guest()) && (hasPermission('browse_clinic_cases')))
-                                        <li>
-                                            <a href={{ route('clinicCase.index') }}>
-                                                Clinic Cases
-                                            </a>
-                                        </li>
-                                    @endif
-                                    @if (!(Auth::guest()) && (hasPermission('browse_projects')))
-                                        <li>
-                                            <a href={{ route('projectManager.index') }}>
-                                                Project Manager
-                                            </a>
-                                        </li>
-                                    @endif
                                     <li>
                                         <a href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
@@ -81,7 +67,36 @@
             </button>
             <div class="navbar-collapse collapse int-menu" id="ftheme">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#about">about</a></li>
+                    <li class="dropdown">
+                        <a href={{ route('lab') }} class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">about<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="/#about">
+                                    Welcome
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/#service">
+                                    Service
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/#portfolio">
+                                    Team
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/#get-touch">
+                                    Contact
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/#contact">
+                                    Find Us
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li><a href="#">mycology</a></li>
                     <li class="dropdown">
                         <a href={{ route('lab') }} class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">laboratory<span class="caret"></span></a>
@@ -96,19 +111,52 @@
                                     Printed matter
                                 </a>
                             </li>
+                             @if (!(Auth::guest()) && (hasPermission('browse_clinic_cases')))
+                                <li>
+                                    <a href={{ route('clinicCase.index') }}>
+                                        Clinic Cases
+                                    </a>
+                                </li>
+                            @endif
                         </ul>
                     </li>
-                    <li><a href="#">projects</a></li>
-                    <li class="hidden-sm hidden-xs">
-                        <a href="#" id="ss"><i class="fa fa-search" aria-hidden="true"></i></a>
+                    <li class="dropdown">
+                        <a href={{ route('lab') }} class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">research<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href={{ route('lab') }}>
+                                    Our Team
+                                </a>
+                            </li>
+                            <li>
+                                <a href={{ route('lab') }}>
+                                    Our Projects
+                                </a>
+                            </li>
+                            <li>
+                                <a href={{ route('lab') }}>
+                                    Publishings
+                                </a>
+                            </li>
+                            @if (!(Auth::guest()) && (hasPermission('browse_projects')))
+                                <li>
+                                    <a href={{ route('projectManager.index') }}>
+                                        Project Manager
+                                    </a>
+                                </li>
+                            @endif
+                        </ul>
                     </li>
+                    <!--<li class="hidden-sm hidden-xs">
+                        <a href="#" id="ss"><i class="fa fa-search" aria-hidden="true"></i></a>
+                    </li>-->
                 </ul>
             </div>
-            <div class="search-form">
+            <!--<div class="search-form">
                 <form>
                     <input type="text" id="s" size="40" placeholder="Search..." />
                 </form>
-            </div>
+            </div>-->
         </div>
     </nav>
 </div>

@@ -49,39 +49,22 @@
 <div id="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="footer-heading">
                     <h3><span>about</span> us</h3>
-                    <p>To explore strange new worlds to seek out new life and new civilizations to boldly go where no man has gone before. It's time to play the music.</p>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <p>Among our objectives are to disseminate matters of the different areas of mycology and its progress, to research within the field of veterinary mycology and to offer clinical diagnostic services.</p>
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="footer-heading">
                     <h3><span>latest</span> news</h3>
                     <ul>
-                        <li><a href="#">Trends don't matter, but techniques do</a></li>
-                        <li><a href="#">Trends don't matter, but techniques do</a></li>
-                        <li><a href="#">Trends don't matter, but techniques do</a></li>
-                        <li><a href="#">Trends don't matter, but techniques do</a></li>
+                        <li><a href="#">Trends</a></li>
+                        <li><a href="#">Trends</a></li>
+                        <li><a href="#">Trends</a></li>
+                        <li><a href="#">Trends</a></li>
                     </ul>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="footer-heading">
-                    <h3><span>follow</span> us on instagram</h3>
-                    <div class="insta">
-                        <ul>
-                            <img src="/images/footer/footer1.jpg" alt="">
-                            <img src="/images/footer/footer2.jpg" alt="">
-                            <img src="/images/footer/footer3.jpg" alt="">
-                            <img src="/images/footer/footer4.jpg" alt="">
-                            <img src="/images/footer/footer5.jpg" alt="">
-                            <img src="/images/footer/footer6.jpg" alt="">
-                        </ul>
-                    </div>
                 </div>
             </div>
 
@@ -111,11 +94,11 @@
             <div class="col-md-8">
                 <div class="footer-right">
                     <ul class="list-unstyled list-inline pull-right">
-                        <li><a href="#home">Home</a></li>
+                        <!--<li><a href="#home">Home</a></li>-->
                         <li><a href="#about">About</a></li>
                         <li><a href="#service">Service</a></li>
-                        <li><a href="#portfolo">Portfolio</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <!--<li><a href="#portfolo">Portfolio</a></li>-->
+                        <li><a href="#get-touch">Contact</a></li>
                     </ul>
                 </div>
             </div>
