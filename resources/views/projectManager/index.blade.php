@@ -13,7 +13,7 @@
                     @endif
                 </div>
                 <div class="pull-right">
-                    <h2>Project Manager</h2>
+                    <h2>Gestor de proyectos</h2>
                 </div>
             </div>
             <div class="col-md-12">

@@ -51,14 +51,14 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="footer-heading">
-                    <h3><span>about</span> us</h3>
-                    <p>Among our objectives are to disseminate matters of the different areas of mycology and its progress, to research within the field of veterinary mycology and to offer clinical diagnostic services.</p>
+                    <h3><span>Sobre</span> nosotros</h3>
+                    <p>Entre nuestros objetivos se encuentran difundir los asuntos de las diferentes áreas de la micología y su progreso, la investigación en el campo de la micología veterinaria y ofrecer servicios de diagnóstico clínico.</p>
                 </div>
             </div>
 
             <div class="col-md-6">
                 <div class="footer-heading">
-                    <h3><span>latest</span> news</h3>
+                    <h3><span>Últimas</span> noticias</h3>
                     <ul>
                         <li><a href="#">Trends</a></li>
                         <li><a href="#">Trends</a></li>
@@ -78,27 +78,15 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="footer-left">
-                    &copy; MyBix Theme. All rights reserved
-                    <div class="credits">
-                        <!--
-                            All the links in the footer should remain intact.
-                            You can delete the links only if you purchased the pro version.
-                            Licensing information: https://bootstrapmade.com/license/
-                            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=MyBiz
-                        -->
-                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                    </div>
+                    &copy; All rights reserved
                 </div>
             </div>
-
             <div class="col-md-8">
                 <div class="footer-right">
                     <ul class="list-unstyled list-inline pull-right">
-                        <!--<li><a href="#home">Home</a></li>-->
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#service">Service</a></li>
-                        <!--<li><a href="#portfolo">Portfolio</a></li>-->
-                        <li><a href="#get-touch">Contact</a></li>
+                        <li><a href="#about">Nosotros</a></li>
+                        <li><a href="#service">Servicio</a></li>
+                        <li><a href="#get-touch">Contacto</a></li>
                     </ul>
                 </div>
             </div>

@@ -38,6 +38,39 @@ Route::get('/lab', [
 
 Auth::routes();
 
+//Mycology
+
+Route::group(['prefix' => 'mycology'], function () {
+        
+    Route::get('/dimorficos', function () {
+        return View::make('mycology.dimorficos');
+    });
+    
+    Route::get('/aspergilosis', function () {
+        return View::make('mycology.aspergilosis');
+    });
+        
+    Route::get('/dermatofitosis', function () {
+        return View::make('mycology.dermatofitosis');
+    });
+        
+    Route::get('/generalidades', function () {
+        return View::make('mycology.generalidades');
+    });
+    
+    Route::get('/candidiasis', function () {
+        return View::make('mycology.candidiasis');
+    });
+    
+    Route::get('/criptococosis', function () {
+        return View::make('mycology.criptococosis');
+    });
+    
+    Route::get('/malassezias', function () {
+        return View::make('mycology.malassezias');
+    });
+});
+
 //Project Manager
 
 

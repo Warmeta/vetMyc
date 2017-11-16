@@ -18,8 +18,8 @@
                 <div id="login-nav" class="top-right">
                     <ul class="nav navbar-nav navbar-right">
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}">Acceder</a></li>
+                            <li><a href="{{ route('register') }}">Registrarse</a></li>
                         @else
                             <li class="dropdown">
                                 <a id="logout" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -29,7 +29,7 @@
                                     @if (hasPermission('browse_admin'))
                                         <li>
                                             <a href="/admin">
-                                                Admin
+                                                Administrador
                                             </a>
                                         </li>
                                     @endif
@@ -37,7 +37,7 @@
                                         <a href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Cerrar sesión
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
@@ -68,80 +68,103 @@
             <div class="navbar-collapse collapse int-menu" id="ftheme">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href={{ route('lab') }} class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">about<span class="caret"></span></a>
+                        <a href={{ route('lab') }} class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Nosotros<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a href="/#about">
-                                    Welcome
+                                    Bienvenido
                                 </a>
                             </li>
                             <li>
                                 <a href="/#service">
-                                    Service
+                                    Servicios
                                 </a>
                             </li>
                             <li>
                                 <a href="/#portfolio">
-                                    Team
+                                    Equipo
                                 </a>
                             </li>
                             <li>
                                 <a href="/#get-touch">
-                                    Contact
+                                    Contacto
                                 </a>
                             </li>
                             <li>
                                 <a href="/#contact">
-                                    Find Us
+                                    Encuéntranos
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li><a href="#">mycology</a></li>
+                    
                     <li class="dropdown">
-                        <a href={{ route('lab') }} class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">laboratory<span class="caret"></span></a>
+                        <a href={{ route('lab') }} class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Micología<span class="caret"></span></a>
+                		<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                	        <li><a href={{ URL::to('mycology/generalidades') }}>Generalidades</a></li>
+                		    <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">Levaduras</a>
+                                <ul class="dropdown-menu">
+                                  <li><a tabindex="-1" href={{ URL::to('mycology/candidiasis') }}>Candidiasis</a></li>
+                                  <li><a tabindex="-1" href={{ URL::to('mycology/criptococosis') }}>Criptococosis</a></li>
+                                  <li><a tabindex="-1" href={{ URL::to('mycology/malassezias') }}>Malassezias</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">Filamentosos</a>
+                                <ul class="dropdown-menu">
+                                  <li><a tabindex="-1" href={{ URL::to('mycology/aspergilosis') }}>Aspergilosis</a></li>
+                                  <li><a tabindex="-1" href={{ URL::to('mycology/dermatofitosis') }}>Dermatofitosis</a></li>
+                                </ul>
+                            </li>
+                            <li><a href={{ URL::to('mycology/dimorficos') }}>Dimórficos</a></li>
+                        </ul>
+                    </li>
+            
+                    <li class="dropdown">
+                        <a href={{ route('lab') }} class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">laboratorio<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a href={{ route('lab') }}>
-                                    Pricing
+                                    Precios
                                 </a>
                             </li>
                             <li>
                                 <a href={{ route('lab') }}>
-                                    Printed matter
+                                    Impresos
                                 </a>
                             </li>
                              @if (!(Auth::guest()) && (hasPermission('browse_clinic_cases')))
                                 <li>
                                     <a href={{ route('clinicCase.index') }}>
-                                        Clinic Cases
+                                        Casos Clínicos
                                     </a>
                                 </li>
                             @endif
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href={{ route('lab') }} class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">research<span class="caret"></span></a>
+                        <a href={{ route('lab') }} class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Investigación<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a href={{ route('lab') }}>
-                                    Our Team
+                                    Nuestro equipo
                                 </a>
                             </li>
                             <li>
                                 <a href={{ route('lab') }}>
-                                    Our Projects
+                                    Nuestros proyectos
                                 </a>
                             </li>
                             <li>
                                 <a href={{ route('lab') }}>
-                                    Publishings
+                                    Publicaciones
                                 </a>
                             </li>
                             @if (!(Auth::guest()) && (hasPermission('browse_projects')))
                                 <li>
                                     <a href={{ route('projectManager.index') }}>
-                                        Project Manager
+                                        Gestor de proyectos
                                     </a>
                                 </li>
                             @endif

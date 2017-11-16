@@ -9,10 +9,10 @@
                 <img src="/images/slider/slider1.jpg">
 
                 <div class="caption">
-                    <h2><span>an awesome website</span></h2>
-                    <h2><span>html theme</span></h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    <button class="btn">Read More</button>
+                    <h2><span>Laboratorio de enfermedades infecciosas</span></h2>
+                    <p>Facultad de veterinaria ULPGC</p>
+                    <!--  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+                    <!-- <button class="btn">Leer más</button> -->
                 </div>
 
             </li>
@@ -20,10 +20,9 @@
                 <img src="/images/slider/slider2.jpg">
 
                 <div class="caption">
-                    <h2><span>yet another slide</span></h2>
-                    <h2><span>html theme</span></h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    <button class="btn">Read More</button>
+                    <h2><span>Servicio de laboratorio</span></h2>
+                    <p>En muestra múltiples de animales de renta un 20% de descuento.</p>
+                    <a href="/lab"><button class="btn">Leer más</button></a>
                 </div>
 
             </li>
@@ -31,10 +30,8 @@
                 <img src="/images/slider/slider3.jpg">
 
                 <div class="caption">
-                    <h2><span>one more slide</span></h2>
-                    <h2><span>html theme</span></h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    <button class="btn">Read More</button>
+                    <h2><span>¿Qué es la micología?</span></h2>
+                    <a href="/lab"><button class="btn">Leer más</button></a>
                 </div>
 
             </li>
@@ -49,14 +46,14 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
                     <div class="about-heading">
-                        <h2>Welcome</h2>
-                        <p>The Laboratory of infectious diseases is part of the ULPGC specifically to the Faculty of Veterinary Medicine.
+                        <h2>Bienvenido</h2>
+                        <p>El Laboratorio de enfermedades infecciosas forma parte de la ULPGC específicamente a la Facultad de Medicina Veterinaria.
                             <br>
                             <br>
-                            In addition to actively collaborating with the training of professionals and the dissemination of scientific contents, it fulfills the fundamental role of establishing the mycological diagnosis. For this it counts on a team of highly qualified work, oriented to the development of knowledge and to the constant formation.
+                            Además de colaborar activamente con la formación de profesionales y la difusión de contenidos científicos, cumple el papel fundamental de establecer el diagnóstico micológico. Para ello cuenta con un equipo de trabajo altamente calificado, orientado al desarrollo del conocimiento y a la formación constante.
                             <br>
                             <br>
-                            Among our objectives are to disseminate matters of the different areas of mycology and its progress, to research within the field of veterinary mycology and to offer clinical diagnostic services.</p>
+                            Entre nuestros objetivos se encuentran difundir los asuntos de las diferentes áreas de la micología y su progreso, la investigación en el campo de la micología veterinaria y ofrecer servicios de diagnóstico clínico.</p>
                     </div>
                 </div>
             </div>
@@ -70,28 +67,28 @@
             <div class="row">
 
                 <div class="about-bg-heading">
-                    <h1>sucessfull stats about us</h1>
-                    <p>what we have achieved so far</p>
+                    <h1>Estadísticas sobre nosotros</h1>
+                    <p>lo que hemos conseguido</p>
                 </div>
 
                 <div class=" col-xs-12 col-md-4">
                     <div class="about-bg-wrapper">
                         <span class="count"><h1><span class="border">10</span>5</h1></span>
-                        <p>clinic cases</p>
+                        <p>casos clínicos</p>
                     </div>
                 </div>
 
                 <div class="col-xs-12 col-md-4">
                     <div class="about-bg-wrapper">
                         <span class="count"><h1>54</h1></span>
-                        <p>projects</p>
+                        <p>proyectos</p>
                     </div>
                 </div>
 
                 <div class="col-xs-12 col-md-4">
                     <div class="about-bg-wrapper">
                         <span class="count"><h1>152</h1></span>
-                        <p>publishings</p>
+                        <p>publicaciones</p>
                     </div>
                 </div>
 
@@ -113,8 +110,8 @@
             <div class="row">
                 <div class="col-xs-12 col-md-6 col-md-offset-3">
                     <div class="service-heading">
-                        <h2>service</h2>
-                        <p>ULPGC Laboratory Diagnosis of Infectious Diseases</p>
+                        <h2>servicio</h2>
+                        <p>Laboratorio de diagnóstico de enfermedades infeccionsas de la ULPGC</p>
                     </div>
                 </div>
             </div>
@@ -131,16 +128,16 @@
                             <div class="service-block col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="inner-box">
                                     <div class="icon-box"><i class="fa fa-briefcase" aria-hidden="true"></i></div>
-                                    <h4>PROFFESIONAL TEAM</h4>
-                                    <div class="text"> High professional team to provide the best service. </div>
+                                    <h4>EQUIPO PROFESIONAL</h4>
+                                    <div class="text"> Gran equipo profesional para ofrecer el mejor servicio. </div>
                                 </div>
                             </div>
 
                             <div class="service-block col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="inner-box">
                                     <div class="icon-box"><i class="fa fa-trophy" aria-hidden="true"></i></div>
-                                    <h4>EXPERIENCE</h4>
-                                    <div class="text">Great team of high experience in the field of the diagnosis of infectious diseases.</div>
+                                    <h4>EXPERIENCIA</h4>
+                                    <div class="text">Alta experiencia en el diagnóstico de enfermedades infecciosas.</div>
                                 </div>
                             </div>
 
@@ -148,15 +145,15 @@
                                 <div class="inner-box">
                                     <div class="icon-box"><i class="fa fa-bullhorn" aria-hidden="true"></i></div>
                                     <h4>ULPGC</h4>
-                                    <div class="text">Highly qualified personnel of the ULPGC at your disposal. </div>
+                                    <div class="text">Personal cualificado de la Universidad de Las Palmas de Gran Canaria a su disposición. </div>
                                 </div>
                             </div>
 
                             <div class="service-block col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="inner-box">
                                     <div class="icon-box"><i class="fa fa-money" aria-hidden="true"></i></div>
-                                    <h4>SAVING</h4>
-                                    <div class="text">The best offer on the market for our users. </div>
+                                    <h4>PRECIO</h4>
+                                    <div class="text">La mejor oferta del mercado para nuestros usuarios. </div>
                                 </div>
                             </div>
                         </div>
@@ -169,11 +166,11 @@
                         <div class="inner-box">
                             <!--Section Title-->
                             <div class="sec-title aligned-right">
-                                <h2>Samp<span>ling</span></h2>
+                                <h2>Mues<span>tra</span></h2>
                             </div>
-                            <div class="text">We know as "Clinical Sample" those substances, tissues, blood, urine, milk, skin scrapings and organic liquids extracted from animals for diagnostic purposes.</div>
+                            <div class="text">Conocemos como "Muestra Clínica" aquellas sustancias, tejidos, sangre, orina, leche, raspaduras de la piel y líquidos orgánicos extraídos de animales para propósitos de diagnóstico.</div>
 
-                            <a href="http://www.fv.ulpgc.es/?page_id=142"><button class="btn">learn more</button></a>
+                            <a href="http://www.fv.ulpgc.es/?page_id=142"><button class="btn">leer más</button></a>
                         </div>
                     </div>
                 </div>
@@ -190,125 +187,15 @@
                 <div class="row">
                     <div class="col-md-7">
                         <div class="service-footer-left">
-                            <h3>Need to <span>Consult with us</span> ?</h3>
+                            <h3>Necesitas <span>consultarnos</span> ?</h3>
                         </div>
                     </div>
 
                     <div class="col-md-5">
                         <div class="service-footer-right">
-                            <a href="#get-touch"><button class="btn">Get in touch</button></a>
+                            <a href="#get-touch"><button class="btn">Contacta</button></a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--portfolio-->
-    <div id="portfolio">
-        </br>
-        </br>
-        </br>
-        </br>
-        <div class="container">
-            <div class="row">
-
-                <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-                    <div class="portfolio-heading">
-                        <h2>our team</h2>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        
-        <br>
-        <br>
-
-        <div class="portfolio-thumbnail">
-            <div class="container-fluid">
-                <div class="row">
-
-                    <div class="col-xs-6 col-sm-3 col-md-3">
-                        <div class="item">
-                            <img src="/images/portfolio/portfolio1.jpg" alt="">
-                            <div class="caption">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                                <p>lorem ipsum amet</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-6 col-sm-3 col-md-3">
-                        <div class="item">
-                            <img src="/images/portfolio/portfolio2.jpg" alt="">
-                            <div class="caption">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                                <p>lorem ipsum amet</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-6 col-sm-3 col-md-3">
-                        <div class="item">
-                            <img src="/images/portfolio/portfolio3.jpg" alt="">
-                            <div class="caption">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                                <p>lorem ipsum amet</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-6 col-sm-3 col-md-3">
-                        <div class="item">
-                            <img src="/images/portfolio/portfolio4.jpg" alt="">
-                            <div class="caption">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                                <p>lorem ipsum amet</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-6 col-sm-3 col-md-3">
-                        <div class="item">
-                            <img src="/images/portfolio/portfolio5.jpg" alt="">
-                            <div class="caption">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                                <p>what you see</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-6 col-sm-3 col-md-3">
-                        <div class="item">
-                            <img src="/images/portfolio/portfolio6.jpg" alt="">
-                            <div class="caption">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                                <p>lorem ipsum amet</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-6 col-sm-3 col-md-3">
-                        <div class="item">
-                            <img src="/images/portfolio/portfolio7.jpg" alt="">
-                            <div class="caption">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                                <p>lorem ipsum amet</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-6 col-sm-3 col-md-3">
-                        <div class="item">
-                            <img src="/images/portfolio/portfolio8.jpg" alt="">
-                            <div class="caption">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                                <p>lorem ipsum amet</p>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -324,43 +211,43 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
                     <div class="get-touch-heading">
-                        <h2>get in touch</h2>
+                        <h2>Contacta</h2>
                     </div>
                 </div>
             </div>
 
             <div class="content">
                 <div class="row">
-                    <div id="sendmessage">Your message has been sent. Thank you!</div>
+                    <div id="sendmessage">Tu mensaje de ha enviado. Gracias!</div>
                     <div id="errormessage"></div>
 
                     <form action="" method="post" role="form" class="form contactForm">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="minlen:4" data-msg="Por favor introduzca al menos 4 caracteres" />
                                 <div class="validation"></div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Por favor introduzca un email válido" />
                                 <div class="validation"></div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Contenido" data-rule="minlen:4" data-msg="Por favor introduzca al menos 8 caracteres" />
                                 <div class="validation"></div>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Por favor escríbanos algo" placeholder="Message"></textarea>
                                 <div class="validation"></div>
                             </div>
                         </div>
                         <div class="submit">
-                            <button class="btn btn-default" type="submit">Send Now</button>
+                            <button class="btn btn-default" type="submit">Enviar ahora</button>
                         </div>
                     </form>
                 </div>
@@ -379,7 +266,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
                     <div class="contact-heading">
-                        <h2>Find us here</h2>
+                        <h2>Encuéntrenos aquí</h2>
                         <p>ULPGC Veterinary - Bañaderos.</p>
                     </div>
                 </div>
