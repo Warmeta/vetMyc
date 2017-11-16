@@ -30,7 +30,7 @@
                             Esta especie se aísla de agar glucosado de Sabouraud (3).
                         </p>
                         <p>
-                            ü <strong>Clínica y lesiones en el perro</strong>
+                              <strong>Clínica y lesiones en el perro</strong>
                         </p>
                         <p>
                             Las localizaciones dérmicas más frecuentes suelen ser el canal auditivo
@@ -90,7 +90,7 @@
                             corneal.
                         </p>
                         <p>
-                            ü <strong>Enfermedades asociadas a <em>Malassezia</em> en el gato</strong>
+                              <strong>Enfermedades asociadas a <em>Malassezia</em> en el gato</strong>
                         </p>
                         <p>
                             Otitis externa con exudado negro y ceroso, eritrodermia exfoliativa,
@@ -147,7 +147,7 @@
                             cols., 2015).
                         </p>
                         <p>
-                            ü <strong>Seguimiento terapéutico</strong>
+                              <strong>Seguimiento terapéutico</strong>
                         </p>
                         <p>
                             El seguimiento terapéutico es muy importante. En primer lugar, una mejora
@@ -170,7 +170,7 @@
                             semana (Carlotti, 2005).
                         </p>
                         <p>
-                            ü
+                             
                             <strong>
                         Limpiadores óticos y desinfectantes como apoyo a la terapia anti-        <em>M. pachydermatis</em>
                             </strong>
