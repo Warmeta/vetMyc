@@ -53,7 +53,7 @@
                             Además de colaborar activamente con la formación de profesionales y la difusión de contenidos científicos, cumple el papel fundamental de establecer el diagnóstico micológico y otras enfermedades infecciosas. Para ello cuenta con un equipo de trabajo altamente calificado, orientado al desarrollo del conocimiento y a la formación constante.
                             <br>
                             <br>
-                            Entre nuestros objetivos se encuentran difundir los asuntos de las diferentes áreas de la micología y su progreso, la investigación en el campo de la micología veterinaria y ofrecer servicios de diagnóstico clínico.</p>
+                            Entre nuestros objetivos se encuentran difundir información y su progreso en el área de la micología veterinaria con interés en el campo docente e investigador, así como ofrecer nuestro servicio de diagnóstico clínico.</p>
                     </div>
                 </div>
             </div>
