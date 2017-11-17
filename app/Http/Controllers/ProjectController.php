@@ -77,7 +77,12 @@ class ProjectController extends Controller
             $project = new Project();
             $project->author_id = Auth::user()->id;
             $project->fill($request->all());
-            $request->hasFile('image') && $project->image = $request->image->store('projects', 's3');
+            if ($request->hasFile('image')) {
+              $name = time().'.'.$request->image->getClientOriginalExtension();
+              $filePath =  '/projects/'.$name;
+              \Storage::disk('s3')->put($filePath, file_get_contents($request->image), 'public');
+              $project->image = \Storage::disk('s3')->url($filePath);
+            }
             $project->save();
 
             return Redirect::to('/project-manager')->with('message', 'Project created successfully.');
@@ -135,7 +140,12 @@ class ProjectController extends Controller
         } else if (Voyager::can('browse_projects')) {
             $project = Project::find($request->id);
             $project->fill($request->all());
-            $request->hasFile('image') && $project->image = $request->image->store('projects', 's3');
+            if ($request->hasFile('image')) {
+              $name = time().'.'.$request->image->getClientOriginalExtension();
+              $filePath =  '/projects/'.$name;
+              \Storage::disk('s3')->put($filePath, file_get_contents($request->image), 'public');
+              $project->image = \Storage::disk('s3')->url($filePath);
+            }
             $project->save();
 
             return Redirect::to('/project-manager')->with('message', 'Project updated successfully.');

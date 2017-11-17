@@ -14,7 +14,7 @@ $surfix = '</div>';
 <div class="clearfix container-fluid row">
     @foreach($projects as $project)
         @php
-        $image =  URL::to('/').'/storage/'.$project->image;
+        $image = $project->image;
         $project_name = $project->project_name;
         $project_type = $project->project_type;
         $project_id = $project->id;
