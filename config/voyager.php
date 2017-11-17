@@ -14,7 +14,7 @@ return [
         'add_default_role_on_register' => true,
         'default_role'                 => 'user',
         'namespace'                    => App\User::class,
-        'default_avatar'               => '/images/captain-avatar.png',
+        'default_avatar'               => 'https://s3-eu-west-1.amazonaws.com/media.coduxe.com/captain-avatar.png'
     ],
 
     /*
