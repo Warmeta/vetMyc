@@ -39,8 +39,11 @@
                             {{ $project->link }} </p>
 
                         <p>  <a style="font-weight: bold;"> File:</a>
-                            {{ $project->file }} </p>
-
+                          @if ($project->file)
+                            <a href="{{ $project->file }}" download="{{ $project->file }}" target="_blank">
+                              {{ $project->file }}
+                            </a>
+                          @endif </p>
                     </div>
                     </div>
                 </div>

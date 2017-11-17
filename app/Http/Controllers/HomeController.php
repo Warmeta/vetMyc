@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 use Mail;
 
 class HomeController extends Controller
@@ -37,17 +38,19 @@ class HomeController extends Controller
       ]);
 
       if ($validator->fails()) {
-        return back()->withErrors($validator->getErrors());
+        Session::flash('fail', 'Error al enviar');
+
+        return redirect('/#contact');
       }
 
       Mail::raw($request->message, function($message) use ($request) {
         $message->to('admin@vetMyc.com', 'vetMyc');
-        $message->to('ibandominguezpro@gmail.com', 'Iban Dominguez');
+        $message->to('begoña.acosta@ulpgc.es', 'Begoña Acosta');
         $message->replyTo($request->email, $request->name);
       });
 
-      Session::flash('suc', 'Email enviado con éxito.');
+      Session::flash('suc', 'Email enviado con éxito');
 
-      return redirect('/#contact')->with('success', true);
+      return redirect('/#contact');
     }
 }

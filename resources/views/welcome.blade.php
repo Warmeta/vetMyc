@@ -218,11 +218,15 @@
 
             <div class="content">
                 <div class="row">
-                    @if (Session::has('success'))
-                      <p class="alert alert-success">Tu mensaje se ha enviado. Gracias!</p>
-                    @elseif (Session::has('errors'))
-                      <p class="alert alert-danger">{{ Session::get('errors')->first() }}</p>
-                    @endif
+                  @if(Session::has('suc'))
+                      <div class="alert alert-success">
+                          <strong>Success!</strong> {{Session::get('suc')}}.
+                      </div>
+                  @elseif(Session::has('fail'))
+                      <div class="alert alert-warning">
+                          <strong>Warning!</strong> {{Session::get('fail')}}.
+                      </div>
+                  @endif
 
                     <form action="{{ action('HomeController@contact') }}" method="post" role="form" class="form contactForm">
                         <div class="col-md-4">
