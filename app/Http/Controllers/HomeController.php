@@ -44,8 +44,8 @@ class HomeController extends Controller
       }
 
       Mail::raw($request->message, function($message) use ($request) {
-        $message->to('admin@vetMyc.com', 'vetMyc');
-        $message->to('begoña.acosta@ulpgc.es', 'Begoña Acosta');
+        $message->to('admin@vetMyc.com', 'vetMyc')->subject($request->subject);
+        $message->to('warmeta@gmail.es', 'Begoña Acosta')->subject($request->subject);
         $message->replyTo($request->email, $request->name);
       });
 
