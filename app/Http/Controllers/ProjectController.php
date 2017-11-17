@@ -83,6 +83,12 @@ class ProjectController extends Controller
               \Storage::disk('s3')->put($filePath, file_get_contents($request->image), 'public');
               $project->image = \Storage::disk('s3')->url($filePath);
             }
+            if ($request->hasFile('file')) {
+              $name = md5(time()).'.'.$request->file->getClientOriginalExtension();
+              $filePath =  'projects/'.$name;
+              \Storage::disk('s3')->put($filePath, file_get_contents($request->file), 'public');
+              $project->file = \Storage::disk('s3')->url($filePath);
+            }
             $project->save();
 
             return Redirect::to('/project-manager')->with('message', 'Project created successfully.');
@@ -146,6 +152,12 @@ class ProjectController extends Controller
               \Storage::disk('s3')->put($filePath, file_get_contents($request->image), 'public');
               $project->image = \Storage::disk('s3')->url($filePath);
             }
+            if ($request->hasFile('file')) {
+              $name = md5(time()).'.'.$request->file->getClientOriginalExtension();
+              $filePath =  'projects/'.$name;
+              \Storage::disk('s3')->put($filePath, file_get_contents($request->file), 'public');
+              $project->file = \Storage::disk('s3')->url($filePath);
+            }
             $project->save();
 
             return Redirect::to('/project-manager')->with('message', 'Project updated successfully.');
@@ -178,7 +190,7 @@ class ProjectController extends Controller
             'entity' => 'required|max:30',
             'project_status' => 'required|max:30',
             'link' => 'nullable|max:50',
-            'file' => 'nullable|max:190',
+            'file' => 'nullable|max:6000',
         ]);
     }
 
