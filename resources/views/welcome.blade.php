@@ -100,7 +100,7 @@
     </div>
 
     <!--service-->
-    
+
     <div id="service">
         </br>
         </br>
@@ -182,7 +182,7 @@
 
 
         <!--service gapping-->
-        <div class="service-footer hidden-xs">
+        <div id="contact" class="service-footer hidden-xs">
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
@@ -218,31 +218,34 @@
 
             <div class="content">
                 <div class="row">
-                    <div id="sendmessage">Tu mensaje de ha enviado. Gracias!</div>
-                    <div id="errormessage"></div>
+                    @if (Session::has('success'))
+                      <p class="alert alert-success">Tu mensaje se ha enviado. Gracias!</p>
+                    @elseif (Session::has('errors'))
+                      <p class="alert alert-danger">{{ Session::get('errors')->first() }}</p>
+                    @endif
 
-                    <form action="" method="post" role="form" class="form contactForm">
+                    <form action="{{ action('HomeController@contact') }}" method="post" role="form" class="form contactForm">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="minlen:4" data-msg="Por favor introduzca al menos 4 caracteres" />
+                                <input type="text" required name="name" class="form-control" id="name" placeholder="Nombre" data-rule="minlen:4" data-msg="Por favor introduzca al menos 4 caracteres" />
                                 <div class="validation"></div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Por favor introduzca un email válido" />
+                                <input type="email" required class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Por favor introduzca un email válido" />
                                 <div class="validation"></div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Contenido" data-rule="minlen:4" data-msg="Por favor introduzca al menos 8 caracteres" />
+                                <input type="text" required class="form-control" name="subject" id="subject" placeholder="Contenido" data-rule="minlen:4" data-msg="Por favor introduzca al menos 8 caracteres" />
                                 <div class="validation"></div>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Por favor escríbanos algo" placeholder="Message"></textarea>
+                                <textarea required class="form-control" name="message" rows="5" data-rule="required" data-msg="Por favor escríbanos algo" placeholder="Message"></textarea>
                                 <div class="validation"></div>
                             </div>
                         </div>
@@ -286,11 +289,11 @@
                 <div class="col-sm-4 col-md-6">
                     <span></span><img src="/images/client/logofv.png" alt="">
                 </div>
-                
+
                 <div class="col-sm-4 col-md-6">
                     <span></span><img src="/images/client/iconULPGC.png" alt="">
                 </div>
-                
+
             </div>
         </div>
     </div>

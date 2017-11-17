@@ -19,6 +19,7 @@ Route::get('/', function () {
     return View::make('welcome');
 });
 
+Route::post('/contact', 'HomeController@contact');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
@@ -41,31 +42,31 @@ Auth::routes();
 //Mycology
 
 Route::group(['prefix' => 'mycology'], function () {
-        
+
     Route::get('/dimorficos', function () {
         return View::make('mycology.dimorficos');
     });
-    
+
     Route::get('/aspergilosis', function () {
         return View::make('mycology.aspergilosis');
     });
-        
+
     Route::get('/dermatofitosis', function () {
         return View::make('mycology.dermatofitosis');
     });
-        
+
     Route::get('/generalidades', function () {
         return View::make('mycology.generalidades');
     });
-    
+
     Route::get('/candidiasis', function () {
         return View::make('mycology.candidiasis');
     });
-    
+
     Route::get('/criptococosis', function () {
         return View::make('mycology.criptococosis');
     });
-    
+
     Route::get('/malassezias', function () {
         return View::make('mycology.malassezias');
     });
@@ -75,20 +76,20 @@ Route::group(['prefix' => 'mycology'], function () {
 
 
 Route::group(['prefix' => 'project-manager'], function () {
-    
+
     Route::get('/', [
         'uses' => 'ProjectController@index',
         'as' => 'projectManager.index'
     ]);
-    
+
     Route::get('create', ['uses' => 'ProjectController@create', 'as' => 'project.create'])->middleware('checkPermission:browse_projects');
 
     Route::post('create', ['uses' => 'ProjectController@store', 'as' => 'project.post'])->middleware('checkPermission:browse_projects');
-    
+
     Route::get('{id}', ['uses' => 'ProjectController@show', 'as' => 'projectManager.show'], function ($id) {
     //
     })->where('id', '[0-9]+')->middleware('checkPermission:browse_projects');
-    
+
     Route::get('{id}/edit', ['uses' => 'ProjectController@edit', 'as' => 'projectManager.edit'], function ($id) {
     //
     })->where('id', '[0-9]+')->middleware('checkPermission:browse_projects');
@@ -96,10 +97,10 @@ Route::group(['prefix' => 'project-manager'], function () {
     Route::put('{id}/edit', ['uses' => 'ProjectController@update', 'as' => 'projectManager.update'], function ($id) {
         //
     })->where('id', '[0-9]+')->middleware('checkPermission:browse_projects');
-    
+
     Route::delete('delete/{id}', ['uses' => 'ProjectController@destroy', 'as' => 'projectManager.delete'])->where('id', '[0-9]+')->middleware('checkPermission:browse_projects');
 
-        
+
 });
 
 //Laboratory
@@ -155,6 +156,5 @@ Route::group(['prefix' => 'lab'], function () {
     Route::post('antibiotic/create', ['uses' => 'LaboratoryController@storeAntibiotic', 'as' => 'antibiotic.post'])->middleware('checkPermission:browse_antibiotic');
 
     Route::delete('antibiotic/delete/{id}', ['uses' => 'LaboratoryController@destroyAntibiotic', 'as' => 'antibiotic.delete'])->where('id', '[0-9]+')->middleware('checkPermission:browse_antibiotic');
-    
-});
 
+});
