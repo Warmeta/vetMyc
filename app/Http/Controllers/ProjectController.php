@@ -73,29 +73,16 @@ class ProjectController extends Controller
             return redirect('/project-manager/create')
                 ->withErrors(ProjectController::validateProject($request))
                 ->withInput();
-        }elseif (Voyager::can('browse_projects')) {
+        } else if (Voyager::can('browse_projects')) {
             $project = new Project();
-            $project->fill(['project_name' => $request->project_name]);
-            $project->fill(['description' => $request->description]);
-            $project->fill(['project_type' => $request->project_type]);
-            $project->fill(['research_line' => $request->research_line]);
-            $project->fill(['project_status' => $request->project_status]);
-            $project->fill(['publication_date' => $request->publication_date]);
-            $project->fill(['entity' => $request->entity]);
-            $project->fill(['link' => $request->link]);
-            $project->fill(['file' => $request->file]);
-            $project->fill(['author_id' => Auth::user()->id]);
-            if (Input::hasFile('image')) {
-                $file = $request->image;
-                $random_name = str_random(8);
-                $destinationPath = 'storage/projects';
-                $extension = $file->getClientOriginalExtension();
-                $filename= $random_name.'_proj_img.'.$extension;
-                $uploadSuccess = Input::file('image')->move($destinationPath, $filename);
+            $project->author_id = Auth::user()->id;
+            $project->fill($request->all());
+
+            if ($request->hasFile('image')) {
+                $project->image = $request->image->store('projects');
             }
-            $project->fill(['image' => 'projects/'.$filename]);
-              $array = $project->toArray();
-            $project = Project::create($array);
+
+            $project->save();
 
             return Redirect::to('/project-manager')->with('message', 'Project created successfully.');
         } else {
