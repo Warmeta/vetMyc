@@ -79,7 +79,7 @@ class ProjectController extends Controller
             $project->fill($request->all());
             if ($request->hasFile('image')) {
               $name = md5(time()).'.'.$request->image->getClientOriginalExtension();
-              $filePath =  '/projects/'.$name;
+              $filePath =  'projects/'.$name;
               \Storage::disk('s3')->put($filePath, file_get_contents($request->image), 'public');
               $project->image = \Storage::disk('s3')->url($filePath);
             }
@@ -142,7 +142,7 @@ class ProjectController extends Controller
             $project->fill($request->all());
             if ($request->hasFile('image')) {
               $name = md5(time()).'.'.$request->image->getClientOriginalExtension();
-              $filePath =  '/projects/'.$name;
+              $filePath =  'projects/'.$name;
               \Storage::disk('s3')->put($filePath, file_get_contents($request->image), 'public');
               $project->image = \Storage::disk('s3')->url($filePath);
             }
