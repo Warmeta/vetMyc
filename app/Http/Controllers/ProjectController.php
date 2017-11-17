@@ -183,7 +183,7 @@ class ProjectController extends Controller
         return Validator::make($request->all(), [
             'project_name' => 'required|max:30',
             'description' => 'required|max:190',
-            'image' => 'required|max:1000',
+            'image' => 'nullable|image|max:1000',
             'project_type' => 'required|max:50',
             'research_line' => 'required|max:50',
             'publication_date' => 'required',

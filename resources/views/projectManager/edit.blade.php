@@ -28,6 +28,9 @@
                         <div class="col-md-9 form-group">
                             {{ Form::label('Imagen', null, ['class' => 'control-label']) }}
                             {{ Form::file('image', null, ['class' => 'form-control'])  }}
+                            @if ($project->image)
+                              <img src="{{ $project->image }}" class="img-responsive" />
+                            @endif
                             <a class="errors">{{$errors->first('image') }}</a>
                         </div>
                         <div class="col-md-9 form-group">
@@ -63,6 +66,11 @@
                         <div class="col-md-9 form-group">
                             {{ Form::label('Fichero', null, ['class' => 'control-label']) }}
                             {{ Form::file('file', null, ['class' => 'form-control']) }}
+                            @if ($project->file)
+                              <a href="{{ $project->file }}" download="{{ $project->image }}" target="_blank">
+                                Descargar {{ $project->file }}
+                              </a>
+                            @endif
                             <a class="errors">{{$errors->first('file') }}</a>
                         </div>
                         <div class="col-md-9 submit">
