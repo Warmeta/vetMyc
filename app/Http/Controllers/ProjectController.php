@@ -22,16 +22,16 @@ use Illuminate\Support\Str;
 use Intervention\Image\Constraint;
 use Intervention\Image\Facades\Image;
 use TCG\Voyager\Traits\AlertsMessages;
-use Illuminate\Support\Facades\Input; 
+use Illuminate\Support\Facades\Input;
 
 class ProjectController extends Controller
 {
-    
+
     public function __construct()
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -96,7 +96,7 @@ class ProjectController extends Controller
             $project->fill(['image' => 'projects/'.$filename]);
               $array = $project->toArray();
             $project = Project::create($array);
-          
+
             return Redirect::to('/project-manager')->with('message', 'Project created successfully.');
         } else {
             return Redirect::to('/project-manager');
@@ -147,7 +147,7 @@ class ProjectController extends Controller
     public function update(Request $request){
         if (ProjectController::validateProject($request)->fails()) {
             return redirect('/project-manager/'.$request->id.'/edit')
-                ->withErrors(ProjectController::validateClinicCase($request))
+                ->withErrors(ProjectController::validateProject($request))
                 ->withInput();
         }elseif (Voyager::can('browse_projects')) {
             $project = Project::find($request->id);
@@ -170,7 +170,7 @@ class ProjectController extends Controller
     {
         Project::destroy($id);
     }
-    
+
     public function validateProject($request)
     {
         return Validator::make($request->all(), [
@@ -186,17 +186,17 @@ class ProjectController extends Controller
             'file' => 'nullable|max:190',
         ]);
     }
-    
+
     public function randStr() {
-        
+
         $length = 12;
 
         return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
     }
-    
+
     public function getStatusOptions()
     {
         return ['inprogress' => 'In progress','finished' => 'Finished'];
     }
-    
+
 }
