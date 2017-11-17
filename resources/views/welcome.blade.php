@@ -220,11 +220,11 @@
                 <div class="row">
                   @if(Session::has('suc'))
                       <div class="alert alert-success">
-                          <strong>Success!</strong> {{Session::get('suc')}}.
+                          <strong>Éxito!</strong> {{Session::get('suc')}}.
                       </div>
                   @elseif(Session::has('fail'))
                       <div class="alert alert-warning">
-                          <strong>Warning!</strong> {{Session::get('fail')}}.
+                          <strong>Alerta!</strong> {{Session::get('fail')}}.
                       </div>
                   @endif
 
