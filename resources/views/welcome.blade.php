@@ -229,6 +229,7 @@
                   @endif
 
                     <form action="{{ action('HomeController@contact') }}" method="post" role="form" class="form contactForm">
+                        {{ csrf_field() }}
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input type="text" required name="name" class="form-control" id="name" placeholder="Nombre" data-rule="minlen:4" data-msg="Por favor introduzca al menos 4 caracteres" />

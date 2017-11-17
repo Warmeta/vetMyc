@@ -7,56 +7,56 @@
             <div class="col-md-9 col-md-offset-2">
                 @if(Session::has('suc'))
                     <div class="alert alert-success">
-                        <strong>Success!</strong> {{Session::get('suc')}}.
+                        <strong>Éxito!</strong> {{Session::get('suc')}}.
                     </div>
                 @elseif(Session::has('fail'))
                     <div class="alert alert-warning">
-                        <strong>Warning!</strong> {{Session::get('fail')}}.
+                        <strong>Alerta!</strong> {{Session::get('fail')}}.
                     </div>
                 @endif
                 <div class="panel panel-default">
                     <div class="panel-heading"><a style="font-weight: bold; color: grey;">Clinic Case</a></div>
                     <div class="panel-body col-md-8 col-md-offset-2">
-                        <h1><a style="font-weight: bold;">Clinic Case:</a>  {{ $clinic->number_clinic_history }}</h1>
+                        <h1><a style="font-weight: bold;">Caso Clínico:</a>  {{ $clinic->number_clinic_history }}</h1>
 
-                            <p><a style="font-weight: bold;">Clinic Case status : </a>  {{ $clinic->clinic_case_status }}</p>
+                            <p><a style="font-weight: bold;">Estado del caso: </a>  {{ $clinic->clinic_case_status }}</p>
 
-                            <p><a style="font-weight: bold;">Animal Ref : </a>  {{ $clinic->ref_animal }}</p>
+                            <p><a style="font-weight: bold;">Referencia del animal: </a>  {{ $clinic->ref_animal }}</p>
 
-                            <p><a style="font-weight: bold;"> Specie:</a>  {{ $clinic->specie }} </p>
+                            <p><a style="font-weight: bold;"> Especie:</a>  {{ $clinic->specie }} </p>
 
-                            <p><a style="font-weight: bold;"> Breed:  </a> {{ $clinic->breed }} </p>
+                            <p><a style="font-weight: bold;"> Raza:  </a> {{ $clinic->breed }} </p>
 
-                            <p><a style="font-weight: bold;"> Sex: </a>  {{ $clinic->sex }} </p>
+                            <p><a style="font-weight: bold;"> Sexo: </a>  {{ $clinic->sex }} </p>
 
-                            <p><a style="font-weight: bold;"> Owner: </a>  {{ $clinic->owner }} </p>
+                            <p><a style="font-weight: bold;"> Propietario: </a>  {{ $clinic->owner }} </p>
 
                             <p><a style="font-weight: bold;"> Email: </a>  {{ $clinic->owner_email }} </p>
 
-                            <p><a style="font-weight: bold;"> Age:  </a> {{ $clinic->age }} </p>
+                            <p><a style="font-weight: bold;"> Edad:  </a> {{ $clinic->age }} </p>
 
-                            <p> <a style="font-weight: bold;">   Clinic History:</a>
+                            <p> <a style="font-weight: bold;">   Historial Clínico:</a>
                                 {{ $clinic->clinic_history }} </p>
 
-                            <p>  <a style="font-weight: bold;"> Sample:</a>
+                            <p>  <a style="font-weight: bold;"> Muestra:</a>
                                 {{ $clinic->sample }} </p>
 
-                            <p> <a style="font-weight: bold;"> Localization:</a>
+                            <p> <a style="font-weight: bold;"> Localización:</a>
                                 {{ $clinic->localization }} </p>
 
-                            <p>  <a style="font-weight: bold;"> Bacterioscopy:</a>
+                            <p>  <a style="font-weight: bold;"> Bacterioscopia:</a>
                                 {{ $clinic->bacterioscopy }} </p>
 
-                            <p> <a style="font-weight: bold;"> Trichogram:</a>
+                            <p> <a style="font-weight: bold;"> Tricograma:</a>
                                 {{ $clinic->trichogram }} </p>
 
-                            <p> <a style="font-weight: bold;"> Culture:</a>
+                            <p> <a style="font-weight: bold;"> Cultivo:</a>
                                 {{ $clinic->culture }} </p>
 
-                            <p> <a style="font-weight: bold;"> Bacterial isolate:</a>
+                            <p> <a style="font-weight: bold;"> Aislamiento bacteriano:</a>
                                 {{ $clinic->bacterial_isolate }} </p>
 
-                            <p>  <a style="font-weight: bold;"> Fungi isolate: </a>
+                            <p>  <a style="font-weight: bold;"> Aislamiento fúngico: </a>
                                 {{ $clinic->fungi_isolate }}
 
                             </p>
@@ -65,9 +65,9 @@
                                 <thead>
                                 <tr>
                                     <th></th>
-                                    <th>Sensitive</th>
-                                    <th>Intermediate</th>
-                                    <th>Resistant</th>
+                                    <th>Sensible</th>
+                                    <th>Intermedio</th>
+                                    <th>Resistente</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -113,9 +113,9 @@
 
                                 </tbody>
                             </table>
-                            <p><a style="font-weight: bold;">Comments:</a>
+                            <p><a style="font-weight: bold;">Comentarios:</a>
                                 {{ $clinic->comment }}</p>
-                        <div style="float: right"><a href="{{route('sendEmail', $clinic->id)}}" class="btn btn-primary" >Send Email</a></div>
+                        <div style="float: right"><a href="{{route('sendEmail', $clinic->id)}}" class="btn btn-primary" >Enviar Caso Clínico</a></div>
                     </div>
                     </div>
                 </div>
@@ -124,5 +124,3 @@
     </div>
     </div>
 @endsection
-
-

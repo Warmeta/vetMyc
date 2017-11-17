@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-9 col-md-offset-2">
                     <div class="get-touch-heading">
-                        <h2>Edit: Antibiotic</h2>
+                        <h2>Editar: Antibiótico</h2>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                         </div>
                         <div class="col-md-9 submit">
                             <button type="submit" class="btn btn-default">
-                                Edit
+                                Editar
                             </button>
                         </div>
                     </div>

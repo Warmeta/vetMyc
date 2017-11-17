@@ -1,40 +1,40 @@
 @component('mail::message')
-# Clinic Case Nº: {{ $clinic->number_clinic_history }}
+# Nº de Caso: {{ $clinic->number_clinic_history }}
 
-**Animal Ref :  ** {{ $clinic->ref_animal }}
+**Referencia del animal :  ** {{ $clinic->ref_animal }}
 
-**Specie:  **{{ $clinic->specie }}
+**Especie:  **{{ $clinic->specie }}
 
-**Breed:  ** {{ $clinic->breed }}
+**Raza:  ** {{ $clinic->breed }}
 
-**Sex:  ** {{ $clinic->sex }}
+**Sexo:  ** {{ $clinic->sex }}
 
-**Owner:  ** {{ $clinic->owner }}
+**Propiedad:  ** {{ $clinic->owner }}
 
-**Age:  ** {{ $clinic->age }}
+**Edad:  ** {{ $clinic->age }}
 
-**Clinic History:  **
+**Historial Clínico:  **
 {{ $clinic->clinic_history }}
 
-**Sample:  **
+**Muestra:  **
 {{ $clinic->sample }}
 
-**Localization:  **
+**Localización:  **
 {{ $clinic->localization }}
 
-**Bacterioscopy:  **
+**Bacterioscopia:  **
 {{ $clinic->bacterioscopy }}
 
-**Trichogram:  **
+**Tricograma:  **
 {{ $clinic->trichogram }}
 
-**Culture:  **
+**Cultivo:  **
 {{ $clinic->culture }}
 
-**Bacterial isolate:  **
+**Aislamiento bacteriano:  **
 {{ $clinic->bacterial_isolate }}
 
-**Fungi isolate:  **
+**Aislamiento fúngico:  **
 {{ $clinic->fungi_isolate }}
 
 @component('mail::table')
@@ -42,9 +42,9 @@
     <thead>
     <tr>
         <th></th>
-        <th>Sensitive</th>
-        <th>Intermediate</th>
-        <th>Resistant</th>
+        <th>Sensible</th>
+        <th>Intermedio</th>
+        <th>Resistente</th>
     </tr>
     </thead>
     <tbody>
@@ -93,10 +93,10 @@
 </table>
 @endcomponent
 
-**Comments:  **
+**Comentarios:  **
 {{ $clinic->comment }}
 
-@component('mail::button', ['url' => 'vetmyc.dev:8000'])
+@component('mail::button', ['url' => 'vetmyc.herokuapp.com'])
 vetMyc
 @endcomponent
 

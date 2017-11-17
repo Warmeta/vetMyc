@@ -8,11 +8,11 @@
                     @include('voyager::alerts')
                     @if (Voyager::can('add_clinic_case'))
                         <a href="/lab/clinic-case/create" class="btn btn-primary">
-                            <div class="btns"><span class="glyphicon glyphicon-plus"></span> Add New</div>
+                            <div class="btns"><span class="glyphicon glyphicon-plus"></span> Añadir</div>
                         </a>
                     @endif
                     <a href="/lab/antibiotic" class="btn btn-info">
-                        <div class="btns"><span class="voyager-lab fa-lg"></span> Antibiotics</div>
+                        <div class="btns"><span class="voyager-lab fa-lg"></span> Antibióticos</div>
                     </a>
                 </div>
                 <div class="filter pull-right">
@@ -27,7 +27,7 @@
                     {{ Form::select('filter', $filters, null, array('onchange' => 'viewInput()', 'placeholder' => 'Filter...', 'id' => 'filter')) }}
                     <div id="ifClinicButton" style="display: none;">
                         <button type="submit" class="btn btn-default" id="search">
-                            Search
+                            Buscar
                         </button>
                     </div>
                     {{ Form::close() }}
@@ -42,7 +42,7 @@
                                 @foreach($rows->values() as $row)
                                     <th>{{ $row }}</th>
                                 @endforeach
-                                <th class="actions text-center">Actions</th>
+                                <th class="actions text-center">Acciones</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -60,15 +60,15 @@
                                     <td class="no-sort no-click" id="bread-actions">
                                         <!-- delete -->
                                         <a title="Delete" class="btn btn-sm btn-danger pull-right delete" data-id="{{ $clinic->id }}" id="delete-{{ $clinic->id }}" data-route="./clinic-case/delete/" data-token="{{ csrf_token() }}">
-                                            <div class="btns"><i class="voyager-trash fa-lg"></i> <span class="hidden-xs hidden-sm">Delete</span></div>
+                                            <div class="btns"><i class="voyager-trash fa-lg"></i> <span class="hidden-xs hidden-sm">Borrar</span></div>
                                         </a>
                                         <!-- edit -->
                                         <a href="{{ route('clinicCase.edit', $clinic->id) }}" title="Edit" class="btn btn-sm btn-primary pull-right edit">
-                                            <div class="btns"><i class="voyager-edit fa-lg"></i> <span class="hidden-xs hidden-sm">Edit</span></div>
+                                            <div class="btns"><i class="voyager-edit fa-lg"></i> <span class="hidden-xs hidden-sm">Editar</span></div>
                                         </a>
                                         <!-- view -->
                                         <a href="{{ route('clinicCase.show', $clinic->id) }}" title="View" class="btn btn-sm btn-warning pull-right">
-                                            <div class="btns"><i class="voyager-eye fa-lg"></i> <span class="hidden-xs hidden-sm">View</span></div>
+                                            <div class="btns"><i class="voyager-eye fa-lg"></i> <span class="hidden-xs hidden-sm">Ver</span></div>
                                         </a>
                                     </td>
                                 </tr>

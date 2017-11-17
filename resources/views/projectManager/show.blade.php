@@ -7,11 +7,11 @@
             <div class="col-md-9 col-md-offset-2">
                 @if(Session::has('suc'))
                     <div class="alert alert-success">
-                        <strong>Success!</strong> {{Session::get('suc')}}.
+                        <strong>Éxito!</strong> {{Session::get('suc')}}.
                     </div>
                 @elseif(Session::has('fail'))
                     <div class="alert alert-warning">
-                        <strong>Warning!</strong> {{Session::get('fail')}}.
+                        <strong>Alerta!</strong> {{Session::get('fail')}}.
                     </div>
                 @endif
                 <div class="panel panel-default">
@@ -19,26 +19,26 @@
                     <div class="panel-body col-md-8 col-md-offset-2">
                         <h1>  {{ $project->project_name }}</h1>
 
-                        <p><a style="font-weight: bold;">Description: </a>  {{ $project->description }}</p>
+                        <p><a style="font-weight: bold;">Descripción: </a>  {{ $project->description }}</p>
 
                         <p><img src="{{$project->image}}"></img></p>
 
-                        <p><a style="font-weight: bold;"> Type:</a>  {{ $project->project_type }} </p>
+                        <p><a style="font-weight: bold;"> Tipo:</a>  {{ $project->project_type }} </p>
 
-                        <p><a style="font-weight: bold;"> Research line:  </a> {{ $project->research_line }} </p>
+                        <p><a style="font-weight: bold;"> Linea de investigación:  </a> {{ $project->research_line }} </p>
 
-                        <p><a style="font-weight: bold;"> Publication date: </a>  {{ $project->publication_date }} </p>
+                        <p><a style="font-weight: bold;"> Fecha de publicación: </a>  {{ $project->publication_date }} </p>
 
-                        <p><a style="font-weight: bold;"> Entity: </a>  {{ $project->entity }} </p>
+                        <p><a style="font-weight: bold;"> Entidad: </a>  {{ $project->entity }} </p>
 
-                        <p><a style="font-weight: bold;"> Author: </a>  {{ $user }} </p>
+                        <p><a style="font-weight: bold;"> Autor: </a>  {{ $user }} </p>
 
-                        <p><a style="font-weight: bold;"> Status:  </a> {{ $project->project_status }} </p>
+                        <p><a style="font-weight: bold;"> Estado:  </a> {{ $project->project_status }} </p>
 
                         <p> <a style="font-weight: bold;">   Link:</a>
                             {{ $project->link }} </p>
 
-                        <p>  <a style="font-weight: bold;"> File:</a>
+                        <p>  <a style="font-weight: bold;"> Fichero:</a>
                           @if ($project->file)
                             <a href="{{ $project->file }}" download="{{ $project->file }}" target="_blank">
                               {{ $project->file }}
