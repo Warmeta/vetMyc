@@ -21,7 +21,7 @@
 
                         <p><a style="font-weight: bold;">Description: </a>  {{ $project->description }}</p>
 
-                        <p><img src="{{$project->image)}}"></img></p>
+                        <p><img src="{{$project->image}}"></img></p>
 
                         <p><a style="font-weight: bold;"> Type:</a>  {{ $project->project_type }} </p>
 
