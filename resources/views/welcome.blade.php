@@ -31,7 +31,7 @@
 
                 <div class="caption">
                     <h2><span>¿Qué es la micología?</span></h2>
-                    <a href="/lab"><button class="btn">Leer más</button></a>
+                    <a href="/mycology/generalidades"><button class="btn">Leer más</button></a>
                 </div>
 
             </li>
@@ -50,7 +50,7 @@
                         <p>El Laboratorio de enfermedades infecciosas forma parte de la ULPGC específicamente a la Facultad de Medicina Veterinaria.
                             <br>
                             <br>
-                            Además de colaborar activamente con la formación de profesionales y la difusión de contenidos científicos, cumple el papel fundamental de establecer el diagnóstico micológico. Para ello cuenta con un equipo de trabajo altamente calificado, orientado al desarrollo del conocimiento y a la formación constante.
+                            Además de colaborar activamente con la formación de profesionales y la difusión de contenidos científicos, cumple el papel fundamental de establecer el diagnóstico micológico y otras enfermedades infecciosas. Para ello cuenta con un equipo de trabajo altamente calificado, orientado al desarrollo del conocimiento y a la formación constante.
                             <br>
                             <br>
                             Entre nuestros objetivos se encuentran difundir los asuntos de las diferentes áreas de la micología y su progreso, la investigación en el campo de la micología veterinaria y ofrecer servicios de diagnóstico clínico.</p>
@@ -178,28 +178,6 @@
 
             </div>
         </section>
-
-
-
-        <!--service gapping-->
-        <div id="contact" class="service-footer hidden-xs">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-7">
-                        <div class="service-footer-left">
-                            <h3>Necesitas <span>consultarnos</span> ?</h3>
-                        </div>
-                    </div>
-
-                    <div class="col-md-5">
-                        <div class="service-footer-right">
-                            <a href="#get-touch"><button class="btn">Contacta</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!--contact form-->
     <div id="get-touch">

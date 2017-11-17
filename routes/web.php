@@ -39,6 +39,18 @@ Route::get('/lab', [
 
 Auth::routes();
 
+//Research routes
+
+Route::get('/team', function () {
+    return View::make('research.team');
+});
+Route::get('/projects', function () {
+    return View::make('research.projects');
+});
+Route::get('/publications', function () {
+    return View::make('research.publications');
+});
+
 //Mycology
 
 Route::group(['prefix' => 'mycology'], function () {

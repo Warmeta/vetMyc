@@ -703,6 +703,24 @@ textarea:focus {
 	color: #6fd779;
 }
 
+/*Table*/
+
+table{
+  border-collapse: collapse;
+  border: 1px solid #8e8e8e;
+}
+table td{
+  border: 1px solid #8e8e8e;
+}
+table tr:nth-child(odd) {background-color: white;}
+
+table tr:nth-child(even) {background-color: #6fd779;}
+
+tr {
+	text-align: center;
+	height: 50px;
+}
+
 /*Media*/
 @media screen and (min-width: 320px) and (max-width: 520px) {
 	#about {

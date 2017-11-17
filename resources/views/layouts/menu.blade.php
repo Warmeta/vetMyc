@@ -92,7 +92,7 @@
                             </li>
                         </ul>
                     </li>
-                    
+
                     <li class="dropdown">
                         <a href={{ route('lab') }} class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Micología<span class="caret"></span></a>
                 		<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
@@ -115,7 +115,7 @@
                             <li><a href={{ URL::to('mycology/dimorficos') }}>Dimórficos</a></li>
                         </ul>
                     </li>
-            
+
                     <li class="dropdown">
                         <a href={{ route('lab') }} class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">laboratorio<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -125,7 +125,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href={{ route('lab') }}>
+                                <a href="/lab#impr">
                                     Impresos
                                 </a>
                             </li>
@@ -142,17 +142,17 @@
                         <a href={{ route('lab') }} class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Investigación<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href={{ route('lab') }}>
+                                <a href={{ URL::to('team') }}>
                                     Nuestro equipo
                                 </a>
                             </li>
                             <li>
-                                <a href={{ route('lab') }}>
+                                <a href={{ URL::to('projects') }}>
                                     Nuestros proyectos
                                 </a>
                             </li>
                             <li>
-                                <a href={{ route('lab') }}>
+                                <a href={{ URL::to('publications') }}>
                                     Publicaciones
                                 </a>
                             </li>
