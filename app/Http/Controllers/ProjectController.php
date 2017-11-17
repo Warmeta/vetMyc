@@ -77,11 +77,7 @@ class ProjectController extends Controller
             $project = new Project();
             $project->author_id = Auth::user()->id;
             $project->fill($request->all());
-
-            if ($request->hasFile('image')) {
-                $project->image = $request->image->store('projects');
-            }
-
+            $request->hasFile('image') && $project->image = $request->image->store('projects', 's3');
             $project->save();
 
             return Redirect::to('/project-manager')->with('message', 'Project created successfully.');
@@ -136,11 +132,13 @@ class ProjectController extends Controller
             return redirect('/project-manager/'.$request->id.'/edit')
                 ->withErrors(ProjectController::validateProject($request))
                 ->withInput();
-        }elseif (Voyager::can('browse_projects')) {
+        } else if (Voyager::can('browse_projects')) {
             $project = Project::find($request->id);
-            $project->update($request->all());
+            $project->fill($request->all());
+            $request->hasFile('image') && $project->image = $request->image->store('projects', 's3');
+            $project->save();
 
-            return Redirect::to('/project-manager')->with('message', 'Project '.$request->number_clinic_history.' updated successfully.');
+            return Redirect::to('/project-manager')->with('message', 'Project updated successfully.');
         } else {
             return Redirect::to('/project-manager');
         }
@@ -163,7 +161,7 @@ class ProjectController extends Controller
         return Validator::make($request->all(), [
             'project_name' => 'required|max:30',
             'description' => 'required|max:190',
-            'image' => 'required|max:50',
+            'image' => 'required|max:1000',
             'project_type' => 'required|max:50',
             'research_line' => 'required|max:50',
             'publication_date' => 'required',
