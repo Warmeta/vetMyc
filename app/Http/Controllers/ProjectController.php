@@ -78,7 +78,7 @@ class ProjectController extends Controller
             $project->author_id = Auth::user()->id;
             $project->fill($request->all());
             if ($request->hasFile('image')) {
-              $name = time().'.'.$request->image->getClientOriginalExtension();
+              $name = md5(time()).'.'.$request->image->getClientOriginalExtension();
               $filePath =  '/projects/'.$name;
               \Storage::disk('s3')->put($filePath, file_get_contents($request->image), 'public');
               $project->image = \Storage::disk('s3')->url($filePath);
@@ -141,7 +141,7 @@ class ProjectController extends Controller
             $project = Project::find($request->id);
             $project->fill($request->all());
             if ($request->hasFile('image')) {
-              $name = time().'.'.$request->image->getClientOriginalExtension();
+              $name = md5(time()).'.'.$request->image->getClientOriginalExtension();
               $filePath =  '/projects/'.$name;
               \Storage::disk('s3')->put($filePath, file_get_contents($request->image), 'public');
               $project->image = \Storage::disk('s3')->url($filePath);

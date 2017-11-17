@@ -12,7 +12,7 @@
             </div>
             <div class="content">
                 <div class="row col-md-9 col-md-offset-2">
-                    {!! Form::model($project, array('action' => ['ProjectController@update', $project->id], 'method' => 'put', 'class' => 'form contactForm')) !!}
+                    {!! Form::model($project, array('action' => ['ProjectController@update', $project->id], 'method' => 'put', 'class' => 'form contactForm', 'enctype' => 'multipart/form-data', 'files' => true)) !!}
                     {{ csrf_field() }}
                     <div class="col-md-offset-2">
                         <div class="col-md-9 form-group">
