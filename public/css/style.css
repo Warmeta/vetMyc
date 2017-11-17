@@ -618,6 +618,14 @@ textarea:focus {
 	text-align: justify;
 }
 
+#about .about-heading li {
+	margin-top: 20px;
+	line-height: 25px;
+	color: #8e8e8e;
+	margin-bottom: 50px;
+	text-align: justify;
+}
+
 #about .about-left {
 	position: relative;
 	z-index: 2;

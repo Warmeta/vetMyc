@@ -81,11 +81,6 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/#portfolio">
-                                    Equipo
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/#get-touch">
                                     Contacto
                                 </a>
