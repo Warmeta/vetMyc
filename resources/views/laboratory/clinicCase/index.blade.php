@@ -39,9 +39,14 @@
                         <table id="dataTable" class="table table-hover">
                             <thead>
                             <tr>
-                                @foreach($rows->values() as $row)
-                                    <th>{{ $row }}</th>
-                                @endforeach
+                                <th>Nº Caso</th>
+                                <th>Ref. Animal</th>
+                                <th>Especie</th>
+                                <th>Raza</th>
+                                <th>Edad</th>
+                                <th>Localización</th>
+                                <th>Estado</th>
+                                <th>Comentarios</th>
                                 <th class="actions text-center">Acciones</th>
                             </tr>
                             </thead>
