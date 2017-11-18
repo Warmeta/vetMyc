@@ -705,18 +705,18 @@ textarea:focus {
 
 /*Table*/
 
-table{
+#prices {
   border-collapse: collapse;
   border: 1px solid #8e8e8e;
 }
-table td{
+#prices td{
   border: 1px solid #8e8e8e;
 }
-table tr:nth-child(odd) {background-color: white;}
+#prices tr:nth-child(odd) {background-color: white;}
 
-table tr:nth-child(even) {background-color: #6fd779;}
+#prices tr:nth-child(even) {background-color: #6fd779;}
 
-tr {
+#prices tr {
 	text-align: center;
 	height: 50px;
 }

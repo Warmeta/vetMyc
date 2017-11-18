@@ -10,7 +10,7 @@
                         </br>
                         <h3>Lista de precios</h3>
                       </br>
-                      <table>
+                      <table id="prices">
                       	<tbody>
                       		<tr>
                       			<td>BACTERIOSCOPIA Y CULTIVO BACTERIANO </td>
