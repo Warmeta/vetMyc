@@ -34,8 +34,6 @@
                             Histoplasma tiene afinidad por el sistema reticuloendotelial, clínicamente
                             se caracteriza por inflamación en ganglios, diarrea, fiebre, tos, ascitis,
                             caquexia y muerte.
-                        </p>
-                        <p>
                             Examen directo<em>: H. capsulatum</em> es pequeño y raramente se encuentra
                             extracelularmente, es francamente difícil demostrarlo en materiales
                             clínicos. Se tiñen por los métodos de Giensa y Wright, se observan
@@ -60,33 +58,27 @@
                             calcificados, caseificados o granulomatosos. También se han observado casos
                             en bovinos, ovejas, cerdos y gatos. El agente causal se encuentra sobre
                             todo en el suelo.
-                        </p>
-                        <p>
+                      
                             Comienza el proceso agudo por un proceso febril, tipo neumonía con
                             hemoptisis, a veces cavitario, y termina con la curación.
-                        </p>
-                        <p>
+                      
                             En los casos contrarios o en el segundo período o crónico, forman un
                             granuloma, que puede por metástasis pasar a piel, huesos, SNC y a otros
                             órganos con pronóstico desfavorable o fatal.
-                        </p>
-                        <p>
+                      
                             En las lesiones solo se ve el quiste esférico de pared gruesa y
                             refringente, que se encuentran llenos de esporas o conidios, las formas
                             micelares solo se ven en los cultivos.
-                        </p>
-                        <p>
+                      
                             La intensidad del proceso corre pareja con el incremento de gammaglobulinas
                             y disminución de la serina. El aumento de glicoproteínas se relaciona con
                             el estado inflamatorio.
-                        </p>
-                        <p>
+                      
                             La inoculación comienza en el pulmón, produciendo después alergia y eritema
                             nudoso. Como infección secundaria hay gránulos más periféricos, cutáneos,
                             subcutáneos, óseos, etc. Se puede localizar en tejidos, exudados, esputos,
                             pus, orina, moco nasal y en liquido espinal.
-                        </p>
-                        <p>
+                      
                             Formas en estado parasitario: Se forma un quiste que se rompe al llegar el
                             estado maduro. Se encuentran células esferoidales con membrana espesa de
                             doble contorno. Los elementos grandes tienen en su interior de 6 a 20

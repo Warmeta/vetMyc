@@ -121,27 +121,20 @@
                 <p>
                     Inflamación mamaria: cuarterón afecto aumentado de volumen, tenso y de
                     consistencia gomosa
-                </p>
-                <p>
+
                     Trastorno del estado general y fiebre (42ºC).
-                </p>
-                <p>
+
                     La enfermedad pasa de esta manera a transformarse en crónica.
-                </p>
-                <p>
+
                     En la fase aguda la secreción es escasa, gris-amarillenta, en la que se
                     observan grumos mucosos.
-                </p>
-                <p>
+
                 En la fase crónica, recupera la leche y aparecen flóculos mucosos. aísla a    <em>Candida maltosa</em> como agente etiológico de estas mamitis crónicas.
-                </p>
-                <p>
+
                     La curación espontanea tiene lugar en tres semanas.
-                </p>
-                <p>
+
                     Se cita diarreas en terneros producidas por <em>Candidas </em>spp.
-                </p>
-                <p>
+
                     Las "candidiasis" en otros rumiantes como las cabras pueden ser causas de
                     abortos.
                 </p>
@@ -152,16 +145,13 @@
                     Examen directo realizados con las muestras aparezcan levaduras aisladas, a
                     veces en gemación y cortas pseudohifas con verticilos de blastosporas, que
                     tiñen con Giensa o Gram.
-                </p>
-                <p>
+
                     Para el aislamiento se usa Sabouraud dextrosa con antibióticos, pero sin
                     actidiona, ya que hay especies que no crecen con este inhibidor. En medios
                     con sales de tetrazolio, viendo el color de las colonias.
-                </p>
-                <p>
+
                     Las colonias son rápido crecimiento a 28ºC, primero lisas y luego rugosas.
-                </p>
-                <p>
+
                 Identificación: por filamentación en suero inactivado a 37ºC 3-4 horas:    <em>C. albicans</em>. Formación de clamidosporas y pseudomicelio.
                     Fermentación de azúcares. Auxonograma, Prueba de la ureasa.
                 </p>
@@ -180,32 +170,24 @@
                 <p>
                     El cerdo es el animal que mayor cantidad de levaduras presenta por gramo de
                     heces.
-                </p>
-                <p>
+
                     Son pocas las especies de cándidas capaces de ser patógenas.
-                </p>
-                <p>
+
                     Normalmente las infecciones por cándidas en el cerdo suelen ser secundarias
                     y endógenas.
-                </p>
-                <p>
+
                 Las candidiasis del tracto digestivo superior suelen estar producidas por<em>C. albicans</em> y las infecciones del tracto digestivo posterior por    <em>C. krusei</em>.
-                </p>
-                <p>
+
                     En lechones alimentados artificialmente, predispone a la multiplicación de
                     cándidas lo cual provoca:
-                </p>
-                <p>
+
                     -déficit vitamínico
-                </p>
-                <p>
+
                     -merma de las defensas e infecciones secundarias tipo bacteriano.
-                </p>
-                <p>
+
                     A nivel intestinal lo único que se puede observar es un revestimiento
                     pseudomenbranoso.
-                </p>
-                <p>
+
                     En cerdas en período de recría pueden dar lugar a diarreas.
                 </p>
                 <p>
@@ -229,18 +211,15 @@
                 <p>
                 A destacar <em>C. albicans</em>. Aunque también es verdad que esta    <u>Candida</u><em> albicans</em> parece ser normal encontrarla en buches
                     sanos según, el cual las aísla de un 80% de los animales.
-                </p>
-                <p>
+
                     Soor: afecta a animales en los tres primeros días de vida (gallinas, pavos,
                     palmípedos, perdices, etc.).
-                </p>
-                <p>
+
                     Como consecuencia de la acción patógena de dicho germen se producen
                     alteraciones en las mucosas de: lengua, faringe y pico; con depósitos
                     blanquecinos y costrosos, mucosas engrosadas y hemorrágicas. También
                     aparece diarrea y debilidad.
-                </p>
-                <p>
+
                     La mortalidad durante el primer mes de vida puede llegar al 100%.
                 </p>
                 <p>
@@ -262,25 +241,19 @@
                     Candidiasis de aves producida por <em>C. albicans</em>. En los órganos
                     lesionados aparecen formas vegetativas del desarrollo de levaduras,
                     rodeadas por macrófagos.
-                </p>
-                <p>
+                
                 Pueden afectarse a todas las aves, pero especialmente los    <strong>pavos</strong>.
-                </p>
-                <p>
+                
                     El contagio es oral.
-                </p>
-                <p>
+                
                     Clínicamente hay adinamia y diarrea naranja mal oliente.
-                </p>
-                <p>
+                
                     Las lesiones que más llaman la atención: Alteraciones en intestino grueso e
                     hígado exhibe focos blanquecinos con bordes dentados; dichos focos también
                     pueden observarse en páncreas y riñones.
-                </p>
-                <p>
+                
                     No se conoce tratamiento efectivo.
-                </p>
-                <p>
+                
                     <strong>En otros animales como gatos y perros</strong>
                     los aislamientos más frecuentes de <em>Candidas </em>spp. se realizan a
                     partir de otitis.

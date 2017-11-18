@@ -87,22 +87,17 @@
                         </p>
                         <p>
                             Los puntos epidemiológicos más importantes:
-                        </p>
-                        <p>
+                        
                             Las especies afectadas principalmente por esta patología son: gallinas,
                             patos, gansos y pavos.
-                        </p>
-                        <p>
+                        
                             Se considera la posibilidad de infección a través de la cascara del huevo.
-                        </p>
-                        <p>
+                        
                             Especialmente sensible los animales recién nacidos, a partir de los 14 días
                             de edad aumenta la resistencia al padecimiento de esta enfermedad.
-                        </p>
-                        <p>
+                        
                             La mortalidad puede llegar al 100%
-                        </p>
-                        <p>
+                        
                             Influyen en la presentación factores desencadenantes.
                         </p>
                         <p>
@@ -112,8 +107,7 @@
                             Respiración dificultosa, estertores, jadeos, adelgazamiento y somnolencia.
                             La lengua y el paladar pueden tener aspecto verdoso, entre costroso y
                             supurado.
-                        </p>
-                        <p>
+
                             Inoculación experimental a pollos adultos con <em>A. fumigatus</em> y se
                             observa: neumonía, hipertensión pulmonar, hipertrofia y dilatación
                             ventricular, insuficiencia valvular derecha, hipertensión portal y ascitis.
@@ -133,14 +127,11 @@
                         </p>
                         <p>
                             Flavofungina, moronal, trichomat
-                        </p>
-                        <p>
+
                             -evitar factores predisponentes.
-                        </p>
-                        <p>
+
                             -buena ventilación
-                        </p>
-                        <p>
+
                             -disminuir la humedad
                         </p>
                     </div>

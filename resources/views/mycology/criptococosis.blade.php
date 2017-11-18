@@ -120,148 +120,110 @@
                         <p>
                         Actualmente, el número de especies aceptadas pertenecientes al Género    <em>Cryptococcus</em> es de 34 (Kurtzman y Fell, 1998; Fell y
                             Statzell-Tallman, 1998).
-                        </p>
-                        <p>
-                            <strong></strong>
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus aerius</em></strong>
                             <strong>; </strong>
                             (Saito) Nannizzi (1927).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus albidosimilis; </em></strong>
                             Vishniac &amp; Kurtzman (1992).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus albidus; </em></strong>
                             (Saito) CE. Skinner (1947).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus amylolentus; </em></strong>
                             (Van der Walt, DB. Scott &amp; van der Klift) Golubev (1981).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus antarcticus; </em></strong>
                             Vishniac &amp; Kurtzman (1992).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus aquaticus; </em></strong>
                             (Jones &amp; Slooff) Rodrigues de Miranda &amp; Weijman (1988)..
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus ater; </em></strong>
                             (Castellani ex Cooke) Phaff &amp; Fell (Lodder 1970).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus bhutanensis; </em></strong>
                             S. Goto &amp; Sugiyama (1970).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus consortionis; </em></strong>
                             Vishniac (1985).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus curvatus; </em></strong>
                             (Diddens &amp; Lodder) Golubev (1981).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus dimennae; </em></strong>
                             Fell &amp; Phaff (1967).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus feraegula; </em></strong>
                             Saëz &amp; Rodrigues de Miranda (1988).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus flavus; </em></strong>
                             (Saito) Phaff &amp; Fell (1970).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus friedmannii; </em></strong>
                             Vishniac (1985).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus fuscescens; </em></strong>
                             Golubev (1984).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus gastricus; </em></strong>
                             Reiersöl &amp; di Menna (1958).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus gilvescens; </em></strong>
                             Chernov &amp; Bab`eva (1988).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus heveanensis; </em></strong>
                             (Groenewege) Baptist &amp; Kurtzman (1976).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus huempii; </em></strong>
                             (Ramírez &amp; González) Roijmans, van Eijk &amp; Yarrow (1989).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus humicolus; </em></strong>
                             (Daszewska) Golubev (1981).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus hungaricus; </em></strong>
                             (Zsolt) Phaff &amp; Fell (1970).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus kuetzingii; </em></strong>
                             Fell &amp; Phaff (1967).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus laurentii; </em></strong>
                             (Kufferath) CE. Skinner (1950), (cit. Vishniac, 2002).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus luteolus; </em></strong>
                             (Saito) CE. Skinner (1950).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus macerans; </em></strong>
                             (Frederiksen) Phaff &amp; Fell (1970).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus magnus; </em></strong>
                             (Lodder &amp; Kreger- van Rij) Baptist &amp; Kurtzman (1976).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus marinus; </em></strong>
                             (van Uden &amp; Zobell) Golubev (1981).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus neoformans; </em></strong>
                             (Sanfelice) Vuillemin 1901.
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus podzolicus; </em></strong>
                             (Bab`eva &amp; Reshetova) Golubev (1981), (cit. Takashima y cols., 2001).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus skinneri; </em></strong>
                             Phaff &amp; do Carmo- Sousa (1962).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus terreus; </em></strong>
                             Di Menna (1954).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus uniguttulatus; </em></strong>
                             (Zach) Phaff &amp; Fell (1970).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus vishniacii; </em></strong>
                             Vishniac &amp; Hempfling (1979).
-                        </p>
-                        <p>
+
                             <strong><em>Cryptococcus yarrowii; </em></strong>
                             A. Fonseca &amp; van Uden (1991).
-                        </p>
-                        <p>
+
                             Nueva clasificación complejo <em>C. neoformans</em> (Ferry Hagen y cols;
                             Fungal Genetics and Biology 78 (2015) 16–48)
                         </p>
@@ -299,8 +261,7 @@
                             en los que el sistema del complemento no llega bien tales como el SNC y los
                             bronquios y como consecuencia el hongo pasa desapercibido a esta vía
                             alterna (Levitz, 1998).
-                        </p>
-                        <p>
+
                             Sin embargo, la cápsula no es un factor definitivo dentro de la virulencia
                             del hongo, pues se han aislado especies de <em>Cryptococcus </em>
                             deficientes en cápsula productoras de enfermedad. Además, en los pacientes
@@ -310,8 +271,7 @@
                             destruidas por monocitos y macrófagos (Miller y Mitchell, 1991), aun cuando
                             el grado de fagocitosis es inversamente proporcional al tamaño de la
                             cápsula.
-                        </p>
-                        <p>
+
                             La <strong>enzima difenil oxidasa</strong> es otro factor de patogenicidad.
                             Funciona como antioxidante, ya que protege e incrementa la supervivencia de
                             la levadura dentro del huésped por medio de la producción de melanina, que
@@ -322,42 +282,36 @@
                             mismo de catecolaminas como substrato de esta enzima, lo cual produce
                             consumo de epinefrina evitando que se activen también los mecanismos
                             oxidativos dependientes de ella (Polacheck, 1990; Jacobson, 1994).
-                        </p>
-                        <p>
+
                         La importancia de la producción de melanina en la virulencia de    <em>C. neoformans</em> ha sido demostrada por primera vez en el año 1982
                             por Kwon Chung y cols. (B), éstos relataron que las cepas carentes de
                             melanina resultaron menos virulentas para el ratón que las que producían
                             este sustrato.
-                        </p>
-                        <p>
+
                             La producción de pigmentos similares a la melanina pueden servir además
                             para proteger al hongo de las radiaciones ionizantes y las células capaces
                             de producir dicho pigmento son más resistentes y por lo tanto tienen una
                             mayor viabilidad que las no pigmentadas a los efectos fungicidas de los
                             rayos UV (Wang y Casadevall, 1994 A; Hamilton y Gómez, 2002).
-                        </p>
-                        <p>
+
                             La habilidad de <em>C. neoformans</em> de sintetizar melanina a partir de
                             la actividad fenoloxidasa (lacasa), está asociada con su virulencia, pero
                             el papel específico de la melanina en la patogénesis de la infección no
                             está del todo claro (Williamson, 1997; Doering y cols., 1999; Vidotto y
                             cols., 2002).
-                        </p>
-                        <p>
+
                             La patogenicidad a nivel del SNC no sólo está relacionada con el uso de las
                             catecolaminas sino que también hay uniones receptor-ligando presentes en
                             las neuronas que son sensibles a la tripsina, y que pueden ser inhibidas
                             por aminoazúcares o disacáridos, pero no por los carbohidratos que son
                             componentes de la cápsula.
-                        </p>
-                        <p>
+
                             La utilización de macrófagos, aunque sólo sea en circunstancias extremas,
                             ya que <em>C. neoformans</em> no es un parásito intracelular obligado, ha
                             sido descrita por Levitz en el año 1998, notificando la posible
                             reactivación de la criptococosis a partir de focos latentes presentes en el
                             interior de los macrófagos.
-                        </p>
-                        <p>
+
                             El papel de la <strong>ureasa </strong>en la patogénesis de la
                             criptococosis es aún desconocido. Existen estudios de patogénesis
                             realizados con bacterias, donde esta enzima parece tener un papel en la
@@ -365,8 +319,7 @@
                             microambiental en el lugar de la infección. Sin embargo, en la patogénesis
                             de la criptococosis estas causas no juegan un papel significativo (Levitz y
                             cols., 1999).
-                        </p>
-                        <p>
+
                         Otro factor claramente relacionado con la patogenicidad es el    <strong>manitol</strong>,<strong> </strong>la producción local de manitol
                             por el microorganismo puede contribuir al edema cerebral e inhibir la
                         función fagocítica (Wong y cols., 1990). Datos recientes sugieren que la    <strong>fosfolipasa B</strong> también puede actuar como factor de
@@ -375,8 +328,7 @@
                             invadiendo los tejidos. Recientemente, Sorrell (2001) ha confirmado que la
                             producción de dicha enzima también puede jugar un papel importante en la
                             virulencia del serotipo A de esta especie levaduriforme.
-                        </p>
-                        <p>
+
                             La <strong>manoproteína</strong> producida por el hongo modula la respuesta
                             inmune al inducir los linfocitos T supresores y linfocitos T ayudadores
                         específicos en ratones (Hoy, 1989). También se han descrito    <strong>proteinasas </strong>que contribuyen a la ruptura de los tejidos
@@ -392,8 +344,7 @@
                             humana. El criptococo entra por vía respiratoria y después de algún tiempo
                             se disemina a tejidos, teniendo cierta predilección por el cerebro (Cano
                             Rangel y cols., 2002).
-                        </p>
-                        <p>
+
                             En las aves, se supone que la alta temperatura corporal (42ºC) las protege
                             de la infección e inhibe la multiplicación de dichos criptococos (Medleau y
                             Barsanti, 1993; Mitchell y Perfect, 1995; Sorrell y Ellis, 1997; Nelson y
@@ -402,13 +353,11 @@
                             parenteral (inoculación intracerebral) y en 1968 y 1984 B, Weiland y cols.
                             y Hermoso de Mendoza y cols. observaron casos de infección natural en estas
                             aves.
-                        </p>
-                        <p>
+
                             Las palomas con <em>C. neoformans</em> en su tracto intestinal pueden
                             excretar el organismo durante varios meses sin desarrollar la enfermedad
                             (Quin y cols., 2002).
-                        </p>
-                        <p>
+
                             En la especie felina, normalmente el microorganismo coloniza el tracto
                             respiratorio superior provocando una infección de la cavidad nasal y senos
                             nasales y eventualmente los pulmones. Desde aquí, se puede diseminar hacia
@@ -432,8 +381,7 @@
                             observar deformidad acompañada de lisis de los huesos del tabique nasal y
                             en un 70% de estos casos es visible una masa parecida a un pólipo o a una
                             tumefacción subcutánea en el puente de la nariz.
-                        </p>
-                        <p>
+
                             Es posible que haya signos sistémicos como fiebre, adelgazamiento y
                             anorexia. En los pocos casos de diseminación sistémica puede afectar a
                             diversos órganos y provocar osteomielitis, insuficiencia renal,
@@ -442,15 +390,13 @@
                             junto con infecciones de vías respiratorias superiores, mientras que los
                             signos respiratorios inferiores aparecen raras veces (Ramos Vara y cols.,
                             1994).
-                        </p>
-                        <p>
+
                             Las lesiones cutáneas se caracterizan por pápulas, lesiones nodulares
                             fluctuantes o firmes a la palpación cuyo diámetro varía de 1 a 10 mm. Las
                             lesiones más grandes tienden a ulcerarse, formando una superficie
                             descarnada con exudado seroso, observándose también linfadenomegalia
                             periférica (Ackerman, 1988).
-                        </p>
-                        <p>
+
                             Los signos neurológicos son variables y dependen del sitio de la lesión e
                             incluyen: depresión, cambios del temperamento, torneo, presión de la
                             cabeza, ceguera, ataxia, pérdida aparente del olfato, paresia, parálisis y
@@ -461,8 +407,7 @@
                             provocada por desprendimiento exudativo de retina, coriorretinitis
                             granulomatosa, panoftalmitis o neuritis óptica. En algunos gatos se puede
                             desarrollar uveítis anterior (Medleau y Barsanti, 1993).
-                        </p>
-                        <p>
+
                             En el caso del <strong>perro</strong> es una patología poco frecuente,
                             describiéndose con menor casuística que en la especie felina. Se
                             caracteriza clínicamente por cursar con formas diseminadas que terminan
@@ -476,14 +421,12 @@
                             afección cutánea relacionados con la forma sistémica de la enfermedad.
                             Estas lesiones ulcerosas afectan a nariz, lengua, encías, paladar duro,
                             labios o matriz de las uñas (Medleau y Barsanti, 1993).
-                        </p>
-                        <p>
+
                             Ocasionalmente se han descrito casos de linfoadenomegalia (Malik, 1995), no
                             obstante, en 1999, Acosta y cols. describen un caso de criptococosis
                             canina, que se manifestó con un síndrome febril, vómitos y diarreas y
                             linfadenitis bilateral en ganglios superficiales.
-                        </p>
-                        <p>
+
                             En <strong>caballos</strong>, es infrecuente y los signos clínicos incluyen
                             granulomas nasales y sinusitis (Scott y cols., 1974), neumonía (Hilbert y
                             cols., 1980), meningoencefalitis y aborto (Blanchard y Filkins, 1992). Los
@@ -495,8 +438,7 @@
                             pulmonares. Tan sólo se observa una bronquitis leve, fiebre ligera y tos.
                         La enfermedad está asociada a menudo a la tuberculosis.    <em>C. neoformans</em> puede atacar también, aunque raramente a los
                             intestinos, huesos y meninges (Van Cutsem y Rochette, 1993).
-                        </p>
-                        <p>
+
                             En el <strong>ganado de leche</strong> es poco común, presentándose algún
                             caso esporádico de mastitis (De Gracia Mira, 1959), probablemente
                         relacionados con tratamientos antibióticos y en el caso del ganado    <strong>ovino</strong> y <strong>caprino</strong>, posiblemente en relación
@@ -506,8 +448,7 @@
                             recientemente se han descrito casos en el ganado caprino de neumonía
                             crónica caquectizante por <em>C. neoformans</em> var. <em>gattii</em> (Baró
                             y cols., 1998 A).
-                        </p>
-                        <p>
+
                             Los trastornos de las ubres pueden tener como agentes etiológicos a
                         distintos géneros de levaduras (<em>Candida</em>, <em>Cryptococcus</em>,    <em>Torulopsis</em> o <em>Trichosporon</em>). Raramente aparece una
                             infección por criptococos, pero puede causar mastitis grave, con
@@ -633,29 +574,25 @@
                             "gelatinosas" o "no reactivas" y lesiones "granulomatosas". Actualmente se
                             piensa que la morfopatología de la lesión se relaciona con el estado de los
                             mecanismos de defensa, tanto celulares como humorales.
-                        </p>
-                        <p>
+
                             El tipo granulomatoso (criptococoma o granuloma criptocócico), está
                             caracterizado por la presencia de pocos organismos, cierta necrosis, y un
                             infiltrado inflamatorio intenso formado por linfocitos, células
                             mononucleares y células gigantes. En contraste, el tipo gelatinoso está
                             caracterizado por la visualización de múltiples criptococos, asociado con
                             poca o ninguna reacción inflamatoria (Radentz y Elewski, 1992).
-                        </p>
-                        <p>
+
                             En la forma granulomatosa, existe una respuesta inflamatoria en la que
                             participan células multinucleadas gigantes (con decenas de criptococos
                             fagocitados), macrófagos (con o sin fagocitosis de elementos micóticos),
                             linfocitos, células plasmáticas y leucocitos neutrófilos que típicamente
                             son poco numerosos, ya que salvo en los abscesos, las lesiones no suelen
                             ser supurativas.
-                        </p>
-                        <p>
+
                             En la forma gelatinosa, no existe respuesta inflamatoria acompañante y las
                             lesiones son susceptibles de alcanzar un tamaño capaz de provocar un efecto
                             de masa (Nielsen y Davis, 1988).
-                        </p>
-                        <p>
+
                             Las lesiones en el caso de la criptococosis pulmonar, pueden desarrollarse
                             en cualquier parte del pulmón, y con frecuencia son bilaterales.
                             Radiológicamente se traducen en lesiones pseudotumorales constituidas por
@@ -664,8 +601,7 @@
                             lesiones miliares difusas. Rara vez hay formación de cavernas (Inui y
                             cols., 1998). También se han descrito neumonías segmentarias con derrame
                             pleural y una forma pulmonar fulminante (Santamaría y Zubero, 1995).
-                        </p>
-                        <p>
+
                             Las principales alteraciones anatomopatológicas en el SNC se localizan en
                             las meninges, sustancia gris cortical y núcleos basales. La respuesta
                             tisular es extremadamente variable. En pacientes inmunodeprimidos, los
@@ -673,15 +609,12 @@
                             las masas gelatinosas de hongos crecen en las meninges o en pequeños
                             quistes dentro de la sustancia gris como si fuera un medio de cultivo
                             (Cordero y cols., 1996; Jean y cols., 2002).
-                        </p>
-                        <p>
+
                             La presencia de criptococomas pulmonares y cerebrales es más característica
                             cuando la
-                        </p>
-                        <p>
+
                             afectación es por la variedad <em>gattii </em>(Speed y Dunt, 1995).
-                        </p>
-                        <p>
+
                             Las manifestaciones cutáneas se caracterizan por su polimorfismo y se han
                             descrito como nódulos subcutáneos (Manrique y cols., 1992), úlceras
                             (Schupbach y cols., 1976), celulitis (Gauder, 1987), púrpura palpable
@@ -697,9 +630,7 @@
                             nodular, tumoral o pseudoverrugosa, con posterior abscedación y ulceración,
                             que suele localizarse en zonas descubiertas (brazos, piernas y cara)
                             (Bartralot-Soler y cols., 1995).
-                        </p>
-                        <p>
-                            <strong> </strong>
+
                         </p>
                         <p>
                             <strong>DIAGNÓSTICO</strong>
@@ -730,21 +661,18 @@
                             principio blanquecinas, que se van tornando marronáceas con el paso del
                             tiempo. El tamaño de la cápsula y el tiempo de incubación determina la
                             cantidad de mucopolisacárido producido (García Rodríguez y Picazo, 1998).
-                        </p>
-                        <p>
+
                             <em>C. neoformans</em>
                             crece en el medio de Sabouraud, pero sin cicloheximida (actidiona), ya que
                             inhibe su crecimiento. Crece a 37 °C, pero lo hace más rápidamente a
                             temperaturas menores, como 30 °C<sup> </sup>(Diamond, 1997). También puede
                             crecer en cultivos de agar-sangre o agar-chocolate, pudiéndose obtener un
                             cultivo positivo en 24-72 h (Bartralot Soler y cols., 1995).
-                        </p>
-                        <p>
+
                             El tiempo de crecimiento en muestras de LCR varía desde 24-48 horas hasta
                             más de una semana, dependiendo de la densidad de microorganismos presentes
                             en la muestra.
-                        </p>
-                        <p>
+
                             El hemocultivo es una buena técnica de diagnóstico en estos pacientes; el
                             sistema de lisis-centrifugación es el más sensible y el más rápido en
                             detectar crecimiento pero también son sensibles y rápidos los sistemas de
@@ -787,9 +715,6 @@
                             VIH (Berenguer, 1996).
                         </p>
                         <p>
-                            <strong> </strong>
-                        </p>
-                        <p>
                             <strong>DIAGNÓSTICO HISTOPATOLÓGICO</strong>
                         </p>
                         <p>
@@ -810,9 +735,6 @@
                             diagnóstico histológico de criptococosis (Kwon-Chung y cols., 1981; Pérez y
                             Carrasco, 2000). Con la tinción de Gram se muestra una cápsula de color
                             rojo (Nelson y Couto, 2000).
-                        </p>
-                        <p>
-                            <strong> </strong>
                         </p>
                         <p>
                             <strong>
@@ -873,9 +795,6 @@
                             <strong>TRATAMIENTO</strong>
                         </p>
                         <p>
-                            <strong> </strong>
-                        </p>
-                        <p>
                             El descubrimiento de la Anfotericina B (AFB), en 1956, proporcionó la
                             primera quimioterapia con buenos resultados (Pitisuttithum y cols., 2001),
                             no obstante, la mayor dificultad con el uso de AFB es su perfil de
@@ -883,8 +802,7 @@
                             uso de este medicamento y se puede observar en el 80% de los casos que la
                             utilizan; además esta reacción se incrementa con la terapia concurrente con
                             otras drogas nefrotóxicas (Carlson y Condon, 1994).
-                        </p>
-                        <p>
+
                             Existen diversas combinaciones posibles en relación al tratamiento de esta
                             enfermedad, no obstante, actualmente, el tratamiento de elección es la
                             anfotericina B a dosis de 0.7-1 mg/kg/día durante 2 semanas o hasta
@@ -901,8 +819,7 @@
                             disponibilidad de los fármacos requeridos, y a la necesidad de tratamiento
                             hospitalario y monitorización (Miller, 1999;<em> </em>Santamaría y Zubero,
                             2002).
-                        </p>
-                        <p>
+
                             Los pacientes infectados por <em>C. neoformans </em>var. <em>gattii </em>
                             requieren tratamientos más prolongados pues son más resistentes a la
                             terapia convencional. También necesitan más terapia intratecal,
@@ -911,8 +828,7 @@
                             infecciones por var. <em>gattii </em>parece estar relacionada con una alta
                             tasa de complicaciones, respuesta lenta y anormalidades clínicas
                             persistentes (Casadevall y Perfect, 1998).
-                        </p>
-                        <p>
+
                             La curación completa de la criptococosis en un paciente infectado por el
                             VIH es muy difícil, ya que a pesar de la curación clínica el criptococo
                             persiste en el LCR, plasma o próstata, por lo que el objetivo en estos
@@ -921,8 +837,7 @@
                             frecuencia de recurrencia llega al 70% (Iñigo García y cols., 1996). El
                             itraconazol puede ser una alternativa aunque se considera que el fluconazol
                             es más efectivo en la prevención de las recaídas.
-                        </p>
-                        <p>
+
                             Sin embargo, a partir de 1990 la frecuencia de esta enfermedad ha ido
                             disminuyendo en Europa y América tras el advenimiento de la terapia
                             antirretroviral de gran actividad (TARGA) y los tratamientos profilácticos
@@ -935,8 +850,7 @@
                             tratamientos antirretrovirales ha disminuido desde 0.67 casos por millón de
                             habitantes en 1998 a 0.35 casos por millón de habitantes en 1999 (Colom y
                             cols., 2001).
-                        </p>
-                        <p>
+
                             En patología veterinaria, la respuesta al tratamiento de la criptococosis
                             nasal, respiratoria y cutánea es buena, especialmente si se detecta en los
                             estadíos iniciales de la enfermedad. Los gatos responden mal a la terapia
@@ -960,9 +874,6 @@
                             administración de ketoconazol sólo. Para evaluar la eficacia del
                             tratamiento, se puede usar el test que detecta el antígeno polisacárido
                             capsular (Legendre y Berthelin, 1995; Hungerford y cols., 1998).
-                        </p>
-                        <p>
-                            <strong> </strong>
                         </p>
                         <p>
                             <strong>PROFILAXIS</strong>

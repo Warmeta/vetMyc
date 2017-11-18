@@ -56,7 +56,7 @@
                         </a>
                         </br>
                         </br>
-                        <a href="/files/Datos del servicio e identificación Fundación Universitaria de Las Palmas.pdf" download="/files/Datos del servicio e identificación Fundación Universitaria de Las Palmas.pdf" target="_blank">
+                        <a href="/files/Datos del servicio e identificación.pdf" download="/files/Datos del servicio e identificación.pdf" target="_blank">
                           Datos del servicio e identificación Fundación Universitaria de Las Palmas
                         </a>
                         </br>

@@ -16,17 +16,14 @@
                             esta se replica en exceso dando lugar a otitis y dermatitis, entre otras
                             patologías. (3, 9, 18). Otras especies de <em>Malassezias</em> han sido
                             aisladas en animales domésticos y salvajes.
-                        </p>
-                        <p>
+
                             Los microorganismos de género<em> Malassezia</em> son levaduras que se
                             replican por gemación dando lugar a estructuras con morfología botella o
                             huella de zapatilla. (3).
-                        </p>
-                        <p>
+
                             En muestras clínicas pueden observarse en preparaciones en fresco con NaOH
                             al 10% o lactofenos (3).
-                        </p>
-                        <p>
+
                             Esta especie se aísla de agar glucosado de Sabouraud (3).
                         </p>
                         <p>
@@ -52,18 +49,15 @@
                             pueden ser localizadas o generalizadas, suelen ser eritematosas, con
                             exudado graso y diverso grado de alopecia (Bond y cols., 1995 b; Guaguére y
                             Prélaud 1996 y Chen y Hill, 2005).
-                        </p>
-                        <p>
+
                             Es posible la localización en ganglio linfático regional, pero la mayoría
                             de las veces no hay signos generales (Carlotti, 2005).
-                        </p>
-                        <p>
+
                             Esta levadura produce de forma frecuente una otitis crónica pruriginosa,
                             que se caracteriza por la producción de un exudado de color chocolate y
                             olor a grasa rancia, en ocasiones se acompaña con un gran inflación y
                             eritema del canal auditivo externo (Guillot y Bond, 1999 y Carlotti, 2005).
-                        </p>
-                        <p>
+
                             <em>M. pachydermatis</em>
                             también se ha podido cultivar a partir de la microbiota conjuntival de un
                             bajo porcentaje (3,8%) de perros sin enfermedad ocular clínica evidente
@@ -74,8 +68,7 @@
                             especularon que las alteraciones en el microambiente ocular local asociado
                         con la inflamación o inmunodeficiencia contribuido a la mayor incidencia de    <em>M. pachydermatis</em> en la microflora conjuntival de los perros con
                             úlceras corneales (Prado y cols., 2004).
-                        </p>
-                        <p>
+
                             Eric y Jennifer en 2015 describieron un caso de queratomicosis en una
                             hembra de 13 años de la raza Lhasa Apso, presentaba blefaroespasmos e
                             hiperemia conjuntival del ojo derecho. La exploración oftálmica reveló
@@ -170,7 +163,7 @@
                             semana (Carlotti, 2005).
                         </p>
                         <p>
-                             
+
                             <strong>
                         Limpiadores óticos y desinfectantes como apoyo a la terapia anti-        <em>M. pachydermatis</em>
                             </strong>
@@ -181,13 +174,11 @@
                             de actividad antifúngica que pueden ayudar en el tratamiento, también en la
                             prevención de recidivas en animales con exceso de cerumen (Lloyd y cols.,
                             1998).
-                        </p>
-                        <p>
+                        
                             Dos estudios realizados <em>in vitro</em> encontraron grandes variaciones
                             en la capacidad ceruminolítica de numerosas soluciones limpiadoras óticas
                             (Nielloud y cols., 2004 y Sánchez-Leal y cols., 2006).
-                        </p>
-                        <p>
+                        
                             Para evitar la proliferación de microbios, frecuentemente son adicionadas
                             diferentes productos antimicrobianos a los limpiadores óticos. Swinney y
                             cols. en 2008 reportaron que existe una gran variación en la actividad
@@ -199,8 +190,7 @@
                         Otros estudios evidenciaron que de forma <em>in vitro</em> como    <em>in vivo</em> el hipoclorito de sodio acidificado y el PCMX actuaban
                             disminuyendo la población bacteriana y de <em>M. pachydermatis</em> (Lloyd
                             y cols., 1998; Cole y cols., 2003 y Rème y cols., 2006).
-                        </p>
-                        <p>
+                        
                             La contribución realizada por Basset y cols. en 2004 demostró que la
                             combinación del ácido bórico y el acético (ambas al 2% de concentración)
                             ayudaban a resolver inicialmente otitis por debidas a esta levadura, pero

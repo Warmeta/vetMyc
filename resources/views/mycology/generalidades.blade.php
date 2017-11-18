@@ -6,7 +6,8 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                     <div class="about-heading">
-                        <h2>GENERALIDADES DE LOS HONGOS PATÓGENOS</h2>
+                        <h2>GENERALIDADES DE LOS HONGOS PATÓGENOS Y TOMA DE MUESTRAS</h2>
+                        </br>
                         </br>
                         <h3>MICOLOGIA</h3>
                         <p>La micología es la ciencia que se ocupa del estudio de los hongos.
@@ -37,7 +38,7 @@
                         El aparato vegetativo (talo) de los hongos está constituido por hifas cuyo conjunto forma un micelio vegetativo, este puede ser de dos tipos: unicelular (formado por células aisladas que se reproducen por gemación (Fig 1), como las levaduras), o filamentosos (con hifas septadas o tabicadas (Fig 3) o sin tabicar o cenocíticas (multinucleadas) (Fig 2). Existe un tipo intermedio, el pseudomicelio (Fig 4) formado por blastosporas como las que forman alguna Candida spp.
                         El conjunto de hifas se llama micelio. En el micelio se distinguen dos partes: una que penetra en el medio de cultivo y se extiende por su superficie (micelio vegetativo), y otra que se proyecta y contiene las esporas (micelio reproductor o aéreo).
                         Los denominados hongos dimórficos son aquellos que pueden presentar estructura como levadura o como filamentoso-micelial (moho) dependiendo de las condiciones ambientales en las que se desarrollen, la temperatura suele ser uno de estos factores. Ambas fases corresponden a un proceso de reproducción asexual del hongo.
-                        </p> 
+                        </p>
                         <p>
                         El micelio reproductor (micelio de fructificación), forma conidios (esporas) de origen sexual o asexual (conidios). Estas estructuras reproductoras se diferencian de las somáticas y son utilizadas para la clasificación de los hongos, pocos hongos pueden identificarse si estas estructuras no se encuentran disponibles, como acurre en el micelio esteril.
                         </br>
