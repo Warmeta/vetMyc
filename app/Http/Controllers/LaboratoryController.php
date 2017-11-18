@@ -38,14 +38,14 @@ class LaboratoryController extends Controller
     public function indexC(Request $request)
     {
         $rows = collect([
-            'number_clinic_history' => 'Nº ClinicCase',
+            'number_clinic_history' => 'Nº Caso',
             'ref_animal' => 'Ref. Animal',
-            'specie' => 'Specie',
-            'breed' => 'Breed',
-            'age' => 'Age',
-            'localization' => 'Localization',
-            'clinic_case_status' => 'Status',
-            'comment' => 'Comment',
+            'specie' => 'Especie',
+            'breed' => 'Raza',
+            'age' => 'Edad',
+            'localization' => 'Localización',
+            'clinic_case_status' => 'Estado',
+            'comment' => 'Comentarios',
         ]);
 
         $filters = LaboratoryController::getFilters();
@@ -131,7 +131,7 @@ class LaboratoryController extends Controller
                 $cliniccase->antibiotics()->attach($antibiotic->id, ['sensitive' => $request->$sensitive,'intermediate' => $request->$intermediate,'resistant' => $request->$resistant]);
             }
 
-            return Redirect::to('/lab/clinic-case')->with('message', 'Clinic case created successfully.');
+            return Redirect::to('/lab/clinic-case')->with('message', 'Caso clínico creado correctamente.');
         } else {
             return Redirect::to('/lab/clinic-case');
         }
@@ -152,7 +152,7 @@ class LaboratoryController extends Controller
             $antibiotic = new Antibiotic();
             $antibiotic->create($request->all());
 
-            return Redirect::to('/lab/antibiotic')->with('message', 'Antibiotic created successfully.');
+            return Redirect::to('/lab/antibiotic')->with('message', 'Antibiótico creado correctamente.');
         } else {
             return Redirect::to('/lab/antibiotic');
         }
@@ -240,7 +240,7 @@ class LaboratoryController extends Controller
         }elseif (Voyager::can('browse_antibiotics')) {
             $antibiotic = Antibiotic::find($request->id);
             $antibiotic->update($request->all());
-            return Redirect::to('/lab/antibiotic')->with('message', 'Antibiotic updated successfully.');
+            return Redirect::to('/lab/antibiotic')->with('message', 'Antibiótico editado correctamente.');
         } else {
             return Redirect::to('/lab/antibiotic');
         }
@@ -288,19 +288,19 @@ class LaboratoryController extends Controller
     public function getLocOptions()
     {
         return [
-            'skin' => 'Skin',
-            'eye' => 'Eye',
-            'mouth' => 'Mouth',
-            'nose' => 'Nose',
-            'nail' => 'Nail',
-            'hair' => 'Hair',
-            'ear' => 'Ear',
-            'blood' => 'Blood',
-            'biopsy' => 'Biopsy',
-            'bodyfluids' => 'Body Fluids',
-            'feces' => 'Feces',
-            'urine' => 'Urine',
-            'others' => 'Others',
+            'skin' => 'Piel',
+            'eye' => 'Ojo',
+            'mouth' => 'Boca',
+            'nose' => 'Nariz',
+            'nail' => 'Uña',
+            'hair' => 'Pelo',
+            'ear' => 'Oreja',
+            'blood' => 'Sangre',
+            'biopsy' => 'Biopsia',
+            'bodyfluids' => 'Fluidos corporales',
+            'feces' => 'Heces',
+            'urine' => 'Orina',
+            'others' => 'Otros',
         ];
     }
 
@@ -330,18 +330,18 @@ class LaboratoryController extends Controller
 
     public function getStatusOptions()
     {
-        return ['inprogress' => 'In progress','finished' => 'Finished'];
+        return ['inprogress' => 'En progreso','finished' => 'Terminado'];
     }
 
     public function getFilters()
     {
         return [
-            'inprogress' => 'In progress',
-            'finished' => 'Finished',
-            'bacterial_isolate' => 'Bacterial',
-            'fungi_isolate' => 'Fungi',
-            'localization' => 'Localization',
-            'number_clinic_history' => 'Nº Clinic Case'
+            'inprogress' => 'En progreso',
+            'finished' => 'Terminado',
+            'bacterial_isolate' => 'Aislamiento Bacteriano',
+            'fungi_isolate' => 'Aislamiento Fúngico',
+            'localization' => 'Localización',
+            'number_clinic_history' => 'Nº Caso'
         ];
     }
 
@@ -355,12 +355,11 @@ class LaboratoryController extends Controller
                 ->where('clinic_cases_antibiotics.clinic_case_id', $id)
                 ->get();
             Mail::to($clinic->owner_email)->send(new ClinicCaseSent($clinic, $clinicantibiotics));
-            Session::flash('suc', 'Email sent successfully');
+            Session::flash('suc', 'Email enviado correctamente');
             return Redirect::back();
         }else{
-            Session::flash('fail', 'Clinic case is still in progress');
+            Session::flash('fail', 'Caso clínico todavía en progreso');
             return Redirect::back();
         }
     }
 }
-

@@ -19,12 +19,12 @@
                     {!! Form::model($model, array('action' => ['LaboratoryController@indexC'], 'method' => 'get', 'class' => 'form contactForm', 'id' => 'filter-form')) !!}
                     {{ csrf_field() }}
                     <div id="ifLoc" style="display: none;">
-                        {{ Form::select('localization', $loc, null, array('onchange' => 'viewInput()', 'placeholder' => 'Pick a loc...', 'id' => 'localization')) }}
+                        {{ Form::select('localization', $loc, null, array('onchange' => 'viewInput()', 'placeholder' => 'Elige...', 'id' => 'localization')) }}
                     </div>
                     <div id="ifClinic" style="display: none;">
-                        {{ Form::text('number_clinic_history', null, array('placeholder' => 'Nº Clinic...', 'id' => 'nclinic')) }}
+                        {{ Form::text('number_clinic_history', null, array('placeholder' => 'Nº Caso...', 'id' => 'nclinic')) }}
                     </div>
-                    {{ Form::select('filter', $filters, null, array('onchange' => 'viewInput()', 'placeholder' => 'Filter...', 'id' => 'filter')) }}
+                    {{ Form::select('filter', $filters, null, array('onchange' => 'viewInput()', 'placeholder' => 'Filtrar por...', 'id' => 'filter')) }}
                     <div id="ifClinicButton" style="display: none;">
                         <button type="submit" class="btn btn-default" id="search">
                             Buscar
@@ -39,14 +39,9 @@
                         <table id="dataTable" class="table table-hover">
                             <thead>
                             <tr>
-                                <th>Nº Caso</th>
-                                <th>Ref. Animal</th>
-                                <th>Especie</th>
-                                <th>Raza</th>
-                                <th>Edad</th>
-                                <th>Localización</th>
-                                <th>Estado</th>
-                                <th>Comentarios</th>
+                                @foreach($rows->values() as $row)
+                                    <th>{{ $row }}</th>
+                                @endforeach
                                 <th class="actions text-center">Acciones</th>
                             </tr>
                             </thead>
