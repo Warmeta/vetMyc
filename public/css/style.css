@@ -322,6 +322,12 @@ textarea:focus {
 	}
 }
 
+/*Actions*/
+
+#bread-actions {
+	max-width: 130px;
+}
+
 /*Logo*/
 
 #logo-img {
