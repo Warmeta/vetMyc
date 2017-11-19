@@ -57,6 +57,7 @@
                                     </td>
                                 </tr>
                             @endforeach
+                            {{ $antibiotics->links() }}
                             </tbody>
                         </table>
                     </div>
