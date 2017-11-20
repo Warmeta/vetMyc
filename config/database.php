@@ -33,19 +33,19 @@ return [
 
     'connections' => [
 
-        'sqlite' => [
+      'sqlite' => [
             'driver' => 'sqlite',
-            'database' => env('DB_DATABASE', database_path('database.sqlite')),
+            'database' => env('DB_DATABASE', ':memory:'),
             'prefix' => '',
-        ],
+      ],
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'localhost'),
+            'host' => env('DB_HOST', 'eu-cdbr-west-01.cleardb.com'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'c9'),
-            'username' => env('DB_USERNAME', 'warmeta'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'heroku_9050dc0b09708ec'),
+            'username' => env('DB_USERNAME', 'b2c994efcd7c88'),
+            'password' => env('DB_PASSWORD', '41f3b619'),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
