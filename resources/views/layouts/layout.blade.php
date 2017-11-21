@@ -52,11 +52,10 @@
             <div class="col-md-6">
                 <div class="footer-heading">
                     <h3><span>Sobre</span> nosotros</h3>
-                    <p>Entre nuestros objetivos se encuentran difundir los asuntos de las diferentes áreas de la micología y su progreso, la investigación en el campo de la micología veterinaria y ofrecer servicios de diagnóstico clínico.</p>
+                    <p id="justif">Somos un laboratorio de diagnóstico e investigación de enfermedades infecciosas de la facultad veterinaria de la ULPGC, entre nuestros objetivos se encuentran difundir información y su progreso en el área de la micología veterinaria, además de ofrecer servicios de diagnóstico clínico.</p>
                 </div>
             </div>
-
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
                 <div class="footer-heading">
                     <h3><span>Últimas</span> noticias</h3>
                     <ul>
@@ -66,8 +65,7 @@
                         <li><a href="#">Trends</a></li>
                     </ul>
                 </div>
-            </div>
-
+            </div> -->
         </div>
     </div>
 </div>
@@ -84,9 +82,10 @@
             <div class="col-md-8">
                 <div class="footer-right">
                     <ul class="list-unstyled list-inline pull-right">
-                        <li><a href="#about">Nosotros</a></li>
-                        <li><a href="#service">Servicio</a></li>
+                        <li><a href="#about">Bienvenido</a></li>
+                        <li><a href="#service">Servicios</a></li>
                         <li><a href="#get-touch">Contacto</a></li>
+                        <li><a href="#contact">Encuéntranos</a></li>
                     </ul>
                 </div>
             </div>

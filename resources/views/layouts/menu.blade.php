@@ -29,7 +29,7 @@
                                     @if (hasPermission('browse_admin'))
                                         <li>
                                             <a href="/admin">
-                                                Administrador
+                                                Dashboard
                                             </a>
                                         </li>
                                     @endif
@@ -117,7 +117,7 @@
                     </li>
 
                     <li class="dropdown">
-                        <a href={{ route('lab') }} class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">laboratorio<span class="caret"></span></a>
+                        <a href={{ route('lab') }} aria-expanded="false">laboratorio<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a href={{ route('lab') }}>

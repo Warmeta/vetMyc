@@ -110,7 +110,7 @@
             <div class="row">
                 <div class="col-xs-12 col-md-6 col-md-offset-3">
                     <div class="service-heading">
-                        <h2>servicio</h2>
+                        <h2>servicios</h2>
                         <p>Laboratorio de diagnóstico de enfermedades infeccionsas de la ULPGC</p>
                     </div>
                 </div>
@@ -166,9 +166,9 @@
                         <div class="inner-box">
                             <!--Section Title-->
                             <div class="sec-title aligned-right">
-                                <h2>Mues<span>tra</span></h2>
+                                <h2>Muestra<span> Clínica</span></h2>
                             </div>
-                            <div class="text">Conocemos como "Muestra Clínica" aquellas sustancias, tejidos, sangre, orina, leche, raspaduras de la piel y líquidos orgánicos extraídos de animales para propósitos de diagnóstico.</div>
+                            <div class="text" id="justif">Conocemos como "Muestra Clínica" aquellas sustancias, tejidos, sangre, orina, leche, raspaduras de la piel y líquidos orgánicos extraídos de animales para propósitos de diagnóstico.</div>
 
                             <a href="http://www.fv.ulpgc.es/?page_id=142"><button class="btn">leer más</button></a>
                         </div>
@@ -253,7 +253,21 @@
                 <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
                     <div class="contact-heading">
                         <h2>Encuéntrenos aquí</h2>
-                        <p>ULPGC Veterinary - Bañaderos.</p>
+                        <div class="col-xs-12">
+                          <p>Facultad de Veterinaria – ULPGC
+                          </br>
+                          Servicio de Diagnostico de Enfermedades Infecciosas
+                          </br>
+                          Campus Universitario de Arucas S/N. Arucas – 35413 – Las Palmas
+                          </p>
+                        </div>
+                        <div class="col-xs-12">
+                          <p>Tel. +(34) 928 454 360-55
+                          </br>
+                          Fax. +(34) 928 451 141
+                          </br>
+                          e-mail: bego.acosta@ulpgc.es ó soraya.deniz@ulpgc.es</p>
+                        </div>
                     </div>
                 </div>
             </div>
