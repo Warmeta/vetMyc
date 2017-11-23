@@ -91,7 +91,7 @@ class ProjectController extends Controller
             }
             $project->save();
 
-            return Redirect::to('/project-manager')->with('message', 'Project created successfully.');
+            return Redirect::to('/project-manager')->with('message', 'Proyecto creado correctamente.');
         } else {
             return Redirect::to('/project-manager');
         }
@@ -105,6 +105,8 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
+        session(['project_id' => $id]);
+
         $project = Project::find($id);
         $user = User::where('id', $project->author_id)->first();
         $user = $user->name;
@@ -160,7 +162,7 @@ class ProjectController extends Controller
             }
             $project->save();
 
-            return Redirect::to('/project-manager')->with('message', 'Project updated successfully.');
+            return Redirect::to('/project-manager')->with('message', 'Proyecto editado correctamente.');
         } else {
             return Redirect::to('/project-manager');
         }
@@ -176,6 +178,7 @@ class ProjectController extends Controller
     public function destroy($id)
     {
         Project::destroy($id);
+        return Redirect::to('/project-manager')->with('message', 'Proyecto borrado correctamente.');
     }
 
     public function validateProject($request)

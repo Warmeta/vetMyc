@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Validator;
 use TCG\Voyager\Facades\Voyager;
+use TCG\Voyager\Traits\AlertsMessages;
 use Mail;
 use App\Mail\ClinicCaseSent;
 
@@ -130,9 +131,10 @@ class LaboratoryController extends Controller
                 $resistant = $antibiotic->antibiotic_name . '-3';
                 $cliniccase->antibiotics()->attach($antibiotic->id, ['sensitive' => $request->$sensitive,'intermediate' => $request->$intermediate,'resistant' => $request->$resistant]);
             }
-
-            return Redirect::to('/lab/clinic-case')->with('message', 'Caso clínico creado correctamente.');
+            Session::flash('suc', 'Caso clínico creado correctamente');
+            return Redirect::to('/lab/clinic-case');
         } else {
+            Session::flash('fail', 'Caso clínico no se pudo crear correctamente');
             return Redirect::to('/lab/clinic-case');
         }
     }
@@ -151,9 +153,10 @@ class LaboratoryController extends Controller
         }elseif (Voyager::can('browse_antibiotics')) {
             $antibiotic = new Antibiotic();
             $antibiotic->create($request->all());
-
-            return Redirect::to('/lab/antibiotic')->with('message', 'Antibiótico creado correctamente.');
+            Session::flash('suc', 'Antibiótico creado correctamente');
+            return Redirect::to('/lab/antibiotic');
         } else {
+            Session::flash('fail', 'Antibiótico no se pudo crear correctamente');
             return Redirect::to('/lab/antibiotic');
         }
     }
@@ -220,9 +223,10 @@ class LaboratoryController extends Controller
                 $resistant = $antibiotic->antibiotic_name . '-3';
                 $cliniccase->antibiotics()->attach($antibiotic->id, ['sensitive' => $request->$sensitive,'intermediate' => $request->$intermediate,'resistant' => $request->$resistant]);
             }
-
-            return Redirect::to('/lab/clinic-case')->with('message', 'Clinic case '.$request->number_clinic_history.' updated successfully.');
+            Session::flash('suc', 'Caso clínico '.$request->number_clinic_history.' editado correctamente');
+            return Redirect::to('/lab/clinic-case');
         } else {
+            Session::flash('fail', 'Caso clínico '.$request->number_clinic_history.' no se pudo editar correctamente');
             return Redirect::to('/lab/clinic-case');
         }
     }
@@ -240,8 +244,10 @@ class LaboratoryController extends Controller
         }elseif (Voyager::can('browse_antibiotics')) {
             $antibiotic = Antibiotic::find($request->id);
             $antibiotic->update($request->all());
-            return Redirect::to('/lab/antibiotic')->with('message', 'Antibiótico editado correctamente.');
+            Session::flash('suc', 'Antibiótico editado correctamente');
+            return Redirect::to('/lab/antibiotic');
         } else {
+            Session::flash('fail', 'Antibiótico no se pudo editar correctamente');
             return Redirect::to('/lab/antibiotic');
         }
     }

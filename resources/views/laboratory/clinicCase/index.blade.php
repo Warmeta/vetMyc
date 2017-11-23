@@ -5,7 +5,15 @@
         <div class="container">
             <div id="add-btn" class="panel-body table-responsive">
                 <div class="col-md-4">
-                    @include('voyager::alerts')
+                    @if(Session::has('suc'))
+                        <div class="alert alert-success">
+                            <strong>Éxito!</strong> {{Session::get('suc')}}.
+                        </div>
+                    @elseif(Session::has('fail'))
+                        <div class="alert alert-warning">
+                            <strong>Alerta!</strong> {{Session::get('fail')}}.
+                        </div>
+                    @endif
                     @if (Voyager::can('add_clinic_case'))
                         <a href="/lab/clinic-case/create" class="btn btn-primary">
                             <div class="btns"><span class="glyphicon glyphicon-plus"></span> Añadir</div>

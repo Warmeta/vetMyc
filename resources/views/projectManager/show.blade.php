@@ -39,6 +39,7 @@
                             {{ $project->link }} </p>
 
                         <p>  <a style="font-weight: bold;"> Fichero:</a>
+                          <iframe src="/laravel-filemanager" style="width: 100%; height: 500px; overflow: hidden; border: none;"></iframe>
                           @if ($project->file)
                             <a href="{{ $project->file }}" download="{{ $project->file }}" target="_blank">
                               {{ $project->file }}

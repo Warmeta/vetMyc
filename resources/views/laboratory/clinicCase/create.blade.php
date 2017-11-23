@@ -57,12 +57,12 @@
                             <a id="errors7" class="errors">{{$errors->first('sex') }}</a>
                         </div>
                         <div class="col-md-9 form-group">
-                            {{ Form::label('Age', null, ['class' => 'control-label']) }}
+                            {{ Form::label('Edad', null, ['class' => 'control-label']) }}
                             {{ Form::text('age', null, ['class' => 'form-control']) }}
                             <a id="errors8" class="errors">{{$errors->first('age') }}</a>
                         </div>
                         <div class="col-md-9 form-group">
-                            {{ Form::label('Localization', null, ['class' => 'control-label']) }}
+                            {{ Form::label('Localización', null, ['class' => 'control-label']) }}
                             {{ Form::select('localization',  $data->get('localization'), null, ['placeholder' => 'Pick a localization...'],['class' => 'form-control', 'id' => 'localization']) }}
                             <a id="errors9" class="errors">{{$errors->first('localization') }}</a>
                         </div>
