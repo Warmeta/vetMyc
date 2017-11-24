@@ -11,7 +11,7 @@ $prefix = "<div class='{$class}'>";
 $surfix = '</div>';
 @endphp
 @if (!empty($projects))
-<div class="clearfix container-fluid row">
+<div class="row">
     @foreach($projects as $project)
         @php
         $image = $project->image;

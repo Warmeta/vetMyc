@@ -94,23 +94,23 @@ Route::group(['prefix' => 'project-manager'], function () {
         'as' => 'projectManager.index'
     ]);
 
-    Route::get('create', ['uses' => 'ProjectController@create', 'as' => 'project.create'])->middleware('checkPermission:browse_projects');
+    Route::get('create', ['uses' => 'ProjectController@create', 'as' => 'project.create'])->middleware('checkPermission:add_projects');
 
-    Route::post('create', ['uses' => 'ProjectController@store', 'as' => 'project.post'])->middleware('checkPermission:browse_projects');
+    Route::post('create', ['uses' => 'ProjectController@store', 'as' => 'project.post'])->middleware('checkPermission:add_projects');
 
     Route::get('{id}', ['uses' => 'ProjectController@show', 'as' => 'projectManager.show'], function ($id) {
     //
-    })->where('id', '[0-9]+')->middleware('checkPermission:browse_projects');
+  })->where('id', '[0-9]+')->middleware('checkPermission:read_projects');
 
     Route::get('{id}/edit', ['uses' => 'ProjectController@edit', 'as' => 'projectManager.edit'], function ($id) {
     //
-    })->where('id', '[0-9]+')->middleware('checkPermission:browse_projects');
+  })->where('id', '[0-9]+')->middleware('checkPermission:edit_projects');
 
     Route::put('{id}/edit', ['uses' => 'ProjectController@update', 'as' => 'projectManager.update'], function ($id) {
         //
-    })->where('id', '[0-9]+')->middleware('checkPermission:browse_projects');
+    })->where('id', '[0-9]+')->middleware('checkPermission:edit_projects');
 
-    Route::delete('delete/{id}', ['uses' => 'ProjectController@destroy', 'as' => 'projectManager.delete'])->where('id', '[0-9]+')->middleware('checkPermission:browse_projects');
+    Route::delete('delete/{id}', ['uses' => 'ProjectController@destroy', 'as' => 'projectManager.delete'])->where('id', '[0-9]+')->middleware('checkPermission:delete_projects');
 
 
 });

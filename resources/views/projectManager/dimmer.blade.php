@@ -3,9 +3,8 @@
     <div class="panel-content">
         <a href="/project-manager/{{$project_id}}"><i id="folder-icon" class='icon voyager-folder'></i></a>
         <div id="RUD">
-            <a href="/project-manager/{{$project_id}}"><i class='icon voyager-eye'></i></a>
             <a href="/project-manager/{{$project_id}}/edit"><i class='icon voyager-pen'></i></a>
-            <a title="Delete" class="delete-project" data-id="{{ $project_id }}" id="delete-{{ $project_id }}" data-route="./delete/" data-token="{{ csrf_token() }}">
+            <a title="Delete" class="delete-project" data-id="{{ $project_id }}" id="delete-{{ $project_id }}" data-route="./project-manager/delete/" data-token="{{ csrf_token() }}">
                 <i class='icon voyager-x'></i>
             </a>
         </div>

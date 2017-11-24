@@ -15,7 +15,7 @@
                     </div>
                 @endif
                 <div class="panel panel-default">
-                    <div class="panel-heading"><a style="font-weight: bold; color: grey;">Project</a></div>
+                    <div class="panel-heading"><a style="font-weight: bold; color: grey;">Proyecto: {{ $project->project_name }}</a></div>
                     <div class="panel-body col-md-8 col-md-offset-2">
                         <h1>  {{ $project->project_name }}</h1>
 
@@ -38,13 +38,8 @@
                         <p> <a style="font-weight: bold;">   Link:</a>
                             {{ $project->link }} </p>
 
-                        <p>  <a style="font-weight: bold;"> Fichero:</a>
+                        <br/>
                           <iframe src="/laravel-filemanager" style="width: 100%; height: 500px; overflow: hidden; border: none;"></iframe>
-                          @if ($project->file)
-                            <a href="{{ $project->file }}" download="{{ $project->file }}" target="_blank">
-                              {{ $project->file }}
-                            </a>
-                          @endif </p>
                     </div>
                     </div>
                 </div>

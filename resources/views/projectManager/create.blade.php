@@ -33,7 +33,7 @@
                         </div>
                         <div class="col-md-9 form-group">
                             {{ Form::label('Tipo de proyecto', null, ['class' => 'control-label']) }}
-                            {{ Form::textarea('project_type', null, ['class' => 'form-control']) }}
+                            {{ Form::select('project_type', ['proy' => 'Proyecto de investigación', 'tes' => 'Tesis', 'tfg' => 'Trabajo fin grado', 'tpos' => 'Trabajo Post-grado', 'pub' => 'Publicación', 'con' => 'Congreso'], null, ['placeholder' => 'Seleccione...'],['class' => 'form-control']) }}
                             <a id="errors3" class="errors">{{$errors->first('project_type') }}</a>
                         </div>
                         <div class="col-md-9 form-group">
@@ -60,11 +60,6 @@
                             {{ Form::label('Link', null, ['class' => 'control-label']) }}
                             {{ Form::text('link', null, ['class' => 'form-control']) }}
                             <a class="errors">{{$errors->first('link') }}</a>
-                        </div>
-                        <div class="col-md-9 form-group">
-                            {{ Form::label('Fichero', null, ['class' => 'control-label']) }}
-                            {{ Form::file('file', null, ['class' => 'form-control']) }}
-                            <a class="errors">{{$errors->first('file') }}</a>
                         </div>
                         <div class="col-md-9 submit">
                             <button type="submit" class="btn btn-default">

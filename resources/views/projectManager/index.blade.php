@@ -4,19 +4,27 @@
     <div class="page-content container-fluid">
         <div class="container">
             <div id="add-btn" class="panel-body table-responsive">
-                <div class="col-md-4" style=" top: 10px;">
-                    @include('voyager::alerts')
+                <div class="col-xs-6 vertical-center">
                     @if (Voyager::can('add_project'))
                         <a href="/project-manager/create" class="btn btn-primary">
                             <div class="btns"><span class="glyphicon glyphicon-plus"></span> Add New</div>
                         </a>
                     @endif
                 </div>
-                <div class="pull-right">
+                <div class="col-xs-6 text-right">
                     <h2>Gestor de proyectos</h2>
                 </div>
             </div>
-            <div class="col-md-12">
+            @if(Session::has('suc'))
+                <div class="alert alert-success">
+                    <strong>Éxito!</strong> {{Session::get('suc')}}.
+                </div>
+            @elseif(Session::has('fail'))
+                <div class="alert alert-warning">
+                    <strong>Alerta!</strong> {{Session::get('fail')}}.
+                </div>
+            @endif
+            <div>
                 <div class="panel panel-bordered">
                     <div class="panel-body table-responsive">
                         @include('projectManager.dimmers')

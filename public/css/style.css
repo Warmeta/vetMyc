@@ -1586,6 +1586,16 @@ select.ng-dirty {
 	color: #000;
 }
 
+.vertical-center {
+	  display: flex;
+	  align-items: center;
+		padding: 10px 0 10px;
+}
+
+.text-right {
+	text-align: right;
+}
+
 .widgets{
   display:flex;
   flex-direction:row;
@@ -1593,7 +1603,7 @@ select.ng-dirty {
 }
 
 .panel.widget{
-  padding:30px;
+  padding:28px;
   border:0px;
   border-radius:3px;
   flex:1;
@@ -1709,7 +1719,7 @@ select.ng-dirty {
 	right: -1em;
   background: rgba(0, 0, 0, 0.3);
   width: 40px;
-  height: 100px;
+  height: 60px;
   display: block;
 }
 

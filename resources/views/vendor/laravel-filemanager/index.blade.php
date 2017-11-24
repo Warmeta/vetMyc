@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.css">
 </head>
 <body>
+  @if (Voyager::can('edit_project'))
   <div class="container-fluid" id="wrapper">
     <div class="panel panel-primary hidden-xs">
       <div class="panel-heading">
@@ -211,5 +212,6 @@
       maxFilesize: ({{ lcfirst(str_singular(request('type'))) == 'image' ? config('lfm.max_image_size') : config('lfm.max_file_size') }} / 1000)
     }
   </script>
+  @endif
 </body>
 </html>

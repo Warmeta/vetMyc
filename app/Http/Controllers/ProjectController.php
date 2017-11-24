@@ -90,9 +90,10 @@ class ProjectController extends Controller
               $project->file = \Storage::disk('s3')->url($filePath);
             }
             $project->save();
-
-            return Redirect::to('/project-manager')->with('message', 'Proyecto creado correctamente.');
+            Session::flash('suc', 'Proyecto creado correctamente');
+            return Redirect::to('/project-manager');
         } else {
+            Session::flash('fail', 'Proyecto no se ha podido crear');
             return Redirect::to('/project-manager');
         }
     }
@@ -161,9 +162,10 @@ class ProjectController extends Controller
               $project->file = \Storage::disk('s3')->url($filePath);
             }
             $project->save();
-
-            return Redirect::to('/project-manager')->with('message', 'Proyecto editado correctamente.');
+            Session::flash('suc', 'Proyecto editado correctamente');
+            return Redirect::to('/project-manager');
         } else {
+            Session::flash('fail', 'Proyecto no se ha editado correctamente');
             return Redirect::to('/project-manager');
         }
     }
@@ -178,7 +180,7 @@ class ProjectController extends Controller
     public function destroy($id)
     {
         Project::destroy($id);
-        return Redirect::to('/project-manager')->with('message', 'Proyecto borrado correctamente.');
+        Session::flash('suc', 'Proyecto borrado correctamente');
     }
 
     public function validateProject($request)

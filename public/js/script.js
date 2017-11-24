@@ -40,14 +40,16 @@ $(document).ready(function() {
         else
             console.log("Delete failed");
     });
-    
+
     $('.delete-project').click(function () {
         var id = $(this).data("id");
         var token = $(this).data("token");
         var route = $(this).data("route");
+				var e = "dimmer-".concat(id);
         var x = confirm("Are you sure you want to delete?");
         if (x)
             $.ajax(
+
                 {
                     type: "DELETE",
                     url: route + id,
@@ -56,7 +58,7 @@ $(document).ready(function() {
                         "_token": token
                     },
                     success: function () {
-                        $("#dimmer-"+id).fadeOut(500, function(){
+                        $("#" + e).fadeOut(500, function(){
                             $(this).remove();
                         });
                     }
