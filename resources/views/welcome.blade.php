@@ -222,7 +222,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" required class="form-control" name="subject" id="subject" placeholder="Contenido" data-rule="minlen:4" data-msg="Por favor introduzca al menos 8 caracteres" />
+                                <input type="text" required class="form-control" name="subject" id="subject" placeholder="Sujeto" data-rule="minlen:4" data-msg="Por favor introduzca al menos 8 caracteres" />
                                 <div class="validation"></div>
                             </div>
                         </div>

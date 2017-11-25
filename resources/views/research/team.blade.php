@@ -8,8 +8,13 @@
                     <div class="about-heading">
                         <h2>Equipo de investigación</h2>
                         </br>
+                        </br>
+                        </br>
                         <div class="row">
                           <div class="col-xs-12 col-sm-6">
+                            <div class="center">
+                              <img src="/images/photo/begona.jpeg" class="photo-img" />
+                            </div>
                             </br>
                             <strong>Dra. Begoña Acosta Hernández</strong>
                             </br>
@@ -17,6 +22,9 @@
                             </br>
                           </div>
                           <div class="col-xs-12 col-sm-6">
+                            <div class="center">
+                              <img src="/images/photo/soraya.jpeg" class="photo-img" />
+                            </div>
                             </br>
                             <strong>Dra. Soraya Déniz Suárez</strong>
                             </br>
@@ -26,12 +34,18 @@
                         </div>
                         <div class="row">
                           <div class="col-xs-12 col-sm-6">
+                            <div class="center">
+                              <img src="/images/photo/inma.jpeg" class="photo-img" />
+                            </div>
                             </br>
                             <strong>Dra. Inmaculada Rosario Medina</strong>
                             </br>
                             <p>PAL de la ULPGC. Unidad de Enfermedades Infecciosas. Facultad de Veterinaria.</p>
                           </div>
                           <div class="col-xs-12 col-sm-6">
+                            <div class="center">
+                              <img src="/images/photo/oti.jpeg" class="photo-img" />
+                            </div>
                             </br>
                             <strong>Dra. Otilia Ferrer Quintana</strong>
                             </br>
@@ -46,6 +60,9 @@
                             <p>Dra. en Veterinaria. Colaboradora clínica externa.</p>
                           </div>
                           <div class="col-xs-12 col-sm-6">
+                            <div class="center">
+                              <img src="/images/photo/freddy.jpeg" class="photo-img" />
+                            </div>
                             </br>
                             <strong>Dr. Freddy Alejandro Silva Sergent</strong>
                             </br>
