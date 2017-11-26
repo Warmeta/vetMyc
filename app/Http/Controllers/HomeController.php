@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Mail;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -52,4 +53,28 @@ class HomeController extends Controller
 
       return redirect('/#contact');
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexProjects()
+    {
+        $projects = DB::table('projects')->where("project_type", "!=", ["Publicación", "Congreso"])->get();
+        $collection = collect($projects);
+        return view('research.projects', compact('projects'));
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexPublications()
+    {
+        $projects = DB::table('projects')->where("project_type", "=", "Publicación")->get();
+        $collection = collect($projects);
+        return view('research.publications', compact('projects'));
+    }
+
 }

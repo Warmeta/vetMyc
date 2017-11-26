@@ -44,12 +44,14 @@ Auth::routes();
 Route::get('/team', function () {
     return View::make('research.team');
 });
-Route::get('/projects', function () {
-    return View::make('research.projects');
-});
-Route::get('/publications', function () {
-    return View::make('research.publications');
-});
+Route::get('/projects', [
+    'uses' => 'HomeController@indexProjects',
+    'as' => 'research.projects'
+]);
+Route::get('/publications', [
+    'uses' => 'HomeController@indexPublications',
+    'as' => 'research.publications'
+]);
 
 //Mycology
 

@@ -33,7 +33,7 @@
                         </div>
                         <div class="col-md-9 form-group">
                             {{ Form::label('Tipo de proyecto', null, ['class' => 'control-label']) }}
-                            {{ Form::select('project_type', ['proy' => 'Proyecto de investigación', 'tes' => 'Tesis', 'tfg' => 'Trabajo fin grado', 'tpos' => 'Trabajo Post-grado', 'pub' => 'Publicación', 'con' => 'Congreso'], null, ['placeholder' => 'Seleccione...'],['class' => 'form-control']) }}
+                            {{ Form::select('project_type', ['Proyecto de investigación' => 'Proyecto de investigación', 'Tesis' => 'Tesis', 'Trabajo fin grado' => 'Trabajo fin grado', 'Trabajo Post-grado' => 'Trabajo Post-grado', 'Publicación' => 'Publicación', 'Congreso' => 'Congreso'], null, ['placeholder' => 'Seleccione...'],['class' => 'form-control']) }}
                             <a id="errors3" class="errors">{{$errors->first('project_type') }}</a>
                         </div>
                         <div class="col-md-9 form-group">

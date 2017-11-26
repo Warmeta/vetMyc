@@ -725,6 +725,54 @@ textarea:focus {
 	color: #6fd779;
 }
 
+/* Publications & projects */
+
+#about .pub h2 {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 700;
+	font-size: 45px;
+	text-transform: uppercase;
+	text-align: center;
+	padding-bottom: 45px;
+}
+
+#about .pub p {
+	line-height: 25px;
+	color: #8e8e8e;
+	text-align: justify;
+}
+
+#about .pub li {
+	margin-top: 20px;
+	line-height: 25px;
+	color: #8e8e8e;
+	margin-bottom: 50px;
+	text-align: justify;
+}
+
+#about .pub h3 {
+	font-size: 27px;
+}
+
+#about .pub h4 {
+	font-size: 16px;
+	font-weight: 700;
+}
+
+#about .pub a{
+	color: #2F4F4F;
+}
+
+#about .pub a:hover{
+	color: #337ab7;
+}
+
+#about .row-pub {
+	padding-bottom: 20px;
+	padding-top: 20px;
+	border-bottom: 1px solid #8e8e8e;
+}
+
 /*Table*/
 
 #prices {

@@ -5,27 +5,31 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-                    <div class="about-heading">
-                        <h2>Equipo de investigación</h2>
+                    <div class="pub">
+                        <h2>Publicaciones</h2>
                         </br>
-                        <div class="col-xs-12 col-sm-6">
-                          </br>
-                          <strong>Dra. Begoña Acosta Hernández</strong>
-                          </br>
-                          <strong>Dra. Soraya Déniz Suárez</strong>
-                          </br>
-                          <strong>Dr. Freddy Alejandro Silva Sergent</strong>
-                          </br>
-                        </div>
-                        <div class="col-xs-12 col-sm-6">
-                          </br>
-                          <strong>Dra. Inmaculada Rosario Medina</strong>
-                          </br>
-                          <strong>Dra. Otilia Ferrer Quintana</strong>
-                          </br>
-                          <strong>Dra. Davinia Ortega</strong>
-                          </br>
-                        </div>
+                        @if (!empty($projects))
+                            @foreach($projects as $project)
+                              @php
+                              $project_name = $project->project_name;
+                              $description = $project->description;
+                              $research_line = $project->research_line;
+                              $project_type = $project->project_type;
+                              $publication_date = $project->publication_date;
+                              $link = $project->link;
+                              @endphp
+                              <div class="row">
+                              <div class="col-xs-5">
+                                <a href="{{ 'http://' . $link }}"><h4>{{ $project_name }}</h4></a>
+                                <p>Linea de investigación: {{ $research_line }}</p>
+                                <p>Fecha: {{ $publication_date }}</p>
+                              </div>
+                              <div class="col-xs-7">
+                                <p>{{ $description }}</p>
+                              </div>
+                              </div>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>
