@@ -14,34 +14,9 @@ class TranslationsTableSeeder extends Seeder
      */
     public function run()
     {
-        $this->pagesTranslations();
         $this->menusTranslations();
     }
 
-    /**
-     * Auto generate Pages Translations.
-     *
-     * @return void
-     */
-    private function pagesTranslations()
-    {
-        $page = Page::where('slug', 'hello-world')->firstOrFail();
-        if ($page->exists) {
-            $_arr = $this->_arr('pages', 'title', $page->id);
-            $this->_trans('en', $_arr, 'Hello World');
-            $this->_trans('pt', $_arr, 'Olá Mundo');
-
-            $_arr = $this->_arr('pages', 'slug', $page->id);
-            $this->_trans('en', $_arr, 'hello-world');
-            $this->_trans('pt', $_arr, 'ola-mundo');
-
-            $_arr = $this->_arr('pages', 'body', $page->id);
-            $this->_trans('en', $_arr, '<p>Hello World. Scallywag grog swab Cat o\'nine tails scuttle rigging hardtack cable nipper Yellow Jack. Handsomely spirits knave lad killick landlubber or just lubber deadlights chantey pinnace crack Jennys tea cup. Provost long clothes black spot Yellow Jack bilged on her anchor league lateen sail case shot lee tackle.</p>'
-                                        ."\r\n".'<p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p>');
-            $this->_trans('pt', $_arr, '<p>Olá Mundo. Scallywag grog swab Cat o\'nine tails scuttle rigging hardtack cable nipper Yellow Jack. Handsomely spirits knave lad killick landlubber or just lubber deadlights chantey pinnace crack Jennys tea cup. Provost long clothes black spot Yellow Jack bilged on her anchor league lateen sail case shot lee tackle.</p>'
-                                        ."\r\n".'<p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p>');
-        }
-    }
 
     /**
      * Auto generate Menus Translations.

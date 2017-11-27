@@ -3,22 +3,23 @@
 namespace Tests\Feature\Auth;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class LoginTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testLogin()
-    {
-      $credentials = ['user' => 'admin@admin.com', 'password' => 'password'];
-      $response = $this->call('POST', '/login', $credentials, [], [], []);
-
-      $response->assertRedirect('/');
-    }
+  public function testLoginError()
+  {
+    $user = factory('App\User')->create();
+    $credentials = ['email' => $user->email, 'password' => 'invalid'];
+    $response = $this->call('POST', '/login', $credentials, [], [], []);
+    $response->assertSessionHasErrors();
+    $response->assertRedirect('/');
+  }
+  
+  public function testLoginSuccess()
+  {
+    $user = factory('App\User')->create();
+    $credentials = ['email' => $user->email, 'password' => 'secret'];
+    $response = $this->call('POST', '/login', $credentials, [], [], []);
+    $response->assertRedirect('/');
+  }
 }
