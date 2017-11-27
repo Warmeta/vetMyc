@@ -188,15 +188,15 @@ class ProjectController extends Controller
     public function validateProject($request)
     {
         return Validator::make($request->all(), [
-            'project_name' => 'required|max:100',
+            'project_name' => 'required|max:200',
             'description' => 'required|max:200',
             'image' => 'nullable|image|max:1000',
             'project_type' => 'required|max:50',
-            'research_line' => 'required|max:100',
+            'research_line' => 'required|max:120',
             'publication_date' => 'required',
-            'entity' => 'required|max:50',
+            'entity' => 'required|max:120',
             'project_status' => 'required|max:30',
-            'link' => 'nullable|max:100',
+            'link' => 'nullable|max:200',
             'file' => 'nullable|max:6000',
         ]);
     }
