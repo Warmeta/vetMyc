@@ -8,9 +8,8 @@
         </a>
       </div>
     </div>
-    <div class="row panel-content">
-        <div class="col-xs-6"><h4>{{ $project_name }}</h4>
+    <div class="panel-content">
+        <div class="col-xs-8 col-xs-offset-2"><h4>{{ $project_name }}</h4>
         <p>{{ $project_type }}</p></div>
-
     </div>
 </div>

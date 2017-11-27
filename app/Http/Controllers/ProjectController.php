@@ -82,6 +82,8 @@ class ProjectController extends Controller
               $filePath =  'projects/'.$name;
               \Storage::disk('s3')->put($filePath, file_get_contents($request->image), 'public');
               $project->image = \Storage::disk('s3')->url($filePath);
+            }else{
+              $project->image = '/images/portfolio/portfolio8.jpg';
             }
             if ($request->hasFile('file')) {
               $name = md5(time()).'.'.$request->file->getClientOriginalExtension();
@@ -186,15 +188,15 @@ class ProjectController extends Controller
     public function validateProject($request)
     {
         return Validator::make($request->all(), [
-            'project_name' => 'required|max:30',
-            'description' => 'required|max:190',
+            'project_name' => 'required|max:100',
+            'description' => 'required|max:200',
             'image' => 'nullable|image|max:1000',
             'project_type' => 'required|max:50',
-            'research_line' => 'required|max:50',
+            'research_line' => 'required|max:100',
             'publication_date' => 'required',
-            'entity' => 'required|max:30',
+            'entity' => 'required|max:50',
             'project_status' => 'required|max:30',
-            'link' => 'nullable|max:50',
+            'link' => 'nullable|max:100',
             'file' => 'nullable|max:6000',
         ]);
     }

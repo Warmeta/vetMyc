@@ -1695,10 +1695,13 @@ select.ng-dirty {
   margin: 0 10;
   color: #eee;
   line-height: 60px;
+	z-index: 99999999999999;
 }
 
 #folder-icon:hover{
 	color: #6fd779;
+
+	z-index: 99999999999999;
 }
 
 .panel.widget h4{
@@ -1780,15 +1783,24 @@ select.ng-dirty {
   height: 50px;
   display: block;
 	border-radius: 10px;
+	z-index: 99999999999999;
 }
 
 #RUD i{
 	font-size: 25px;
   margin: 0 10;
   color: #eee;
+
+	z-index: 99999999999999;
 }
 
 #RUD i:hover{
   color: #6fd779;
 	cursor: pointer;
+
+	z-index: 99999999999999;
+}
+
+#behind {
+	padding-top: 20px;
 }
