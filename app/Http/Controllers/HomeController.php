@@ -61,7 +61,7 @@ class HomeController extends Controller
      */
     public function indexProjects()
     {
-        $projects = DB::table('projects')->where("project_type", "!=", ["Publicación", "Congreso"])->get();
+        $projects = DB::table('projects')->where("project_type", "!=", "Publicación")->where("project_type", "!=", "Congreso")->get();
         $collection = collect($projects);
         return view('research.projects', compact('projects'));
     }
