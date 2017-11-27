@@ -1684,8 +1684,8 @@ select.ng-dirty {
 #folder-icon{
 	position: relative;
 	float: left;
-	top: -1em;
-	right: 0.5em;
+	top: 0.2em;
+	right: 0em;
   font-size: 40px;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 50%;
@@ -1774,13 +1774,12 @@ select.ng-dirty {
 
 #RUD{
 	position: relative;
-	float: right;
-	top: -2.5em;
-	right: -1em;
-  background: rgba(0, 0, 0, 0.3);
+	top: 0.5em;
+	right: 0.5em;
   width: 40px;
-  height: 60px;
+  height: 50px;
   display: block;
+	border-radius: 10px;
 }
 
 #RUD i{
@@ -1791,4 +1790,5 @@ select.ng-dirty {
 
 #RUD i:hover{
   color: #6fd779;
+	cursor: pointer;
 }
