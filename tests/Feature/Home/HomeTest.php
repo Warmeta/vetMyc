@@ -29,4 +29,10 @@ class HomeTest extends TestCase
     $response = $this->call('GET', '/projects', [], [], [], []);
     $response->assertSee('Proyectos');
   }
+
+  public function testPublications()
+  {
+    $response = $this->call('GET', '/publications', [], [], [], []);
+    $response->assertSee('Publicaciones');
+  }
 }
