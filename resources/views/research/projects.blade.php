@@ -4,7 +4,7 @@
     <div id="about">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                <div class="col-sm-12 col-md-8 col-md-offset-2">
                     <div class="pub">
                         <h2>Proyectos</h2>
                         </br>
@@ -15,17 +15,20 @@
                               $description = $project->description;
                               $research_line = $project->research_line;
                               $project_type = $project->project_type;
+                              $project_img = $project->image;
                               $publication_date = $project->publication_date;
                               $link = $project->link;
                               @endphp
                               <div class="row row-pub">
                               <div class="col-xs-5">
-                                <a href="{{ 'http://' . $link }}"><h4>{{ $project_name }}</h4></a>
+                                <a href="{{ $link }}"><h4>{{ $project_name }}</h4></a>
                                 <p>Linea de investigación: {{ $research_line }}</p>
                                 <p>Tipo: {{ $project_type }}</p>
                                 <p>Fecha: {{ $publication_date }}</p>
                               </div>
                               <div class="col-xs-7">
+                                <img src="{{ $project_img }}" class="img-responsive" />
+                                </br>
                                 <p>{{ $description }}</p>
                               </div>
                               </div>

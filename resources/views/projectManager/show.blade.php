@@ -34,11 +34,18 @@
                         <p><a style="font-weight: bold;"> Autor: </a>  {{ $user }} </p>
 
                         <p><a style="font-weight: bold;"> Estado:  </a> {{ $project->project_status }} </p>
-
+                        @if($project->link)
                         <p> <a style="font-weight: bold;">   Link:</a>
-                            {{ $project->link }} </p>
+                            {{ $project->link }}
+                        </p>
+                        @endif
+                        @if($project->file)
+                        <p> <a style="font-weight: bold;">   Fichero:</a>
+                        </br>
+                            <a href="{{ $project->file }}">{{ $project->file }}</a> </p>
 
                         <br/>
+                        @endif
                           <iframe src="/laravel-filemanager" style="width: 100%; height: 500px; overflow: hidden; border: none;"></iframe>
                     </div>
                     </div>

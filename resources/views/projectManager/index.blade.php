@@ -7,7 +7,7 @@
                 <div class="col-xs-6 vertical-center">
                     @if (Voyager::can('add_project'))
                         <a href="/project-manager/create" class="btn btn-primary">
-                            <div class="btns"><span class="glyphicon glyphicon-plus"></span> Add New</div>
+                            <div class="btns"><span class="glyphicon glyphicon-plus"></span> Añadir</div>
                         </a>
                     @endif
                 </div>

@@ -63,9 +63,14 @@
                             {{ Form::text('link', null, ['class' => 'form-control']) }}
                             <a class="errors">{{$errors->first('link') }}</a>
                         </div>
+                        <div class="col-md-9 form-group">
+                            {{ Form::label('Fichero', null, ['class' => 'control-label']) }}
+                            {{ Form::file('file', null, ['class' => 'form-control'])  }}
+                            <a class="errors">{{$errors->first('file') }}</a>
+                        </div>
                         <div class="col-md-9 submit">
                             <button type="submit" class="btn btn-default">
-                                Edit
+                                Editar
                             </button>
                         </div>
                     </div>
