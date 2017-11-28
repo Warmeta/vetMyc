@@ -1801,6 +1801,14 @@ select.ng-dirty {
 	z-index: 99999999999999;
 }
 
-#behind {
-	padding-top: 20px;
+@media (min-width: 992px) {
+    .row > .col-md-4:nth-child(3n+1) {
+        clear: both;
+    }
+}
+
+@media (max-width: 991px) {
+    .row > .col-sm-6:nth-child(2n+1) {
+        clear: both;
+    }
 }
