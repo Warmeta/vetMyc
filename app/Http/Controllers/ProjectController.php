@@ -53,10 +53,11 @@ class ProjectController extends Controller
     {
         if (Voyager::can('browse_projects')) {
             $sta = ProjectController::getStatusOptions();
-            $data = collect([
-                'status' => $sta
+            $researchers = ProjectController::getResarchersUsers();
+            return view('projectManager.create')->with('data', [
+                'status' => $sta,
+                'researchers' => $researchers
             ]);
-            return view('projectManager.create')->with('data', $data);
         } else {
             return Redirect::to('/project-manager');
         }
@@ -210,7 +211,15 @@ class ProjectController extends Controller
 
     public function getStatusOptions()
     {
-        return ['inprogress' => 'In progress','finished' => 'Finished'];
+        return ['inprogress' => 'En progreso','finished' => 'Terminado'];
+    }
+
+    public function getResarchersUsers()
+    {
+        $researcher_role = DB::table('roles')->where('name', 'investigador')->first();
+        $researchers = DB::table('users')->where('role_id', $researcher_role->id)->get();
+
+        return $researchers;
     }
 
 }
