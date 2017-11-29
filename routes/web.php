@@ -121,6 +121,8 @@ Route::group(['prefix' => 'project-manager'], function () {
 
 Route::group(['prefix' => 'lab'], function () {
 
+
+
     //Email
     Route::get('/email/{id}', ['uses' => 'LaboratoryController@email', 'as' => 'sendEmail'], function ($id) {
         //

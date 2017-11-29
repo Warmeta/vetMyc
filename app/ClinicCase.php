@@ -14,6 +14,7 @@ class ClinicCase extends Model
         'specie',
         'clinic_history',
         'owner',
+        'owner_email',
         'breed',
         'sex',
         'age',

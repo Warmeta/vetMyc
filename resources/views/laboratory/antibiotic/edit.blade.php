@@ -16,12 +16,12 @@
                     {{ csrf_field() }}
                     <div class="col-md-offset-2">
                         <div class="col-md-9 form-group">
-                            {{ Form::label('Name', null, ['class' => 'control-label']) }}
+                            {{ Form::label('Nombre', null, ['class' => 'control-label']) }}
                             {{ Form::text('antibiotic_name', null, ['class' => 'form-control']) }}
                             <a id="errors1" class="errors">{{ $errors->first('antibiotic_name') }}</a>
                         </div>
                         <div class="col-md-9 form-group">
-                            {{ Form::label('Description', null, ['class' => 'control-label']) }}
+                            {{ Form::label('Descripción', null, ['class' => 'control-label']) }}
                             {{ Form::textarea('description', null, ['class' => 'form-control']) }}
                             <a id="errors2" class="errors">{{$errors->first('description') }}</a>
                         </div>

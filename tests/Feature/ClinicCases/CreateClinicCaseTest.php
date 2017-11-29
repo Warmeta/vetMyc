@@ -3,22 +3,22 @@
 namespace Tests\Feature\ClinicCases;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Support\Facades\Session;
 
 class CreateClinicCaseTest extends TestCase
 {
   // use WithoutMiddleware;
 
-  public function testCreateClinicCaseFailWithoutLogin()
+  public function testCreateClinicCaseFailWithoutLoginUser()
   {
-    $clinicCase = factory('App\ClinicCase')->create()->toArray();
+    $clinicCase = factory('App\ClinicCase')->make()->toArray();
     $response = $this->call('POST', '/lab/clinic-case', $clinicCase, [], [], []);
     $response->assertStatus(405);
   }
 
-  public function testCreateClinicCaseFailWithoutNumberClinicParameter()
+  public function testCreateClinicCaseFailWithoutRequiredParameterAsAdmin()
   {
-    $clinicCase = factory('App\ClinicCase')->create(['number_clinic_history' => ''])->toArray();
+    $clinicCase = factory('App\ClinicCase')->make(['number_clinic_history' => ''])->toArray();
 
     $user = $this->createUserWithAdminPermissions('clinic_cases');
 
@@ -26,7 +26,37 @@ class CreateClinicCaseTest extends TestCase
       ->actingAs($user)
       ->post('/lab/clinic-case/create', $clinicCase);
 
-    $response->assertRedirect('/lab/clinic-case/create');
+    $response->assertRedirect('/lab/clinic-case/create')
+      ->assertSessionHasErrors(['number_clinic_history']);
+    $this->assertDatabaseMissing('clinic_cases', $clinicCase);
+  }
+
+  public function testCreateClinicCaseSuccessAsAdmin()
+  {
+    $clinicCase = factory('App\ClinicCase')->make()->toArray();
+
+    $user = $this->createUserWithAdminPermissions('clinic_cases');
+
+    $response = $this
+      ->actingAs($user)
+      ->post('/lab/clinic-case/create', $clinicCase);
+
+    $response->assertRedirect('/lab/clinic-case')
+      ->assertStatus(302);
     $this->assertDatabaseHas('clinic_cases', $clinicCase);
+  }
+
+  public function testCreateClinicCaseFailLogedAsUser()
+  {
+    $clinicCase = factory('App\ClinicCase')->make()->toArray();
+
+    $user = $this->createUserWithUserPermissions();
+
+    $response = $this
+      ->actingAs($user)
+      ->post('/lab/clinic-case/create', $clinicCase);
+
+    $response->assertRedirect('/');
+    $this->assertDatabaseMissing('clinic_cases', $clinicCase);
   }
 }

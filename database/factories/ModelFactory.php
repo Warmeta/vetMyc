@@ -26,6 +26,13 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Antibiotic::class, function (Faker\Generator $faker) {
+    return [
+        'antibiotic_name' => $faker->name,
+        'description' => $faker->paragraph(2),
+    ];
+});
+
 $factory->define(App\ClinicCase::class, function (Faker\Generator $faker) {
        return ['number_clinic_history' => $faker->randomNumber(8),
         'author_id' => 1,

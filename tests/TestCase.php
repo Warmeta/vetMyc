@@ -18,6 +18,7 @@ abstract class TestCase extends BaseTestCase
     public function createUserWithAdminPermissions(string $table)
     {
       $role = $this->createRole('admin');
+      $this->createRole('user');
 
       $this->createPermissions($table, $role);
 
@@ -26,11 +27,10 @@ abstract class TestCase extends BaseTestCase
       return $user;
     }
 
-    public function createUserWithUserPermissions(string $table)
+    public function createUserWithUserPermissions()
     {
+      $this->createRole('admin');
       $role = $this->createRole('user');
-
-      $this->createPermissions($table, $role);
 
       $user = $this->createUser($role->id);
 
