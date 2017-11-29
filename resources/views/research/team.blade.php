@@ -54,6 +54,9 @@
                         </div>
                         <div class="row">
                           <div class="col-xs-12 col-sm-6">
+                            <div class="center">
+                              <img src="/images/photo/davinia.jpg" class="photo-img" />
+                            </div>
                             </br>
                             <strong>Dra. Davinia Ortega</strong>
                             </br>
