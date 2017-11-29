@@ -64,30 +64,28 @@
     <div id="about-bg">
 
         <div class="container">
-            <div class="row">
-
                 <div class="about-bg-heading">
                     <h1>Estadísticas sobre nosotros</h1>
                     <p>lo que hemos conseguido</p>
                 </div>
-
+                <div class="row">
                 <div class=" col-xs-12 col-md-4">
                     <div class="about-bg-wrapper">
-                        <span class="count"><h1><span class="border">10</span>5</h1></span>
+                        <span class="count"><h1><span class="border">154</span></h1></span>
                         <p>casos clínicos</p>
                     </div>
                 </div>
 
                 <div class="col-xs-12 col-md-4">
                     <div class="about-bg-wrapper">
-                        <span class="count"><h1>54</h1></span>
+                        <span class="count"><h1>12</h1></span>
                         <p>proyectos</p>
                     </div>
                 </div>
 
                 <div class="col-xs-12 col-md-4">
                     <div class="about-bg-wrapper">
-                        <span class="count"><h1>152</h1></span>
+                        <span class="count"><h1>10</h1></span>
                         <p>publicaciones</p>
                     </div>
                 </div>
