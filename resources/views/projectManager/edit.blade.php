@@ -56,7 +56,35 @@
                         <div class="col-md-9 form-group">
                             {{ Form::label('Estado', null, ['class' => 'control-label']) }}
                             {{ Form::select('project_status', $data->get('status'), null, ['placeholder' => 'Pick a status...'],['class' => 'form-control']) }}
-                            <a id="errors10" class="errors">{{$errors->first('project_status') }}</a>
+                            <a id="errors7" class="errors">{{$errors->first('project_status') }}</a>
+                        </div>
+                        <div class="col-md-9 form-group">
+                            {{ Form::label('Investigadores principales', null, ['class' => 'control-label']) }}
+                            </br>
+                            <select class="multiselect-limit" name="researchers[]" multiple="multiple">
+                                @foreach($data['researchers'] as $researcher)
+                                    @if(in_array($researcher->id, $researchers))
+                                      <option value="{{ $researcher->id }}" selected>{{ $researcher->name }}</option>
+                                    @else
+                                      <option value="{{ $researcher->id }}">{{ $researcher->name }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                            <a id="errors8" class="errors">{{$errors->first('researchers[]') }}</a>
+                        </div>
+                        <div class="col-md-9 form-group">
+                            {{ Form::label('Colaboradores', null, ['class' => 'control-label']) }}
+                            </br>
+                            <select class="multiselect" name="collaborators[]" multiple="multiple">
+                              @foreach($data['researchers'] as $researcher)
+                                  @if(in_array($researcher->id, $collaborators))
+                                    <option value="{{ $researcher->id }}" selected>{{ $researcher->name }}</option>
+                                  @else
+                                    <option value="{{ $researcher->id }}">{{ $researcher->name }}</option>
+                                  @endif
+                              @endforeach
+                            </select>
+                            <a id="errors9" class="errors">{{$errors->first('collaborators[]') }}</a>
                         </div>
                         <div class="col-md-9 form-group">
                             {{ Form::label('Link', null, ['class' => 'control-label']) }}
@@ -66,7 +94,7 @@
                         <div class="col-md-9 form-group">
                             {{ Form::label('Fichero', null, ['class' => 'control-label']) }}
                             {{ Form::file('file', null, ['class' => 'form-control'])  }}
-                            <a class="errors">{{$errors->first('file') }}</a>
+                            <a class="errors10">{{$errors->first('file') }}</a>
                         </div>
                         <div class="col-md-9 submit">
                             <button type="submit" class="btn btn-default">

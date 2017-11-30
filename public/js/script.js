@@ -160,3 +160,41 @@ $(document).ready(function() {
     google.maps.event.addDomListener(window, 'load', initialize_google_map);
 
 });
+
+$(document).ready(function() {
+	$('.multiselect').multiselect({
+		buttonWidth: '250px'
+	});
+});
+
+$(document).ready(function() {
+	$('.multiselect-limit').multiselect({
+		buttonWidth: '250px',
+		onChange: function(option, checked) {
+			var $select = option.parent('select');
+			var selectedOptions = $select.find('option:selected');
+			var selected = [];
+
+			if (selectedOptions.length >= 2) {
+				var nonSelectedOptions = $select.find('option').filter(function() {
+					return !$(this).is(':selected');
+				});
+
+				nonSelectedOptions.each(function() {
+					var input = $select.next().find('input[value="' + $(this).val() + '"]');
+					input.prop('disabled', true);
+					input.parent('li').addClass('disabled');
+				});
+			} else {
+				$select.find('option').each(function() {
+					var input = $select.next().find('input[value="' + $(this).val() + '"]');
+					input.prop('disabled', false);
+					input.parent('li').addClass('disabled');
+				});
+			}
+			$(selectedOptions).each(function(index, option){
+          selected.push([$(this).val()]);
+      });
+		}
+	});
+});

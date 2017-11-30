@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Project;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
@@ -31,4 +32,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function collaborators() {
+        return $this->belongsToMany(Project::class, 'project_collaborators', 'collaborator_id', 'project_id');
+    }
 }

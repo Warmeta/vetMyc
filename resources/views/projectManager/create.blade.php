@@ -53,20 +53,28 @@
                         </div>
                         <div class="col-md-9 form-group">
                             {{ Form::label('Estado', null, ['class' => 'control-label']) }}
-                            {{ Form::select('project_status', $data['status'], null, ['placeholder' => 'Selecciona...'],['class' => 'form-control']) }}
+                            {{ Form::select('project_status', $data['status'], null, ['placeholder' => 'Selecciona...', 'class' => 'form-control']) }}
                             <a id="errors7" class="errors">{{$errors->first('project_status') }}</a>
                         </div>
                         <div class="col-md-9 form-group">
                             {{ Form::label('Investigadores principales', null, ['class' => 'control-label']) }}
                             </br>
-                            {{ Form::select('i_p', $data['researchers'], null, ['placeholder' => 'Selecciona...', 'multiple' => 'multiple'],['class' => 'form-control']) }}
-                            <a id="errors8" class="errors">{{$errors->first('project_status') }}</a>
+                            <select class="multiselect-limit" name="researchers[]" multiple="multiple">
+                                @foreach($data['researchers'] as $researcher)
+                                  <option value="{{ $researcher->id }}">{{ $researcher->name }}</option>
+                                @endforeach
+                            </select>
+                            <a id="errors8" class="errors">{{$errors->first('researchers[]') }}</a>
                         </div>
                         <div class="col-md-9 form-group">
                             {{ Form::label('Colaboradores', null, ['class' => 'control-label']) }}
                             </br>
-                            {{ Form::select('collaborators', $data['researchers'], null, ['placeholder' => 'Selecciona...', 'multiple' => 'multiple'],['class' => 'form-control']) }}
-                            <a id="errors9" class="errors">{{$errors->first('project_status') }}</a>
+                            <select class="multiselect" name="collaborators[]" multiple="multiple">
+                                @foreach($data['researchers'] as $researcher)
+                                  <option value="{{ $researcher->id }}">{{ $researcher->name }}</option>
+                                @endforeach
+                            </select>
+                            <a id="errors9" class="errors">{{$errors->first('collaborators[]') }}</a>
                         </div>
                         <div class="col-md-9 form-group">
                             {{ Form::label('Link', null, ['class' => 'control-label']) }}

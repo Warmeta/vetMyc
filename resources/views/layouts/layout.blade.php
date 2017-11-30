@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/vendor/tcg/voyager/assets/fonts/voyager/styles.css">
+    <link rel="stylesheet" href="/css/bootstrap-multiselect.css" type="text/css"/>
     <!-- =======================================================
         Theme Name: MyBiz
         Theme URL: https://bootstrapmade.com/mybiz-free-business-bootstrap-theme/
@@ -99,6 +100,7 @@
 <script src="/js/jquery.flexslider.js"></script>
 <script src="/js/jquery.inview.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxnxNyJ0xcX50M8lmHZ-Ch2RLAleH3s8M"></script>
+<script type="text/javascript" src="/js/bootstrap-multiselect.js"></script>
 <script src="/js/script.js"></script>
 
 </body>

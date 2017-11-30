@@ -78,6 +78,7 @@ class ProjectController extends Controller
             $project = new Project();
             $project->author_id = Auth::user()->id;
             $project->fill($request->all());
+
             if ($request->hasFile('image')) {
               $name = md5(time()).'.'.$request->image->getClientOriginalExtension();
               $filePath =  'projects/'.$name;
@@ -93,6 +94,10 @@ class ProjectController extends Controller
               $project->file = \Storage::disk('s3')->url($filePath);
             }
             $project->save();
+
+            $project->collaborators()->attach($request->researchers, ['rol' => 'Investigador']);
+            $project->collaborators()->attach($request->collaborators, ['rol' => 'Colaborador']);
+
             Session::flash('suc', 'Proyecto creado correctamente');
             return Redirect::to('/project-manager');
         } else {
@@ -129,12 +134,30 @@ class ProjectController extends Controller
     {
         $project = Project::find($id);
         $sta = ProjectController::getStatusOptions();
+        $researchers = ProjectController::getResarchersUsers();
+
         $data = collect([
-            'status' => $sta
+            'status' => $sta,
+            'researchers' => $researchers
         ]);
 
-        // show the edit form
-        return View::make('projectManager.edit', compact('project', 'data'));
+        $projcoll = DB::table('project_collaborators')->where('project_id', $project->id)->get();
+        $researchers = [];
+        $collaborators = [];
+
+        foreach ($projcoll as $rel){
+            if ($rel->rol == 'Colaborador') {
+              $collaborators[] = $rel;
+            }
+            if ($rel->rol == 'Investigador') {
+              $researchers[] = $rel;
+            }
+        }
+
+        $researchers = collect($researchers)->pluck('collaborator_id')->all();
+        $collaborators = collect($collaborators)->pluck('collaborator_id')->all();
+
+        return View::make('projectManager.edit', compact('project', 'data', 'researchers', 'collaborators'));
     }
 
     /**
@@ -165,6 +188,11 @@ class ProjectController extends Controller
               $project->file = \Storage::disk('s3')->url($filePath);
             }
             $project->save();
+
+            $project->collaborators()->detach();
+            $project->collaborators()->attach($request->researchers, ['rol' => 'Investigador']);
+            $project->collaborators()->attach($request->collaborators, ['rol' => 'Colaborador']);
+
             Session::flash('suc', 'Proyecto editado correctamente');
             return Redirect::to('/project-manager');
         } else {
@@ -182,8 +210,11 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        Project::destroy($id);
-        Session::flash('suc', 'Proyecto borrado correctamente');
+        $project = Project::find($id);
+        $project->collaborators()->detach();
+        $project->delete();
+
+        return response()->json(['success' => true]);
     }
 
     public function validateProject($request)
@@ -218,6 +249,7 @@ class ProjectController extends Controller
     {
         $researcher_role = DB::table('roles')->where('name', 'investigador')->first();
         $researchers = DB::table('users')->where('role_id', $researcher_role->id)->get();
+        $researchers = $researchers->toArray();
 
         return $researchers;
     }

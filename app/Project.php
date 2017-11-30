@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Project extends Model
 {
@@ -19,4 +20,8 @@ class Project extends Model
         'link',
         'file',
     ];
+
+    public function collaborators() {
+        return $this->belongsToMany(User::class, 'project_collaborators', 'project_id', 'collaborator_id');
+    }
 }
