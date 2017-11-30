@@ -14,7 +14,7 @@ class AddRolToProjectCollaboratorsTable extends Migration
     public function up()
     {
         Schema::table('project_collaborators', function (Blueprint $table) {
-            $table->string('rol');
+            $table->string('rol')->nullable();
         });
     }
 
