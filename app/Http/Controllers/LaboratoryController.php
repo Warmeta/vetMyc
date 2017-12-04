@@ -89,7 +89,7 @@ class LaboratoryController extends Controller
 
     public function create()
     {
-        if (Voyager::can('browse_clinic_cases')) {
+        if (Voyager::can('add_clinic_cases')) {
             $sex = LaboratoryController::getSexOptions();
             $loc = LaboratoryController::getLocOptions();
             $sta = LaboratoryController::getStatusOptions();
@@ -107,7 +107,7 @@ class LaboratoryController extends Controller
 
     public function createAntibiotic()
     {
-        if (Voyager::can('browse_antibiotics')) {
+        if (Voyager::can('add_antibiotics')) {
             return view('laboratory.antibiotic.create');
         } else {
             return Redirect::to('/lab/antibiotic');
@@ -120,7 +120,7 @@ class LaboratoryController extends Controller
             return redirect('/lab/clinic-case/create')
                 ->withErrors(LaboratoryController::validateClinicCase($request))
                 ->withInput();
-        }elseif (Voyager::can('browse_clinic_cases')) {
+        }elseif (Voyager::can('add_clinic_cases')) {
             $cliniccase = new ClinicCase();
             $cliniccase->fill(['author_id' => Auth::user()->id]);
             $cliniccase = ClinicCase::create($request->all());
@@ -150,7 +150,7 @@ class LaboratoryController extends Controller
             return redirect('/lab/antibiotic/create')
                 ->withErrors($validator)
                 ->withInput();
-        }elseif (Voyager::can('browse_antibiotics')) {
+        }elseif (Voyager::can('add_antibiotics')) {
             $antibiotic = new Antibiotic();
             $antibiotic->create($request->all());
             Session::flash('suc', 'Antibiótico creado correctamente');
@@ -212,7 +212,7 @@ class LaboratoryController extends Controller
             return redirect('/lab/clinic-case/'.$request->id.'/edit')
                 ->withErrors(LaboratoryController::validateClinicCase($request))
                 ->withInput();
-        }elseif (Voyager::can('browse_clinic_cases')) {
+        }elseif (Voyager::can('edit_clinic_cases')) {
             $cliniccase = ClinicCase::find($request->id);
             $cliniccase->update($request->all());
             $antibiotics = DB::table('antibiotics')->get()->all();
@@ -241,7 +241,7 @@ class LaboratoryController extends Controller
             return redirect('/lab/antibiotic/create')
                 ->withErrors($validator)
                 ->withInput();
-        }elseif (Voyager::can('browse_antibiotics')) {
+        }elseif (Voyager::can('edit_antibiotics')) {
             $antibiotic = Antibiotic::find($request->id);
             $antibiotic->update($request->all());
             Session::flash('suc', 'Antibiótico editado correctamente');
@@ -276,12 +276,22 @@ class LaboratoryController extends Controller
 
     public function destroy($id)
     {
+      if (Voyager::can('delete_clinic_cases')) {
         ClinicCase::destroy($id);
+      }else{
+        Session::flash('fail', 'No tienes los permisos necesarios.');
+        return Redirect::to('/lab/clinic-case');
+      }
     }
 
     public function destroyAntibiotic($id)
     {
+      if (Voyager::can('delete_antibiotics')) {
         Antibiotic::destroy($id);
+      }else{
+        Session::flash('fail', 'No tienes los permisos necesarios.');
+        return Redirect::to('/lab/antibiotic');
+      }
     }
 
     //Helpers

@@ -39,8 +39,13 @@ class ProjectController extends Controller
      */
     public function index()
     {
+      if (Voyager::can('browse_projects')) {
         $projects = $this->getUserProjects();
         return view('projectManager.index', compact('projects'));
+      }else{
+        Session::flash('fail', 'No tienes los permisos necesarios.');
+        return Redirect::to('/');
+      }
     }
 
     /**
@@ -113,6 +118,7 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
+      if (Voyager::can('read_projects')) {
         session(['project_id' => $id]);
 
         $project = Project::find($id);
@@ -120,7 +126,11 @@ class ProjectController extends Controller
         $user = $user->name;
         // show
         return View::make('projectManager.show')
-            ->with('project', $project)->with('user', $user);
+        ->with('project', $project)->with('user', $user);
+      }else{
+        Session::flash('fail', 'No tienes los permisos necesarios.');
+        return Redirect::to('/project-manager');
+      }
     }
 
     /**
@@ -209,11 +219,16 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
+      if (Voyager::can('delete_projects')) {
         $project = Project::find($id);
         $project->collaborators()->detach();
         $project->delete();
 
         return response()->json(['success' => true]);
+      }else{
+        Session::flash('fail', 'No tienes los permisos necesarios.');
+        return Redirect::to('/project-manager');
+      }
     }
 
     public function validateProject($request)
