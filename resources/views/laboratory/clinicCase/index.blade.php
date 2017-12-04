@@ -5,7 +5,7 @@
         <div class="container">
             <div id="add-btn" class="panel-body table-responsive">
                 <div class="col-md-4">
-                    @if (Voyager::can('add_clinic_case'))
+                    @if (Voyager::can('add_clinic_cases'))
                         <a href="/lab/clinic-case/create" class="btn btn-primary">
                             <div class="btns"><span class="glyphicon glyphicon-plus"></span> Añadir</div>
                         </a>
@@ -67,17 +67,23 @@
                                     @endforeach
                                     <td class="no-sort no-click" id="bread-actions">
                                         <!-- delete -->
+                                        @if (Voyager::can('delete_clinic_cases'))
                                         <a title="Delete" class="btn btn-sm btn-danger pull-right delete" data-id="{{ $clinic->id }}" id="delete-{{ $clinic->id }}" data-route="./clinic-case/delete/" data-token="{{ csrf_token() }}">
                                             <div class="btns"><i class="voyager-trash fa-lg"></i> <span class="hidden-xs hidden-sm">Borrar</span></div>
                                         </a>
+                                        @endif
                                         <!-- edit -->
+                                        @if (Voyager::can('edit_clinic_cases'))
                                         <a href="{{ route('clinicCase.edit', $clinic->id) }}" title="Edit" class="btn btn-sm btn-primary pull-right edit">
                                             <div class="btns"><i class="voyager-edit fa-lg"></i> <span class="hidden-xs hidden-sm">Editar</span></div>
                                         </a>
+                                        @endif
                                         <!-- view -->
+                                        @if (Voyager::can('read_clinic_cases'))
                                         <a href="{{ route('clinicCase.show', $clinic->id) }}" title="View" class="btn btn-sm btn-warning pull-right">
                                             <div class="btns"><i class="voyager-eye fa-lg"></i> <span class="hidden-xs hidden-sm">Ver</span></div>
                                         </a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

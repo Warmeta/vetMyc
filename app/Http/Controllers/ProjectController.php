@@ -39,8 +39,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = DB::table('projects')->get()->all();
-        $collection = collect($projects);
+        $projects = $this->getUserProjects();
         return view('projectManager.index', compact('projects'));
     }
 
@@ -51,7 +50,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        if (Voyager::can('browse_projects')) {
+        if (Voyager::can('add_projects')) {
             $sta = ProjectController::getStatusOptions();
             $researchers = ProjectController::getResarchersUsers();
             return view('projectManager.create')->with('data', [
@@ -74,7 +73,7 @@ class ProjectController extends Controller
             return redirect('/project-manager/create')
                 ->withErrors(ProjectController::validateProject($request))
                 ->withInput();
-        } else if (Voyager::can('browse_projects')) {
+        } else if (Voyager::can('add_projects')) {
             $project = new Project();
             $project->author_id = Auth::user()->id;
             $project->fill($request->all());
@@ -172,7 +171,7 @@ class ProjectController extends Controller
             return redirect('/project-manager/'.$request->id.'/edit')
                 ->withErrors(ProjectController::validateProject($request))
                 ->withInput();
-        } else if (Voyager::can('browse_projects')) {
+        } else if (Voyager::can('edit_projects')) {
             $project = Project::find($request->id);
             $project->fill($request->all());
             if ($request->hasFile('image')) {
@@ -252,6 +251,18 @@ class ProjectController extends Controller
         $researchers = $researchers->toArray();
 
         return $researchers;
+    }
+
+    public function getUserProjects()
+    {
+        $user_id = Auth::user()->id;
+        $projects_id = DB::table('project_collaborators')->where('collaborator_id', $user_id)->get();
+        $collection = collect([]);
+        foreach ($projects_id as $project_id) {
+          $project = DB::table('projects')->where('id', $project_id->project_id)->first();
+          $collection->push($project);
+        }
+        return $collection;
     }
 
 }

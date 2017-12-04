@@ -114,7 +114,6 @@ Route::group(['prefix' => 'project-manager'], function () {
 
     Route::delete('delete/{id}', ['uses' => 'ProjectController@destroy', 'as' => 'projectManager.delete'])->where('id', '[0-9]+')->middleware('checkPermission:delete_projects');
 
-
 });
 
 //Laboratory
@@ -133,44 +132,44 @@ Route::group(['prefix' => 'lab'], function () {
 
    // Route::get('clinic-case-filter', ['uses' => 'LaboratoryController@indexFilter', 'as' => 'clinicCase.filter'])->middleware('checkPermission:browse_clinic_cases');
 
-    Route::get('clinic-case/create', ['uses' => 'LaboratoryController@create', 'as' => 'clinicCase.create'])->middleware('checkPermission:browse_clinic_cases');
+    Route::get('clinic-case/create', ['uses' => 'LaboratoryController@create', 'as' => 'clinicCase.create'])->middleware('checkPermission:add_clinic_cases');
 
-    Route::post('clinic-case/create', ['uses' => 'LaboratoryController@store', 'as' => 'clinicCase.post'])->middleware('checkPermission:browse_clinic_cases');
+    Route::post('clinic-case/create', ['uses' => 'LaboratoryController@store', 'as' => 'clinicCase.post'])->middleware('checkPermission:add_clinic_cases');
 
     Route::get('clinic-case/{id}/edit', ['uses' => 'LaboratoryController@edit', 'as' => 'clinicCase.edit'], function ($id) {
     //
-    })->where('id', '[0-9]+')->middleware('checkPermission:browse_clinic_cases');
+  })->where('id', '[0-9]+')->middleware('checkPermission:edit_clinic_cases');
 
     Route::put('clinic-case/{id}/edit', ['uses' => 'LaboratoryController@update', 'as' => 'clinicCase.update'], function ($id) {
         //
-    })->where('id', '[0-9]+')->middleware('checkPermission:browse_clinic_cases');
+    })->where('id', '[0-9]+')->middleware('checkPermission:edit_clinic_cases');
 
     Route::get('clinic-case/{id}', ['uses' => 'LaboratoryController@show', 'as' => 'clinicCase.show'], function ($id) {
     //
-    })->where('id', '[0-9]+')->middleware('checkPermission:browse_clinic_cases');
+  })->where('id', '[0-9]+')->middleware('checkPermission:read_clinic_cases');
 
 
-    Route::delete('clinic-case/delete/{id}', ['uses' => 'LaboratoryController@destroy', 'as' => 'clinicCase.delete'])->where('id', '[0-9]+')->middleware('checkPermission:browse_clinic_cases');
+    Route::delete('clinic-case/delete/{id}', ['uses' => 'LaboratoryController@destroy', 'as' => 'clinicCase.delete'])->where('id', '[0-9]+')->middleware('checkPermission:delete_clinic_cases');
 
     //Antibiotics
-    Route::get('antibiotic', ['uses' => 'LaboratoryController@indexA', 'as' => 'antibiotic.index'])->middleware('checkPermission:browse_antibiotic');
+    Route::get('antibiotic', ['uses' => 'LaboratoryController@indexA', 'as' => 'antibiotic.index'])->middleware('checkPermission:browse_antibiotics');
 
-    Route::get('antibiotic/create', ['uses' => 'LaboratoryController@createAntibiotic', 'as' => 'antibiotic.create'])->middleware('checkPermission:browse_antibiotic');
+    Route::get('antibiotic/create', ['uses' => 'LaboratoryController@createAntibiotic', 'as' => 'antibiotic.create'])->middleware('checkPermission:add_antibiotics');
 
     Route::get('antibiotic/{id}/edit', ['uses' => 'LaboratoryController@editAntibiotic', 'as' => 'antibiotic.edit'], function ($id) {
         //
-    })->where('id', '[0-9]+')->middleware('checkPermission:antibiotic_case');
+    })->where('id', '[0-9]+')->middleware('checkPermission:edit_antibiotics');
 
     Route::put('antibiotic/{id}/edit', ['uses' => 'LaboratoryController@updateAntibiotic', 'as' => 'antibiotic.update'], function ($id) {
         //
-    })->where('id', '[0-9]+')->middleware('checkPermission:antibiotic_case');
+    })->where('id', '[0-9]+')->middleware('checkPermission:edit_antibiotics');
 
     Route::get('antibiotic/{id}', ['uses' => 'LaboratoryController@showAntibiotic', 'as' => 'antibiotic.show'], function ($id) {
         //
-    })->where('id', '[0-9]+')->middleware('checkPermission:browse_antibiotic');
+    })->where('id', '[0-9]+')->middleware('checkPermission:read_antibiotics');
 
-    Route::post('antibiotic/create', ['uses' => 'LaboratoryController@storeAntibiotic', 'as' => 'antibiotic.post'])->middleware('checkPermission:browse_antibiotic');
+    Route::post('antibiotic/create', ['uses' => 'LaboratoryController@storeAntibiotic', 'as' => 'antibiotic.post'])->middleware('checkPermission:add_antibiotics');
 
-    Route::delete('antibiotic/delete/{id}', ['uses' => 'LaboratoryController@destroyAntibiotic', 'as' => 'antibiotic.delete'])->where('id', '[0-9]+')->middleware('checkPermission:browse_antibiotic');
+    Route::delete('antibiotic/delete/{id}', ['uses' => 'LaboratoryController@destroyAntibiotic', 'as' => 'antibiotic.delete'])->where('id', '[0-9]+')->middleware('checkPermission:delete_antibiotics');
 
 });
