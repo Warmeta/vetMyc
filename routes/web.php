@@ -94,7 +94,7 @@ Route::group(['prefix' => 'project-manager'], function () {
     Route::get('/', [
         'uses' => 'ProjectController@index',
         'as' => 'projectManager.index'
-    ]);
+    ])->middleware('checkPermission:browse_projects');
 
     Route::get('create', ['uses' => 'ProjectController@create', 'as' => 'project.create'])->middleware('checkPermission:add_projects');
 

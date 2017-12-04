@@ -39,7 +39,10 @@ class ProjectController extends Controller
      */
     public function index()
     {
-      if (Voyager::can('browse_projects')) {
+      if (Voyager::can('browse_admin')) {
+        $projects = DB::table('projects')->get()->all();
+        return view('projectManager.index', compact('projects'));
+      }else if (Voyager::can('browse_projects')){
         $projects = $this->getUserProjects();
         return view('projectManager.index', compact('projects'));
       }else{
@@ -236,14 +239,14 @@ class ProjectController extends Controller
         return Validator::make($request->all(), [
             'project_name' => 'required|max:200',
             'description' => 'required|max:200',
-            'image' => 'nullable|image|max:1000',
+            'image' => 'sometimes|mimes:jpeg,jpg,png,gif|max:1000',
             'project_type' => 'required|max:50',
             'research_line' => 'required|max:120',
             'publication_date' => 'required',
             'entity' => 'required|max:120',
             'project_status' => 'required|max:30',
-            'link' => 'nullable|max:200',
-            'file' => 'nullable|max:6000',
+            'link' => 'sometimes|max:200',
+            'file' => 'sometimes|max:6000',
         ]);
     }
 

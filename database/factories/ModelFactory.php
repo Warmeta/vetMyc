@@ -80,7 +80,5 @@ $factory->define(App\Project::class, function (Faker\Generator $faker) {
         'entity' => 'ULPGC',
         'author_id' => 1,
         'project_status' => $faker->randomElement($array = array ('inprogress','finished')),
-        'link' => 'www.ulpgc.es',
-        'file' => 'settings/March2017/eJo0qPme5R7np2HtdjDT.png',
     ];
 });
