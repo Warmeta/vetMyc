@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                     <div class="about-heading">
-                        <h2>Equipo de investigación</h2>
+                        <h2>Equipo de trabajo</h2>
                         </br>
                         </br>
                         </br>
