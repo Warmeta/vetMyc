@@ -115,7 +115,7 @@
                             </table>
                             <p><a style="font-weight: bold;">Comentarios:</a>
                                 {{ $clinic->comment }}</p>
-                        <div style="float: right"><a href="{{route('sendEmail', $clinic->id)}}" class="btn btn-primary" >Enviar Caso Clínico</a></div>
+                        <div style="float: right"><a href="{{route('sendEmail', $clinic->id)}}" class="btn btn-primary" >Enviar Email</a></div>
                     </div>
                     </div>
                 </div>

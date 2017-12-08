@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-9 col-md-offset-2">
                     <div class="get-touch-heading">
-                        <h2>Clinic Case</h2>
+                        <h2>Caso Clínico</h2>
                     </div>
                 </div>
             </div>
