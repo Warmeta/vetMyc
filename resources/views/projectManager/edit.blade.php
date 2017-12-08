@@ -58,7 +58,7 @@
                             {{ Form::select('project_status', $data->get('status'), null, ['placeholder' => 'Pick a status...'],['class' => 'form-control']) }}
                             <a id="errors7" class="errors">{{$errors->first('project_status') }}</a>
                         </div>
-                        <div class="col-md-9 form-group">
+                        <div id="multiselect" class="col-md-9 form-group">
                             {{ Form::label('Investigadores principales', null, ['class' => 'control-label']) }}
                             </br>
                             <select class="multiselect-limit" name="researchers[]" multiple="multiple">
@@ -72,7 +72,7 @@
                             </select>
                             <a id="errors8" class="errors">{{$errors->first('researchers[]') }}</a>
                         </div>
-                        <div class="col-md-9 form-group">
+                        <div id="multiselect" class="col-md-9 form-group">
                             {{ Form::label('Colaboradores', null, ['class' => 'control-label']) }}
                             </br>
                             <select class="multiselect" name="collaborators[]" multiple="multiple">

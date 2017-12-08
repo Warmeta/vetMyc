@@ -5,7 +5,7 @@
     Author URL: https://bootstrapmade.com
 */
 /*General*/
-#get-touch .content .form input[type = checkbox] {
+#multiselect input[type = checkbox] {
 	display: none;
 }
 

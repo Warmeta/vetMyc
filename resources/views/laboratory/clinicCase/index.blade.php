@@ -56,7 +56,7 @@
                             <tbody>
                             @foreach($clinics->items() as $clinic)
                                 <tr>
-                                    @foreach($clinic->toArray() as $key => $val)
+                                    @foreach($clinic as $key => $val)
                                         @foreach($rows->keys() as $row)
                                             @if($key == $row)
                                                 <td>

@@ -59,18 +59,18 @@ class LaboratoryController extends Controller
 
         if (isset($request->filter)) {
             if (($request->filter == 'inprogress') ||($request->filter == 'finished')){ //filter status
-                $clinics = ClinicCase::status($request->filter)->orderBy('number_clinic_history', 'DESC')->paginate(15);
+                $clinics = DB::table('clinic_cases')->where('clinic_case_status', $request->filter)->orderBy('number_clinic_history', 'DESC')->paginate(15);
             }elseif (($request->filter == 'bacterial_isolate') || ($request->filter == 'fungi_isolate')) { //filter status
-                $clinics = ClinicCase::isolate($request->filter)->orderBy('number_clinic_history', 'DESC')->paginate(15);
+                $clinics = DB::table('clinic_cases')->whereNotNull($request->filter)->orderBy('number_clinic_history', 'DESC')->paginate(15);
             }elseif ($request->filter == 'localization'){
-                $clinics = ClinicCase::localization($request->localization)->orderBy('number_clinic_history', 'DESC')->paginate(15);
+                $clinics = DB::table('clinic_cases')->where('localization', $request->localization)->orderBy('number_clinic_history', 'DESC')->paginate(15);
             }elseif ($request->filter == 'number_clinic_history'){
-                $clinics = ClinicCase::nclinic($request->number_clinic_history)->orderBy('number_clinic_history', 'DESC')->paginate(15);
+                $clinics = DB::table('clinic_cases')->where('number_clinic_history', $request->number_clinic_history)->orWhere('number_clinic_history', 'like', '%' . $request->number_clinic_history . '%')->orderBy('number_clinic_history', 'DESC')->paginate(15);
             }
             // more filters
             return view('laboratory.clinicCase.index', compact('clinics', 'rows', 'filters', 'model', 'only', 'loc'));
         }else {
-            $clinics = ClinicCase::paginate(15); //without filter
+            $clinics = DB::table('clinic_cases')->paginate(15); //without filter
             return view('laboratory.clinicCase.index', compact('clinics', 'rows', 'filters', 'model', 'only', 'loc'));
         }
     }
@@ -298,7 +298,7 @@ class LaboratoryController extends Controller
 
     public function getSexOptions()
     {
-        return ['male' => 'Male', 'female' => 'Female'];
+        return ['male' => 'Macho', 'female' => 'Hembra'];
     }
 
     public function getLocOptions()
