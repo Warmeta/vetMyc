@@ -68,7 +68,7 @@
             <div class="navbar-collapse collapse int-menu" id="ftheme">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href={{ route('lab') }} class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Nosotros<span class="caret"></span></a>
+                        <a href="/" aria-expanded="false">Nosotros<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a href="/#about">
@@ -94,7 +94,7 @@
                     </li>
 
                     <li class="dropdown">
-                        <a href={{ route('lab') }} class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Micología<span class="caret"></span></a>
+                        <a href={{ URL::to('mycology/generalidades') }} aria-expanded="false">Micología<span class="caret"></span></a>
                 		<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
                 	        <li><a href={{ URL::to('mycology/generalidades') }}>Generalidades</a></li>
                 		    <li class="dropdown-submenu">
@@ -139,7 +139,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href={{ route('lab') }} class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Investigación<span class="caret"></span></a>
+                        <a href={{ URL::to('publications') }} aria-expanded="false">Investigación<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a href={{ URL::to('team') }}>

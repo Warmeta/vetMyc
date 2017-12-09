@@ -17,7 +17,7 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->string('project_name')->unique();
             $table->string('description');
-            $table->mediumText('image');
+            $table->mediumText('image')->nullable();
             $table->string('project_type');
             $table->string('research_line');
             $table->string('publication_date');
