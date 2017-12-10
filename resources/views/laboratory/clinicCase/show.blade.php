@@ -15,9 +15,9 @@
                     </div>
                 @endif
                 <div class="panel panel-default">
-                    <div class="panel-heading"><a style="font-weight: bold; color: grey;">Clinic Case</a></div>
+                    <div class="panel-heading"><a style="font-weight: bold; color: grey;">Caso Clínico</a></div>
                     <div class="panel-body col-md-8 col-md-offset-2">
-                        <h1><a style="font-weight: bold;">Caso Clínico:</a>  {{ $clinic->number_clinic_history }}</h1>
+                        <h1><a style="font-weight: bold;">Nº de caso:</a>  {{ $clinic->number_clinic_history }}</h1>
 
                             <p><a style="font-weight: bold;">Estado del caso: </a>  {{ $clinic->clinic_case_status }}</p>
 
@@ -75,7 +75,7 @@
                                     @if(($antibiotic->resistant != null) || ($antibiotic->intermediate != null) || ($antibiotic->sensitive != null))
                                         <tr>
                                             <td>
-                                                <div class="readmore">{{ $antibiotic->antibiotic_name }}</div>
+                                                <div class="readmore"><a href="{{route('antibiotic.show', $antibiotic->id)}}">{{ $antibiotic->antibiotic_name }}</a></div>
                                             </td>
                                             @if($antibiotic->sensitive != null)
                                                 <td style="text-align: center;">

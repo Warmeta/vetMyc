@@ -83,10 +83,10 @@
             <div class="col-md-8">
                 <div class="footer-right">
                     <ul class="list-unstyled list-inline pull-right">
-                        <li><a href="#about">Bienvenido</a></li>
-                        <li><a href="#service">Servicios</a></li>
-                        <li><a href="#get-touch">Contacto</a></li>
-                        <li><a href="#contact">Encuéntranos</a></li>
+                        <li><a href="/#about">Bienvenido</a></li>
+                        <li><a href="/#service">Servicios</a></li>
+                        <li><a href="/#get-touch">Contacto</a></li>
+                        <li><a href="/#contact">Encuéntranos</a></li>
                     </ul>
                 </div>
             </div>

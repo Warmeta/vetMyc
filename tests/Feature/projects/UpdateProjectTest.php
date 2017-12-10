@@ -21,7 +21,7 @@ class UpdateProjectTest extends TestCase
 
   public function testUpdateProjectAsAdminSuccess()
   {
-    $image = \Illuminate\Http\UploadedFile::fake()->create('image.png', $kilobytes = 0);
+    $image = \Illuminate\Http\UploadedFile::fake()->create('image.png', $kilobytes = 1);
     $clinicCase = factory('App\Project')->create()->toArray();
     $clinicCase2 = factory('App\Project')->make(['project_name' => 'test' ,'image' => $image])->toArray();
     $this->assertDatabaseHas('projects', $clinicCase);

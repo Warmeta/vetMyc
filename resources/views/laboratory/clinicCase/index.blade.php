@@ -60,7 +60,9 @@
                                         @foreach($rows->keys() as $row)
                                             @if($key == $row)
                                                 <td>
+                                                  <a href="{{route("clinicCase.show", $clinic->id)}}">
                                                     <div class="readmore">{{ strlen( $val ) > 200 ? substr( $val , 0, 200) . ' ...' : $val }}</div>
+                                                  </a>
                                                 </td>
                                             @endif
                                         @endforeach

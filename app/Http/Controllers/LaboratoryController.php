@@ -258,7 +258,7 @@ class LaboratoryController extends Controller
 
         $clinicantibiotics = DB::table('antibiotics')
             ->join('clinic_cases_antibiotics', 'antibiotics.id', '=', 'clinic_cases_antibiotics.antibiotic_id')
-            ->select('antibiotics.antibiotic_name', 'clinic_cases_antibiotics.resistant', 'clinic_cases_antibiotics.intermediate', 'clinic_cases_antibiotics.sensitive')
+            ->select('antibiotics.id' ,'antibiotics.antibiotic_name', 'clinic_cases_antibiotics.resistant', 'clinic_cases_antibiotics.intermediate', 'clinic_cases_antibiotics.sensitive')
             ->where('clinic_cases_antibiotics.clinic_case_id', $id)
             ->get();
         // show
@@ -270,8 +270,13 @@ class LaboratoryController extends Controller
     {
         $antibiotic = Antibiotic::find($id);
         // show
+        $clinicantibiotics = DB::table('clinic_cases')
+            ->join('clinic_cases_antibiotics', 'clinic_cases.id', '=', 'clinic_cases_antibiotics.clinic_case_id')
+            ->select('clinic_cases.id' ,'clinic_cases.number_clinic_history', 'clinic_cases.specie', 'clinic_cases.breed', 'clinic_cases.age', 'clinic_cases_antibiotics.resistant', 'clinic_cases_antibiotics.intermediate', 'clinic_cases_antibiotics.sensitive')
+            ->where('clinic_cases_antibiotics.antibiotic_id', $id)
+            ->get();
         return View::make('laboratory.antibiotic.show')
-            ->with('antibiotic', $antibiotic);
+            ->with('antibiotic', $antibiotic)->with('clinicantibiotics', $clinicantibiotics);
     }
 
     public function destroy($id)

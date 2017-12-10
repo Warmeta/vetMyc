@@ -33,9 +33,8 @@ class CreateProjectTest extends TestCase
 
   public function testCreateProjectSuccessAsAdmin()
   {
-    $image = \Illuminate\Http\UploadedFile::fake()->create('image.png', $kilobytes = 0);
+    $image = \Illuminate\Http\UploadedFile::fake()->create('image.png', $kilobytes = 1);
     $clinicCase = factory('App\Project')->make(['image' => $image])->toArray();
-
     $user = $this->createUserWithAdminPermissions('projects');
 
     $response = $this
