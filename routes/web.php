@@ -52,6 +52,26 @@ Route::get('/publications', [
     'uses' => 'HomeController@indexPublications',
     'as' => 'research.publications'
 ]);
+Route::get('/tfg', [
+    'uses' => 'HomeController@indexTfg',
+    'as' => 'research.tfg'
+]);
+Route::get('/tpg', [
+    'uses' => 'HomeController@indexTpg',
+    'as' => 'research.tpg'
+]);
+Route::get('/tesis', [
+    'uses' => 'HomeController@indexTesis',
+    'as' => 'research.tesis'
+]);
+Route::get('/congresos', [
+    'uses' => 'HomeController@indexCongresos',
+    'as' => 'research.congresos'
+]);
+Route::get('/proj', [
+    'uses' => 'HomeController@indexProj',
+    'as' => 'research.proj'
+]);
 
 //Mycology
 

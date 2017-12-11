@@ -139,21 +139,16 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href={{ URL::to('publications') }} aria-expanded="false">Investigación<span class="caret"></span></a>
+                        <a href={{ URL::to('projects') }} aria-expanded="false">Investigación<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                          <li>
+                              <a href={{ URL::to('projects') }}>
+                                  Nuestro trabajo
+                              </a>
+                          </li>
                             <li>
                                 <a href={{ URL::to('team') }}>
                                     Nuestro equipo
-                                </a>
-                            </li>
-                            <li>
-                                <a href={{ URL::to('projects') }}>
-                                    Nuestros proyectos
-                                </a>
-                            </li>
-                            <li>
-                                <a href={{ URL::to('publications') }}>
-                                    Publicaciones
                                 </a>
                             </li>
                             @if (!(Auth::guest()) && (hasPermission('browse_projects')))

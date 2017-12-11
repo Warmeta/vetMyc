@@ -61,9 +61,13 @@ class HomeController extends Controller
      */
     public function indexProjects()
     {
-        $projects = DB::table('projects')->where("project_type", "!=", "Publicación")->where("project_type", "!=", "Congreso")->get();
-        $collection = collect($projects);
-        return view('research.projects', compact('projects'));
+        $projects = DB::table('projects')->where("project_type", "=", "Proyecto de investigación")->get();
+        $publications = DB::table('projects')->where("project_type", "=", "Publicación")->get();
+        $tfgs = DB::table('projects')->where("project_type", "=", "Trabajo fin grado")->get();
+        $tpgs = DB::table('projects')->where("project_type", "=", "Trabajo Post-grado")->get();
+        $tesis = DB::table('projects')->where("project_type", "=", "Tesis")->get();
+        $congresos = DB::table('projects')->where("project_type", "=", "Congreso")->get();
+        return view('research.projects', compact('projects', 'publications', 'tesis', 'tfgs', 'tpgs', 'congresos'));
     }
     /**
      * Display a listing of the resource.
@@ -73,8 +77,57 @@ class HomeController extends Controller
     public function indexPublications()
     {
         $projects = DB::table('projects')->where("project_type", "=", "Publicación")->get();
-        $collection = collect($projects);
         return view('research.publications', compact('projects'));
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexTfg()
+    {
+        $projects = DB::table('projects')->where("project_type", "=", "Trabajo fin grado")->get();
+        return view('research.tfg', compact('projects'));
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexProj()
+    {
+        $projects = DB::table('projects')->where("project_type", "=", "Proyecto de investigación")->get();
+        return view('research.proj', compact('projects'));
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexTpg()
+    {
+        $projects = DB::table('projects')->where("project_type", "=", "Trabajo Post-grado")->get();
+        return view('research.tpg', compact('projects'));
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexCongresos()
+    {
+        $projects = DB::table('projects')->where("project_type", "=", "Congreso")->get();
+        return view('research.congreso', compact('projects'));
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexTesis()
+    {
+        $projects = DB::table('projects')->where("project_type", "=", "Tesis")->get();
+        return view('research.tesis', compact('projects'));
     }
 
 }

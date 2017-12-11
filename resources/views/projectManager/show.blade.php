@@ -15,7 +15,7 @@
                     </div>
                 @endif
                 <div class="panel panel-default">
-                    <div class="panel-heading"><a style="font-weight: bold; color: grey;">Proyecto: {{ $project->project_name }}</a></div>
+                    <div class="panel-heading"><a style="font-weight: bold; color: grey;">Proyecto:</a></div>
                     <div class="panel-body col-md-8 col-md-offset-2">
                         <h1>  {{ $project->project_name }}</h1>
 

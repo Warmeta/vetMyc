@@ -758,6 +758,14 @@ textarea:focus {
 	font-size: 27px;
 }
 
+#about .pub h2 {
+	padding-top: 50px;
+}
+
+#about .pub h5 {
+	font-size: 20px;
+}
+
 #about .pub h4 {
 	font-size: 16px;
 	font-weight: 700;
@@ -774,7 +782,7 @@ textarea:focus {
 #about .row-pub {
 	padding-bottom: 20px;
 	padding-top: 20px;
-	border-bottom: 1px solid #8e8e8e;
+	border-top: 1px solid #8e8e8e;
 }
 
 /*Table*/

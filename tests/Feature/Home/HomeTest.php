@@ -23,16 +23,4 @@ class HomeTest extends TestCase
     $response = $this->call('GET', '/lab', [], [], [], []);
     $response->assertSee('Lista de precios');
   }
-
-  public function testProjects()
-  {
-    $response = $this->call('GET', '/projects', [], [], [], []);
-    $response->assertSee('Proyectos');
-  }
-
-  public function testPublications()
-  {
-    $response = $this->call('GET', '/publications', [], [], [], []);
-    $response->assertSee('Publicaciones');
-  }
 }

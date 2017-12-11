@@ -13,7 +13,7 @@
                         <div class="row">
                           <div class="col-xs-12 col-sm-6">
                             <div class="center">
-                              <img src="/images/photo/begona.jpeg" class="photo-img" />
+                              <img src="/images/photo/01.jpg" class="photo-img" />
                             </div>
                             </br>
                             <strong>Dra. Begoña Acosta Hernández</strong>
@@ -23,7 +23,7 @@
                           </div>
                           <div class="col-xs-12 col-sm-6">
                             <div class="center">
-                              <img src="/images/photo/soraya.jpeg" class="photo-img" />
+                              <img src="/images/photo/02.jpg" class="photo-img" />
                             </div>
                             </br>
                             <strong>Dra. Soraya Déniz Suárez</strong>
@@ -35,7 +35,7 @@
                         <div class="row">
                           <div class="col-xs-12 col-sm-6">
                             <div class="center">
-                              <img src="/images/photo/inma.jpeg" class="photo-img" />
+                              <img src="/images/photo/06.jpg" class="photo-img" />
                             </div>
                             </br>
                             <strong>Dra. Inmaculada Rosario Medina</strong>
@@ -44,7 +44,7 @@
                           </div>
                           <div class="col-xs-12 col-sm-6">
                             <div class="center">
-                              <img src="/images/photo/oti.jpeg" class="photo-img" />
+                              <img src="/images/photo/04.jpg" class="photo-img" />
                             </div>
                             </br>
                             <strong>Dra. Otilia Ferrer Quintana</strong>
@@ -55,7 +55,7 @@
                         <div class="row">
                           <div class="col-xs-12 col-sm-6">
                             <div class="center">
-                              <img src="/images/photo/davinia.jpg" class="photo-img" />
+                              <img src="/images/photo/05.jpg" class="photo-img" />
                             </div>
                             </br>
                             <strong>Dra. Davinia Ortega</strong>
@@ -64,7 +64,7 @@
                           </div>
                           <div class="col-xs-12 col-sm-6">
                             <div class="center">
-                              <img src="/images/photo/freddy.jpeg" class="photo-img" />
+                              <img src="/images/photo/03.jpg" class="photo-img" />
                             </div>
                             </br>
                             <strong>Dr. Freddy Alejandro Silva Sergent</strong>
