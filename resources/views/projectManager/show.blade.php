@@ -14,8 +14,7 @@
                         <strong>Alerta!</strong> {{Session::get('fail')}}.
                     </div>
                 @endif
-                <div class="panel panel-default">
-                    <div class="panel-heading"><a style="font-weight: bold; color: grey;">Proyecto:</a></div>
+                <div>
                     <div class="panel-body col-md-8 col-md-offset-2">
                         <h1>  {{ $project->project_name }}</h1>
 
@@ -31,12 +30,16 @@
 
                         <p><a style="font-weight: bold;"> Entidad: </a>  {{ $project->entity }} </p>
 
-                        <p><a style="font-weight: bold;"> Autor: </a>  {{ $user }} </p>
+                        <p><a style="font-weight: bold;"> Autores: </a>
+                          @foreach($collaborators as $collaborator)
+                            <a href="{{ $collaborator->link }}">{{$collaborator->name}}.</a>
+                          @endforeach
+                        </p>
 
                         <p><a style="font-weight: bold;"> Estado:  </a> {{ $project->project_status }} </p>
                         @if($project->link)
-                        <p> <a style="font-weight: bold;">   Link:</a>
-                            {{ $project->link }}
+                        <p> <a style="font-weight: bold;" href="{{ $project->link }}">   Link:
+                            {{ $project->link }}</a>
                         </p>
                         @endif
                         @if($project->file)
@@ -46,7 +49,9 @@
 
                         <br/>
                         @endif
+                        @if (hasPermission('read_project'))
                           <iframe src="/laravel-filemanager" style="width: 100%; height: 500px; overflow: hidden; border: none;"></iframe>
+                        @endif
                     </div>
                     </div>
                 </div>

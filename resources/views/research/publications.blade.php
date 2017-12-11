@@ -11,6 +11,7 @@
                         @if (!empty($projects))
                             @foreach($projects as $project)
                               @php
+                              $project_id = $project->id;
                               $project_name = $project->project_name;
                               $description = $project->description;
                               $research_line = $project->research_line;
@@ -21,9 +22,18 @@
                               @endphp
                               <div class="row row-pub">
                               <div class="col-xs-5">
-                                <a href="{{ $link }}"><h4>{{ $project_name }}</h4></a>
+                                <a href="{{ route("projectManager.show", $project_id) }}"><h4>{{ $project_name }}</h4></a>
                                 <p>Linea de investigación: {{ $research_line }}</p>
+                                <p>Autores:
+                                @foreach($projectsCol as $collaborator)
+                                  @if($project_id == $collaborator->project_id)
+                                    </br>
+                                  <a href="{{ $collaborator->link }}">{{$collaborator->name}}.</a>
+                                  @endif
+                                @endforeach
+                                </p>
                                 <p>Fecha: {{ $publication_date }}</p>
+                                <p><a href="{{ $link }}">Enlace externo</a></p>
                               </div>
                               <div class="col-xs-7">
                                 <img src="{{ $project_img }}" class="img-responsive" />

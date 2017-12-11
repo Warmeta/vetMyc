@@ -18,7 +18,6 @@
                               $project_name = $project->project_name;
                               $description = $project->description;
                               $research_line = $project->research_line;
-                              $project_type = $project->project_type;
                               $project_img = $project->image;
                               $publication_date = $project->publication_date;
                               $link = $project->link;
@@ -27,9 +26,16 @@
                               <div class="col-xs-5">
                                 <a href="{{ route("projectManager.show", $project_id) }}"><h4>{{ $project_name }}</h4></a>
                                 <p>Linea de investigación: {{ $research_line }}</p>
-                                <p>Tipo: {{ $project_type }}</p>
-                                <p<a href="{{ $link }}">Enlace de descarga</a>
+                                <p>Autores:
+                                @foreach($projectsCol as $collaborator)
+                                  @if($project_id == $collaborator->project_id)
+                                    </br>
+                                    <a href="{{ $collaborator->link }}">{{ $collaborator->name }}.</a>
+                                    @endif
+                                @endforeach
+                                </p>
                                 <p>Fecha: {{ $publication_date }}</p>
+                                <p<a href="{{ $link }}">Enlace externo</a>
                               </div>
                               <div class="col-xs-7">
                                 <img src="{{ $project_img }}" class="img-responsive" />
@@ -54,7 +60,6 @@
                           $project_name = $publication->project_name;
                           $description = $publication->description;
                           $research_line = $publication->research_line;
-                          $project_type = $publication->project_type;
                           $project_img = $publication->image;
                           $publication_date = $publication->publication_date;
                           $link = $publication->link;
@@ -63,8 +68,16 @@
                           <div class="col-xs-5">
                             <a href="{{ route("projectManager.show", $project_id) }}"><h4>{{ $project_name }}</h4></a>
                             <p>Linea de investigación: {{ $research_line }}</p>
+                            <p>Autores:
+                            @foreach($publicationsCol as $collaborator)
+                              @if($project_id == $collaborator->project_id)
+                                </br>
+                              <a href="{{ $collaborator->link }}">{{ $collaborator->name }}.</a>
+                              @endif
+                            @endforeach
+                            </p>
                             <p>Fecha: {{ $publication_date }}</p>
-                            <p><a href="{{ $link }}">Enlace de descarga</a></p>
+                            <p><a href="{{ $link }}">Enlace externo</a></p>
                           </div>
                           <div class="col-xs-7">
                             <img src="{{ $project_img }}" class="img-responsive" />
@@ -89,7 +102,6 @@
                           $project_name = $tesina->project_name;
                           $description = $tesina->description;
                           $research_line = $tesina->research_line;
-                          $project_type = $tesina->project_type;
                           $project_img = $tesina->image;
                           $publication_date = $tesina->publication_date;
                           $link = $tesina->link;
@@ -98,8 +110,16 @@
                           <div class="col-xs-5">
                             <a href="{{ route("projectManager.show", $project_id) }}"><h4>{{ $project_name }}</h4></a>
                             <p>Linea de investigación: {{ $research_line }}</p>
+                            <p>Autores:
+                            @foreach($tesisCol as $collaborator)
+                              @if($project_id == $collaborator->project_id)
+                                </br>
+                              <a href="{{ $collaborator->link }}">{{ $collaborator->name }}.</a>
+                              @endif
+                            @endforeach
+                            </p>
                             <p>Fecha: {{ $publication_date }}</p>
-                            <p><a href="{{ $link }}">Enlace de descarga</a></p>
+                            <p><a href="{{ $link }}">Enlace externo</a></p>
                           </div>
                           <div class="col-xs-7">
                             <img src="{{ $project_img }}" class="img-responsive" />
@@ -124,7 +144,6 @@
                           $project_name = $tfg->project_name;
                           $description = $tfg->description;
                           $research_line = $tfg->research_line;
-                          $project_type = $tfg->project_type;
                           $project_img = $tfg->image;
                           $publication_date = $tfg->publication_date;
                           $link = $tfg->link;
@@ -133,8 +152,16 @@
                           <div class="col-xs-5">
                             <a href="{{ route("projectManager.show", $project_id) }}"><h4>{{ $project_name }}</h4></a>
                             <p>Linea de investigación: {{ $research_line }}</p>
+                            <p>Autores:
+                            @foreach($tfgsCol as $collaborator)
+                              @if($project_id == $collaborator->project_id)
+                                </br>
+                              <a href="{{ $collaborator->link }}">{{ $collaborator->name }}.</a>
+                              @endif
+                            @endforeach
+                            </p>
                             <p>Fecha: {{ $publication_date }}</p>
-                            <p><a href="{{ $link }}">Enlace de descarga</a></p>
+                            <p><a href="{{ $link }}">Enlace externo</a></p>
                           </div>
                           <div class="col-xs-7">
                             <img src="{{ $project_img }}" class="img-responsive" />
@@ -159,7 +186,6 @@
                           $project_name = $tpg->project_name;
                           $description = $tpg->description;
                           $research_line = $tpg->research_line;
-                          $project_type = $tpg->project_type;
                           $project_img = $tpg->image;
                           $publication_date = $tpg->publication_date;
                           $link = $tpg->link;
@@ -168,8 +194,16 @@
                           <div class="col-xs-5">
                             <a href="{{ route("projectManager.show", $project_id) }}"><h4>{{ $project_name }}</h4></a>
                             <p>Linea de investigación: {{ $research_line }}</p>
+                            <p>Autores:
+                            @foreach($tpgsCol as $collaborator)
+                              @if($project_id == $collaborator->project_id)
+                                </br>
+                              <a href="{{ $collaborator->link }}">{{ $collaborator->name }}.</a>
+                              @endif
+                            @endforeach
+                            </p>
                             <p>Fecha: {{ $publication_date }}</p>
-                            <p><a href="{{ $link }}">Enlace de descarga</a></p>
+                            <p><a href="{{ $link }}">Enlace externo</a></p>
                           </div>
                           <div class="col-xs-7">
                             <img src="{{ $project_img }}" class="img-responsive" />
@@ -194,7 +228,6 @@
                           $project_name = $congreso->project_name;
                           $description = $congreso->description;
                           $research_line = $congreso->research_line;
-                          $project_type = $congreso->project_type;
                           $project_img = $congreso->image;
                           $publication_date = $congreso->publication_date;
                           $link = $congreso->link;
@@ -203,8 +236,16 @@
                           <div class="col-xs-5">
                             <a href="{{ route("projectManager.show", $project_id) }}"><h4>{{ $project_name }}</h4></a>
                             <p>Linea de investigación: {{ $research_line }}</p>
+                            <p>Autores:
+                            @foreach($congresosCol as $collaborator)
+                              @if($project_id == $collaborator->project_id)
+                                </br>
+                              <a href="{{ $collaborator->link }}">{{ $collaborator->name }}.</a>
+                              @endif
+                            @endforeach
+                            </p>
                             <p>Fecha: {{ $publication_date }}</p>
-                            <p><a href="{{ $link }}">Enlace de descarga</a></p>
+                            <p><a href="{{ $link }}">Enlace externo</a></p>
                           </div>
                           <div class="col-xs-7">
                             <img src="{{ $project_img }}" class="img-responsive" />

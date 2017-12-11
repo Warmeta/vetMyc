@@ -61,13 +61,25 @@ class HomeController extends Controller
      */
     public function indexProjects()
     {
+        $projectsCol = $this->getCollaboratorsProjects("Proyecto de investigación");
+
+        $publicationsCol = $this->getCollaboratorsProjects("Publicación");
+
+        $tesisCol = $this->getCollaboratorsProjects("Tesis");
+
+        $tfgsCol = $this->getCollaboratorsProjects("Trabajo fin grado");
+
+        $tpgsCol = $this->getCollaboratorsProjects("Trabajo Post-grado");
+
+        $congresosCol = $this->getCollaboratorsProjects("Congreso");
+
         $projects = DB::table('projects')->where("project_type", "=", "Proyecto de investigación")->get();
         $publications = DB::table('projects')->where("project_type", "=", "Publicación")->get();
         $tfgs = DB::table('projects')->where("project_type", "=", "Trabajo fin grado")->get();
         $tpgs = DB::table('projects')->where("project_type", "=", "Trabajo Post-grado")->get();
         $tesis = DB::table('projects')->where("project_type", "=", "Tesis")->get();
         $congresos = DB::table('projects')->where("project_type", "=", "Congreso")->get();
-        return view('research.projects', compact('projects', 'publications', 'tesis', 'tfgs', 'tpgs', 'congresos'));
+        return view('research.projects', compact('projects', 'publications', 'tesis', 'tfgs', 'tpgs', 'congresos', 'projectsCol', 'publicationsCol', 'tesisCol', 'tfgsCol', 'tpgsCol', 'congresosCol'));
     }
     /**
      * Display a listing of the resource.
@@ -76,8 +88,9 @@ class HomeController extends Controller
      */
     public function indexPublications()
     {
+        $projectsCol = $this->getCollaboratorsProjects("Publicación");
         $projects = DB::table('projects')->where("project_type", "=", "Publicación")->get();
-        return view('research.publications', compact('projects'));
+        return view('research.publications', compact('projects', 'projectsCol'));
     }
     /**
      * Display a listing of the resource.
@@ -86,8 +99,9 @@ class HomeController extends Controller
      */
     public function indexTfg()
     {
+        $projectsCol = $this->getCollaboratorsProjects("Trabajo fin grado");
         $projects = DB::table('projects')->where("project_type", "=", "Trabajo fin grado")->get();
-        return view('research.tfg', compact('projects'));
+        return view('research.tfg', compact('projects', 'projectsCol'));
     }
     /**
      * Display a listing of the resource.
@@ -96,8 +110,9 @@ class HomeController extends Controller
      */
     public function indexProj()
     {
+        $projectsCol = $this->getCollaboratorsProjects("Proyecto de investigación");
         $projects = DB::table('projects')->where("project_type", "=", "Proyecto de investigación")->get();
-        return view('research.proj', compact('projects'));
+        return view('research.proj', compact('projects', 'projectsCol'));
     }
     /**
      * Display a listing of the resource.
@@ -106,8 +121,9 @@ class HomeController extends Controller
      */
     public function indexTpg()
     {
+        $projectsCol = $this->getCollaboratorsProjects("Trabajo Post-grado");
         $projects = DB::table('projects')->where("project_type", "=", "Trabajo Post-grado")->get();
-        return view('research.tpg', compact('projects'));
+        return view('research.tpg', compact('projects', 'projectsCol'));
     }
     /**
      * Display a listing of the resource.
@@ -116,8 +132,9 @@ class HomeController extends Controller
      */
     public function indexCongresos()
     {
+        $projectsCol = $this->getCollaboratorsProjects("Congreso");
         $projects = DB::table('projects')->where("project_type", "=", "Congreso")->get();
-        return view('research.congreso', compact('projects'));
+        return view('research.congreso', compact('projects', 'projectsCol'));
     }
     /**
      * Display a listing of the resource.
@@ -126,8 +143,19 @@ class HomeController extends Controller
      */
     public function indexTesis()
     {
+        $projectsCol = $this->getCollaboratorsProjects("Tesis");
         $projects = DB::table('projects')->where("project_type", "=", "Tesis")->get();
-        return view('research.tesis', compact('projects'));
+        return view('research.tesis', compact('projects', 'projectsCol'));
+    }
+
+    public function getCollaboratorsProjects(string $type)
+    {
+      return DB::table('users')
+          ->join('project_collaborators', 'users.id', '=', 'project_collaborators.collaborator_id')
+          ->join('projects', 'project_collaborators.project_id', '=', 'projects.id')
+          ->select('name', 'project_id', 'users.link')
+          ->where("projects.project_type", "=", $type)
+          ->get();
     }
 
 }

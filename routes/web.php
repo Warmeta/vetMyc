@@ -122,7 +122,7 @@ Route::group(['prefix' => 'project-manager'], function () {
 
     Route::get('{id}', ['uses' => 'ProjectController@show', 'as' => 'projectManager.show'], function ($id) {
     //
-  })->where('id', '[0-9]+')->middleware('checkPermission:read_projects');
+    })->where('id', '[0-9]+');
 
     Route::get('{id}/edit', ['uses' => 'ProjectController@edit', 'as' => 'projectManager.edit'], function ($id) {
     //

@@ -27,10 +27,10 @@ use Illuminate\Support\Facades\Input;
 class ProjectController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Display a listing of the resource.
@@ -123,17 +123,19 @@ class ProjectController extends Controller
     {
       if (Voyager::can('read_projects')) {
         session(['project_id' => $id]);
-
+      }else {
+        $user = null;
+      }
         $project = Project::find($id);
-        $user = User::where('id', $project->author_id)->first();
-        $user = $user->name;
+        $collaborators = DB::table('users')
+            ->join('project_collaborators', 'users.id', '=', 'project_collaborators.collaborator_id')
+            ->select('users.name', 'users.link')
+            ->where('project_collaborators.project_id', $project->id)
+            ->get();
+
         // show
         return View::make('projectManager.show')
-        ->with('project', $project)->with('user', $user);
-      }else{
-        Session::flash('fail', 'No tienes los permisos necesarios.');
-        return Redirect::to('/project-manager');
-      }
+        ->with('project', $project)->with('collaborators', $collaborators);
     }
 
     /**
