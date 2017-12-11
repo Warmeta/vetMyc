@@ -11,40 +11,40 @@ class DeleteProjectTest extends TestCase
 
   public function testDeleteProjectFailWithoutLoginUser()
   {
-    $clinicCase = factory('App\Project')->create()->toArray();
-    $this->assertDatabaseHas('projects', $clinicCase);
-    $response = $this->delete('/project-manager/delete/' . $clinicCase['id']);
-    $response->assertStatus(302)->assertRedirect('/login');
-    $this->assertDatabaseHas('projects', $clinicCase);
+    $project = factory('App\Project')->create()->toArray();
+    $this->assertDatabaseHas('projects', $project);
+    $response = $this->delete('/project-manager/delete/' . $project['id']);
+    $response->assertStatus(302)->assertRedirect('/');
+    $this->assertDatabaseHas('projects', $project);
   }
 
   public function testDeleteProjectAsAdminSuccess()
   {
-    $clinicCase = factory('App\Project')->create()->toArray();
-    $this->assertDatabaseHas('projects', $clinicCase);
+    $project = factory('App\Project')->create()->toArray();
+    $this->assertDatabaseHas('projects', $project);
 
     $user = $this->createUserWithAdminPermissions('projects');
 
     $response = $this
       ->actingAs($user)
-      ->delete('/project-manager/delete/' . $clinicCase['id']);
+      ->delete('/project-manager/delete/' . $project['id']);
 
     $response->assertStatus(200);
-    $this->assertDatabaseMissing('projects', $clinicCase);
+    $this->assertDatabaseMissing('projects', $project);
   }
 
   public function testDeleteProjectFailLogedAsUser()
   {
-    $clinicCase = factory('App\Project')->create()->toArray();
-    $this->assertDatabaseHas('projects', $clinicCase);
+    $project = factory('App\Project')->create()->toArray();
+    $this->assertDatabaseHas('projects', $project);
 
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
       ->actingAs($user)
-      ->delete('/project-manager/delete/' . $clinicCase['id']);
+      ->delete('/project-manager/delete/' . $project['id']);
 
     $response->assertRedirect('/');
-    $this->assertDatabaseHas('projects', $clinicCase);
+    $this->assertDatabaseHas('projects', $project);
   }
 }

@@ -9,40 +9,38 @@ class ShowProjectTest extends TestCase
 {
   // use WithoutMiddleware;
 
-  public function testShowProjectFailWithoutLoginUser()
+  public function testShowProjectAsUserSuccess()
   {
-    $clinicCase = factory('App\Project')->create()->toArray();
-    $this->assertDatabaseHas('projects', $clinicCase);
+    $project = factory('App\Project')->create()->toArray();
+    $this->assertDatabaseHas('projects', $project);
 
-    $response = $this->get('/project-manager/' . $clinicCase['id']);
-    $response->assertStatus(302)->assertRedirect('/login');
-    $this->assertDatabaseHas('projects', $clinicCase);
+    $response = $this->get('/project-manager/' . $project['id']);
+    $response->assertStatus(200)->assertSee((string)$project['project_name']);
   }
 
   public function testShowProjectAsAdminSuccess()
   {
-    $clinicCase = factory('App\Project')->create()->toArray();
-    $this->assertDatabaseHas('projects', $clinicCase);
+    $project = factory('App\Project')->create()->toArray();
+    $this->assertDatabaseHas('projects', $project);
 
     $user = $this->createUserWithAdminPermissions('projects');
 
     $response = $this
       ->actingAs($user)
-      ->get('/project-manager/' . $clinicCase['id']);
-    $response->assertStatus(200)->assertSee((string)$clinicCase['project_name']);
+      ->get('/project-manager/' . $project['id']);
+    $response->assertStatus(200)->assertSee((string)$project['project_name']);
   }
 
   public function testShowProjectFailLogedAsUser()
   {
-    $clinicCase = factory('App\Project')->create()->toArray();
-    $this->assertDatabaseHas('projects', $clinicCase);
+    $project = factory('App\Project')->create()->toArray();
+    $this->assertDatabaseHas('projects', $project);
 
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
       ->actingAs($user)
-      ->get('/project-manager/' . $clinicCase['id']);
-    $response->assertStatus(302)
-      ->assertRedirect('/');
+      ->get('/project-manager/' . $project['id']);
+    $response->assertStatus(200)->assertSee((string)$project['project_name']);
   }
 }

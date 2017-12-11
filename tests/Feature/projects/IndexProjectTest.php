@@ -11,17 +11,17 @@ class IndexProjectTest extends TestCase
 
   public function testIndexProjectFailWithoutLoginUser()
   {
-    $clinicCase = factory('App\Project')->create()->toArray();
-    $this->assertDatabaseHas('projects', $clinicCase);
+    $project = factory('App\Project')->create()->toArray();
+    $this->assertDatabaseHas('projects', $project);
     $response = $this->get('/project-manager');
-    $response->assertStatus(302)->assertRedirect('/login');
-    $this->assertDatabaseHas('projects', $clinicCase);
+    $response->assertStatus(302)->assertRedirect('/');
+    $this->assertDatabaseHas('projects', $project);
   }
 
   public function testIndexProjectAsAdminSuccess()
   {
-    $clinicCase = factory('App\Project')->create()->toArray();
-    $this->assertDatabaseHas('projects', $clinicCase);
+    $project = factory('App\Project')->create()->toArray();
+    $this->assertDatabaseHas('projects', $project);
 
     $user = $this->createUserWithAdminPermissions('projects');
 
@@ -29,13 +29,13 @@ class IndexProjectTest extends TestCase
       ->actingAs($user)
       ->get('/project-manager');
     $response->assertStatus(200)
-      ->assertSee((string)$clinicCase['project_name']);
+      ->assertSee((string)$project['project_name']);
   }
 
   public function testIndexProjectFailLogedAsUser()
   {
-    $clinicCase = factory('App\Project')->create()->toArray();
-    $this->assertDatabaseHas('projects', $clinicCase);
+    $project = factory('App\Project')->create()->toArray();
+    $this->assertDatabaseHas('projects', $project);
 
     $user = $this->createUserWithUserPermissions();
 
