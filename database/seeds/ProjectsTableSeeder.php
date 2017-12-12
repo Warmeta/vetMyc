@@ -12,7 +12,7 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <= 15; $i++) {
+        for ($i = 1; $i <= 1; $i++) {
             factory(Project::class)->create();
         }
     }

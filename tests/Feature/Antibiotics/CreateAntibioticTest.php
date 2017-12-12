@@ -12,8 +12,8 @@ class CreateAntibioticTest extends TestCase
   public function testCreateAntibioticFailWithoutLoginUser()
   {
     $antibiotic = factory('App\Antibiotic')->make()->toArray();
-    $response = $this->call('POST', '/lab/antibiotic', $antibiotic, [], [], []);
-    $response->assertStatus(405);
+    $response = $this->call('POST', '/lab/antibiotic/create', $antibiotic, [], [], []);
+    $response->assertStatus(302)->assertRedirect('/');
   }
 
   public function testCreateAntibioticFailWithoutRequiredParameterAsAdmin()

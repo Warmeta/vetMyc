@@ -12,8 +12,8 @@ class CreateProjectTest extends TestCase
   public function testCreateProjectFailWithoutLoginUser()
   {
     $project = factory('App\Project')->make()->toArray();
-    $response = $this->call('POST', '/project-manager', $project, [], [], []);
-    $response->assertStatus(405);
+    $response = $this->call('POST', '/project-manager/create', $project, [], [], []);
+    $response->assertStatus(302)->assertRedirect('/');
   }
 
   public function testCreateProjectFailWithoutRequiredParameterAsAdmin()

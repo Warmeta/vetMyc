@@ -54,10 +54,37 @@ abstract class TestCase extends BaseTestCase
 
     public function createPermissions(string $table,Role $role)
     {
+      if($role->name == 'admin'){
+        $keys = [
+            'browse_admin',
+            'browse_database',
+            'browse_media',
+            'browse_settings',
+        ];
+
+        foreach ($keys as $key) {
+            Permission::firstOrCreate([
+                'key'        => $key,
+                'table_name' => null,
+            ]);
+        }
+
+        Permission::generateFor('menus');
+
+        Permission::generateFor('pages');
+
+        Permission::generateFor('roles');
+
+        Permission::generateFor('users');
+
+        Permission::generateFor('posts');
+
+        Permission::generateFor('categories');
+      }
+
       Permission::generateFor($table);
 
       $permissions = Permission::all();
-
       $role->permissions()->sync(
           $permissions->pluck('id')->all()
       );
@@ -72,7 +99,6 @@ abstract class TestCase extends BaseTestCase
           'remember_token' => str_random(60),
           'role_id'        => $id,
       ]);
-
       return $user;
     }
 

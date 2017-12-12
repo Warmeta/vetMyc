@@ -12,8 +12,8 @@ class CreateClinicCaseTest extends TestCase
   public function testCreateClinicCaseFailWithoutLoginUser()
   {
     $clinicCase = factory('App\ClinicCase')->make()->toArray();
-    $response = $this->call('POST', '/lab/clinic-case', $clinicCase, [], [], []);
-    $response->assertStatus(405);
+    $response = $this->call('POST', '/lab/clinic-case/create', $clinicCase, [], [], []);
+    $response->assertStatus(302)->assertRedirect('/');
   }
 
   public function testCreateClinicCaseFailWithoutRequiredParameterAsAdmin()
