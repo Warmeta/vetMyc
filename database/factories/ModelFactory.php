@@ -71,7 +71,7 @@ $factory->define(App\ClinicCase::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Project::class, function (Faker\Generator $faker) {
-       return ['project_name' => $faker->lastname,
+       return ['project_name' => $faker->word,
         'description' => $faker->paragraph(1),
         'image' => 'settings/March2017/eJo0qPme5R7np2HtdjDT.png',
         'project_type' => $faker->word,

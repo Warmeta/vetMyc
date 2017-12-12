@@ -41,7 +41,7 @@ class HomeController extends Controller
       if ($validator->fails()) {
         Session::flash('fail', 'Error al enviar');
 
-        return redirect('/#contact');
+        return redirect('/#contact')->with('fail', 'Error al enviar');
       }
 
       Mail::raw($request->message, function($message) use ($request) {
@@ -51,7 +51,7 @@ class HomeController extends Controller
 
       Session::flash('suc', 'Email enviado con éxito');
 
-      return redirect('/#contact');
+      return redirect('/#contact')->with('suc', 'Email enviado con éxito');
     }
 
     /**

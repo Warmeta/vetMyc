@@ -377,10 +377,10 @@ class LaboratoryController extends Controller
                 ->get();
             Mail::to($clinic->owner_email)->send(new ClinicCaseSent($clinic, $clinicantibiotics));
             Session::flash('suc', 'Email enviado correctamente');
-            return Redirect::back();
+            return Redirect::back()->with('suc', 'Email enviado correctamente');
         }else{
             Session::flash('fail', 'Caso clínico todavía en progreso');
-            return Redirect::back();
+            return Redirect::back()->with('fail', 'Caso clínico todavía en progreso');
         }
     }
 }

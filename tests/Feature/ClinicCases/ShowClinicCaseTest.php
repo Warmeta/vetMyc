@@ -45,4 +45,30 @@ class ShowClinicCaseTest extends TestCase
     $response->assertStatus(302)
       ->assertRedirect('/');
   }
+
+  public function testEmailClinicCaseFinishedAsAdminSuccess()
+  {
+    $clinicCase = factory('App\ClinicCase')->create(['clinic_case_status' => 'finished'])->toArray();
+    $this->assertDatabaseHas('clinic_cases', $clinicCase);
+
+    $user = $this->createUserWithAdminPermissions('clinic_cases');
+
+    $response = $this
+    ->actingAs($user)
+    ->get('/lab/email/' . $clinicCase['id']);
+    $response->assertStatus(302)->assertSessionHas('suc');
+  }
+
+  public function testEmailClinicCaseInProgressAsAdminFail()
+  {
+    $clinicCase = factory('App\ClinicCase')->create(['clinic_case_status' => 'inprogress'])->toArray();
+    $this->assertDatabaseHas('clinic_cases', $clinicCase);
+
+    $user = $this->createUserWithAdminPermissions('clinic_cases');
+
+    $response = $this
+    ->actingAs($user)
+    ->get('/lab/email/' . $clinicCase['id']);
+    $response->assertStatus(302)->assertSessionHas('fail');
+  }
 }
