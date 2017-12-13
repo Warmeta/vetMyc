@@ -14,7 +14,7 @@ class LoginTest extends TestCase
     $response->assertSessionHasErrors();
     $response->assertRedirect('/');
   }
-  
+
   public function testLoginSuccess()
   {
     $user = factory('App\User')->create();

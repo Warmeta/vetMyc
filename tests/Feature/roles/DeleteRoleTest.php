@@ -6,6 +6,7 @@ use Tests\TestCase;
 use TCG\Voyager\Models\Permission;
 use TCG\Voyager\Models\Role;
 use TCG\Voyager\Models\User;
+use Artisan;
 
 class DeleteRoleTest extends TestCase
 {
@@ -13,40 +14,40 @@ class DeleteRoleTest extends TestCase
 
   public function testDeleteRoleFailWithoutLoginUser()
   {
-    $role = factory('App\Role')->create()->toArray();
-    $this->assertDatabaseHas('projects', $role);
-    $response = $this->delete('/project-manager/delete/' . $role['id']);
-    $response->assertStatus(302)->assertRedirect('/');
-    $this->assertDatabaseHas('projects', $role);
+    $user = $this->createUserWithAdminPermissions('roles');
+    $role = $this->createRole('test')->toArray();
+    $this->assertDatabaseHas('roles', $role);
+    $response = $this->delete('/admin/roles/' . $role['id']);
+    $response->assertStatus(302)->assertRedirect('/admin/login');
+    $this->assertDatabaseHas('roles', $role);
   }
 
   public function testDeleteRoleAsAdminSuccess()
   {
-    $role = factory('App\Role')->create()->toArray();
-    $this->assertDatabaseHas('projects', $role);
+    Artisan::call('db:seed', ['--database' => 'sqlite']);
+    $user = $this->createUserWithAdminPermissions('roles');
 
-    $user = $this->createUserWithAdminPermissions('projects');
+    $role = $this->createRole('test')->toArray();
 
     $response = $this
       ->actingAs($user)
-      ->delete('/project-manager/delete/' . $role['id']);
+      ->delete('/admin/roles/' . $role['id']);
 
-    $response->assertStatus(200);
-    $this->assertDatabaseMissing('projects', $role);
+    $response->assertStatus(302);
+    $this->assertDatabaseMissing('roles', $role);
   }
 
   public function testDeleteRoleFailLogedAsUser()
   {
-    $role = factory('App\Role')->create()->toArray();
-    $this->assertDatabaseHas('projects', $role);
+    $role = $this->createRole('test')->toArray();
+    $this->assertDatabaseHas('roles', $role);
 
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
       ->actingAs($user)
-      ->delete('/project-manager/delete/' . $role['id']);
-
-    $response->assertRedirect('/');
-    $this->assertDatabaseHas('projects', $role);
+      ->delete('/admin/roles/' . $role['id']);
+    $response->assertStatus(302)
+      ->assertRedirect('/');
   }
 }

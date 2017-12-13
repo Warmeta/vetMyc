@@ -3,7 +3,10 @@
 namespace Tests\Feature\Users;
 
 use Tests\TestCase;
-use Illuminate\Support\Facades\Session;
+use TCG\Voyager\Models\Permission;
+use TCG\Voyager\Models\Role;
+use TCG\Voyager\Models\User;
+use Artisan;
 
 class CreateUserTest extends TestCase
 {
@@ -11,51 +14,42 @@ class CreateUserTest extends TestCase
 
   public function testCreateUserFailWithoutLoginUser()
   {
-    $User = factory('App\User')->make()->toArray();
-    $response = $this->call('POST', '/User-manager/create', $User, [], [], []);
-    $response->assertStatus(302)->assertRedirect('/');
-  }
-
-  public function testCreateUserFailWithoutRequiredParameterAsAdmin()
-  {
-    $User = factory('App\User')->make(['User_name' => ''])->toArray();
-
-    $user = $this->createUserWithAdminPermissions('Users');
-
-    $response = $this
-      ->actingAs($user)
-      ->post('/User-manager/create', $User);
-
-    $response->assertRedirect('/User-manager/create')
-      ->assertSessionHasErrors(['User_name']);
-    $this->assertDatabaseMissing('Users', $User);
+    Artisan::call('db:seed', ['--database' => 'sqlite']);
+    $u = factory('TCG\Voyager\Models\User')->make()->toArray();
+    $response = $this->call('POST', '/admin/users', $u, [], [], []);
+    $response->assertStatus(302);
+    $this->assertDatabaseMissing('users', $u);
   }
 
   public function testCreateUserSuccessAsAdmin()
   {
-    $image = \Illuminate\Http\UploadedFile::fake()->create('image.png', $kilobytes = 1);
-    $User = factory('App\User')->make(['image' => $image])->toArray();
-    $user = $this->createUserWithAdminPermissions('Users');
+    $user = $this->createUserWithAdminPermissions('users');
+    Artisan::call('db:seed', ['--database' => 'sqlite']);
+    $role = Role::where('name', 'admin')->firstOrFail();
+    $u = factory('TCG\Voyager\Models\User')->make(['password' => 'secret'])->toArray();
 
     $response = $this
       ->actingAs($user)
-      ->post('/User-manager/create', $User);
-    $response->assertRedirect('/User-manager')
+      ->post('/admin/users', $u);
+
+    $u = User::where(['name' => $u['name']])->first()->toArray();
+    $response->assertRedirect('/admin/users/'.$u['id'].'/edit')
       ->assertStatus(302);
-    $this->assertDatabaseHas('Users', array_splice($User, 0, 1));
+    $this->assertDatabaseHas('users', array_splice($u, 0, 1));
   }
 
   public function testCreateUserFailLogedAsUser()
   {
-    $User = factory('App\User')->make()->toArray();
+    Artisan::call('db:seed', ['--database' => 'sqlite']);
+    $u = factory('TCG\Voyager\Models\User')->make()->toArray();
 
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
       ->actingAs($user)
-      ->post('/User-manager/create', $User);
+      ->post('/admin/users', $u);
 
     $response->assertRedirect('/');
-    $this->assertDatabaseMissing('Users', $User);
+    $this->assertDatabaseMissing('users', $u);
   }
 }

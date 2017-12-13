@@ -3,7 +3,10 @@
 namespace Tests\Feature\Users;
 
 use Tests\TestCase;
-use Illuminate\Support\Facades\Session;
+use TCG\Voyager\Models\Permission;
+use TCG\Voyager\Models\Role;
+use TCG\Voyager\Models\User;
+use Artisan;
 
 class UpdateUserTest extends TestCase
 {
@@ -11,43 +14,47 @@ class UpdateUserTest extends TestCase
 
   public function testUpdateUserFailWithoutLoginUser()
   {
-    $User = factory('App\User')->create()->toArray();
-    $User2 = factory('App\User')->make()->toArray();
-    $this->assertDatabaseHas('Users', $User);
-    $response = $this->put('/User-manager/' . $User['id'] . '/edit', $User2);
-    $response->assertStatus(302)->assertRedirect('/');
-    $this->assertDatabaseHas('Users', $User);
+    Artisan::call('db:seed', ['--database' => 'sqlite']);
+    $u = factory('TCG\Voyager\Models\User')->create()->toArray();
+    $u2 = factory('TCG\Voyager\Models\User')->make()->toArray();
+    $this->assertDatabaseHas('users', $u);
+    $response = $this->put('/admin/users/' . $u['id'], $u2);
+    $response->assertStatus(302)->assertRedirect('/admin/login');
+    $this->assertDatabaseHas('users', $u);
   }
 
   public function testUpdateUserAsAdminSuccess()
   {
-    $image = \Illuminate\Http\UploadedFile::fake()->create('image.png', $kilobytes = 1);
-    $User = factory('App\User')->create()->toArray();
-    $User2 = factory('App\User')->make(['User_name' => 'test' ,'image' => $image])->toArray();
-    $this->assertDatabaseHas('Users', $User);
+    Artisan::call('db:seed', ['--database' => 'sqlite']);
+    $u = factory('TCG\Voyager\Models\User')->create()->toArray();
+    $u2 = User::firstOrNew(['name' => 'test']);
+    $u2 = factory('TCG\Voyager\Models\User')->make()->toArray();
+    $this->assertDatabaseHas('users', $u);
 
-    $user = $this->createUserWithAdminPermissions('Users');
+    $user = $this->createUserWithAdminPermissions('users');
 
     $response = $this
       ->actingAs($user)
-      ->put('/User-manager/' . $User['id'] . '/edit', $User2);
-    $response->assertStatus(302)->assertRedirect('/User-manager');
-    $this->assertDatabaseHas('Users', array_splice($User2, 0, 1));
+      ->put('/admin/users/' . $u['id'], $u2);
+    $response->assertStatus(302)->assertRedirect('/admin/users/'.$u['id'].'/edit');
+    $this->assertDatabaseHas('users', array_splice($u2, 0, 1));
   }
 
   public function testUpdateUserFailLogedAsUser()
   {
-    $User = factory('App\User')->create()->toArray();
-    $User2 = factory('App\User')->make()->toArray();
-    $this->assertDatabaseHas('Users', $User);
+    Artisan::call('db:seed', ['--database' => 'sqlite']);
+    $u = factory('TCG\Voyager\Models\User')->create()->toArray();
+    $u2 = User::firstOrNew(['name' => 'test']);
+    $u2 = factory('TCG\Voyager\Models\User')->make()->toArray();
+    $this->assertDatabaseHas('users', $u);
 
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
       ->actingAs($user)
-      ->put('/User-manager/' . $User['id'] . '/edit', $User2);
+      ->put('/admin/users/' . $u['id'], $u2);
     $response->assertStatus(302)
       ->assertRedirect('/');
-    $this->assertDatabaseHas('Users', $User);
+    $this->assertDatabaseHas('users', $u);
   }
 }

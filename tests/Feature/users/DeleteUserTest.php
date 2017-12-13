@@ -3,7 +3,10 @@
 namespace Tests\Feature\Users;
 
 use Tests\TestCase;
-use Illuminate\Support\Facades\Session;
+use TCG\Voyager\Models\Permission;
+use TCG\Voyager\Models\Role;
+use TCG\Voyager\Models\User;
+use Artisan;
 
 class DeleteUserTest extends TestCase
 {
@@ -11,40 +14,41 @@ class DeleteUserTest extends TestCase
 
   public function testDeleteUserFailWithoutLoginUser()
   {
-    $User = factory('App\User')->create()->toArray();
-    $this->assertDatabaseHas('Users', $User);
-    $response = $this->delete('/User-manager/delete/' . $User['id']);
-    $response->assertStatus(302)->assertRedirect('/');
-    $this->assertDatabaseHas('Users', $User);
+    Artisan::call('db:seed', ['--database' => 'sqlite']);
+    $u = factory('TCG\Voyager\Models\User')->create()->toArray();
+    $this->assertDatabaseHas('users', $u);
+    $response = $this->call('DELETE', '/admin/users/' . $u['id']);
+    $response->assertStatus(302);
+    $this->assertDatabaseHas('users', $u);
   }
 
   public function testDeleteUserAsAdminSuccess()
   {
-    $User = factory('App\User')->create()->toArray();
-    $this->assertDatabaseHas('Users', $User);
+    Artisan::call('db:seed', ['--database' => 'sqlite']);
+    $user = $this->createUserWithAdminPermissions('users');
 
-    $user = $this->createUserWithAdminPermissions('Users');
+    $u = factory('TCG\Voyager\Models\User')->create()->toArray();
 
     $response = $this
       ->actingAs($user)
-      ->delete('/User-manager/delete/' . $User['id']);
+      ->delete('/admin/users/' . $u['id']);
 
-    $response->assertStatus(200);
-    $this->assertDatabaseMissing('Users', $User);
+    $response->assertStatus(302);
+    $this->assertDatabaseMissing('users', $u);
   }
 
   public function testDeleteUserFailLogedAsUser()
   {
-    $User = factory('App\User')->create()->toArray();
-    $this->assertDatabaseHas('Users', $User);
+    Artisan::call('db:seed', ['--database' => 'sqlite']);
+    $u = factory('TCG\Voyager\Models\User')->create()->toArray();
+    $this->assertDatabaseHas('users', $u);
 
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
       ->actingAs($user)
-      ->delete('/User-manager/delete/' . $User['id']);
-
-    $response->assertRedirect('/');
-    $this->assertDatabaseHas('Users', $User);
+      ->delete('/admin/users/' . $u['id']);
+    $response->assertStatus(302)
+      ->assertRedirect('/');
   }
 }

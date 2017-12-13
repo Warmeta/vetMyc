@@ -6,6 +6,7 @@ use Tests\TestCase;
 use TCG\Voyager\Models\Permission;
 use TCG\Voyager\Models\Role;
 use TCG\Voyager\Models\User;
+use Artisan;
 
 class CreateRoleTest extends TestCase
 {
@@ -13,51 +14,53 @@ class CreateRoleTest extends TestCase
 
   public function testCreateRoleFailWithoutLoginUser()
   {
-    $role = factory('App\Role')->make()->toArray();
-    $response = $this->call('POST', '/project-manager/create', $role, [], [], []);
-    $response->assertStatus(302)->assertRedirect('/');
-  }
-
-  public function testCreateRoleFailWithoutRequiredParameterAsAdmin()
-  {
-    $role = factory('App\Role')->make(['project_name' => ''])->toArray();
-
-    $user = $this->createUserWithAdminPermissions('projects');
-
-    $response = $this
-      ->actingAs($user)
-      ->post('/project-manager/create', $role);
-
-    $response->assertRedirect('/project-manager/create')
-      ->assertSessionHasErrors(['project_name']);
-    $this->assertDatabaseMissing('projects', $role);
+    $role = Role::firstOrNew(['name' => 'test']);
+    if (!$role->exists) {
+        $role->fill([
+                'display_name' => 'test',
+            ]);
+    }
+    $response = $this->call('POST', '/admin/roles', $role->toArray(), [], [], []);
+    $response->assertStatus(302)->assertRedirect('/admin/login');
+    $this->assertDatabaseMissing('roles', $role->toArray());
   }
 
   public function testCreateRoleSuccessAsAdmin()
   {
-    $image = \Illuminate\Http\UploadedFile::fake()->create('image.png', $kilobytes = 1);
-    $role = factory('App\Role')->make(['image' => $image])->toArray();
-    $user = $this->createUserWithAdminPermissions('projects');
+    Artisan::call('db:seed', ['--database' => 'sqlite']);
+    $role = Role::firstOrNew(['name' => 'test']);
+    if (!$role->exists) {
+        $role->fill([
+                'display_name' => 'test',
+            ]);
+    }
+    $role = $role->toArray();
+    $user = $this->createUserWithAdminPermissions('roles');
 
     $response = $this
       ->actingAs($user)
-      ->post('/project-manager/create', $role);
-    $response->assertRedirect('/project-manager')
+      ->post('/admin/roles', $role);
+    $response->assertRedirect('/admin/roles')
       ->assertStatus(302);
-    $this->assertDatabaseHas('projects', array_splice($role, 0, 1));
+    $this->assertDatabaseHas('roles', array_splice($role, 0, 1));
   }
 
   public function testCreateRoleFailLogedAsUser()
   {
-    $role = factory('App\Role')->make()->toArray();
+    $role = Role::firstOrNew(['name' => 'test']);
+    if (!$role->exists) {
+        $role->fill([
+                'display_name' => 'test',
+            ]);
+    }
 
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
       ->actingAs($user)
-      ->post('/project-manager/create', $role);
+      ->post('/admin/roles', $role->toArray());
 
     $response->assertRedirect('/');
-    $this->assertDatabaseMissing('projects', $role);
+    $this->assertDatabaseMissing('roles', $role->toArray());
   }
 }

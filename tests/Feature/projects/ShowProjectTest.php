@@ -9,7 +9,7 @@ class ShowProjectTest extends TestCase
 {
   // use WithoutMiddleware;
 
-  public function testShowProjectAsUserSuccess()
+  public function testShowProjectAsAnonimateUserSuccess()
   {
     $project = factory('App\Project')->create()->toArray();
     $this->assertDatabaseHas('projects', $project);
@@ -31,7 +31,7 @@ class ShowProjectTest extends TestCase
     $response->assertStatus(200)->assertSee((string)$project['project_name']);
   }
 
-  public function testShowProjectFailLogedAsUser()
+  public function testShowProjectSuccessLogedAsUser()
   {
     $project = factory('App\Project')->create()->toArray();
     $this->assertDatabaseHas('projects', $project);

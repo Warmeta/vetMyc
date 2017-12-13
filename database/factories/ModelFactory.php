@@ -15,6 +15,19 @@
 use App\User;
 use Carbon\Carbon;
 
+$factory->define(TCG\Voyager\Models\User::class, function (Faker\Generator $faker) {
+    $role = TCG\Voyager\Models\Role::where('name', 'user')->firstOrFail();
+
+    return [
+        'name'           => 'asd',
+        'email'          => 'asd@admin.com',
+        'password'       => bcrypt('password'),
+        'remember_token' => str_random(60),
+        'role_id'        => $role->id,
+    ];
+});
+
+
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 

@@ -6,6 +6,7 @@ use Tests\TestCase;
 use TCG\Voyager\Models\Permission;
 use TCG\Voyager\Models\Role;
 use TCG\Voyager\Models\User;
+use Artisan;
 
 class ShowRoleTest extends TestCase
 {
@@ -13,36 +14,55 @@ class ShowRoleTest extends TestCase
 
   public function testShowRoleAsUserSuccess()
   {
-    $role = factory('App\Role')->create()->toArray();
-    $this->assertDatabaseHas('projects', $role);
+    $role = Role::firstOrNew(['name' => 'test']);
+    if (!$role->exists) {
+        $role->fill([
+                'display_name' => 'test',
+            ])->save();
+    }
+    $role = $role->toArray();
+    $this->assertDatabaseHas('roles', $role);
 
-    $response = $this->get('/project-manager/' . $role['id']);
-    $response->assertStatus(200)->assertSee((string)$role['project_name']);
+    $response = $this->get('/admin/roles/' . $role['id']);
+    $response->assertStatus(302)->assertRedirect('/admin/login');
   }
 
   public function testShowRoleAsAdminSuccess()
   {
-    $role = factory('App\Role')->create()->toArray();
-    $this->assertDatabaseHas('projects', $role);
+    Artisan::call('db:seed', ['--database' => 'sqlite']);
+    $role = Role::firstOrNew(['name' => 'test']);
+    if (!$role->exists) {
+        $role->fill([
+                'display_name' => 'test',
+            ])->save();
+    }
+    $role = $role->toArray();
+    $this->assertDatabaseHas('roles', $role);
 
-    $user = $this->createUserWithAdminPermissions('projects');
+    $user = $this->createUserWithAdminPermissions('roles');
 
     $response = $this
       ->actingAs($user)
-      ->get('/project-manager/' . $role['id']);
-    $response->assertStatus(200)->assertSee((string)$role['project_name']);
+      ->get('/admin/roles/' . $role['id']);
+    $response->assertStatus(200)->assertSee((string)$role['name']);
   }
 
   public function testShowRoleFailLogedAsUser()
   {
-    $role = factory('App\Role')->create()->toArray();
-    $this->assertDatabaseHas('projects', $role);
+    $role = Role::firstOrNew(['name' => 'test']);
+    if (!$role->exists) {
+        $role->fill([
+                'display_name' => 'test',
+            ])->save();
+    }
+    $role = $role->toArray();
+    $this->assertDatabaseHas('roles', $role);
 
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
       ->actingAs($user)
-      ->get('/project-manager/' . $role['id']);
-    $response->assertStatus(200)->assertSee((string)$role['project_name']);
+      ->get('/admin/roles/' . $role['id']);
+    $response->assertStatus(302)->assertRedirect('/');
   }
 }
