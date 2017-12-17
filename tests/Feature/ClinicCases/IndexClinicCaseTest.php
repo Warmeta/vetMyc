@@ -24,10 +24,10 @@ class IndexClinicCaseTest extends TestCase
     $user = $this->createUserWithAdminPermissions('clinic_cases');
 
     $response = $this
-      ->actingAs($user)
-      ->get('/lab/clinic-case');
+    ->actingAs($user)
+    ->get('/lab/clinic-case');
     $response->assertStatus(200)
-      ->assertSee((string)$clinicCase['number_clinic_history']);
+    ->assertSee((string)$clinicCase['number_clinic_history']);
   }
 
   public function testIndexClinicCaseFailLogedAsUser()
@@ -38,10 +38,10 @@ class IndexClinicCaseTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->get('/lab/clinic-case');
+    ->actingAs($user)
+    ->get('/lab/clinic-case');
     $response->assertStatus(302)
-      ->assertRedirect('/');
+    ->assertRedirect('/');
   }
 
   public function testIndexFilterStateInProgressClinicCaseAsAdminSuccess()

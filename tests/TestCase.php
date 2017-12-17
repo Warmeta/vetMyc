@@ -12,39 +12,39 @@ use TCG\Voyager\Models\User;
 
 abstract class TestCase extends BaseTestCase
 {
-    use CreatesApplication;
-    // use DatabaseMigrations;
+  use CreatesApplication;
+  // use DatabaseMigrations;
+  
+  public function createUserWithAdminPermissions(string $table)
+  {
+    $role = $this->createRole('admin');
+    $this->createRole('user');
 
-    public function createUserWithAdminPermissions(string $table)
-    {
-      $role = $this->createRole('admin');
-      $this->createRole('user');
+    $this->createPermissions($table, $role);
 
-      $this->createPermissions($table, $role);
+    $user = $this->createUser($role->id);
 
-      $user = $this->createUser($role->id);
+    return $user;
+  }
 
-      return $user;
-    }
+  public function createUserWithUserPermissions()
+  {
+    $this->createRole('admin');
+    $role = $this->createRole('user');
 
-    public function createUserWithUserPermissions()
-    {
-      $this->createRole('admin');
-      $role = $this->createRole('user');
+    $user = $this->createUser($role->id);
 
-      $user = $this->createUser($role->id);
+    return $user;
+  }
 
-      return $user;
-    }
+  public function createRole(string $role_name)
+  {
+    $role = Role::firstOrNew(['name' => $role_name]);
 
-    public function createRole(string $role_name)
-    {
-      $role = Role::firstOrNew(['name' => $role_name]);
-
-      if (!$role->exists) {
-          $role->fill([
-                  'display_name' => $role_name,
-              ])->save();
+    if (!$role->exists) {
+      $role->fill([
+        'display_name' => $role_name,
+        ])->save();
       }
 
       $role = Role::where('name', $role_name)->firstOrFail();
@@ -56,50 +56,42 @@ abstract class TestCase extends BaseTestCase
     {
       if($role->name == 'admin'){
         $keys = [
-            'browse_admin',
-            'browse_database',
-            'browse_media',
-            'browse_settings',
+          'browse_admin',
+          'browse_database',
+          'browse_media',
+          'browse_settings',
         ];
 
         foreach ($keys as $key) {
-            Permission::firstOrCreate([
-                'key'        => $key,
-                'table_name' => null,
-            ]);
+          Permission::firstOrCreate([
+            'key'        => $key,
+            'table_name' => null,
+          ]);
         }
 
         Permission::generateFor('menus');
-
-        Permission::generateFor('pages');
-
         Permission::generateFor('roles');
-
         Permission::generateFor('users');
-
-        Permission::generateFor('posts');
-
-        Permission::generateFor('categories');
       }
 
       Permission::generateFor($table);
 
       $permissions = Permission::all();
       $role->permissions()->sync(
-          $permissions->pluck('id')->all()
+        $permissions->pluck('id')->all()
       );
     }
 
     public function createUser(int $id)
     {
       $user = User::create([
-          'name'           => 'Test',
-          'email'          => 'test@test.com',
-          'password'       => bcrypt('password'),
-          'remember_token' => str_random(60),
-          'role_id'        => $id,
+        'name'           => 'Test',
+        'email'          => 'test@test.com',
+        'password'       => bcrypt('password'),
+        'remember_token' => str_random(60),
+        'role_id'        => $id,
       ]);
       return $user;
     }
 
-}
+  }

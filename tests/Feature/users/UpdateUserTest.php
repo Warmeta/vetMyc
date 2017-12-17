@@ -30,8 +30,8 @@ class UpdateUserTest extends TestCase
     $user = $this->createUserWithAdminPermissions('users');
 
     $response = $this
-      ->actingAs($user)
-      ->put('/admin/users/' . $u['id'], $u2);
+    ->actingAs($user)
+    ->put('/admin/users/' . $u['id'], $u2);
     $response->assertStatus(302)->assertRedirect('/admin/users/'.$u['id'].'/edit');
     $this->assertDatabaseHas('users', array_splice($u2, 0, 1));
   }
@@ -47,10 +47,10 @@ class UpdateUserTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->put('/admin/users/' . $u['id'], $u2);
+    ->actingAs($user)
+    ->put('/admin/users/' . $u['id'], $u2);
     $response->assertStatus(302)
-      ->assertRedirect('/');
+    ->assertRedirect('/');
     $this->assertDatabaseHas('users', $u);
   }
 }

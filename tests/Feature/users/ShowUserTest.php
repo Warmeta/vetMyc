@@ -27,8 +27,8 @@ class ShowUserTest extends TestCase
     $user = $this->createUserWithAdminPermissions('users');
 
     $response = $this
-      ->actingAs($user)
-      ->get('/admin/users/' . $u['id']);
+    ->actingAs($user)
+    ->get('/admin/users/' . $u['id']);
     $response->assertStatus(200)->assertSee((string)$u['name']);
   }
 
@@ -41,8 +41,8 @@ class ShowUserTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->get('/admin/users/' . $u['id']);
+    ->actingAs($user)
+    ->get('/admin/users/' . $u['id']);
     $response->assertStatus(302)->assertRedirect('/');
   }
 }

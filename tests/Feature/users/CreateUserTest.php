@@ -26,12 +26,12 @@ class CreateUserTest extends TestCase
     $u = factory('TCG\Voyager\Models\User')->make(['password' => 'secret'])->toArray();
 
     $response = $this
-      ->actingAs($user)
-      ->post('/admin/users', $u);
+    ->actingAs($user)
+    ->post('/admin/users', $u);
 
     $u = User::where(['name' => $u['name']])->first()->toArray();
     $response->assertRedirect('/admin/users/'.$u['id'].'/edit')
-      ->assertStatus(302);
+    ->assertStatus(302);
     $this->assertDatabaseHas('users', array_splice($u, 0, 1));
   }
 
@@ -43,8 +43,8 @@ class CreateUserTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->post('/admin/users', $u);
+    ->actingAs($user)
+    ->post('/admin/users', $u);
 
     $response->assertRedirect('/');
     $this->assertDatabaseMissing('users', $u);

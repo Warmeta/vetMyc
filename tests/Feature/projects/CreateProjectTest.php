@@ -21,12 +21,12 @@ class CreateProjectTest extends TestCase
     $user = $this->createUserWithAdminPermissions('projects');
 
     $response = $this
-      ->actingAs($user)
-      ->post('/project-manager/create', $project);
+    ->actingAs($user)
+    ->post('/project-manager/create', $project);
 
     $response->assertRedirect('/project-manager/create')
-      ->assertStatus(302)
-      ->assertSessionHasErrors(['project_name']);
+    ->assertStatus(302)
+    ->assertSessionHasErrors(['project_name']);
     $this->assertDatabaseMissing('projects', $project);
   }
 
@@ -37,10 +37,10 @@ class CreateProjectTest extends TestCase
     $user = $this->createUserWithAdminPermissions('projects');
 
     $response = $this
-      ->actingAs($user)
-      ->post('/project-manager/create', $project);
+    ->actingAs($user)
+    ->post('/project-manager/create', $project);
     $response->assertRedirect('/project-manager')
-      ->assertStatus(302);
+    ->assertStatus(302);
     $this->assertDatabaseHas('projects', array_splice($project, 0, 1));
   }
 
@@ -51,11 +51,11 @@ class CreateProjectTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->post('/project-manager/create', $project);
+    ->actingAs($user)
+    ->post('/project-manager/create', $project);
 
     $response->assertRedirect('/')
-      ->assertStatus(302);
+    ->assertStatus(302);
     $this->assertDatabaseMissing('projects', $project);
   }
 }

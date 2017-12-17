@@ -21,11 +21,11 @@ class CreateClinicCaseTest extends TestCase
     $user = $this->createUserWithAdminPermissions('clinic_cases');
 
     $response = $this
-      ->actingAs($user)
-      ->post('/lab/clinic-case/create', $clinicCase);
+    ->actingAs($user)
+    ->post('/lab/clinic-case/create', $clinicCase);
 
     $response->assertRedirect('/lab/clinic-case/create')
-      ->assertSessionHasErrors(['number_clinic_history']);
+    ->assertSessionHasErrors(['number_clinic_history']);
     $this->assertDatabaseMissing('clinic_cases', $clinicCase);
   }
 
@@ -36,11 +36,11 @@ class CreateClinicCaseTest extends TestCase
     $user = $this->createUserWithAdminPermissions('clinic_cases');
 
     $response = $this
-      ->actingAs($user)
-      ->post('/lab/clinic-case/create', $clinicCase);
+    ->actingAs($user)
+    ->post('/lab/clinic-case/create', $clinicCase);
 
     $response->assertRedirect('/lab/clinic-case')
-      ->assertStatus(302);
+    ->assertStatus(302);
     $this->assertDatabaseHas('clinic_cases', $clinicCase);
   }
 
@@ -51,11 +51,11 @@ class CreateClinicCaseTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->post('/lab/clinic-case/create', $clinicCase);
+    ->actingAs($user)
+    ->post('/lab/clinic-case/create', $clinicCase);
 
     $response->assertRedirect('/')
-      ->assertStatus(302);
+    ->assertStatus(302);
     $this->assertDatabaseMissing('clinic_cases', $clinicCase);
   }
 }

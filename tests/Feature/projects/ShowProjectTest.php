@@ -24,8 +24,8 @@ class ShowProjectTest extends TestCase
     $user = $this->createUserWithAdminPermissions('projects');
 
     $response = $this
-      ->actingAs($user)
-      ->get('/project-manager/' . $project['id']);
+    ->actingAs($user)
+    ->get('/project-manager/' . $project['id']);
     $response->assertStatus(200)->assertSee((string)$project['project_name']);
   }
 
@@ -37,8 +37,8 @@ class ShowProjectTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->get('/project-manager/' . $project['id']);
+    ->actingAs($user)
+    ->get('/project-manager/' . $project['id']);
     $response->assertStatus(200)->assertSee((string)$project['project_name']);
   }
 }

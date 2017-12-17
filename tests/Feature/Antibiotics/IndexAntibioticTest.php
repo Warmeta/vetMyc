@@ -24,10 +24,10 @@ class IndexAntibioticTest extends TestCase
     $user = $this->createUserWithAdminPermissions('antibiotics');
 
     $response = $this
-      ->actingAs($user)
-      ->get('/lab/antibiotic');
+    ->actingAs($user)
+    ->get('/lab/antibiotic');
     $response->assertStatus(200)
-      ->assertSee((string)$antibiotic['antibiotic_name']);
+    ->assertSee((string)$antibiotic['antibiotic_name']);
   }
 
   public function testIndexAntibioticFailLogedAsUser()
@@ -38,9 +38,9 @@ class IndexAntibioticTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->get('/lab/antibiotic');
+    ->actingAs($user)
+    ->get('/lab/antibiotic');
     $response->assertStatus(302)
-      ->assertRedirect('/');
+    ->assertRedirect('/');
   }
 }

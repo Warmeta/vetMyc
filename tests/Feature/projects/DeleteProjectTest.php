@@ -24,8 +24,8 @@ class DeleteProjectTest extends TestCase
     $user = $this->createUserWithAdminPermissions('projects');
 
     $response = $this
-      ->actingAs($user)
-      ->delete('/project-manager/delete/' . $project['id']);
+    ->actingAs($user)
+    ->delete('/project-manager/delete/' . $project['id']);
 
     $response->assertStatus(200);
     $this->assertDatabaseMissing('projects', $project);
@@ -39,11 +39,11 @@ class DeleteProjectTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->delete('/project-manager/delete/' . $project['id']);
+    ->actingAs($user)
+    ->delete('/project-manager/delete/' . $project['id']);
 
     $response->assertRedirect('/')
-      ->assertStatus(302);
+    ->assertStatus(302);
     $this->assertDatabaseHas('projects', $project);
   }
 }

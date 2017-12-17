@@ -21,11 +21,11 @@ class CreateAntibioticTest extends TestCase
     $user = $this->createUserWithAdminPermissions('antibiotics');
 
     $response = $this
-      ->actingAs($user)
-      ->post('/lab/antibiotic/create', $antibiotic);
+    ->actingAs($user)
+    ->post('/lab/antibiotic/create', $antibiotic);
 
     $response->assertRedirect('/lab/antibiotic/create')
-      ->assertSessionHasErrors(['antibiotic_name']);
+    ->assertSessionHasErrors(['antibiotic_name']);
     $this->assertDatabaseMissing('antibiotics', $antibiotic);
   }
 
@@ -36,11 +36,11 @@ class CreateAntibioticTest extends TestCase
     $user = $this->createUserWithAdminPermissions('antibiotics');
 
     $response = $this
-      ->actingAs($user)
-      ->post('/lab/antibiotic/create', $antibiotic);
+    ->actingAs($user)
+    ->post('/lab/antibiotic/create', $antibiotic);
 
     $response->assertRedirect('/lab/antibiotic')
-      ->assertStatus(302);
+    ->assertStatus(302);
     $this->assertDatabaseHas('antibiotics', $antibiotic);
   }
 
@@ -51,11 +51,11 @@ class CreateAntibioticTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->post('/lab/antibiotic/create', $antibiotic);
+    ->actingAs($user)
+    ->post('/lab/antibiotic/create', $antibiotic);
 
     $response->assertRedirect('/')
-      ->assertStatus(302);
+    ->assertStatus(302);
     $this->assertDatabaseMissing('antibiotics', $antibiotic);
   }
 }

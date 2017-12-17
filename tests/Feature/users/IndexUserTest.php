@@ -26,10 +26,10 @@ class IndexUserTest extends TestCase
     $u = factory('TCG\Voyager\Models\User')->create()->toArray();
     $this->assertDatabaseHas('users', $u);
     $response = $this
-      ->actingAs($user)
-      ->get('/admin/users');
+    ->actingAs($user)
+    ->get('/admin/users');
     $response->assertStatus(200)
-      ->assertSee((string)$u['name']);
+    ->assertSee((string)$u['name']);
   }
 
   public function testIndexUserFailLogedAsUser()
@@ -41,9 +41,9 @@ class IndexUserTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->get('/admin/users');
+    ->actingAs($user)
+    ->get('/admin/users');
     $response->assertStatus(302)
-      ->assertRedirect('/');
+    ->assertRedirect('/');
   }
 }

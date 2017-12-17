@@ -26,8 +26,8 @@ class UpdateAntibioticTest extends TestCase
     $user = $this->createUserWithAdminPermissions('antibiotics');
 
     $response = $this
-      ->actingAs($user)
-      ->put('/lab/antibiotic/' . $antibiotic['id'] . '/edit', $antibiotic2);
+    ->actingAs($user)
+    ->put('/lab/antibiotic/' . $antibiotic['id'] . '/edit', $antibiotic2);
     $response->assertStatus(302)->assertRedirect('/lab/antibiotic');
     $this->assertDatabaseHas('antibiotics', $antibiotic2);
   }
@@ -41,10 +41,10 @@ class UpdateAntibioticTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->put('/lab/antibiotic/' . $antibiotic['id'] . '/edit', $antibiotic2);
+    ->actingAs($user)
+    ->put('/lab/antibiotic/' . $antibiotic['id'] . '/edit', $antibiotic2);
     $response->assertStatus(302)
-      ->assertRedirect('/');
+    ->assertRedirect('/');
     $this->assertDatabaseHas('antibiotics', $antibiotic);
   }
 }

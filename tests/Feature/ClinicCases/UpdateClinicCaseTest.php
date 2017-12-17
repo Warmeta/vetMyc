@@ -26,8 +26,8 @@ class UpdateClinicCaseTest extends TestCase
     $user = $this->createUserWithAdminPermissions('clinic_cases');
 
     $response = $this
-      ->actingAs($user)
-      ->put('/lab/clinic-case/' . $clinicCase['id'] . '/edit', $clinicCase2);
+    ->actingAs($user)
+    ->put('/lab/clinic-case/' . $clinicCase['id'] . '/edit', $clinicCase2);
     $response->assertStatus(302)->assertRedirect('/lab/clinic-case');
     $this->assertDatabaseHas('clinic_cases', $clinicCase2);
   }
@@ -41,10 +41,10 @@ class UpdateClinicCaseTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->put('/lab/clinic-case/' . $clinicCase['id'] . '/edit', $clinicCase2);
+    ->actingAs($user)
+    ->put('/lab/clinic-case/' . $clinicCase['id'] . '/edit', $clinicCase2);
     $response->assertStatus(302)
-      ->assertRedirect('/');
+    ->assertRedirect('/');
     $this->assertDatabaseHas('clinic_cases', $clinicCase);
   }
 }

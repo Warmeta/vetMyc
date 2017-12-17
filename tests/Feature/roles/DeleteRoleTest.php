@@ -26,8 +26,8 @@ class DeleteRoleTest extends TestCase
     $role = $this->createRole('test')->toArray();
 
     $response = $this
-      ->actingAs($user)
-      ->delete('/admin/roles/' . $role['id']);
+    ->actingAs($user)
+    ->delete('/admin/roles/' . $role['id']);
 
     $response->assertStatus(302);
     $this->assertDatabaseMissing('roles', $role);
@@ -41,9 +41,9 @@ class DeleteRoleTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->delete('/admin/roles/' . $role['id']);
+    ->actingAs($user)
+    ->delete('/admin/roles/' . $role['id']);
     $response->assertStatus(302)
-      ->assertRedirect('/');
+    ->assertRedirect('/');
   }
 }

@@ -13,7 +13,7 @@ class LoginTest extends TestCase
     $response = $this->call('POST', '/login', $credentials, [], [], []);
     $response->assertSessionHasErrors();
     $response->assertRedirect('/')
-      ->assertStatus(302);;
+    ->assertStatus(302);;
   }
 
   public function testLoginSuccess()
@@ -22,6 +22,6 @@ class LoginTest extends TestCase
     $credentials = ['email' => $user->email, 'password' => 'secret'];
     $response = $this->call('POST', '/login', $credentials, [], [], []);
     $response->assertRedirect('/')
-      ->assertStatus(302);;
+    ->assertStatus(302);;
   }
 }

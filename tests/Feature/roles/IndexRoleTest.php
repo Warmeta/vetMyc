@@ -26,10 +26,10 @@ class IndexRoleTest extends TestCase
     $role = $this->createRole('test')->toArray();
     $this->assertDatabaseHas('roles', $role);
     $response = $this
-      ->actingAs($user)
-      ->get('/admin/roles');
+    ->actingAs($user)
+    ->get('/admin/roles');
     $response->assertStatus(200)
-      ->assertSee((string)$role['name']);
+    ->assertSee((string)$role['name']);
   }
 
   public function testIndexRoleFailLogedAsUser()
@@ -40,9 +40,9 @@ class IndexRoleTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->get('/admin/roles');
+    ->actingAs($user)
+    ->get('/admin/roles');
     $response->assertStatus(302)
-      ->assertRedirect('/');
+    ->assertRedirect('/');
   }
 }

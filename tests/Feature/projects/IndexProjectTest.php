@@ -24,10 +24,10 @@ class IndexProjectTest extends TestCase
     $user = $this->createUserWithAdminPermissions('projects');
 
     $response = $this
-      ->actingAs($user)
-      ->get('/project-manager');
+    ->actingAs($user)
+    ->get('/project-manager');
     $response->assertStatus(200)
-      ->assertSee((string)$project['project_name']);
+    ->assertSee((string)$project['project_name']);
   }
 
   public function testIndexProjectFailLogedAsUser()
@@ -38,9 +38,9 @@ class IndexProjectTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->get('/project-manager');
+    ->actingAs($user)
+    ->get('/project-manager');
     $response->assertStatus(302)
-      ->assertRedirect('/');
+    ->assertRedirect('/');
   }
 }

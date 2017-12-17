@@ -13,9 +13,9 @@ class UpdateRoleTest extends TestCase
     $role = $this->createRole('test')->toArray();
     $role2 = Role::firstOrNew(['name' => 'test']);
     if (!$role2->exists) {
-        $role2->fill([
-                'display_name' => 'test',
-            ]);
+      $role2->fill([
+        'display_name' => 'test',
+      ]);
     }
     $role2 = $role2->toArray();
     $this->assertDatabaseHas('roles', $role);
@@ -30,9 +30,9 @@ class UpdateRoleTest extends TestCase
     $role = $this->createRole('test')->toArray();
     $role2 = Role::firstOrNew(['name' => 'test']);
     if (!$role2->exists) {
-        $role2->fill([
-                'display_name' => 'test',
-            ]);
+      $role2->fill([
+        'display_name' => 'test',
+      ]);
     }
     $role2 = $role2->toArray();
     $this->assertDatabaseHas('roles', $role);
@@ -40,8 +40,8 @@ class UpdateRoleTest extends TestCase
     $user = $this->createUserWithAdminPermissions('roles');
 
     $response = $this
-      ->actingAs($user)
-      ->put('/admin/roles/' . $role['id'], $role2);
+    ->actingAs($user)
+    ->put('/admin/roles/' . $role['id'], $role2);
     $response->assertStatus(302)->assertRedirect('/admin/roles');
     $this->assertDatabaseHas('roles', array_splice($role2, 0, 1));
   }
@@ -51,9 +51,9 @@ class UpdateRoleTest extends TestCase
     $role = $this->createRole('test')->toArray();
     $role2 = Role::firstOrNew(['name' => 'test']);
     if (!$role2->exists) {
-        $role2->fill([
-                'display_name' => 'test',
-            ]);
+      $role2->fill([
+        'display_name' => 'test',
+      ]);
     }
     $role2 = $role2->toArray();
     $this->assertDatabaseHas('roles', $role);
@@ -61,10 +61,10 @@ class UpdateRoleTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->put('/admin/roles/' . $role['id'], $role2);
+    ->actingAs($user)
+    ->put('/admin/roles/' . $role['id'], $role2);
     $response->assertStatus(302)
-      ->assertRedirect('/');
+    ->assertRedirect('/');
     $this->assertDatabaseHas('roles', $role);
   }
 }

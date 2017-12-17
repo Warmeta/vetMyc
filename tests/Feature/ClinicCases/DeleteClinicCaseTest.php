@@ -24,8 +24,8 @@ class DeleteClinicCaseTest extends TestCase
     $user = $this->createUserWithAdminPermissions('clinic_cases');
 
     $response = $this
-      ->actingAs($user)
-      ->delete('/lab/clinic-case/delete/' . $clinicCase['id']);
+    ->actingAs($user)
+    ->delete('/lab/clinic-case/delete/' . $clinicCase['id']);
 
     $response->assertStatus(200);
     $this->assertDatabaseMissing('clinic_cases', $clinicCase);
@@ -39,11 +39,11 @@ class DeleteClinicCaseTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->delete('/lab/clinic-case/delete/' . $clinicCase['id']);
+    ->actingAs($user)
+    ->delete('/lab/clinic-case/delete/' . $clinicCase['id']);
 
     $response->assertRedirect('/')
-      ->assertStatus(302);
+    ->assertStatus(302);
     $this->assertDatabaseHas('clinic_cases', $clinicCase);
   }
 }

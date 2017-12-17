@@ -25,8 +25,8 @@ class ShowClinicCaseTest extends TestCase
     $user = $this->createUserWithAdminPermissions('clinic_cases');
 
     $response = $this
-      ->actingAs($user)
-      ->get('/lab/clinic-case/' . $clinicCase['id']);
+    ->actingAs($user)
+    ->get('/lab/clinic-case/' . $clinicCase['id']);
     $response->assertStatus(200)->assertSee((string)$clinicCase['number_clinic_history']);
   }
 
@@ -38,10 +38,10 @@ class ShowClinicCaseTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->get('/lab/clinic-case/' . $clinicCase['id']);
+    ->actingAs($user)
+    ->get('/lab/clinic-case/' . $clinicCase['id']);
     $response->assertStatus(302)
-      ->assertRedirect('/');
+    ->assertRedirect('/');
   }
 
   public function testEmailClinicCaseFinishedAsAdminSuccess()

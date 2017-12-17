@@ -24,8 +24,8 @@ class DeleteAntibioticTest extends TestCase
     $user = $this->createUserWithAdminPermissions('antibiotics');
 
     $response = $this
-      ->actingAs($user)
-      ->delete('/lab/antibiotic/delete/' . $antibiotic['id']);
+    ->actingAs($user)
+    ->delete('/lab/antibiotic/delete/' . $antibiotic['id']);
 
     $response->assertStatus(200);
     $this->assertDatabaseMissing('antibiotics', $antibiotic);
@@ -39,11 +39,11 @@ class DeleteAntibioticTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->delete('/lab/antibiotic/delete/' . $antibiotic['id']);
+    ->actingAs($user)
+    ->delete('/lab/antibiotic/delete/' . $antibiotic['id']);
 
     $response->assertRedirect('/')
-      ->assertStatus(302);
+    ->assertStatus(302);
     $this->assertDatabaseHas('antibiotics', $antibiotic);
   }
 }

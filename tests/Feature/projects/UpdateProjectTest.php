@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Session;
 
 class UpdateProjectTest extends TestCase
 {
-  
+
 
   public function testUpdateProjectFailWithoutLoginUser()
   {
@@ -29,8 +29,8 @@ class UpdateProjectTest extends TestCase
     $user = $this->createUserWithAdminPermissions('projects');
 
     $response = $this
-      ->actingAs($user)
-      ->put('/project-manager/' . $project['id'] . '/edit', $project2);
+    ->actingAs($user)
+    ->put('/project-manager/' . $project['id'] . '/edit', $project2);
     $response->assertStatus(302)->assertRedirect('/project-manager');
     $this->assertDatabaseHas('projects', array_splice($project2, 0, 1));
   }
@@ -44,10 +44,10 @@ class UpdateProjectTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->put('/project-manager/' . $project['id'] . '/edit', $project2);
+    ->actingAs($user)
+    ->put('/project-manager/' . $project['id'] . '/edit', $project2);
     $response->assertStatus(302)
-      ->assertRedirect('/');
+    ->assertRedirect('/');
     $this->assertDatabaseHas('projects', $project);
   }
 }

@@ -26,8 +26,8 @@ class DeleteUserTest extends TestCase
     $u = factory('TCG\Voyager\Models\User')->create()->toArray();
 
     $response = $this
-      ->actingAs($user)
-      ->delete('/admin/users/' . $u['id']);
+    ->actingAs($user)
+    ->delete('/admin/users/' . $u['id']);
 
     $response->assertStatus(302);
     $this->assertDatabaseMissing('users', $u);
@@ -42,9 +42,9 @@ class DeleteUserTest extends TestCase
     $user = $this->createUserWithUserPermissions();
 
     $response = $this
-      ->actingAs($user)
-      ->delete('/admin/users/' . $u['id']);
+    ->actingAs($user)
+    ->delete('/admin/users/' . $u['id']);
     $response->assertStatus(302)
-      ->assertRedirect('/');
+    ->assertRedirect('/');
   }
 }
