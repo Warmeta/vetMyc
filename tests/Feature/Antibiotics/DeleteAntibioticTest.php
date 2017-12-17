@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Session;
 
 class DeleteAntibioticTest extends TestCase
 {
-  // use WithoutMiddleware;
-
   public function testDeleteAntibioticFailWithoutLoginUser()
   {
     $antibiotic = factory('App\Antibiotic')->create()->toArray();
@@ -44,7 +42,8 @@ class DeleteAntibioticTest extends TestCase
       ->actingAs($user)
       ->delete('/lab/antibiotic/delete/' . $antibiotic['id']);
 
-    $response->assertRedirect('/');
+    $response->assertRedirect('/')
+      ->assertStatus(302);
     $this->assertDatabaseHas('antibiotics', $antibiotic);
   }
 }

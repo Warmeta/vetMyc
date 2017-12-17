@@ -3,15 +3,12 @@
 namespace Tests\Feature\Users;
 
 use Tests\TestCase;
-use TCG\Voyager\Models\Permission;
-use TCG\Voyager\Models\Role;
 use TCG\Voyager\Models\User;
+use TCG\Voyager\Models\Role;
 use Artisan;
 
 class CreateUserTest extends TestCase
 {
-  // use WithoutMiddleware;
-
   public function testCreateUserFailWithoutLoginUser()
   {
     Artisan::call('db:seed', ['--database' => 'sqlite']);

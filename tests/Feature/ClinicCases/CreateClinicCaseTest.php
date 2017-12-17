@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Session;
 
 class CreateClinicCaseTest extends TestCase
 {
-  // use WithoutMiddleware;
-
   public function testCreateClinicCaseFailWithoutLoginUser()
   {
     $clinicCase = factory('App\ClinicCase')->make()->toArray();
@@ -56,7 +54,8 @@ class CreateClinicCaseTest extends TestCase
       ->actingAs($user)
       ->post('/lab/clinic-case/create', $clinicCase);
 
-    $response->assertRedirect('/');
+    $response->assertRedirect('/')
+      ->assertStatus(302);
     $this->assertDatabaseMissing('clinic_cases', $clinicCase);
   }
 }

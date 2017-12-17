@@ -11,7 +11,8 @@ class RegistrationTest extends TestCase
     $credentials = ['name' => 'test', 'email' => 'test@test.com', 'password' => 'invalid', 'password_confirmation' => 'invalid1'];
     $response = $this->call('POST', '/register', $credentials, [], [], []);
     $response->assertSessionHasErrors();
-    $response->assertRedirect('/');
+    $response->assertRedirect('/')
+      ->assertStatus(302);
   }
 
   public function testRegistrationErrorEmail()
@@ -19,13 +20,15 @@ class RegistrationTest extends TestCase
     $credentials = ['name' => 'test', 'email' => 'testtest.com', 'password' => 'invalid', 'password_confirmation' => 'invalid'];
     $response = $this->call('POST', '/register', $credentials, [], [], []);
     $response->assertSessionHasErrors();
-    $response->assertRedirect('/');
+    $response->assertRedirect('/')
+      ->assertStatus(302);
   }
-  
+
   public function testRegistrationSuccess()
   {
     $credentials = ['name' => 'test', 'email' => 'test@test.com', 'password' => 'invalid', 'password_confirmation' => 'invalid'];
     $response = $this->call('POST', '/register', $credentials, [], [], []);
-    $response->assertRedirect('/');
+    $response->assertRedirect('/')
+      ->assertStatus(302);;
   }
 }

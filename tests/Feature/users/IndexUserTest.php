@@ -3,15 +3,11 @@
 namespace Tests\Feature\Users;
 
 use Tests\TestCase;
-use TCG\Voyager\Models\Permission;
-use TCG\Voyager\Models\Role;
 use TCG\Voyager\Models\User;
 use Artisan;
 
 class IndexUserTest extends TestCase
 {
-  // use WithoutMiddleware;
-
   public function testIndexUserFailWithoutLoginUser()
   {
     Artisan::call('db:seed', ['--database' => 'sqlite']);

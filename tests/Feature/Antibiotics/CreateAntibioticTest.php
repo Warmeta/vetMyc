@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Session;
 
 class CreateAntibioticTest extends TestCase
 {
-  // use WithoutMiddleware;
-
   public function testCreateAntibioticFailWithoutLoginUser()
   {
     $antibiotic = factory('App\Antibiotic')->make()->toArray();
@@ -56,7 +54,8 @@ class CreateAntibioticTest extends TestCase
       ->actingAs($user)
       ->post('/lab/antibiotic/create', $antibiotic);
 
-    $response->assertRedirect('/');
+    $response->assertRedirect('/')
+      ->assertStatus(302);
     $this->assertDatabaseMissing('antibiotics', $antibiotic);
   }
 }

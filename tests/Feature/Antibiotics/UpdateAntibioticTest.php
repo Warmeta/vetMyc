@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Session;
 
 class UpdateAntibioticTest extends TestCase
 {
-  // use WithoutMiddleware;
-
   public function testUpdateAntibioticFailWithoutLoginUser()
   {
     $antibiotic = factory('App\Antibiotic')->create()->toArray();

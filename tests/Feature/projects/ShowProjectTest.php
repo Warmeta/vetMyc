@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Session;
 
 class ShowProjectTest extends TestCase
 {
-  // use WithoutMiddleware;
-
   public function testShowProjectAsAnonimateUserSuccess()
   {
     $project = factory('App\Project')->create()->toArray();

@@ -3,15 +3,11 @@
 namespace Tests\Feature\Roles;
 
 use Tests\TestCase;
-use TCG\Voyager\Models\Permission;
 use TCG\Voyager\Models\Role;
-use TCG\Voyager\Models\User;
 use Artisan;
 
 class CreateRoleTest extends TestCase
 {
-  // use WithoutMiddleware;
-
   public function testCreateRoleFailWithoutLoginUser()
   {
     $role = Role::firstOrNew(['name' => 'test']);
@@ -60,7 +56,8 @@ class CreateRoleTest extends TestCase
       ->actingAs($user)
       ->post('/admin/roles', $role->toArray());
 
-    $response->assertRedirect('/');
+    $response->assertRedirect('/')
+      ->assertStatus(302);
     $this->assertDatabaseMissing('roles', $role->toArray());
   }
 }

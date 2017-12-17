@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Session;
 
 class UpdateClinicCaseTest extends TestCase
 {
-  // use WithoutMiddleware;
-
   public function testUpdateClinicCaseFailWithoutLoginUser()
   {
     $clinicCase = factory('App\ClinicCase')->create()->toArray();

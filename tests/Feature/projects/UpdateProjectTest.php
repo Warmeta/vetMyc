@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Session;
 
 class UpdateProjectTest extends TestCase
 {
-  // use WithoutMiddleware;
+  
 
   public function testUpdateProjectFailWithoutLoginUser()
   {

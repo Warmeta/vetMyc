@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Session;
 
 class IndexProjectTest extends TestCase
 {
-  // use WithoutMiddleware;
-
   public function testIndexProjectFailWithoutLoginUser()
   {
     $project = factory('App\Project')->create()->toArray();

@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Session;
 
 class DeleteClinicCaseTest extends TestCase
 {
-  // use WithoutMiddleware;
-
   public function testDeleteClinicCaseFailWithoutLoginUser()
   {
     $clinicCase = factory('App\ClinicCase')->create()->toArray();
@@ -44,7 +42,8 @@ class DeleteClinicCaseTest extends TestCase
       ->actingAs($user)
       ->delete('/lab/clinic-case/delete/' . $clinicCase['id']);
 
-    $response->assertRedirect('/');
+    $response->assertRedirect('/')
+      ->assertStatus(302);
     $this->assertDatabaseHas('clinic_cases', $clinicCase);
   }
 }

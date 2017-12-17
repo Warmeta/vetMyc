@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Session;
 
 class DeleteProjectTest extends TestCase
 {
-  // use WithoutMiddleware;
-
   public function testDeleteProjectFailWithoutLoginUser()
   {
     $project = factory('App\Project')->create()->toArray();
@@ -44,7 +42,8 @@ class DeleteProjectTest extends TestCase
       ->actingAs($user)
       ->delete('/project-manager/delete/' . $project['id']);
 
-    $response->assertRedirect('/');
+    $response->assertRedirect('/')
+      ->assertStatus(302);
     $this->assertDatabaseHas('projects', $project);
   }
 }

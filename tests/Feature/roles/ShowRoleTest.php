@@ -3,15 +3,11 @@
 namespace Tests\Feature\Roles;
 
 use Tests\TestCase;
-use TCG\Voyager\Models\Permission;
 use TCG\Voyager\Models\Role;
-use TCG\Voyager\Models\User;
 use Artisan;
 
 class ShowRoleTest extends TestCase
 {
-  // use WithoutMiddleware;
-
   public function testShowRoleAsUserSuccess()
   {
     $role = Role::firstOrNew(['name' => 'test']);

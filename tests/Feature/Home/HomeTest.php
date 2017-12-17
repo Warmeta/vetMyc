@@ -9,32 +9,37 @@ class HomeTest extends TestCase
   public function testHome()
   {
     $response = $this->call('GET', '/', [], [], [], []);
-    $response->assertSee('Bienvenido');
+    $response->assertSee('Bienvenido')
+      ->assertStatus(200);
   }
 
   public function testMycology()
   {
     $response = $this->call('GET', '/mycology/generalidades', [], [], [], []);
-    $response->assertSee('Generalidades');
+    $response->assertSee('Generalidades')
+      ->assertStatus(200);
   }
 
   public function testLaboratory()
   {
     $response = $this->call('GET', '/lab', [], [], [], []);
-    $response->assertSee('Lista de precios');
+    $response->assertSee('Lista de precios')
+      ->assertStatus(200);
   }
 
   public function testProjectsFailWithoutProjectsInDatabase()
   {
     $response = $this->call('GET', '/projects', [], [], [], []);
-    $response->assertDontSee('Publicaciones');
+    $response->assertDontSee('Publicaciones')
+      ->assertStatus(200);
   }
 
   public function testProjectsSuccessWithPublicationsInDatabase()
   {
     $project = factory('App\Project')->create(['project_type' => 'Publicación'])->toArray();
     $response = $this->call('GET', '/projects', [], [], [], []);
-    $response->assertSee('Publicaciones');
+    $response->assertSee('Publicaciones')
+      ->assertStatus(200);
     $this->assertDatabaseHas('projects', array_splice($project, 0, 1));
   }
 
@@ -42,7 +47,8 @@ class HomeTest extends TestCase
   {
     $project = factory('App\Project')->create(['project_type' => 'Proyecto de investigación'])->toArray();
     $response = $this->call('GET', '/projects', [], [], [], []);
-    $response->assertSee('Proyectos');
+    $response->assertSee('Proyectos')
+      ->assertStatus(200);
     $this->assertDatabaseHas('projects', array_splice($project, 0, 1));
   }
 
@@ -50,7 +56,8 @@ class HomeTest extends TestCase
   {
     $project = factory('App\Project')->create(['project_type' => 'Trabajo fin grado'])->toArray();
     $response = $this->call('GET', '/projects', [], [], [], []);
-    $response->assertSee('Trabajos fin de grado');
+    $response->assertSee('Trabajos fin de grado')
+      ->assertStatus(200);
     $this->assertDatabaseHas('projects', array_splice($project, 0, 1));
   }
 
@@ -58,7 +65,8 @@ class HomeTest extends TestCase
   {
     $project = factory('App\Project')->create(['project_type' => 'Trabajo Post-grado'])->toArray();
     $response = $this->call('GET', '/projects', [], [], [], []);
-    $response->assertSee('Trabajos Post');
+    $response->assertSee('Trabajos Post')
+      ->assertStatus(200);
     $this->assertDatabaseHas('projects', array_splice($project, 0, 1));
   }
 
@@ -66,7 +74,8 @@ class HomeTest extends TestCase
   {
     $project = factory('App\Project')->create(['project_type' => 'Tesis'])->toArray();
     $response = $this->call('GET', '/projects', [], [], [], []);
-    $response->assertSee('Tesis');
+    $response->assertSee('Tesis')
+      ->assertStatus(200);
     $this->assertDatabaseHas('projects', array_splice($project, 0, 1));
   }
 

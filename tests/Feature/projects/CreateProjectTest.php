@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Session;
 
 class CreateProjectTest extends TestCase
 {
-  // use WithoutMiddleware;
-
   public function testCreateProjectFailWithoutLoginUser()
   {
     $project = factory('App\Project')->make()->toArray();
@@ -27,6 +25,7 @@ class CreateProjectTest extends TestCase
       ->post('/project-manager/create', $project);
 
     $response->assertRedirect('/project-manager/create')
+      ->assertStatus(302)
       ->assertSessionHasErrors(['project_name']);
     $this->assertDatabaseMissing('projects', $project);
   }
@@ -55,7 +54,8 @@ class CreateProjectTest extends TestCase
       ->actingAs($user)
       ->post('/project-manager/create', $project);
 
-    $response->assertRedirect('/');
+    $response->assertRedirect('/')
+      ->assertStatus(302);
     $this->assertDatabaseMissing('projects', $project);
   }
 }

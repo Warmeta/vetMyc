@@ -12,7 +12,8 @@ class LoginTest extends TestCase
     $credentials = ['email' => $user->email, 'password' => 'invalid'];
     $response = $this->call('POST', '/login', $credentials, [], [], []);
     $response->assertSessionHasErrors();
-    $response->assertRedirect('/');
+    $response->assertRedirect('/')
+      ->assertStatus(302);;
   }
 
   public function testLoginSuccess()
@@ -20,6 +21,7 @@ class LoginTest extends TestCase
     $user = factory('App\User')->create();
     $credentials = ['email' => $user->email, 'password' => 'secret'];
     $response = $this->call('POST', '/login', $credentials, [], [], []);
-    $response->assertRedirect('/');
+    $response->assertRedirect('/')
+      ->assertStatus(302);;
   }
 }
